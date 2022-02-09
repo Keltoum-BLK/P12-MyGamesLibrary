@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Gamejot.ttf">
+            <string>Gamejot</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Launch View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="LaunchViewController" customModule="MyGamesLibrary" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t3T-LD-evE">
+                                <rect key="frame" x="50" y="194" width="314" height="318"/>
+                                <fontDescription key="fontDescription" name="Gamejot" family="Gamejot" pointSize="20"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6aW-mw-w2b">
+                                <rect key="frame" x="120" y="573" width="174" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="kKE-d6-ZcF"/>
+                                </constraints>
+                                <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" image="touchid" catalog="system"/>
+                                <connections>
+                                    <segue destination="1eX-hf-xoB" kind="show" id="4uz-aL-mUd"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="6aW-mw-w2b" secondAttribute="trailing" constant="120" id="7yH-HY-zXm"/>
+                            <constraint firstItem="6aW-mw-w2b" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="120" id="NrZ-YX-3WM"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="t3T-LD-evE" secondAttribute="bottom" constant="350" id="ReB-Tj-C9W"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="6aW-mw-w2b" secondAttribute="bottom" constant="189" id="WHr-sA-5QL"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="t3T-LD-evE" secondAttribute="trailing" constant="50" id="gFj-So-EO2"/>
+                            <constraint firstItem="t3T-LD-evE" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="150" id="r1e-AY-a9L"/>
+                            <constraint firstItem="t3T-LD-evE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="vpC-KT-Kdd"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="bienvenueLabel" destination="t3T-LD-evE" id="gwP-33-P36"/>
+                        <outlet property="startBTN" destination="6aW-mw-w2b" id="tjx-ME-mxF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="28.985507246376812" y="49.553571428571423"/>
+        </scene>
+        <!--Xbox One View Controller-->
+        <scene sceneID="1l6-L2-vkp">
+            <objects>
+                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" id="GAj-Mn-ykX" customClass="XboxOneViewController" customModule="MyGamesLibrary" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="m2Q-Wt-Uib">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="ena-rh-HkN"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" image="xboxx" id="Nfv-wf-zTa">
+                        <color key="badgeColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBarItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WlZ-Dm-oYh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1793" y="429"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="xoU-If-t3z">
+            <objects>
+                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" id="d2o-5t-JY3" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zKC-At-6d6">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="Lfe-3j-TtR"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" image="switchx" id="3wP-hH-wWr">
+                        <color key="badgeColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBarItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zqB-lT-I5B" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1788" y="1091"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="gDT-o6-nvh">
+            <objects>
+                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" id="5zp-lr-8DH" customClass="PS4ViewController" customModule="MyGamesLibrary" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bo7-Yn-kz4">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="u6S-gn-CSM"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" image="Group 2" id="lkI-8l-uyP">
+                        <color key="badgeColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBarItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ddY-hh-v90" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1794" y="-256"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="xoO-Vr-7Wv">
+            <objects>
+                <tabBarController modalPresentationStyle="fullScreen" id="1eX-hf-xoB" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="FaX-Yy-8r9"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="gwa-om-Fdf">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="barTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="selectedImageTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="5zp-lr-8DH" kind="relationship" relationship="viewControllers" id="kx8-1q-E2e"/>
+                        <segue destination="GAj-Mn-ykX" kind="relationship" relationship="viewControllers" id="H0n-FU-drb"/>
+                        <segue destination="d2o-5t-JY3" kind="relationship" relationship="viewControllers" id="XgP-VE-oIO"/>
+                        <segue destination="0eg-zH-SLp" kind="relationship" relationship="viewControllers" id="ViJ-Ey-NEb"/>
+                        <segue destination="naQ-R1-1n4" kind="relationship" relationship="viewControllers" id="0BL-hh-b27"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="axC-ic-dfJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="904" y="48"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="DB2-zx-6cB">
+            <objects>
+                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" id="naQ-R1-1n4" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="msD-Cv-5Dt">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="Zcs-l4-5s4"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" image="books.vertical.fill" catalog="system" id="o99-cD-zo7">
+                        <color key="badgeColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBarItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KRC-sk-Ren" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1797" y="2425"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="fki-uD-C5t">
+            <objects>
+                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" id="0eg-zH-SLp" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ZKo-65-hNq">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="hkZ-q2-S1N"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" image="barcode" catalog="system" id="otn-Ov-EhU">
+                        <color key="badgeColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBarItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PcQ-uK-qHH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1797" y="1751"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Group 2" width="22" height="17"/>
+        <image name="barcode" catalog="system" width="128" height="93"/>
+        <image name="books.vertical.fill" catalog="system" width="128" height="109"/>
+        <image name="switchx" width="22" height="22"/>
+        <image name="touchid" catalog="system" width="128" height="122"/>
+        <image name="xboxx" width="22" height="22"/>
+    </resources>
+</document>

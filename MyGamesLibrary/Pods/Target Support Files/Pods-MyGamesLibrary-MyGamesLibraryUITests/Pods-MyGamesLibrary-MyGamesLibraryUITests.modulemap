@@ -1,0 +1,6 @@
+framework module Pods_MyGamesLibrary_MyGamesLibraryUITests {
+  umbrella header "Pods-MyGamesLibrary-MyGamesLibraryUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
