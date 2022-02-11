@@ -10,7 +10,7 @@ import UIKit
 
 extension UIView {
     
- //MARK: COnstraints of GifImage
+    //MARK: COnstraints of GifImage
     func pinEdgesToSuperView() {
         guard let superView = superview else { return }
         translatesAutoresizingMaskIntoConstraints = false
