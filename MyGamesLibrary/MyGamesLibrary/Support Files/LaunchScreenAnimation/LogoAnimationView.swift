@@ -33,9 +33,11 @@ class LogoAnimationView: UIView {
         logoGifImageView.layer.borderColor = UIColor.white.cgColor
         logoGifImageView.layer.borderWidth = 10
         logoGifImageView.translatesAutoresizingMaskIntoConstraints = false
-        logoGifImageView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-        logoGifImageView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-        logoGifImageView.widthAnchor.constraint(equalToConstant: 400).isActive = true
-        logoGifImageView.heightAnchor.constraint(equalToConstant: 400).isActive = true
+        NSLayoutConstraint.activate([
+            logoGifImageView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            logoGifImageView.centerYAnchor.constraint(equalTo: centerYAnchor),
+            logoGifImageView.widthAnchor.constraint(equalToConstant: 300),
+            logoGifImageView.heightAnchor.constraint(equalToConstant: 300)
+        ])
     }
 }
