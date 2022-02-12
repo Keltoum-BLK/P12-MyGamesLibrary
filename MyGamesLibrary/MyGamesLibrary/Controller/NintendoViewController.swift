@@ -9,27 +9,34 @@ import UIKit
 
 class NintendoViewController: UIViewController {
 
-    @IBOutlet weak var nintendoTitle: UILabel!
+    @IBOutlet weak var nintendoHeader: UIImageView!
     @IBOutlet weak var nintendoTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         nintendoTableView.delegate = self
         nintendoTableView.dataSource = self
-        setUpLabel()
         setUpTableView()
+        setUpImage()
         // Do any additional setup after loading the view.
-    }
-    
-    func setUpLabel() {
-        nintendoTitle.setMargins()
-        nintendoTitle.layer.masksToBounds = true
-        nintendoTitle.layer.cornerRadius = 20
     }
    func setUpTableView() {
         nintendoTableView.register(UINib(nibName: "GameTableViewCell", bundle: nil), forCellReuseIdentifier: "GameTableViewCell")
     }
     
+    override func viewDidLayoutSubviews() {
+        nintendoHeader.addGradientLayerInBackground(frame: nintendoHeader.bounds, colors: [UIColor(ciColor: .clear), UIColor(ciColor: .white)])
+    }
+    func setUpImage() {
+        nintendoHeader.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            nintendoHeader.widthAnchor.constraint(equalTo: view.widthAnchor),
+            nintendoHeader.topAnchor.constraint(equalTo: view.topAnchor),
+            nintendoHeader.heightAnchor.constraint(equalTo: view.heightAnchor,multiplier: 0.25),
+            nintendoHeader.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 0),
+            nintendoHeader.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: 0)
+        ])
+    }
 }
 
 extension NintendoViewController: UITableViewDelegate, UITableViewDataSource {
@@ -43,7 +50,7 @@ extension NintendoViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = nintendoTableView.dequeueReusableCell(withIdentifier: "GameTableViewCell", for: indexPath) as! GameTableViewCell
-        
+        Tool.shared.setUpShadowCell(color: UIColor.systemRed.cgColor, cell: cell)
         return cell
     }
 }

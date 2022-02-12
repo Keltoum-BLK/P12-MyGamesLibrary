@@ -12,12 +12,6 @@
         <array key="Gameplay.ttf">
             <string>Gameplay</string>
         </array>
-        <array key="HWYGCOND.TTF">
-            <string>HighwayGothicCondensed</string>
-        </array>
-        <array key="zrnic rg.ttf">
-            <string>ZrnicRg-Regular</string>
-        </array>
     </customFonts>
     <scenes>
         <!--Launch View Controller-->
@@ -95,9 +89,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="XboxImage" translatesAutoresizingMaskIntoConstraints="NO" id="GeR-Lk-pQT">
+                                <rect key="frame" x="0.0" y="0.0" width="750" height="413"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="3Co-Mm-fUp">
                                 <rect key="frame" x="20" y="120" width="335" height="478"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="GameTableViewCell" id="h40-z6-8im" customClass="GameTableViewCell" customModule="MyGamesLibrary" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44.5" width="335" height="44"/>
@@ -112,32 +110,22 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="XBOX" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Yo-0b-ev1">
-                                <rect key="frame" x="20" y="10" width="205" height="46.5"/>
-                                <color key="backgroundColor" red="0.38431376220000002" green="0.38431376220000002" blue="0.38431376220000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="40"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ena-rh-HkN"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="ena-rh-HkN" firstAttribute="bottom" secondItem="3Co-Mm-fUp" secondAttribute="bottom" id="17T-5n-xJC"/>
                             <constraint firstItem="3Co-Mm-fUp" firstAttribute="leading" secondItem="ena-rh-HkN" secondAttribute="leading" constant="20" id="6dj-gw-3Cq"/>
-                            <constraint firstItem="4Yo-0b-ev1" firstAttribute="leading" secondItem="ena-rh-HkN" secondAttribute="leading" constant="20" id="O0A-bG-e3s"/>
                             <constraint firstItem="3Co-Mm-fUp" firstAttribute="top" secondItem="ena-rh-HkN" secondAttribute="top" constant="120" id="P7X-Cn-KYe"/>
                             <constraint firstItem="ena-rh-HkN" firstAttribute="trailing" secondItem="3Co-Mm-fUp" secondAttribute="trailing" constant="20" id="ehK-WF-o3C"/>
-                            <constraint firstItem="4Yo-0b-ev1" firstAttribute="top" secondItem="ena-rh-HkN" secondAttribute="top" constant="10" id="g5W-gd-fzP"/>
-                            <constraint firstItem="ena-rh-HkN" firstAttribute="trailing" secondItem="4Yo-0b-ev1" secondAttribute="trailing" constant="150" id="w8a-TE-lMc"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="xboxx" id="Nfv-wf-zTa">
                         <color key="badgeColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBarItem>
                     <connections>
+                        <outlet property="xboxHeader" destination="GeR-Lk-pQT" id="EkD-Rv-VdF"/>
                         <outlet property="xboxTableView" destination="3Co-Mm-fUp" id="JAE-GY-NGh"/>
-                        <outlet property="xboxTitle" destination="4Yo-0b-ev1" id="7hF-W0-LD0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WlZ-Dm-oYh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -152,9 +140,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="switchImage" translatesAutoresizingMaskIntoConstraints="NO" id="kRI-Bf-qyD">
+                                <rect key="frame" x="0.0" y="0.0" width="2048" height="697"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="JPK-yx-jx5">
                                 <rect key="frame" x="20" y="120" width="335" height="478"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="GameTableViewCell" id="yab-eg-70s" customClass="GameTableViewCell" customModule="MyGamesLibrary" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44.5" width="335" height="44"/>
@@ -169,26 +161,13 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NINTENDO SWITCH" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nem-eQ-lak">
-                                <rect key="frame" x="20" y="10" width="230" height="46.5"/>
-                                <color key="backgroundColor" red="0.38431376220000002" green="0.38431376220000002" blue="0.38431376220000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="46.5" id="Cv0-bY-NzQ"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="HighwayGothicCondensed" family="Highway Gothic Condensed" pointSize="40"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Lfe-3j-TtR"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="Nem-eQ-lak" firstAttribute="leading" secondItem="Lfe-3j-TtR" secondAttribute="leading" constant="20" id="AvR-vB-sUF"/>
                             <constraint firstItem="JPK-yx-jx5" firstAttribute="top" secondItem="Lfe-3j-TtR" secondAttribute="top" constant="120" id="Bur-AC-FAF"/>
                             <constraint firstItem="Lfe-3j-TtR" firstAttribute="bottom" secondItem="JPK-yx-jx5" secondAttribute="bottom" id="JF4-al-JmN"/>
                             <constraint firstItem="JPK-yx-jx5" firstAttribute="leading" secondItem="Lfe-3j-TtR" secondAttribute="leading" constant="20" id="MQ0-CE-IOf"/>
-                            <constraint firstItem="Lfe-3j-TtR" firstAttribute="trailing" secondItem="Nem-eQ-lak" secondAttribute="trailing" constant="125" id="PYU-xH-8v6"/>
-                            <constraint firstItem="Nem-eQ-lak" firstAttribute="top" secondItem="Lfe-3j-TtR" secondAttribute="top" constant="10" id="YnC-ZP-xwn"/>
                             <constraint firstItem="Lfe-3j-TtR" firstAttribute="trailing" secondItem="JPK-yx-jx5" secondAttribute="trailing" constant="20" id="ru5-Dp-nV7"/>
                         </constraints>
                     </view>
@@ -197,8 +176,8 @@
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
                     </tabBarItem>
                     <connections>
+                        <outlet property="nintendoHeader" destination="kRI-Bf-qyD" id="gcO-ae-nST"/>
                         <outlet property="nintendoTableView" destination="JPK-yx-jx5" id="Ama-cs-Kl0"/>
-                        <outlet property="nintendoTitle" destination="Nem-eQ-lak" id="kr8-BZ-g1B"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zqB-lT-I5B" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -229,16 +208,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PLAYSTATION" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MN3-Dc-jZC">
-                                <rect key="frame" x="20" y="10" width="255" height="47.5"/>
-                                <color key="backgroundColor" red="0.38431376220000002" green="0.38431376220000002" blue="0.38431376220000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <fontDescription key="fontDescription" name="ZrnicRg-Regular" family="Zrnic" pointSize="40"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ps4Image" translatesAutoresizingMaskIntoConstraints="NO" id="dDp-mb-bGl">
+                                <rect key="frame" x="0.0" y="0.0" width="744" height="423"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="YwU-7s-uOX">
                                 <rect key="frame" x="20" y="120" width="335" height="478"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PlaystationCell" id="Bbn-wf-UbW" customClass="GameTableViewCell" customModule="MyGamesLibrary" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44.5" width="335" height="44"/>
@@ -247,6 +223,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="335" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <segue destination="siN-zX-dmc" kind="show" id="YuV-JU-eJd"/>
                                         </connections>
@@ -257,13 +234,10 @@
                         <viewLayoutGuide key="safeArea" id="u6S-gn-CSM"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="MN3-Dc-jZC" firstAttribute="leading" secondItem="u6S-gn-CSM" secondAttribute="leading" constant="20" id="6KF-to-pFJ"/>
                             <constraint firstItem="YwU-7s-uOX" firstAttribute="leading" secondItem="u6S-gn-CSM" secondAttribute="leading" constant="20" id="HfV-Ha-VQH"/>
                             <constraint firstItem="u6S-gn-CSM" firstAttribute="trailing" secondItem="YwU-7s-uOX" secondAttribute="trailing" constant="20" id="Inr-L7-efS"/>
                             <constraint firstItem="u6S-gn-CSM" firstAttribute="bottom" secondItem="YwU-7s-uOX" secondAttribute="bottom" id="Sp3-Em-8qR"/>
-                            <constraint firstItem="MN3-Dc-jZC" firstAttribute="top" secondItem="u6S-gn-CSM" secondAttribute="top" constant="10" id="bYO-Pf-h0M"/>
-                            <constraint firstItem="YwU-7s-uOX" firstAttribute="top" secondItem="u6S-gn-CSM" secondAttribute="top" constant="120" id="ijV-oR-SZn"/>
-                            <constraint firstItem="u6S-gn-CSM" firstAttribute="trailing" secondItem="MN3-Dc-jZC" secondAttribute="trailing" constant="100" id="q17-S2-hHm"/>
+                            <constraint firstItem="YwU-7s-uOX" firstAttribute="top" secondItem="u6S-gn-CSM" secondAttribute="top" constant="120" id="fTw-na-eOe"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="Group 2" id="lkI-8l-uyP">
@@ -271,7 +245,7 @@
                     </tabBarItem>
                     <connections>
                         <outlet property="pS4GamesTableView" destination="YwU-7s-uOX" id="IeU-YW-D3g"/>
-                        <outlet property="ps4Title" destination="MN3-Dc-jZC" id="baT-e7-LJj"/>
+                        <outlet property="ps4Header" destination="dDp-mb-bGl" id="onz-G9-Inh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ddY-hh-v90" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -364,8 +338,11 @@
     <resources>
         <image name="Group 2" width="22" height="17"/>
         <image name="Librarylogo" width="480" height="480"/>
+        <image name="XboxImage" width="750" height="413"/>
         <image name="icons8-barcode-scanner-30" width="30" height="30"/>
         <image name="icons8-game-controller-30" width="30" height="30"/>
+        <image name="ps4Image" width="744" height="423"/>
+        <image name="switchImage" width="2048" height="697"/>
         <image name="switchx" width="22" height="22"/>
         <image name="touchid" catalog="system" width="128" height="122"/>
         <image name="xboxx" width="22" height="22"/>

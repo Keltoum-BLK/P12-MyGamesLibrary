@@ -104,7 +104,7 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
         previewLayer.frame = CGRect(x: 40, y: 200, width: 300, height: 300)
         previewLayer.cornerRadius = 20
-        previewLayer.borderColor = UIColor.black.cgColor
+        previewLayer.borderColor = UIColor.gray.cgColor
         previewLayer.borderWidth = 5
         previewLayer.videoGravity = .resizeAspectFill
         view.layer.addSublayer(previewLayer)

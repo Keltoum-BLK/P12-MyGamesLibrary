@@ -24,7 +24,7 @@ class GameTableViewCell: UITableViewCell {
     // Inside UITableViewCell subclass
     override func layoutSubviews() {
         super.layoutSubviews()
-        backgroundColor = UIColor.white
+        backgroundColor = UIColor.clear
         contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10))
     }
     
@@ -32,10 +32,6 @@ class GameTableViewCell: UITableViewCell {
         contentView.layer.cornerRadius = 20
         layer.cornerRadius = 20
         contentView.clipsToBounds = true
-        layer.shadowOpacity = 0.5
-        layer.shadowColor = UIColor.black.cgColor
-        layer.shadowOffset = CGSize(width: 0, height: 10)
-        layer.shadowRadius = 10
     }
     
 }
