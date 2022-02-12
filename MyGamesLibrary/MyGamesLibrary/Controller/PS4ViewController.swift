@@ -9,28 +9,36 @@ import UIKit
 
 class PS4ViewController: UIViewController {
 
+    @IBOutlet weak var ps4Title: UILabel!
     @IBOutlet weak var pS4GamesTableView: UITableView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         pS4GamesTableView.delegate = self
         pS4GamesTableView.dataSource = self
         setUpTableView()
+        setUpLabel()
         // Do any additional setup after loading the view.
     }
-    
+    func setUpLabel() {
+        ps4Title.setMargins()
+        ps4Title.layer.masksToBounds = true
+        ps4Title.layer.cornerRadius = 20
+    }
    func setUpTableView() {
         pS4GamesTableView.register(UINib(nibName: "GameTableViewCell", bundle: nil), forCellReuseIdentifier: "GameTableViewCell")
     }
 }
 
 extension PS4ViewController: UITableViewDelegate, UITableViewDataSource {
+   
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 200
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return 10
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

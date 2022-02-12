@@ -9,10 +9,12 @@ import UIKit
 import AVFoundation
 
 class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
+    
     var captureSession: AVCaptureSession!
     var previewLayer: AVCaptureVideoPreviewLayer!
-
+    
     @IBOutlet weak var ScannerTitle: UILabel!
+   
     override func viewDidLoad() {
         super.viewDidLoad()
 

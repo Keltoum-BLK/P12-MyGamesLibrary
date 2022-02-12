@@ -26,7 +26,7 @@ class LaunchViewController: UIViewController {
     }
     
     func setUp() {
-        startBTN.layer.cornerRadius = 40
+        startBTN.layer.cornerRadius = 20
         startBTN.layer.backgroundColor = UIColor.black.cgColor
         startBTN.tintColor = .white
     }

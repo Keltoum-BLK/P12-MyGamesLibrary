@@ -9,21 +9,42 @@ import UIKit
 
 class XboxOneViewController: UIViewController {
 
+    @IBOutlet weak var xboxTitle: UILabel!
+    @IBOutlet weak var xboxTableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        xboxTableView.dataSource = self
+        xboxTableView.delegate = self
+        setUpLabel()
+        setUpTableView()
         // Do any additional setup after loading the view.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func setUpLabel() {
+        xboxTitle.setMargins()
+        xboxTitle.layer.masksToBounds = true
+        xboxTitle.layer.cornerRadius = 20
     }
-    */
+   func setUpTableView() {
+        xboxTableView.register(UINib(nibName: "GameTableViewCell", bundle: nil), forCellReuseIdentifier: "GameTableViewCell")
+    }
 
+}
+
+extension XboxOneViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 200
+    }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = xboxTableView.dequeueReusableCell(withIdentifier: "GameTableViewCell", for: indexPath) as! GameTableViewCell
+        
+        return cell
+    }
+    
+    
 }

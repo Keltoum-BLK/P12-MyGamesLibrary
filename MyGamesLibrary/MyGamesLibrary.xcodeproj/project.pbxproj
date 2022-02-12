@@ -228,9 +228,9 @@
 				B967461F27B420A60037F729 /* LaunchViewController.swift */,
 				B9BA032927B437D700D32908 /* PS4ViewController.swift */,
 				B9BA032B27B437E500D32908 /* XboxOneViewController.swift */,
+				B9C5C4FE27B6BCF000A01409 /* NintendoViewController.swift */,
 				B9C5C4EF27B6875500A01409 /* ScannerViewController.swift */,
 				B9C5C4F127B6876600A01409 /* MyLibraryViewController.swift */,
-				B9C5C4FE27B6BCF000A01409 /* NintendoViewController.swift */,
 				B9C5C50627B6DC6400A01409 /* Cell */,
 			);
 			path = Controller;

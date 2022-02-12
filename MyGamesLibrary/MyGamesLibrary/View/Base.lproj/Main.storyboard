@@ -5,6 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -13,9 +14,6 @@
         </array>
         <array key="HWYGCOND.TTF">
             <string>HighwayGothicCondensed</string>
-        </array>
-        <array key="X360.ttf">
-            <string>XBOX360</string>
         </array>
         <array key="zrnic rg.ttf">
             <string>ZrnicRg-Regular</string>
@@ -97,24 +95,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="3Co-Mm-fUp">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="3Co-Mm-fUp">
                                 <rect key="frame" x="20" y="120" width="335" height="478"/>
-                                <color key="backgroundColor" red="0.156448167" green="0.60635653410000001" blue="0.1102515433" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="XboxCell" id="h40-z6-8im" customClass="GameTableViewCell" customModule="MyGamesLibrary" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="44.5" width="335" height="43.5"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="GameTableViewCell" id="h40-z6-8im" customClass="GameTableViewCell" customModule="MyGamesLibrary" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="44.5" width="335" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="h40-z6-8im" id="ONZ-7x-sSm">
-                                            <rect key="frame" x="0.0" y="0.0" width="335" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="335" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="siN-zX-dmc" kind="show" trigger="accessoryAction" id="Pvh-5I-P4j"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="XBOX" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Yo-0b-ev1">
-                                <rect key="frame" x="20" y="10" width="205" height="39"/>
-                                <fontDescription key="fontDescription" name="XBOX360" family="X360 by Redge" pointSize="40"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="XBOX" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Yo-0b-ev1">
+                                <rect key="frame" x="20" y="10" width="205" height="46.5"/>
+                                <color key="backgroundColor" red="0.38431376220000002" green="0.38431376220000002" blue="0.38431376220000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="40"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -133,6 +135,10 @@
                     <tabBarItem key="tabBarItem" title="" image="xboxx" id="Nfv-wf-zTa">
                         <color key="badgeColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBarItem>
+                    <connections>
+                        <outlet property="xboxTableView" destination="3Co-Mm-fUp" id="JAE-GY-NGh"/>
+                        <outlet property="xboxTitle" destination="4Yo-0b-ev1" id="7hF-W0-LD0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WlZ-Dm-oYh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -146,24 +152,31 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="JPK-yx-jx5">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="JPK-yx-jx5">
                                 <rect key="frame" x="20" y="120" width="335" height="478"/>
-                                <color key="backgroundColor" red="0.77890230429999996" green="0.10387228229999999" blue="0.076120110500000004" alpha="0.5" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="NintendoCell" id="yab-eg-70s" customClass="GameTableViewCell" customModule="MyGamesLibrary" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="44.5" width="335" height="43.5"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="GameTableViewCell" id="yab-eg-70s" customClass="GameTableViewCell" customModule="MyGamesLibrary" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="44.5" width="335" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yab-eg-70s" id="STC-YO-Fq4">
-                                            <rect key="frame" x="0.0" y="0.0" width="335" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="335" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="siN-zX-dmc" kind="show" id="8f8-Bk-Wub"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NINTENDO SWITCH" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nem-eQ-lak">
-                                <rect key="frame" x="20" y="10" width="230" height="45"/>
+                                <rect key="frame" x="20" y="10" width="230" height="46.5"/>
+                                <color key="backgroundColor" red="0.38431376220000002" green="0.38431376220000002" blue="0.38431376220000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="46.5" id="Cv0-bY-NzQ"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="HighwayGothicCondensed" family="Highway Gothic Condensed" pointSize="40"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -183,10 +196,30 @@
                         <color key="badgeColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
                     </tabBarItem>
+                    <connections>
+                        <outlet property="nintendoTableView" destination="JPK-yx-jx5" id="Ama-cs-Kl0"/>
+                        <outlet property="nintendoTitle" destination="Nem-eQ-lak" id="kr8-BZ-g1B"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zqB-lT-I5B" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1786.9565217391305" y="1090.8482142857142"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="riI-yI-3n9">
+            <objects>
+                <viewController modalPresentationStyle="fullScreen" id="siN-zX-dmc" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="XhE-Wn-k2J">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="pMJ-qS-vmz"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="5dm-1y-796"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Cf3-Xg-g4s" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3678" y="637"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="gDT-o6-nvh">
@@ -198,21 +231,25 @@
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PLAYSTATION" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MN3-Dc-jZC">
                                 <rect key="frame" x="20" y="10" width="255" height="47.5"/>
+                                <color key="backgroundColor" red="0.38431376220000002" green="0.38431376220000002" blue="0.38431376220000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" name="ZrnicRg-Regular" family="Zrnic" pointSize="40"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="YwU-7s-uOX">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="YwU-7s-uOX">
                                 <rect key="frame" x="20" y="120" width="335" height="478"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PlaystationCell" id="Bbn-wf-UbW" customClass="GameTableViewCell" customModule="MyGamesLibrary" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="44.5" width="335" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="44.5" width="335" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Bbn-wf-UbW" id="rWo-Ny-zio">
-                                            <rect key="frame" x="0.0" y="0.0" width="335" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="335" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="siN-zX-dmc" kind="show" id="YuV-JU-eJd"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -234,6 +271,7 @@
                     </tabBarItem>
                     <connections>
                         <outlet property="pS4GamesTableView" destination="YwU-7s-uOX" id="IeU-YW-D3g"/>
+                        <outlet property="ps4Title" destination="MN3-Dc-jZC" id="baT-e7-LJj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ddY-hh-v90" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -276,7 +314,7 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="" id="o99-cD-zo7">
-                        <imageReference key="image" image="books.vertical.fill" catalog="system" symbolScale="large"/>
+                        <imageReference key="image" image="icons8-game-controller-30" symbolScale="large"/>
                         <color key="badgeColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBarItem>
                 </viewController>
@@ -308,7 +346,7 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" id="otn-Ov-EhU">
-                        <imageReference key="image" image="barcode" catalog="system" symbolScale="large"/>
+                        <imageReference key="image" image="icons8-barcode-scanner-30" symbolScale="large"/>
                         <color key="badgeColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBarItem>
                     <connections>
@@ -320,13 +358,19 @@
             <point key="canvasLocation" x="1797" y="1751"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="8f8-Bk-Wub"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="Group 2" width="22" height="17"/>
         <image name="Librarylogo" width="480" height="480"/>
-        <image name="barcode" catalog="system" width="128" height="93"/>
-        <image name="books.vertical.fill" catalog="system" width="128" height="109"/>
+        <image name="icons8-barcode-scanner-30" width="30" height="30"/>
+        <image name="icons8-game-controller-30" width="30" height="30"/>
         <image name="switchx" width="22" height="22"/>
         <image name="touchid" catalog="system" width="128" height="122"/>
         <image name="xboxx" width="22" height="22"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>
