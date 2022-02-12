@@ -278,10 +278,10 @@
             </objects>
             <point key="canvasLocation" x="1792.753623188406" y="-256.47321428571428"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Tab Bar View Controller-->
         <scene sceneID="xoO-Vr-7Wv">
             <objects>
-                <tabBarController modalPresentationStyle="fullScreen" id="1eX-hf-xoB" sceneMemberID="viewController">
+                <tabBarController modalPresentationStyle="fullScreen" id="1eX-hf-xoB" customClass="TabBarViewController" customModule="MyGamesLibrary" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="FaX-Yy-8r9"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="gwa-om-Fdf">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
