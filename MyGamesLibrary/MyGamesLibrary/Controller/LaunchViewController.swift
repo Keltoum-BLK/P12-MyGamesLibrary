@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import LocalAuthentication
 import SwiftyGif
 
 class LaunchViewController: UIViewController {
@@ -26,9 +27,20 @@ class LaunchViewController: UIViewController {
     }
     
     func setUp() {
-        startBTN.layer.cornerRadius = 20
+        startBTN.layer.cornerRadius = startBTN.frame.height/2
         startBTN.layer.backgroundColor = UIColor.black.cgColor
         startBTN.tintColor = .white
+    }
+    @IBAction func TouchIDAuthentification(_ sender: Any) {
+        AuthHelper.startAuth { (success, errString) in
+            if success {
+                self.performSegue(withIdentifier: "toMain", sender: nil)
+            } else {
+                if errString != nil {
+                    AlertHelper().errorAlert(errString!, self)
+                }
+            }
+        }
     }
 }
 

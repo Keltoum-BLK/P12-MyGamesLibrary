@@ -12,8 +12,6 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     
     var captureSession: AVCaptureSession!
     var previewLayer: AVCaptureVideoPreviewLayer!
-    
-    @IBOutlet weak var ScannerTitle: UILabel!
    
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -109,4 +107,5 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         previewLayer.videoGravity = .resizeAspectFill
         view.layer.addSublayer(previewLayer)
     }
+ 
 }

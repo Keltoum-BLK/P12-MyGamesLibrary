@@ -9,21 +9,34 @@ import UIKit
 
 class MyLibraryViewController: UIViewController {
 
+    @IBOutlet weak var playstationCollection: UICollectionView!
+    @IBOutlet weak var xboxCollection: UICollectionView!
+    @IBOutlet weak var nintendoCollection: UICollectionView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        playstationCollection.dataSource = self
+        playstationCollection.delegate = self
+      
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    private func setUpCollections() {
+        playstationCollection.register(UINib(nibName: "PlaystationCell", bundle: nil), forCellWithReuseIdentifier: "PlaystationCell")
+        xboxCollection.register(UINib(nibName: "XboxCell", bundle: nil), forCellWithReuseIdentifier: "XboxCell")
+        nintendoCollection.register(UINib(nibName: "NintendoCell", bundle: nil), forCellWithReuseIdentifier: "NintendoCell")
     }
-    */
+}
 
+extension MyLibraryViewController : UICollectionViewDelegate, UICollectionViewDataSource {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 10
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = UICollectionViewCell()
+        return cell
+    }
+    
+    
 }
