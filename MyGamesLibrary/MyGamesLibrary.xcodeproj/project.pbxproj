@@ -12,6 +12,12 @@
 		B926BAC227B97AF00050A549 /* PlaystationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B926BAC027B97AF00050A549 /* PlaystationCell.swift */; };
 		B926BAC627B97B130050A549 /* XboxCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B926BAC427B97B130050A549 /* XboxCell.swift */; };
 		B926BACA27B97B2B0050A549 /* NintendoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B926BAC827B97B2B0050A549 /* NintendoCell.swift */; };
+		B93AF74127BA5515001D42AD /* CustomLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93AF74027BA5515001D42AD /* CustomLayout.swift */; };
+		B93AF74627BA90F3001D42AD /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93AF74527BA90F3001D42AD /* Game.swift */; };
+		B93AF74827BA9112001D42AD /* Platform.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93AF74727BA9112001D42AD /* Platform.swift */; };
+		B93AF74B27BAA29E001D42AD /* SecretApiKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93AF74A27BAA29E001D42AD /* SecretApiKey.swift */; };
+		B93AF74D27BAA52B001D42AD /* GameService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93AF74C27BAA52B001D42AD /* GameService.swift */; };
+		B93AF74F27BAB33C001D42AD /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93AF74E27BAB33C001D42AD /* UIImageView+Extension.swift */; };
 		B9593AA727B8428E00A9A91F /* Tool.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9593AA627B8428E00A9A91F /* Tool.swift */; };
 		B95CC85727B7C44700FC4FDD /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95CC85627B7C44700FC4FDD /* TabBarViewController.swift */; };
 		B967461C27B420A60037F729 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B967461B27B420A60037F729 /* AppDelegate.swift */; };
@@ -24,7 +30,6 @@
 		B967463627B420A70037F729 /* MyGamesLibraryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B967463527B420A70037F729 /* MyGamesLibraryTests.swift */; };
 		B967464027B420A70037F729 /* MyGamesLibraryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B967463F27B420A70037F729 /* MyGamesLibraryUITests.swift */; };
 		B967464227B420A70037F729 /* MyGamesLibraryUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B967464127B420A70037F729 /* MyGamesLibraryUITestsLaunchTests.swift */; };
-		B967465027B420C30037F729 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = B967464F27B420C30037F729 /* Alamofire */; };
 		B96B34CA27B95DD400565053 /* AlertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96B34C827B95D6100565053 /* AlertHelper.swift */; };
 		B96B34CB27B95E0F00565053 /* AuthHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96B34C927B95D6300565053 /* AuthHelper.swift */; };
 		B9BA031427B42FAA00D32908 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9BA031327B42FAA00D32908 /* UIView+Extension.swift */; };
@@ -75,6 +80,12 @@
 		B926BAC027B97AF00050A549 /* PlaystationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaystationCell.swift; sourceTree = "<group>"; };
 		B926BAC427B97B130050A549 /* XboxCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XboxCell.swift; sourceTree = "<group>"; };
 		B926BAC827B97B2B0050A549 /* NintendoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NintendoCell.swift; sourceTree = "<group>"; };
+		B93AF74027BA5515001D42AD /* CustomLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLayout.swift; sourceTree = "<group>"; };
+		B93AF74527BA90F3001D42AD /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		B93AF74727BA9112001D42AD /* Platform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Platform.swift; sourceTree = "<group>"; };
+		B93AF74A27BAA29E001D42AD /* SecretApiKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecretApiKey.swift; sourceTree = "<group>"; };
+		B93AF74C27BAA52B001D42AD /* GameService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameService.swift; sourceTree = "<group>"; };
+		B93AF74E27BAB33C001D42AD /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		B9593AA627B8428E00A9A91F /* Tool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tool.swift; sourceTree = "<group>"; };
 		B95CC85627B7C44700FC4FDD /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		B967461827B420A60037F729 /* MyGamesLibrary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyGamesLibrary.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -119,7 +130,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B967465027B420C30037F729 /* Alamofire in Frameworks */,
 				0B65D9029F4F523B97A919D3 /* Pods_MyGamesLibrary.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -164,6 +174,22 @@
 				C6FB3B454485BAB83D7BF11D /* Pods_MyGamesLibraryTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B93AF74927BAA27E001D42AD /* SecretKey */ = {
+			isa = PBXGroup;
+			children = (
+				B93AF74A27BAA29E001D42AD /* SecretApiKey.swift */,
+			);
+			path = SecretKey;
+			sourceTree = "<group>";
+		};
+		B93AF75027BABD59001D42AD /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				B9C5C50327B6C9FD00A01409 /* GameTableViewCell.xib */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		B967460F27B420A60037F729 = {
@@ -231,7 +257,8 @@
 				B96B34C727B95D5000565053 /* TouchIDAuth */,
 				B9BA031F27B4334000D32908 /* CoreData */,
 				B9C5C4F327B687A600A01409 /* UPCService */,
-				B9BA031E27B4332A00D32908 /* IGDBGameService */,
+				B93AF74927BAA27E001D42AD /* SecretKey */,
+				B9BA031E27B4332A00D32908 /* RAWGService */,
 				B9593AA627B8428E00A9A91F /* Tool.swift */,
 				B96B34C927B95D6300565053 /* AuthHelper.swift */,
 				B96B34C827B95D6100565053 /* AlertHelper.swift */,
@@ -242,6 +269,7 @@
 		B9BA031A27B432B100D32908 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				B93AF75027BABD59001D42AD /* Cell */,
 				B967462127B420A60037F729 /* Main.storyboard */,
 			);
 			path = View;
@@ -288,12 +316,15 @@
 			path = LaunchScreenAnimation;
 			sourceTree = "<group>";
 		};
-		B9BA031E27B4332A00D32908 /* IGDBGameService */ = {
+		B9BA031E27B4332A00D32908 /* RAWGService */ = {
 			isa = PBXGroup;
 			children = (
 				B9BA032027B433DD00D32908 /* ApiErrorManager.swift */,
+				B93AF74C27BAA52B001D42AD /* GameService.swift */,
+				B93AF74527BA90F3001D42AD /* Game.swift */,
+				B93AF74727BA9112001D42AD /* Platform.swift */,
 			);
-			path = IGDBGameService;
+			path = RAWGService;
 			sourceTree = "<group>";
 		};
 		B9BA031F27B4334000D32908 /* CoreData */ = {
@@ -309,6 +340,7 @@
 			children = (
 				B9BA031327B42FAA00D32908 /* UIView+Extension.swift */,
 				B9BA032627B4368D00D32908 /* UILabel+Extension.swift */,
+				B93AF74E27BAB33C001D42AD /* UIImageView+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -323,11 +355,11 @@
 		B9C5C50627B6DC6400A01409 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				B9C5C50327B6C9FD00A01409 /* GameTableViewCell.xib */,
 				B9C5C50227B6C9FD00A01409 /* GameTableViewCell.swift */,
 				B926BAC027B97AF00050A549 /* PlaystationCell.swift */,
 				B926BAC427B97B130050A549 /* XboxCell.swift */,
 				B926BAC827B97B2B0050A549 /* NintendoCell.swift */,
+				B93AF74027BA5515001D42AD /* CustomLayout.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -351,7 +383,6 @@
 			);
 			name = MyGamesLibrary;
 			packageProductDependencies = (
-				B967464F27B420C30037F729 /* Alamofire */,
 			);
 			productName = MyGamesLibrary;
 			productReference = B967461827B420A60037F729 /* MyGamesLibrary.app */;
@@ -429,7 +460,6 @@
 			);
 			mainGroup = B967460F27B420A60037F729;
 			packageReferences = (
-				B967464E27B420C30037F729 /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = B967461927B420A60037F729 /* Products */;
 			projectDirPath = "";
@@ -588,16 +618,22 @@
 				B9BA032727B4368D00D32908 /* UILabel+Extension.swift in Sources */,
 				B9C5C4FF27B6BCF000A01409 /* NintendoViewController.swift in Sources */,
 				B9593AA727B8428E00A9A91F /* Tool.swift in Sources */,
+				B93AF74127BA5515001D42AD /* CustomLayout.swift in Sources */,
+				B93AF74827BA9112001D42AD /* Platform.swift in Sources */,
 				B926BAC227B97AF00050A549 /* PlaystationCell.swift in Sources */,
 				B967462027B420A60037F729 /* LaunchViewController.swift in Sources */,
+				B93AF74627BA90F3001D42AD /* Game.swift in Sources */,
 				B926BAC627B97B130050A549 /* XboxCell.swift in Sources */,
 				B967461C27B420A60037F729 /* AppDelegate.swift in Sources */,
 				B9BA031627B42FB700D32908 /* LogoAnimationView.swift in Sources */,
+				B93AF74F27BAB33C001D42AD /* UIImageView+Extension.swift in Sources */,
+				B93AF74D27BAA52B001D42AD /* GameService.swift in Sources */,
 				B9BA032127B433DD00D32908 /* ApiErrorManager.swift in Sources */,
 				B9C5C50427B6C9FD00A01409 /* GameTableViewCell.swift in Sources */,
 				B9C5C4F227B6876600A01409 /* MyLibraryViewController.swift in Sources */,
 				B926BACA27B97B2B0050A549 /* NintendoCell.swift in Sources */,
 				B9BA032A27B437D700D32908 /* PS4ViewController.swift in Sources */,
+				B93AF74B27BAA29E001D42AD /* SecretApiKey.swift in Sources */,
 				B967461E27B420A60037F729 /* SceneDelegate.swift in Sources */,
 				B96B34CA27B95DD400565053 /* AlertHelper.swift in Sources */,
 				B9BA031427B42FAA00D32908 /* UIView+Extension.swift in Sources */,
@@ -956,25 +992,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		B967464E27B420C30037F729 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.0.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		B967464F27B420C30037F729 /* Alamofire */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = B967464E27B420C30037F729 /* XCRemoteSwiftPackageReference "Alamofire" */;
-			productName = Alamofire;
-		};
-/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		B967462427B420A60037F729 /* MyGamesLibrary.xcdatamodeld */ = {

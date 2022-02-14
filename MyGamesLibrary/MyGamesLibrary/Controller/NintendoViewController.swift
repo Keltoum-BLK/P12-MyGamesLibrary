@@ -8,20 +8,20 @@
 import UIKit
 
 class NintendoViewController: UIViewController {
-
+    
     @IBOutlet weak var nintendoHeader: UIImageView!
     @IBOutlet weak var nintendoTableView: UITableView!
+    
+    var nintendoGames: [Game]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         nintendoTableView.delegate = self
         nintendoTableView.dataSource = self
+        getGames()
         setUpTableView()
         setUpImage()
         // Do any additional setup after loading the view.
-    }
-   func setUpTableView() {
-        nintendoTableView.register(UINib(nibName: "GameTableViewCell", bundle: nil), forCellReuseIdentifier: "GameTableViewCell")
     }
     
     override func viewDidLayoutSubviews() {
@@ -37,6 +37,25 @@ class NintendoViewController: UIViewController {
             nintendoHeader.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: 0)
         ])
     }
+    func setUpTableView() {
+        nintendoTableView.register(UINib(nibName: "GameTableViewCell", bundle: nil), forCellReuseIdentifier: "GameTableViewCell")
+    }
+    
+    private func getGames() {
+        GameService.shared.fetchGames(platform: Platform.nswitch.rawValue) { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let games):
+                DispatchQueue.main.async {
+                    self.nintendoGames = games.results
+                    self.nintendoTableView.reloadData()
+                }
+            case .failure(let error):
+                print(error.description)
+            }
+        }
+    }
+    
 }
 
 extension NintendoViewController: UITableViewDelegate, UITableViewDataSource {
@@ -45,12 +64,16 @@ extension NintendoViewController: UITableViewDelegate, UITableViewDataSource {
         return 200
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        guard let gamesCount = nintendoGames?.count else {return 0}
+        return gamesCount
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = nintendoTableView.dequeueReusableCell(withIdentifier: "GameTableViewCell", for: indexPath) as! GameTableViewCell
-        Tool.shared.setUpShadowCell(color: UIColor.systemRed.cgColor, cell: cell)
+        cell.gameImage.downloaded(from: nintendoGames?[indexPath.row].backgroundImage ?? "no image")
+        cell.gameTitle.text = nintendoGames?[indexPath.row].name ?? "no name"
+        cell.gameTypeLabel.text = Tool.shared.getDoubleToString(number: nintendoGames?[indexPath.row].rating)
+        Tool.shared.setUpShadowTableCell(color: UIColor.systemRed.cgColor, cell: cell)
         return cell
     }
 }

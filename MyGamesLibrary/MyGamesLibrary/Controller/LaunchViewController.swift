@@ -33,13 +33,13 @@ class LaunchViewController: UIViewController {
     }
     @IBAction func TouchIDAuthentification(_ sender: Any) {
         AuthHelper.startAuth { (success, errString) in
-            if success {
-                self.performSegue(withIdentifier: "toMain", sender: nil)
-            } else {
-                if errString != nil {
-                    AlertHelper().errorAlert(errString!, self)
+                if success {
+                    self.performSegue(withIdentifier: "toMain", sender: nil)
+                } else {
+                    if errString != nil {
+                        AlertHelper().errorAlert(errString!, self)
+                    }
                 }
-            }
         }
     }
 }

@@ -13,9 +13,10 @@ class XboxCell: UICollectionViewCell {
     @IBOutlet weak var xboxOption: UIButton!
     @IBOutlet weak var xboxGameLabel: UILabel!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        backgroundColor = UIColor.clear
+        contentView.layer.cornerRadius = 10
+        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5))
     }
-
 }
