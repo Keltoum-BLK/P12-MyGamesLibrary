@@ -15,6 +15,5 @@ class AlertHelper {
         let ok = UIAlertAction(title: "OK", style: .default, handler: nil)
         c.addAction(ok)
         controller.present(c, animated: true, completion: nil)
-        
     }
 }

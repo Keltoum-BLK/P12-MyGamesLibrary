@@ -18,6 +18,8 @@
 		B93AF74B27BAA29E001D42AD /* SecretApiKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93AF74A27BAA29E001D42AD /* SecretApiKey.swift */; };
 		B93AF74D27BAA52B001D42AD /* GameService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93AF74C27BAA52B001D42AD /* GameService.swift */; };
 		B93AF74F27BAB33C001D42AD /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93AF74E27BAB33C001D42AD /* UIImageView+Extension.swift */; };
+		B93DC3AD27BD3D1F005E0F7F /* Scanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93DC3AC27BD3D1F005E0F7F /* Scanner.swift */; };
+		B93DC3AF27BD405D005E0F7F /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93DC3AE27BD405D005E0F7F /* UITextField+Extension.swift */; };
 		B9593AA727B8428E00A9A91F /* Tool.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9593AA627B8428E00A9A91F /* Tool.swift */; };
 		B95CC85727B7C44700FC4FDD /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95CC85627B7C44700FC4FDD /* TabBarViewController.swift */; };
 		B967461C27B420A60037F729 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B967461B27B420A60037F729 /* AppDelegate.swift */; };
@@ -41,7 +43,7 @@
 		B9BA032727B4368D00D32908 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9BA032627B4368D00D32908 /* UILabel+Extension.swift */; };
 		B9BA032A27B437D700D32908 /* PS4ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9BA032927B437D700D32908 /* PS4ViewController.swift */; };
 		B9BA032C27B437E500D32908 /* XboxOneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9BA032B27B437E500D32908 /* XboxOneViewController.swift */; };
-		B9C5C4F027B6875500A01409 /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9C5C4EF27B6875500A01409 /* ScannerViewController.swift */; };
+		B9C5C4F027B6875500A01409 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9C5C4EF27B6875500A01409 /* SearchViewController.swift */; };
 		B9C5C4F227B6876600A01409 /* MyLibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9C5C4F127B6876600A01409 /* MyLibraryViewController.swift */; };
 		B9C5C4F727B6B78800A01409 /* X360.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B9C5C4F627B6B78800A01409 /* X360.ttf */; };
 		B9C5C4F927B6B79900A01409 /* zrnic rg.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B9C5C4F827B6B79900A01409 /* zrnic rg.ttf */; };
@@ -86,6 +88,8 @@
 		B93AF74A27BAA29E001D42AD /* SecretApiKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecretApiKey.swift; sourceTree = "<group>"; };
 		B93AF74C27BAA52B001D42AD /* GameService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameService.swift; sourceTree = "<group>"; };
 		B93AF74E27BAB33C001D42AD /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
+		B93DC3AC27BD3D1F005E0F7F /* Scanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scanner.swift; sourceTree = "<group>"; };
+		B93DC3AE27BD405D005E0F7F /* UITextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
 		B9593AA627B8428E00A9A91F /* Tool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tool.swift; sourceTree = "<group>"; };
 		B95CC85627B7C44700FC4FDD /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		B967461827B420A60037F729 /* MyGamesLibrary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyGamesLibrary.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -113,7 +117,7 @@
 		B9BA032627B4368D00D32908 /* UILabel+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
 		B9BA032927B437D700D32908 /* PS4ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PS4ViewController.swift; sourceTree = "<group>"; };
 		B9BA032B27B437E500D32908 /* XboxOneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XboxOneViewController.swift; sourceTree = "<group>"; };
-		B9C5C4EF27B6875500A01409 /* ScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
+		B9C5C4EF27B6875500A01409 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		B9C5C4F127B6876600A01409 /* MyLibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLibraryViewController.swift; sourceTree = "<group>"; };
 		B9C5C4F627B6B78800A01409 /* X360.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = X360.ttf; path = ../../../Font/X360.ttf; sourceTree = "<group>"; };
 		B9C5C4F827B6B79900A01409 /* zrnic rg.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "zrnic rg.ttf"; path = "../../../Font/zrnic/zrnic rg.ttf"; sourceTree = "<group>"; };
@@ -192,6 +196,14 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		B93DC3AB27BD3D10005E0F7F /* Scanner */ = {
+			isa = PBXGroup;
+			children = (
+				B93DC3AC27BD3D1F005E0F7F /* Scanner.swift */,
+			);
+			path = Scanner;
+			sourceTree = "<group>";
+		};
 		B967460F27B420A60037F729 = {
 			isa = PBXGroup;
 			children = (
@@ -254,6 +266,7 @@
 		B9BA031927B432AC00D32908 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				B93DC3AB27BD3D10005E0F7F /* Scanner */,
 				B96B34C727B95D5000565053 /* TouchIDAuth */,
 				B9BA031F27B4334000D32908 /* CoreData */,
 				B9C5C4F327B687A600A01409 /* UPCService */,
@@ -269,8 +282,8 @@
 		B9BA031A27B432B100D32908 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				B93AF75027BABD59001D42AD /* Cell */,
 				B967462127B420A60037F729 /* Main.storyboard */,
+				B93AF75027BABD59001D42AD /* Cell */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -283,7 +296,7 @@
 				B9BA032927B437D700D32908 /* PS4ViewController.swift */,
 				B9BA032B27B437E500D32908 /* XboxOneViewController.swift */,
 				B9C5C4FE27B6BCF000A01409 /* NintendoViewController.swift */,
-				B9C5C4EF27B6875500A01409 /* ScannerViewController.swift */,
+				B9C5C4EF27B6875500A01409 /* SearchViewController.swift */,
 				B9C5C4F127B6876600A01409 /* MyLibraryViewController.swift */,
 				B9C5C50627B6DC6400A01409 /* Cells */,
 			);
@@ -341,6 +354,7 @@
 				B9BA031327B42FAA00D32908 /* UIView+Extension.swift */,
 				B9BA032627B4368D00D32908 /* UILabel+Extension.swift */,
 				B93AF74E27BAB33C001D42AD /* UIImageView+Extension.swift */,
+				B93DC3AE27BD405D005E0F7F /* UITextField+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -625,6 +639,7 @@
 				B93AF74627BA90F3001D42AD /* Game.swift in Sources */,
 				B926BAC627B97B130050A549 /* XboxCell.swift in Sources */,
 				B967461C27B420A60037F729 /* AppDelegate.swift in Sources */,
+				B93DC3AF27BD405D005E0F7F /* UITextField+Extension.swift in Sources */,
 				B9BA031627B42FB700D32908 /* LogoAnimationView.swift in Sources */,
 				B93AF74F27BAB33C001D42AD /* UIImageView+Extension.swift in Sources */,
 				B93AF74D27BAA52B001D42AD /* GameService.swift in Sources */,
@@ -639,7 +654,8 @@
 				B9BA031427B42FAA00D32908 /* UIView+Extension.swift in Sources */,
 				B967462627B420A60037F729 /* MyGamesLibrary.xcdatamodeld in Sources */,
 				B95CC85727B7C44700FC4FDD /* TabBarViewController.swift in Sources */,
-				B9C5C4F027B6875500A01409 /* ScannerViewController.swift in Sources */,
+				B9C5C4F027B6875500A01409 /* SearchViewController.swift in Sources */,
+				B93DC3AD27BD3D1F005E0F7F /* Scanner.swift in Sources */,
 				B96B34CB27B95E0F00565053 /* AuthHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -823,9 +839,12 @@
 				DEVELOPMENT_TEAM = BP4DYC4UP8;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MyGamesLibrary/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Used to read barcode";
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "User's Identification ";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIRequiresFullScreen = NO;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -838,7 +857,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -853,9 +872,12 @@
 				DEVELOPMENT_TEAM = BP4DYC4UP8;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MyGamesLibrary/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Used to read barcode";
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "User's Identification ";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIRequiresFullScreen = NO;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -868,7 +890,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

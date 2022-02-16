@@ -8,6 +8,10 @@
 import UIKit
 
 class TabBarViewController: UITabBarController {
+    //MARK: Orientation property
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .portrait
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

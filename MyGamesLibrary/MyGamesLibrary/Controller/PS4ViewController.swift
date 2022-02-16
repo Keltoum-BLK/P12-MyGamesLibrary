@@ -39,13 +39,13 @@ class PS4ViewController: UIViewController {
     }
     
     private func getGames() {
-        GameService.shared.fetchGames(platform: Platform.ps4.rawValue) { [weak self] result in
+        GameService.shared.fetchGames(platform: Platform.ps4.rawValue, page: 1) { [weak self] result in
             guard let self = self else { return }
             switch result {
             case .success(let games):
                 DispatchQueue.main.async {
-                self.ps4Games = games.results
-                self.pS4GamesTableView.reloadData()
+                    self.ps4Games = games.results
+                    self.pS4GamesTableView.reloadData()
                 }
             case .failure(let error):
                 print(error.description)
@@ -55,17 +55,24 @@ class PS4ViewController: UIViewController {
     
     private func setUpTableView() {
         pS4GamesTableView.register(UINib(nibName: "GameTableViewCell", bundle: nil), forCellReuseIdentifier: "GameTableViewCell")
+        pS4GamesTableView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            pS4GamesTableView.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor, multiplier: 0.8),
+            pS4GamesTableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 120),
+            pS4GamesTableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 0),
+            pS4GamesTableView.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor)
+        ])
     }
 }
 
 extension PS4ViewController: UITableViewDelegate, UITableViewDataSource {
     
-    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 200
+        return tableView.sizeWithTheDevice()
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let gamesCount = ps4Games?.count else {return 0}
+        print(gamesCount)
         return gamesCount
     }
     
@@ -73,6 +80,7 @@ extension PS4ViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = pS4GamesTableView.dequeueReusableCell(withIdentifier: "GameTableViewCell", for: indexPath) as! GameTableViewCell
         cell.gameImage.downloaded(from: ps4Games?[indexPath.row].backgroundImage ?? "no image")
         cell.gameTitle.text = ps4Games?[indexPath.row].name ?? "no name"
+        cell.gameTitle.textColor = .blue
         cell.gameTypeLabel.text = Tool.shared.getDoubleToString(number: ps4Games?[indexPath.row].rating)
         Tool.shared.setUpShadowTableCell(color: UIColor.systemBlue.cgColor, cell: cell)
         return cell

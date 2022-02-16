@@ -30,10 +30,18 @@ class XboxOneViewController: UIViewController {
     
     private  func setUpTableView() {
         xboxTableView.register(UINib(nibName: "GameTableViewCell", bundle: nil), forCellReuseIdentifier: "GameTableViewCell")
+        
+        xboxTableView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            xboxTableView.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor, multiplier: 0.8),
+            xboxTableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 120),
+            xboxTableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 0),
+            xboxTableView.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor)
+        ])
     }
     
     private func getGames() {
-        GameService.shared.fetchGames(platform: Platform.xboxone.rawValue) { [weak self] result in
+        GameService.shared.fetchGames(platform: Platform.xboxone.rawValue,page: 1) { [weak self] result in
             guard let self = self else { return }
             switch result {
             case .success(let games):
@@ -46,9 +54,7 @@ class XboxOneViewController: UIViewController {
             }
         }
     }
-    
-    
-    func setUpImage() {
+    private func setUpImage() {
         xboxHeader.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             xboxHeader.widthAnchor.constraint(equalTo: view.widthAnchor),
@@ -64,8 +70,9 @@ class XboxOneViewController: UIViewController {
 extension XboxOneViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 200
+        return tableView.sizeWithTheDevice()
     }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let gamesCount = xboxGames?.count else {return 0}
         return gamesCount
@@ -75,6 +82,7 @@ extension XboxOneViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = xboxTableView.dequeueReusableCell(withIdentifier: "GameTableViewCell", for: indexPath) as! GameTableViewCell
         cell.gameImage.downloaded(from: xboxGames?[indexPath.row].backgroundImage ?? "no image")
         cell.gameTitle.text = xboxGames?[indexPath.row].name ?? "no name"
+        cell.gameTitle.textColor = .green
         cell.gameTypeLabel.text = Tool.shared.getDoubleToString(number: xboxGames?[indexPath.row].rating)
         Tool.shared.setUpShadowTableCell(color: UIColor.systemGreen.cgColor, cell: cell)
         

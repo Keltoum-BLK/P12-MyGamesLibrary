@@ -32,5 +32,20 @@ extension UIView {
         gradient.removeFromSuperlayer()
         self.layer.insertSublayer(gradient, at: 0)
     }
+    
+    
+    func sizeWithTheDevice() -> CGFloat {
+        switch UIDevice.current.userInterfaceIdiom {
+        case .phone:
+            return 200
+        case .pad:
+            return 300
+        case .unspecified:
+            return 200
+        default:
+            break
+        }
+        return 200
+    }
 }
 

@@ -10,7 +10,10 @@ import LocalAuthentication
 import SwiftyGif
 
 class LaunchViewController: UIViewController {
-    
+    //MARK: Orientation property
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .portrait
+    }
     let logoAnimationView = LogoAnimationView()
 
  

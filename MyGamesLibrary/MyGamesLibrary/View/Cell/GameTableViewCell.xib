@@ -22,25 +22,48 @@
                 <rect key="frame" x="0.0" y="0.0" width="280" height="160"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="d2e35-16352461461733-1920" translatesAutoresizingMaskIntoConstraints="NO" id="kFR-nz-wkD">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gamesLibrary" translatesAutoresizingMaskIntoConstraints="NO" id="kFR-nz-wkD">
                         <rect key="frame" x="0.0" y="0.0" width="280" height="160"/>
                     </imageView>
-                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="yUw-SS-eIj">
-                        <rect key="frame" x="20" y="103" width="240" height="45"/>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="yUw-SS-eIj">
+                        <rect key="frame" x="20" y="96" width="240" height="64"/>
                         <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="y6n-ZU-LOV">
+                                <rect key="frame" x="0.0" y="0.0" width="110" height="32"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="nqU-sb-7nr">
+                                        <rect key="frame" x="0.0" y="-0.5" width="22" height="32"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="tintColor" red="1" green="0.84313725490000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="8Ov-au-SXh">
+                                        <rect key="frame" x="22" y="-0.5" width="22" height="32"/>
+                                        <color key="tintColor" red="1" green="0.84313725490000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="cQA-RD-jFv">
+                                        <rect key="frame" x="44" y="-0.5" width="22" height="32"/>
+                                        <color key="tintColor" red="1" green="0.84313725490000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ekw-vY-fBB">
+                                        <rect key="frame" x="66" y="-0.5" width="22" height="32"/>
+                                        <color key="tintColor" red="1" green="0.84313725490000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="rbd-dK-iUY">
+                                        <rect key="frame" x="88" y="-0.5" width="22" height="32"/>
+                                        <color key="tintColor" red="1" green="0.84313725490000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </imageView>
+                                </subviews>
+                            </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zPY-gx-kMp">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="20.5"/>
+                                <rect key="frame" x="0.0" y="32" width="110" height="32"/>
                                 <fontDescription key="fontDescription" name="Gameplay" family="Gameplay" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Genre" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P2A-w9-AKb">
-                                <rect key="frame" x="0.0" y="23.5" width="240" height="21.5"/>
-                                <fontDescription key="fontDescription" type="italicSystem" pointSize="18"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="y6n-ZU-LOV" secondAttribute="trailing" constant="20" id="qQ5-SJ-uaa"/>
+                        </constraints>
                     </stackView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zNf-tn-NM8">
                         <rect key="frame" x="242" y="6" width="30" height="30"/>
@@ -59,6 +82,7 @@
                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 <constraints>
                     <constraint firstItem="kFR-nz-wkD" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="7Qx-v4-rw8"/>
+                    <constraint firstItem="yUw-SS-eIj" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="96" id="8PE-gf-Vwt"/>
                     <constraint firstAttribute="trailing" secondItem="yUw-SS-eIj" secondAttribute="trailing" constant="20" id="G1S-LL-h1P"/>
                     <constraint firstItem="yUw-SS-eIj" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="H87-vz-5Wf"/>
                     <constraint firstAttribute="bottom" secondItem="kFR-nz-wkD" secondAttribute="bottom" id="J8c-mN-Kh3"/>
@@ -66,21 +90,28 @@
                     <constraint firstAttribute="trailing" secondItem="kFR-nz-wkD" secondAttribute="trailing" id="SGy-vj-3an"/>
                     <constraint firstItem="zNf-tn-NM8" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="6" id="VXE-aF-xge"/>
                     <constraint firstItem="kFR-nz-wkD" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="dsa-ZE-w5I"/>
-                    <constraint firstAttribute="bottom" secondItem="yUw-SS-eIj" secondAttribute="bottom" constant="12" id="zbe-yJ-uoG"/>
+                    <constraint firstAttribute="bottom" secondItem="yUw-SS-eIj" secondAttribute="bottom" id="gf3-Jz-eR8"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="favoriteBTN" destination="zNf-tn-NM8" id="fs2-nU-V8t"/>
+                <outlet property="gameContainerInfo" destination="yUw-SS-eIj" id="Dgq-0Y-X4z"/>
                 <outlet property="gameImage" destination="kFR-nz-wkD" id="tyU-eB-YE9"/>
+                <outlet property="gameRating" destination="y6n-ZU-LOV" id="Z9f-aU-sSG"/>
                 <outlet property="gameTitle" destination="zPY-gx-kMp" id="Wml-45-8dw"/>
-                <outlet property="gameTypeLabel" destination="P2A-w9-AKb" id="bCp-Zv-xGV"/>
+                <outlet property="star1" destination="nqU-sb-7nr" id="fmh-2x-6Dn"/>
+                <outlet property="star2" destination="8Ov-au-SXh" id="dUc-8B-hCt"/>
+                <outlet property="star3" destination="cQA-RD-jFv" id="lMk-eV-Ubs"/>
+                <outlet property="star4" destination="ekw-vY-fBB" id="QKx-xq-juF"/>
+                <outlet property="star5" destination="rbd-dK-iUY" id="cSc-nU-0QP"/>
             </connections>
             <point key="canvasLocation" x="102.89855072463769" y="161.38392857142856"/>
         </tableViewCell>
     </objects>
     <resources>
-        <image name="d2e35-16352461461733-1920" width="1024" height="576"/>
+        <image name="gamesLibrary" width="3295" height="2328"/>
         <image name="heart.slash" catalog="system" width="128" height="115"/>
+        <image name="star" catalog="system" width="128" height="116"/>
     </resources>
 </document>
