@@ -11,7 +11,7 @@ import UIKit
 protocol NetworkService {
     func fetchGames(platform: Platform.RawValue, page: Int, completion: @escaping (Result<Games, APIError>) -> Void)
     func fetchSearchGames(search: String, page_Size: Int, completion: @escaping (Result<Games, APIError>) -> Void)
-    func loadMore(next: String, completion: @escaping (Result<Games, APIError>) -> Void)
+    func getDataFromUrl(next: String, completion: @escaping (Result<Games, APIError>) -> Void)
 }
 
 class GameService: NetworkService {
@@ -78,7 +78,7 @@ class GameService: NetworkService {
         
         guard let urlRawg = urlComponents.url?.absoluteString else { return }
         guard let url = URL(string: urlRawg) else { return }
-        print(urlRawg)
+       
         dataTask = session.dataTask(with: url) { (data, response, error) in
             DispatchQueue.main.async {
                 guard error == nil else { completion(.failure(.server))
@@ -100,7 +100,7 @@ class GameService: NetworkService {
         dataTask?.resume()
     }
     
-    func loadMore(next: String, completion: @escaping (Result<Games, APIError>) -> Void) {
+    func getDataFromUrl(next: String, completion: @escaping (Result<Games, APIError>) -> Void) {
         guard let url = URL(string: next) else { return }
         dataTask = session.dataTask(with: url) { (data, response, error) in
             DispatchQueue.main.async {

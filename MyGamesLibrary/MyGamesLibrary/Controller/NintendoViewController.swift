@@ -12,15 +12,14 @@ class NintendoViewController: UIViewController {
     @IBOutlet weak var nintendoHeader: UIImageView!
     @IBOutlet weak var nintendoTableView: UITableView!
     
-    var nintendoGames: [Game]?
-    private var currentPage = 1
-    var isLoadingList: Bool = false
+    private var nintendoGames: [Game]?
+    private var nextPage: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         nintendoTableView.delegate = self
         nintendoTableView.dataSource = self
-        getGames(page: currentPage)
+        getGames()
         setUpTableView()
         setUpImage()
         // Do any additional setup after loading the view.
@@ -29,6 +28,7 @@ class NintendoViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         nintendoHeader.addGradientLayerInBackground(frame: nintendoHeader.bounds, colors: [UIColor(ciColor: .clear), UIColor(ciColor: .white)])
     }
+    
     private func setUpImage() {
         nintendoHeader.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -50,31 +50,42 @@ class NintendoViewController: UIViewController {
         ])
     }
     
-    private func getGames(page: Int) {
-        GameService.shared.fetchGames(platform: Platform.nswitch.rawValue, page: page) { [weak self] result in
+    private func getGames() {
+        GameService.shared.fetchGames(platform: Platform.nintendo.rawValue, page: 1) { [weak self] result in
             guard let self = self else { return }
             switch result {
             case .success(let games):
                 DispatchQueue.main.async {
                     self.nintendoGames = games.results
                     self.nintendoTableView.reloadData()
+                    self.nextPage = games.next ?? "no next page"
                 }
             case .failure(let error):
-                print(error.description)
+                self.showAlertMessage(title: "Error", message: "Une erreur est survenue, \(error.description)")
             }
         }
     }
     
-    func getListFromServer(currentPage : Int){
-        self.isLoadingList = false
-        self.nintendoTableView.reloadData()
+    private func loadMoreData() {
+        GameService.shared.getDataFromUrl(next: nextPage) { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let games):
+                self.nintendoGames = games.results
+                self.nextPage = games.next ?? "no next page"
+                self.nintendoTableView.reloadData()
+            case .failure(let error):
+                self.showAlertMessage(title: "Error", message: "Vous avez vu tout les jeux disponibles, \(error.description)")
+            }
+        }
     }
     
-    func loadMoreItemsForList(){
-        currentPage += 1
-        getListFromServer(currentPage: currentPage)
-        getGames(page: currentPage)
-     }
+    //MARK: Pop-up Alert
+       func showAlertMessage(title: String, message: String) {
+           let alert = UIAlertController(title: "\(title)", message: "\(message)", preferredStyle: .alert)
+           alert.addAction(UIAlertAction(title: "Done", style: .default, handler: nil))
+           self.present(alert, animated: true)
+       }
 }
 
 extension NintendoViewController: UITableViewDelegate, UITableViewDataSource {
@@ -90,7 +101,7 @@ extension NintendoViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = nintendoTableView.dequeueReusableCell(withIdentifier: "GameTableViewCell", for: indexPath) as! GameTableViewCell
-        cell.gameImage.downloaded(from: nintendoGames?[indexPath.row].backgroundImage ?? "no image")
+        cell.gameImage.cacheImage(urlString: nintendoGames?[indexPath.row].backgroundImage ?? "no image")
         cell.gameTitle.text = nintendoGames?[indexPath.row].name ?? "no name"
         cell.gameTitle.textColor = .red
         Tool.shared.setUpShadowTableCell(color: UIColor.systemRed.cgColor, cell: cell)
@@ -98,9 +109,12 @@ extension NintendoViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if (((scrollView.contentOffset.y + scrollView.frame.size.height) > scrollView.contentSize.height ) && !isLoadingList){
-                   self.isLoadingList = true
-                   self.loadMoreItemsForList()
-               }
+        let scrollViewHeight = scrollView.frame.size.height;
+                let scrollContentSizeHeight = scrollView.contentSize.height;
+                let scrollOffset = scrollView.contentOffset.y;
+                if (scrollOffset + scrollViewHeight == scrollContentSizeHeight) {
+                    loadMoreData()
+                    nintendoTableView.setContentOffset(.zero, animated: true)
+                }
     }
 }

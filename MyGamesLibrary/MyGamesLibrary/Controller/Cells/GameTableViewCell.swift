@@ -12,7 +12,7 @@ class GameTableViewCell: UITableViewCell {
     @IBOutlet weak var gameImage: UIImageView!
     @IBOutlet weak var gameTitle: UILabel!
     @IBOutlet weak var favoriteBTN: UIButton!
-    @IBOutlet weak var loaderLabel: UILabel!
+
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -38,7 +38,6 @@ class GameTableViewCell: UITableViewCell {
         contentView.layer.cornerRadius = 20
         layer.cornerRadius = 20
         contentView.clipsToBounds = true
-        loaderLabel.isHidden = true 
     }
     
     private func setUpImage() {

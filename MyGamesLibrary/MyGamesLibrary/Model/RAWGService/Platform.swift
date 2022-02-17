@@ -8,15 +8,15 @@
 import Foundation
 
 enum Platform: String {
-    case ps4 = "18"
-    case xboxone = "1"
-    case nswitch = "7"
+    case playstation = "18"
+    case xbox = "1"
+    case nintendo = "7"
     
     var description: String {
         switch self {
-        case .ps4: return "Playstation 4"
-        case .xboxone: return "Xbox One"
-        case .nswitch: return "Nintendo Switch"
+        case .playstation: return "Playstation "
+        case .xbox: return "Xbox"
+        case .nintendo: return "Nintendo"
         }
     }
 }

@@ -12,7 +12,8 @@ class XboxOneViewController: UIViewController {
     @IBOutlet weak var xboxHeader: UIImageView!
     @IBOutlet weak var xboxTableView: UITableView!
     
-    var xboxGames: [Game]?
+    private var xboxGames: [Game]?
+    private var nextPage: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,19 +42,35 @@ class XboxOneViewController: UIViewController {
     }
     
     private func getGames() {
-        GameService.shared.fetchGames(platform: Platform.xboxone.rawValue,page: 1) { [weak self] result in
+        GameService.shared.fetchGames(platform: Platform.xbox.rawValue,page: 1) { [weak self] result in
             guard let self = self else { return }
             switch result {
             case .success(let games):
                 DispatchQueue.main.async {
                     self.xboxGames = games.results
                     self.xboxTableView.reloadData()
+                    self.nextPage = games.next ?? "no next page"
                 }
             case .failure(let error):
-                print(error.description)
+                self.showAlertMessage(title: "Error", message: "Une erreur est survenue, \(error.description)")
             }
         }
     }
+    
+    private func loadMoreData() {
+        GameService.shared.getDataFromUrl(next: nextPage) { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let games):
+                self.xboxGames = games.results
+                self.nextPage = games.next ?? "no next page"
+                self.xboxTableView.reloadData()
+            case .failure(let error):
+                self.showAlertMessage(title: "Error", message: "Vous avez vu tout les jeux disponibles, \(error.description)")
+            }
+        }
+    }
+    
     private func setUpImage() {
         xboxHeader.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -65,6 +82,12 @@ class XboxOneViewController: UIViewController {
         ])
     }
     
+    //MARK: Pop-up Alert
+       func showAlertMessage(title: String, message: String) {
+           let alert = UIAlertController(title: "\(title)", message: "\(message)", preferredStyle: .alert)
+           alert.addAction(UIAlertAction(title: "Done", style: .default, handler: nil))
+           self.present(alert, animated: true)
+       }
 }
 
 extension XboxOneViewController: UITableViewDelegate, UITableViewDataSource {
@@ -80,11 +103,20 @@ extension XboxOneViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = xboxTableView.dequeueReusableCell(withIdentifier: "GameTableViewCell", for: indexPath) as! GameTableViewCell
-        cell.gameImage.downloaded(from: xboxGames?[indexPath.row].backgroundImage ?? "no image")
+        cell.gameImage.cacheImage(urlString: xboxGames?[indexPath.row].backgroundImage ?? "no image")
         cell.gameTitle.text = xboxGames?[indexPath.row].name ?? "no name"
         cell.gameTitle.textColor = .green
         Tool.shared.setUpShadowTableCell(color: UIColor.systemGreen.cgColor, cell: cell)
-        
         return cell
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let scrollViewHeight = scrollView.frame.size.height;
+                let scrollContentSizeHeight = scrollView.contentSize.height;
+                let scrollOffset = scrollView.contentOffset.y;
+                if (scrollOffset + scrollViewHeight == scrollContentSizeHeight) {
+                    loadMoreData()
+                    xboxTableView.setContentOffset(.zero, animated: true)
+                }
     }
 }

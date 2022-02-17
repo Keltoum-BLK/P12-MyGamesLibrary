@@ -17,7 +17,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="280" height="160"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gamesLibrary" translatesAutoresizingMaskIntoConstraints="NO" id="kFR-nz-wkD">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gamesLibrary" translatesAutoresizingMaskIntoConstraints="NO" id="kFR-nz-wkD">
                         <rect key="frame" x="0.0" y="0.0" width="280" height="160"/>
                     </imageView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zNf-tn-NM8">
@@ -39,18 +39,11 @@
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uRE-N8-g37">
-                        <rect key="frame" x="106.5" y="69.5" width="67.5" height="21"/>
-                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="17"/>
-                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                 </subviews>
                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 <constraints>
                     <constraint firstAttribute="trailingMargin" secondItem="zPY-gx-kMp" secondAttribute="trailing" constant="10" id="5s1-kL-68m"/>
                     <constraint firstItem="kFR-nz-wkD" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="7Qx-v4-rw8"/>
-                    <constraint firstItem="uRE-N8-g37" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="Fhc-9z-Aq9"/>
                     <constraint firstAttribute="bottom" secondItem="kFR-nz-wkD" secondAttribute="bottom" id="J8c-mN-Kh3"/>
                     <constraint firstAttribute="bottom" secondItem="zPY-gx-kMp" secondAttribute="bottom" constant="11" id="KnU-Xr-YtY"/>
                     <constraint firstAttribute="trailing" secondItem="zNf-tn-NM8" secondAttribute="trailing" constant="8" id="MsM-bo-UT1"/>
@@ -58,7 +51,6 @@
                     <constraint firstItem="zNf-tn-NM8" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="6" id="VXE-aF-xge"/>
                     <constraint firstItem="zPY-gx-kMp" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="ZvO-XF-Lfd"/>
                     <constraint firstItem="kFR-nz-wkD" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="dsa-ZE-w5I"/>
-                    <constraint firstItem="uRE-N8-g37" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="kzH-xm-O20"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
@@ -66,7 +58,6 @@
                 <outlet property="favoriteBTN" destination="zNf-tn-NM8" id="fs2-nU-V8t"/>
                 <outlet property="gameImage" destination="kFR-nz-wkD" id="tyU-eB-YE9"/>
                 <outlet property="gameTitle" destination="zPY-gx-kMp" id="Wml-45-8dw"/>
-                <outlet property="loaderLabel" destination="uRE-N8-g37" id="MGA-PT-y6k"/>
             </connections>
             <point key="canvasLocation" x="102.89855072463769" y="161.38392857142856"/>
         </tableViewCell>

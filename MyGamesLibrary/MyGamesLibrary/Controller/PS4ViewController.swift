@@ -12,7 +12,8 @@ class PS4ViewController: UIViewController {
     @IBOutlet weak var ps4Header: UIImageView!
     @IBOutlet weak var pS4GamesTableView: UITableView!
     
-    var ps4Games: [Game]?
+    private var ps4Games: [Game]?
+    private var nextPage: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,8 +22,6 @@ class PS4ViewController: UIViewController {
         getGames()
         setUpTableView()
         setUpImage()
-        
-        // Do any additional setup after loading the view.
     }
     override func viewDidLayoutSubviews() {
         ps4Header.addGradientLayerInBackground(frame: ps4Header.bounds, colors: [UIColor(ciColor: .clear), UIColor(ciColor: .white)])
@@ -39,15 +38,29 @@ class PS4ViewController: UIViewController {
     }
     
     private func getGames() {
-        GameService.shared.fetchGames(platform: Platform.ps4.rawValue, page: 1) { [weak self] result in
+        GameService.shared.fetchGames(platform: Platform.playstation.rawValue, page: 1) { [weak self] result in
             guard let self = self else { return }
             switch result {
             case .success(let games):
                     self.ps4Games = games.results
                     self.pS4GamesTableView.reloadData()
-                
+                    self.nextPage = games.next ?? "no next page"
             case .failure(let error):
-                print(error.description)
+                self.showAlertMessage(title: "Error", message: "Une erreur est survenue, \(error.description)")
+            }
+        }
+    }
+    
+    private func loadMoreData() {
+        GameService.shared.getDataFromUrl(next: nextPage) { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let games):
+                self.ps4Games = games.results
+                self.nextPage = games.next ?? "no next page"
+                self.pS4GamesTableView.reloadData()
+            case .failure(let error):
+                self.showAlertMessage(title: "Error", message: "Vous avez vu tout les jeux disponibles, \(error.description)")
             }
         }
     }
@@ -62,6 +75,13 @@ class PS4ViewController: UIViewController {
             pS4GamesTableView.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor)
         ])
     }
+
+    //MARK: Pop-up Alert
+       func showAlertMessage(title: String, message: String) {
+           let alert = UIAlertController(title: "\(title)", message: "\(message)", preferredStyle: .alert)
+           alert.addAction(UIAlertAction(title: "Done", style: .default, handler: nil))
+           self.present(alert, animated: true)
+       }
 }
 
 extension PS4ViewController: UITableViewDelegate, UITableViewDataSource {
@@ -71,18 +91,26 @@ extension PS4ViewController: UITableViewDelegate, UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let gamesCount = ps4Games?.count else {return 0}
-        print(gamesCount)
         return gamesCount
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = pS4GamesTableView.dequeueReusableCell(withIdentifier: "GameTableViewCell", for: indexPath) as! GameTableViewCell
-        cell.gameImage.downloaded(from: ps4Games?[indexPath.row].backgroundImage ?? "no image")
+        cell.gameImage.cacheImage(urlString: ps4Games?[indexPath.row].backgroundImage ?? "no image")
         cell.gameTitle.text = ps4Games?[indexPath.row].name ?? "no name"
         cell.gameTitle.textColor = .blue
         Tool.shared.setUpShadowTableCell(color: UIColor.systemBlue.cgColor, cell: cell)
         return cell
     }
     
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let scrollViewHeight = scrollView.frame.size.height;
+                let scrollContentSizeHeight = scrollView.contentSize.height;
+                let scrollOffset = scrollView.contentOffset.y;
+                if (scrollOffset + scrollViewHeight == scrollContentSizeHeight) {
+                    loadMoreData()
+                    pS4GamesTableView.setContentOffset(.zero, animated: true)
+                }
+    }
     
 }

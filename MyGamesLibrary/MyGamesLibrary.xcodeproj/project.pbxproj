@@ -9,10 +9,6 @@
 /* Begin PBXBuildFile section */
 		0B65D9029F4F523B97A919D3 /* Pods_MyGamesLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60DBD57C09A604768ADF13C7 /* Pods_MyGamesLibrary.framework */; };
 		7C9EE44BE7654E72C367FDCC /* Pods_MyGamesLibraryTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6FB3B454485BAB83D7BF11D /* Pods_MyGamesLibraryTests.framework */; };
-		B926BAC227B97AF00050A549 /* PlaystationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B926BAC027B97AF00050A549 /* PlaystationCell.swift */; };
-		B926BAC627B97B130050A549 /* XboxCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B926BAC427B97B130050A549 /* XboxCell.swift */; };
-		B926BACA27B97B2B0050A549 /* NintendoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B926BAC827B97B2B0050A549 /* NintendoCell.swift */; };
-		B93AF74127BA5515001D42AD /* CustomLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93AF74027BA5515001D42AD /* CustomLayout.swift */; };
 		B93AF74627BA90F3001D42AD /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93AF74527BA90F3001D42AD /* Game.swift */; };
 		B93AF74827BA9112001D42AD /* Platform.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93AF74727BA9112001D42AD /* Platform.swift */; };
 		B93AF74B27BAA29E001D42AD /* SecretApiKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93AF74A27BAA29E001D42AD /* SecretApiKey.swift */; };
@@ -23,6 +19,7 @@
 		B9593AA727B8428E00A9A91F /* Tool.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9593AA627B8428E00A9A91F /* Tool.swift */; };
 		B95CC85727B7C44700FC4FDD /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95CC85627B7C44700FC4FDD /* TabBarViewController.swift */; };
 		B966F5FA27BE6A830022D9CD /* TableSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B966F5F927BE6A830022D9CD /* TableSection.swift */; };
+		B966F60127BEDC100022D9CD /* GameCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B966F5FF27BEDC100022D9CD /* GameCardViewController.swift */; };
 		B967461C27B420A60037F729 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B967461B27B420A60037F729 /* AppDelegate.swift */; };
 		B967461E27B420A60037F729 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B967461D27B420A60037F729 /* SceneDelegate.swift */; };
 		B967462027B420A60037F729 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B967461F27B420A60037F729 /* LaunchViewController.swift */; };
@@ -40,7 +37,6 @@
 		B9BA031827B430BB00D32908 /* logoGif.gif in Resources */ = {isa = PBXBuildFile; fileRef = B9BA031727B430BB00D32908 /* logoGif.gif */; };
 		B9BA032127B433DD00D32908 /* ApiErrorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9BA032027B433DD00D32908 /* ApiErrorManager.swift */; };
 		B9BA032427B4345200D32908 /* Gamejot.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B9BA032227B4345200D32908 /* Gamejot.ttf */; };
-		B9BA032527B4345200D32908 /* Gameplay.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B9BA032327B4345200D32908 /* Gameplay.ttf */; };
 		B9BA032727B4368D00D32908 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9BA032627B4368D00D32908 /* UILabel+Extension.swift */; };
 		B9BA032A27B437D700D32908 /* PS4ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9BA032927B437D700D32908 /* PS4ViewController.swift */; };
 		B9BA032C27B437E500D32908 /* XboxOneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9BA032B27B437E500D32908 /* XboxOneViewController.swift */; };
@@ -80,10 +76,6 @@
 		A6CFBF2049517F51B2C87CE2 /* Pods-MyGamesLibrary.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyGamesLibrary.release.xcconfig"; path = "Target Support Files/Pods-MyGamesLibrary/Pods-MyGamesLibrary.release.xcconfig"; sourceTree = "<group>"; };
 		AC550B3501A63704601D1E8B /* Pods-MyGamesLibraryTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyGamesLibraryTests.release.xcconfig"; path = "Target Support Files/Pods-MyGamesLibraryTests/Pods-MyGamesLibraryTests.release.xcconfig"; sourceTree = "<group>"; };
 		B8E621C1C6121DA6EBBE6EFD /* Pods_MyGamesLibrary_MyGamesLibraryUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyGamesLibrary_MyGamesLibraryUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B926BAC027B97AF00050A549 /* PlaystationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaystationCell.swift; sourceTree = "<group>"; };
-		B926BAC427B97B130050A549 /* XboxCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XboxCell.swift; sourceTree = "<group>"; };
-		B926BAC827B97B2B0050A549 /* NintendoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NintendoCell.swift; sourceTree = "<group>"; };
-		B93AF74027BA5515001D42AD /* CustomLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLayout.swift; sourceTree = "<group>"; };
 		B93AF74527BA90F3001D42AD /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		B93AF74727BA9112001D42AD /* Platform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Platform.swift; sourceTree = "<group>"; };
 		B93AF74A27BAA29E001D42AD /* SecretApiKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecretApiKey.swift; sourceTree = "<group>"; };
@@ -94,6 +86,7 @@
 		B9593AA627B8428E00A9A91F /* Tool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tool.swift; sourceTree = "<group>"; };
 		B95CC85627B7C44700FC4FDD /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		B966F5F927BE6A830022D9CD /* TableSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableSection.swift; sourceTree = "<group>"; };
+		B966F5FF27BEDC100022D9CD /* GameCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCardViewController.swift; sourceTree = "<group>"; };
 		B967461827B420A60037F729 /* MyGamesLibrary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyGamesLibrary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B967461B27B420A60037F729 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B967461D27B420A60037F729 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -114,16 +107,16 @@
 		B9BA031527B42FB700D32908 /* LogoAnimationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogoAnimationView.swift; sourceTree = "<group>"; };
 		B9BA031727B430BB00D32908 /* logoGif.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = logoGif.gif; sourceTree = "<group>"; };
 		B9BA032027B433DD00D32908 /* ApiErrorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiErrorManager.swift; sourceTree = "<group>"; };
-		B9BA032227B4345200D32908 /* Gamejot.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Gamejot.ttf; path = ../../../Font/Gamejot.ttf; sourceTree = "<group>"; };
-		B9BA032327B4345200D32908 /* Gameplay.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Gameplay.ttf; path = ../../../Font/Gameplay.ttf; sourceTree = "<group>"; };
+		B9BA032227B4345200D32908 /* Gamejot.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Gamejot.ttf; path = "../../../support files/Font/Gamejot.ttf"; sourceTree = "<group>"; };
+		B9BA032327B4345200D32908 /* Gamejot.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Gamejot.ttf; path = "../../../support files/Font/Gamejot.ttf"; sourceTree = "<group>"; };
 		B9BA032627B4368D00D32908 /* UILabel+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
 		B9BA032927B437D700D32908 /* PS4ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PS4ViewController.swift; sourceTree = "<group>"; };
 		B9BA032B27B437E500D32908 /* XboxOneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XboxOneViewController.swift; sourceTree = "<group>"; };
 		B9C5C4EF27B6875500A01409 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		B9C5C4F127B6876600A01409 /* MyLibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLibraryViewController.swift; sourceTree = "<group>"; };
-		B9C5C4F627B6B78800A01409 /* X360.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = X360.ttf; path = ../../../Font/X360.ttf; sourceTree = "<group>"; };
-		B9C5C4F827B6B79900A01409 /* zrnic rg.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "zrnic rg.ttf"; path = "../../../Font/zrnic/zrnic rg.ttf"; sourceTree = "<group>"; };
-		B9C5C4FC27B6B9C000A01409 /* HWYGCOND.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; name = HWYGCOND.TTF; path = ../../../Font/highway_gothic/HWYGCOND.TTF; sourceTree = "<group>"; };
+		B9C5C4F627B6B78800A01409 /* X360.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = X360.ttf; path = "../../../support files/Font/X360.ttf"; sourceTree = "<group>"; };
+		B9C5C4F827B6B79900A01409 /* zrnic rg.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "zrnic rg.ttf"; path = "../../../support files/Font/zrnic/zrnic rg.ttf"; sourceTree = "<group>"; };
+		B9C5C4FC27B6B9C000A01409 /* HWYGCOND.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; name = HWYGCOND.TTF; path = "../../../support files/Font/highway_gothic/HWYGCOND.TTF"; sourceTree = "<group>"; };
 		B9C5C4FE27B6BCF000A01409 /* NintendoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NintendoViewController.swift; sourceTree = "<group>"; };
 		B9C5C50227B6C9FD00A01409 /* GameTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTableViewCell.swift; sourceTree = "<group>"; };
 		B9C5C50327B6C9FD00A01409 /* GameTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameTableViewCell.xib; sourceTree = "<group>"; };
@@ -300,6 +293,7 @@
 				B9C5C4FE27B6BCF000A01409 /* NintendoViewController.swift */,
 				B9C5C4EF27B6875500A01409 /* SearchViewController.swift */,
 				B9C5C4F127B6876600A01409 /* MyLibraryViewController.swift */,
+				B966F5FF27BEDC100022D9CD /* GameCardViewController.swift */,
 				B9C5C50627B6DC6400A01409 /* Cells */,
 			);
 			path = Controller;
@@ -311,7 +305,7 @@
 				B9BA031D27B432E100D32908 /* LaunchScreenAnimation */,
 				B967461B27B420A60037F729 /* AppDelegate.swift */,
 				B967461D27B420A60037F729 /* SceneDelegate.swift */,
-				B9BA032327B4345200D32908 /* Gameplay.ttf */,
+				B9BA032327B4345200D32908 /* Gamejot.ttf */,
 				B9C5C4FC27B6B9C000A01409 /* HWYGCOND.TTF */,
 				B9C5C4F827B6B79900A01409 /* zrnic rg.ttf */,
 				B9C5C4F627B6B78800A01409 /* X360.ttf */,
@@ -373,10 +367,6 @@
 			isa = PBXGroup;
 			children = (
 				B9C5C50227B6C9FD00A01409 /* GameTableViewCell.swift */,
-				B926BAC027B97AF00050A549 /* PlaystationCell.swift */,
-				B926BAC427B97B130050A549 /* XboxCell.swift */,
-				B926BAC827B97B2B0050A549 /* NintendoCell.swift */,
-				B93AF74027BA5515001D42AD /* CustomLayout.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -501,7 +491,6 @@
 				B967462327B420A60037F729 /* Main.storyboard in Resources */,
 				B9C5C4FD27B6B9C000A01409 /* HWYGCOND.TTF in Resources */,
 				B9C5C4F727B6B78800A01409 /* X360.ttf in Resources */,
-				B9BA032527B4345200D32908 /* Gameplay.ttf in Resources */,
 				B9BA032427B4345200D32908 /* Gamejot.ttf in Resources */,
 				B9C5C4F927B6B79900A01409 /* zrnic rg.ttf in Resources */,
 			);
@@ -634,13 +623,11 @@
 				B9BA032C27B437E500D32908 /* XboxOneViewController.swift in Sources */,
 				B9BA032727B4368D00D32908 /* UILabel+Extension.swift in Sources */,
 				B9C5C4FF27B6BCF000A01409 /* NintendoViewController.swift in Sources */,
+				B966F60127BEDC100022D9CD /* GameCardViewController.swift in Sources */,
 				B9593AA727B8428E00A9A91F /* Tool.swift in Sources */,
-				B93AF74127BA5515001D42AD /* CustomLayout.swift in Sources */,
 				B93AF74827BA9112001D42AD /* Platform.swift in Sources */,
-				B926BAC227B97AF00050A549 /* PlaystationCell.swift in Sources */,
 				B967462027B420A60037F729 /* LaunchViewController.swift in Sources */,
 				B93AF74627BA90F3001D42AD /* Game.swift in Sources */,
-				B926BAC627B97B130050A549 /* XboxCell.swift in Sources */,
 				B967461C27B420A60037F729 /* AppDelegate.swift in Sources */,
 				B93DC3AF27BD405D005E0F7F /* UITextField+Extension.swift in Sources */,
 				B9BA031627B42FB700D32908 /* LogoAnimationView.swift in Sources */,
@@ -649,7 +636,6 @@
 				B9BA032127B433DD00D32908 /* ApiErrorManager.swift in Sources */,
 				B9C5C50427B6C9FD00A01409 /* GameTableViewCell.swift in Sources */,
 				B9C5C4F227B6876600A01409 /* MyLibraryViewController.swift in Sources */,
-				B926BACA27B97B2B0050A549 /* NintendoCell.swift in Sources */,
 				B9BA032A27B437D700D32908 /* PS4ViewController.swift in Sources */,
 				B93AF74B27BAA29E001D42AD /* SecretApiKey.swift in Sources */,
 				B967461E27B420A60037F729 /* SceneDelegate.swift in Sources */,
