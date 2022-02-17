@@ -22,6 +22,7 @@
 		B93DC3AF27BD405D005E0F7F /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93DC3AE27BD405D005E0F7F /* UITextField+Extension.swift */; };
 		B9593AA727B8428E00A9A91F /* Tool.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9593AA627B8428E00A9A91F /* Tool.swift */; };
 		B95CC85727B7C44700FC4FDD /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95CC85627B7C44700FC4FDD /* TabBarViewController.swift */; };
+		B966F5FA27BE6A830022D9CD /* TableSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B966F5F927BE6A830022D9CD /* TableSection.swift */; };
 		B967461C27B420A60037F729 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B967461B27B420A60037F729 /* AppDelegate.swift */; };
 		B967461E27B420A60037F729 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B967461D27B420A60037F729 /* SceneDelegate.swift */; };
 		B967462027B420A60037F729 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B967461F27B420A60037F729 /* LaunchViewController.swift */; };
@@ -92,6 +93,7 @@
 		B93DC3AE27BD405D005E0F7F /* UITextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
 		B9593AA627B8428E00A9A91F /* Tool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tool.swift; sourceTree = "<group>"; };
 		B95CC85627B7C44700FC4FDD /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		B966F5F927BE6A830022D9CD /* TableSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableSection.swift; sourceTree = "<group>"; };
 		B967461827B420A60037F729 /* MyGamesLibrary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyGamesLibrary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B967461B27B420A60037F729 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B967461D27B420A60037F729 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -336,6 +338,7 @@
 				B93AF74C27BAA52B001D42AD /* GameService.swift */,
 				B93AF74527BA90F3001D42AD /* Game.swift */,
 				B93AF74727BA9112001D42AD /* Platform.swift */,
+				B966F5F927BE6A830022D9CD /* TableSection.swift */,
 			);
 			path = RAWGService;
 			sourceTree = "<group>";
@@ -654,6 +657,7 @@
 				B9BA031427B42FAA00D32908 /* UIView+Extension.swift in Sources */,
 				B967462627B420A60037F729 /* MyGamesLibrary.xcdatamodeld in Sources */,
 				B95CC85727B7C44700FC4FDD /* TabBarViewController.swift in Sources */,
+				B966F5FA27BE6A830022D9CD /* TableSection.swift in Sources */,
 				B9C5C4F027B6875500A01409 /* SearchViewController.swift in Sources */,
 				B93DC3AD27BD3D1F005E0F7F /* Scanner.swift in Sources */,
 				B96B34CB27B95E0F00565053 /* AuthHelper.swift in Sources */,

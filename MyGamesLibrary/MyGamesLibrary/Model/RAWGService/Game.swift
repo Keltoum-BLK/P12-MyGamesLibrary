@@ -8,9 +8,11 @@
 import Foundation
 // MARK: - Games
 struct Games: Decodable {
+    let next: String?
     let results: [Game]?
     
     enum CodingKeys: String, CodingKey {
+        case next
         case results
     }
 }

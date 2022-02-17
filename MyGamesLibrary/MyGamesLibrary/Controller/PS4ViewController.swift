@@ -43,10 +43,9 @@ class PS4ViewController: UIViewController {
             guard let self = self else { return }
             switch result {
             case .success(let games):
-                DispatchQueue.main.async {
                     self.ps4Games = games.results
                     self.pS4GamesTableView.reloadData()
-                }
+                
             case .failure(let error):
                 print(error.description)
             }
@@ -81,7 +80,6 @@ extension PS4ViewController: UITableViewDelegate, UITableViewDataSource {
         cell.gameImage.downloaded(from: ps4Games?[indexPath.row].backgroundImage ?? "no image")
         cell.gameTitle.text = ps4Games?[indexPath.row].name ?? "no name"
         cell.gameTitle.textColor = .blue
-        cell.gameTypeLabel.text = Tool.shared.getDoubleToString(number: ps4Games?[indexPath.row].rating)
         Tool.shared.setUpShadowTableCell(color: UIColor.systemBlue.cgColor, cell: cell)
         return cell
     }

@@ -9,19 +9,11 @@ import UIKit
 
 class GameTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var gameContainerInfo: UIStackView!
     @IBOutlet weak var gameImage: UIImageView!
     @IBOutlet weak var gameTitle: UILabel!
     @IBOutlet weak var favoriteBTN: UIButton!
-    @IBOutlet weak var gameRating: UIStackView!
+    @IBOutlet weak var loaderLabel: UILabel!
     
-    @IBOutlet weak var star1: UIImageView!
-    @IBOutlet weak var star2: UIImageView!
-    @IBOutlet weak var star3: UIImageView!
-    @IBOutlet weak var star4: UIImageView!
-    @IBOutlet weak var star5: UIImageView!
-    
-
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -46,6 +38,7 @@ class GameTableViewCell: UITableViewCell {
         contentView.layer.cornerRadius = 20
         layer.cornerRadius = 20
         contentView.clipsToBounds = true
+        loaderLabel.isHidden = true 
     }
     
     private func setUpImage() {
@@ -58,37 +51,4 @@ class GameTableViewCell: UITableViewCell {
         ])
         
     }
-    
-    
-    //MARK: SetUp and method for update the rating star for each destination.
-    //condition to change the star's shape according to the rating
-    func setRating(for star : Int) {
-        switch star {
-        case 0:
-            star1.image = UIImage(systemName: "star")
-            star2.image = UIImage(systemName: "star")
-            star3.image = UIImage(systemName: "star")
-            star4.image = UIImage(systemName: "star")
-            star5.image = UIImage(systemName: "star")
-        case 1:
-            star2.image = UIImage(systemName: "star")
-            star3.image = UIImage(systemName: "star")
-            star4.image = UIImage(systemName: "star")
-            star5.image = UIImage(systemName: "star")
-            
-        case 2:
-            star3.image = UIImage(systemName: "star")
-            star4.image = UIImage(systemName: "star")
-            star5.image = UIImage(systemName: "star")
-        case 3:
-            star4.image = UIImage(systemName: "star")
-            star5.image = UIImage(systemName: "star")
-        case 4:
-            star5.image = UIImage(systemName: "star")
-            
-        default:
-            break
-        }
-    }
-    
 }

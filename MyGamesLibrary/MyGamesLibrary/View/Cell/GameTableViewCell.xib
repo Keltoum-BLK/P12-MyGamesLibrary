@@ -7,11 +7,6 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="Gameplay.ttf">
-            <string>Gameplay</string>
-        </array>
-    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -25,46 +20,6 @@
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gamesLibrary" translatesAutoresizingMaskIntoConstraints="NO" id="kFR-nz-wkD">
                         <rect key="frame" x="0.0" y="0.0" width="280" height="160"/>
                     </imageView>
-                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="yUw-SS-eIj">
-                        <rect key="frame" x="20" y="96" width="240" height="64"/>
-                        <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="y6n-ZU-LOV">
-                                <rect key="frame" x="0.0" y="0.0" width="110" height="32"/>
-                                <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="nqU-sb-7nr">
-                                        <rect key="frame" x="0.0" y="-0.5" width="22" height="32"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <color key="tintColor" red="1" green="0.84313725490000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </imageView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="8Ov-au-SXh">
-                                        <rect key="frame" x="22" y="-0.5" width="22" height="32"/>
-                                        <color key="tintColor" red="1" green="0.84313725490000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </imageView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="cQA-RD-jFv">
-                                        <rect key="frame" x="44" y="-0.5" width="22" height="32"/>
-                                        <color key="tintColor" red="1" green="0.84313725490000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </imageView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ekw-vY-fBB">
-                                        <rect key="frame" x="66" y="-0.5" width="22" height="32"/>
-                                        <color key="tintColor" red="1" green="0.84313725490000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </imageView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="rbd-dK-iUY">
-                                        <rect key="frame" x="88" y="-0.5" width="22" height="32"/>
-                                        <color key="tintColor" red="1" green="0.84313725490000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </imageView>
-                                </subviews>
-                            </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zPY-gx-kMp">
-                                <rect key="frame" x="0.0" y="32" width="110" height="32"/>
-                                <fontDescription key="fontDescription" name="Gameplay" family="Gameplay" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="y6n-ZU-LOV" secondAttribute="trailing" constant="20" id="qQ5-SJ-uaa"/>
-                        </constraints>
-                    </stackView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zNf-tn-NM8">
                         <rect key="frame" x="242" y="6" width="30" height="30"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -78,33 +33,40 @@
                             <imageReference key="image" image="heart.slash" catalog="system" symbolScale="large"/>
                         </state>
                     </button>
+                    <label autoresizesSubviews="NO" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zPY-gx-kMp">
+                        <rect key="frame" x="20" y="125" width="234" height="24"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uRE-N8-g37">
+                        <rect key="frame" x="106.5" y="69.5" width="67.5" height="21"/>
+                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="17"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 <constraints>
+                    <constraint firstAttribute="trailingMargin" secondItem="zPY-gx-kMp" secondAttribute="trailing" constant="10" id="5s1-kL-68m"/>
                     <constraint firstItem="kFR-nz-wkD" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="7Qx-v4-rw8"/>
-                    <constraint firstItem="yUw-SS-eIj" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="96" id="8PE-gf-Vwt"/>
-                    <constraint firstAttribute="trailing" secondItem="yUw-SS-eIj" secondAttribute="trailing" constant="20" id="G1S-LL-h1P"/>
-                    <constraint firstItem="yUw-SS-eIj" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="H87-vz-5Wf"/>
+                    <constraint firstItem="uRE-N8-g37" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="Fhc-9z-Aq9"/>
                     <constraint firstAttribute="bottom" secondItem="kFR-nz-wkD" secondAttribute="bottom" id="J8c-mN-Kh3"/>
+                    <constraint firstAttribute="bottom" secondItem="zPY-gx-kMp" secondAttribute="bottom" constant="11" id="KnU-Xr-YtY"/>
                     <constraint firstAttribute="trailing" secondItem="zNf-tn-NM8" secondAttribute="trailing" constant="8" id="MsM-bo-UT1"/>
                     <constraint firstAttribute="trailing" secondItem="kFR-nz-wkD" secondAttribute="trailing" id="SGy-vj-3an"/>
                     <constraint firstItem="zNf-tn-NM8" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="6" id="VXE-aF-xge"/>
+                    <constraint firstItem="zPY-gx-kMp" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="ZvO-XF-Lfd"/>
                     <constraint firstItem="kFR-nz-wkD" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="dsa-ZE-w5I"/>
-                    <constraint firstAttribute="bottom" secondItem="yUw-SS-eIj" secondAttribute="bottom" id="gf3-Jz-eR8"/>
+                    <constraint firstItem="uRE-N8-g37" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="kzH-xm-O20"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="favoriteBTN" destination="zNf-tn-NM8" id="fs2-nU-V8t"/>
-                <outlet property="gameContainerInfo" destination="yUw-SS-eIj" id="Dgq-0Y-X4z"/>
                 <outlet property="gameImage" destination="kFR-nz-wkD" id="tyU-eB-YE9"/>
-                <outlet property="gameRating" destination="y6n-ZU-LOV" id="Z9f-aU-sSG"/>
                 <outlet property="gameTitle" destination="zPY-gx-kMp" id="Wml-45-8dw"/>
-                <outlet property="star1" destination="nqU-sb-7nr" id="fmh-2x-6Dn"/>
-                <outlet property="star2" destination="8Ov-au-SXh" id="dUc-8B-hCt"/>
-                <outlet property="star3" destination="cQA-RD-jFv" id="lMk-eV-Ubs"/>
-                <outlet property="star4" destination="ekw-vY-fBB" id="QKx-xq-juF"/>
-                <outlet property="star5" destination="rbd-dK-iUY" id="cSc-nU-0QP"/>
+                <outlet property="loaderLabel" destination="uRE-N8-g37" id="MGA-PT-y6k"/>
             </connections>
             <point key="canvasLocation" x="102.89855072463769" y="161.38392857142856"/>
         </tableViewCell>
@@ -112,6 +74,5 @@
     <resources>
         <image name="gamesLibrary" width="3295" height="2328"/>
         <image name="heart.slash" catalog="system" width="128" height="115"/>
-        <image name="star" catalog="system" width="128" height="116"/>
     </resources>
 </document>

@@ -18,6 +18,8 @@ class SearchViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
     @IBOutlet weak var searchTableView: UITableView!
     
     private var searchGames: [Game]?
+    private var PageLimite = 25
+    private var nextPage: String? = nil 
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,19 +59,39 @@ class SearchViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
     
     @IBAction func getGames(_ sender: Any) {
         searchTextField.resignFirstResponder()
-        GameService.shared.fetchSearchGames(search: searchTextField.text ?? "The witcher", page: 1) { [weak self] result in
+        fetchDataGames()
+    }
+    
+    private func fetchDataGames (completed: ((Bool) -> Void)? = nil) {
+        GameService.shared.fetchSearchGames(search: searchTextField.text ?? "The witcher") { [weak self] result in
             guard let self = self else { return }
             switch result {
             case .success(let games):
-                DispatchQueue.main.async {
                     self.searchGames = games.results
                     self.searchTableView.reloadData()
-                }
+                    self.nextPage = games.next
+                    completed?(true)
             case .failure(let error):
                 print(error.description)
             }
         }
     }
+    
+    private func loadMore (completed: ((Bool) -> Void)? = nil) {
+        GameService.shared.loadMore(next: nextPage ?? "no next page") { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let games):
+                    self.searchGames = games.results
+                    self.searchTableView.reloadData()
+                    self.nextPage = games.next
+                    completed?(true)
+            case .failure(let error):
+                print(error.description)
+            }
+        }
+    }
+    
     
     @IBAction func getGamesbyBarcode(_ sender: Any) {
     }
@@ -89,15 +111,44 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let section = TableSection(rawValue: indexPath.section) else { return UITableViewCell() }
         let cell = searchTableView.dequeueReusableCell(withIdentifier: "GameTableViewCell", for: indexPath) as! GameTableViewCell
-        cell.favoriteBTN.isHidden = true
-        cell.gameImage.downloaded(from: searchGames?[indexPath.row].backgroundImage ?? "no image")
-        cell.gameTitle.text = searchGames?[indexPath.row].name ?? "no name"
-        cell.gameTitle.textColor = .black
-        cell.gameTypeLabel.text = Tool.shared.getDoubleToString(number: searchGames?[indexPath.row].rating)
-        Tool.shared.setUpShadowTableCell(color: UIColor.black.cgColor, cell: cell)
+        switch section {
+        case .gameList:
+            cell.favoriteBTN.isHidden = true
+            cell.gameImage.downloaded(from: searchGames?[indexPath.row].backgroundImage ?? "no image")
+            cell.gameTitle.text = searchGames?[indexPath.row].name ?? "no name"
+            cell.gameTitle.textColor = .black
+            Tool.shared.setUpShadowTableCell(color: UIColor.black.cgColor, cell: cell)
+        case .loader:
+            cell.loaderLabel.isHidden = false
+            cell.gameTitle.isHidden = true
+            cell.favoriteBTN.isHidden = true
+            cell.gameImage.isHidden = true
+            cell.backgroundColor = .white
+            cell.loaderLabel.text = "Loading.."
+        }
         return cell
     }
     
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        guard let section = TableSection(rawValue: indexPath.section) else { return }
+        
+        if section == .loader {
+            print("load new games")
+            loadMore() { [weak self] success in
+                if !success {
+                self?.hideBottomLoader()
+                }
+            }
+        }
+    }
     
+    private func hideBottomLoader() {
+            DispatchQueue.main.async {
+                guard let numberOfGames = self.searchGames?.count else { return }
+                let lastListIndexPath = IndexPath(row: numberOfGames - 1, section: TableSection.gameList.rawValue)
+                self.searchTableView.scrollToRow(at: lastListIndexPath, at: .bottom, animated: true)
+            }
+        }
 }
