@@ -143,7 +143,6 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
                 let scrollOffset = scrollView.contentOffset.y;
                 if (scrollOffset + scrollViewHeight == scrollContentSizeHeight) {
                     loadMoreData()
-                    searchTableView.setContentOffset(.zero, animated: true)
                 }
     }
     

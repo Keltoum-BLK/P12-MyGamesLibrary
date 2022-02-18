@@ -109,7 +109,7 @@ extension PS4ViewController: UITableViewDelegate, UITableViewDataSource {
                 let scrollOffset = scrollView.contentOffset.y;
                 if (scrollOffset + scrollViewHeight == scrollContentSizeHeight) {
                     loadMoreData()
-                    pS4GamesTableView.setContentOffset(.zero, animated: true)
+//                    pS4GamesTableView.setContentOffset(.zero, animated: true)
                 }
     }
     

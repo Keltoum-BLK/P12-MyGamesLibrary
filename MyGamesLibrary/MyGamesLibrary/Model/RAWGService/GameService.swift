@@ -10,7 +10,7 @@ import UIKit
 
 protocol NetworkService {
     func fetchGames(platform: Platform.RawValue, page: Int, completion: @escaping (Result<Games, APIError>) -> Void)
-    func fetchSearchGames(search: String, page_Size: Int, completion: @escaping (Result<Games, APIError>) -> Void)
+    func fetchSearchGames(search: String, completion: @escaping (Result<Games, APIError>) -> Void)
     func getDataFromUrl(next: String, completion: @escaping (Result<Games, APIError>) -> Void)
 }
 
@@ -65,16 +65,14 @@ class GameService: NetworkService {
         dataTask?.resume()
     }
     
-    func fetchSearchGames(search: String, page_Size: Int = 40, completion: @escaping (Result<Games, APIError>) -> Void) {
+    func fetchSearchGames(search: String, completion: @escaping (Result<Games, APIError>) -> Void) {
         var urlComponents = URLComponents()
         urlComponents.scheme = "https"
         urlComponents.host = "api.rawg.io"
         urlComponents.path = "/api/games"
         urlComponents.queryItems = [
             URLQueryItem(name: "key", value: SecretApiKey.rawgApiKey),
-            URLQueryItem(name: "search", value: search),
-            URLQueryItem(name: "plateforms", value: "18,7,1"),
-            URLQueryItem(name: "page_size", value: String(page_Size))]
+            URLQueryItem(name: "search", value: search)]
         
         guard let urlRawg = urlComponents.url?.absoluteString else { return }
         guard let url = URL(string: urlRawg) else { return }
