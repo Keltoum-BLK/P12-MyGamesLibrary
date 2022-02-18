@@ -97,6 +97,14 @@ class SearchViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
     }
     
     @IBAction func getGamesbyBarcode(_ sender: Any) {
+       let myscanVC = MyScanViewController()
+        let nav = UINavigationController(rootViewController: myscanVC)
+        
+        nav.modalPresentationStyle = .pageSheet
+        if let sheet = nav.sheetPresentationController {
+            sheet.detents = [.medium()]
+        }
+        present(nav, animated: true)
     }
     
     //MARK: Pop-up Alert

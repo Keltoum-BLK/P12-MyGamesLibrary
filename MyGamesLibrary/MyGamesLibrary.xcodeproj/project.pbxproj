@@ -16,6 +16,7 @@
 		B93AF74F27BAB33C001D42AD /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93AF74E27BAB33C001D42AD /* UIImageView+Extension.swift */; };
 		B93DC3AD27BD3D1F005E0F7F /* Scanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93DC3AC27BD3D1F005E0F7F /* Scanner.swift */; };
 		B93DC3AF27BD405D005E0F7F /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93DC3AE27BD405D005E0F7F /* UITextField+Extension.swift */; };
+		B94C115827BFAA54006BCB12 /* MyScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B94C115727BFAA54006BCB12 /* MyScanViewController.swift */; };
 		B9593AA727B8428E00A9A91F /* Tool.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9593AA627B8428E00A9A91F /* Tool.swift */; };
 		B95CC85727B7C44700FC4FDD /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95CC85627B7C44700FC4FDD /* TabBarViewController.swift */; };
 		B966F5FA27BE6A830022D9CD /* TableSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B966F5F927BE6A830022D9CD /* TableSection.swift */; };
@@ -83,6 +84,7 @@
 		B93AF74E27BAB33C001D42AD /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		B93DC3AC27BD3D1F005E0F7F /* Scanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scanner.swift; sourceTree = "<group>"; };
 		B93DC3AE27BD405D005E0F7F /* UITextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
+		B94C115727BFAA54006BCB12 /* MyScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyScanViewController.swift; sourceTree = "<group>"; };
 		B9593AA627B8428E00A9A91F /* Tool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tool.swift; sourceTree = "<group>"; };
 		B95CC85627B7C44700FC4FDD /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		B966F5F927BE6A830022D9CD /* TableSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableSection.swift; sourceTree = "<group>"; };
@@ -292,6 +294,7 @@
 				B9BA032B27B437E500D32908 /* XboxOneViewController.swift */,
 				B9C5C4FE27B6BCF000A01409 /* NintendoViewController.swift */,
 				B9C5C4EF27B6875500A01409 /* SearchViewController.swift */,
+				B94C115727BFAA54006BCB12 /* MyScanViewController.swift */,
 				B9C5C4F127B6876600A01409 /* MyLibraryViewController.swift */,
 				B966F5FF27BEDC100022D9CD /* GameCardViewController.swift */,
 				B9C5C50627B6DC6400A01409 /* Cells */,
@@ -643,6 +646,7 @@
 				B9BA031427B42FAA00D32908 /* UIView+Extension.swift in Sources */,
 				B967462627B420A60037F729 /* MyGamesLibrary.xcdatamodeld in Sources */,
 				B95CC85727B7C44700FC4FDD /* TabBarViewController.swift in Sources */,
+				B94C115827BFAA54006BCB12 /* MyScanViewController.swift in Sources */,
 				B966F5FA27BE6A830022D9CD /* TableSection.swift in Sources */,
 				B9C5C4F027B6875500A01409 /* SearchViewController.swift in Sources */,
 				B93DC3AD27BD3D1F005E0F7F /* Scanner.swift in Sources */,
