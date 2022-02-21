@@ -9,15 +9,18 @@ import UIKit
 import AVFoundation
 
 class MyScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
+
     //MARK: Properties
     var captureSession: AVCaptureSession!
     var previewLayer: AVCaptureVideoPreviewLayer!
-
+    var gameUPC = ""
+    var gameName = ""
+    var items: [Item]?
+    
     //MARK: Cycle Life
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor.black
-       
+        view.backgroundColor = UIColor.clear
         setupScan()
         
     }
@@ -37,9 +40,6 @@ class MyScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
         }
     }
     //MARK: Methods
-    
- 
-    
     private func setupScan() {
         captureSession = AVCaptureSession()
 
@@ -72,15 +72,16 @@ class MyScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
         }
 
         previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
-        previewLayer.frame = view.layer.bounds
+        previewLayer.frame = CGRect(x: 40, y: 80, width: 300, height: 200)
+        previewLayer.cornerRadius = 20
         previewLayer.videoGravity = .resizeAspectFill
         view.layer.addSublayer(previewLayer)
-
+        view.backgroundColor = .lightGray
         captureSession.startRunning()
     }
 
     private func failed() {
-        let ac = UIAlertController(title: "Scanning not supported", message: "Your device does not support scanning a code from an item. Please use a device with a camera.", preferredStyle: .alert)
+        let ac = UIAlertController(title: "Erreur de lecture", message: "Votre appareil ne prend pas en charge la numérisation d'un code à partir d'un élément. Veuillez utiliser un appareil avec une caméra.", preferredStyle: .alert)
         ac.addAction(UIAlertAction(title: "OK", style: .default))
         present(ac, animated: true)
         captureSession = nil
@@ -96,15 +97,40 @@ class MyScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
             AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
             found(code: stringValue)
         }
-
+//        if gameName == "" {
+//            self.showAlertMessageBeforeToDismiss(title: "Erreur détectée ⛔️", message: "Nous n'avons pas trouvé le jeu que vous cherchez, nous vous invitons à faire une recherche ou bien créer une fiche 👾")
+//        } else {
         dismiss(animated: true)
+//        }
     }
 
     func found(code: String) {
-        print(code)
+        gameUPC = code
     }
     
-    func getGameName() {
-        
+    private func getUpcInfo() {
+        GameService.shared.getDataWithUPC(barCode: gameUPC) {[weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let itemsList):
+                self.items = itemsList.items
+            case .failure(let error):
+                self.showAlertMessage(title: "Erreur détectée ⛔️", message: "Nous n'avons pas trouvé le jeu que vous cherchez, nous vous invitons à faire une recherche ou bien créer une fiche 👾 \n \(error.description)")
+                }
+            }
     }
+//    func getDataWithGameName() {
+//        GameService.shared.fetchSearchGames(search: gameName) { [weak self] result in
+//            guard let self = self else { return }
+//            switch result {
+//            case .success(let games):
+//                self.searchVC.searchGames = games.results
+//                self.searchVC.searchTableView.reloadData()
+//                self.searchVC.nextPage = games.next ?? "no next"
+//            case .failure(let error):
+//                print(error.description)
+//                self.showAlertMessage(title: "Erreur détectée ⛔️", message: "Nous n'avons pas trouvé le jeu que vous cherchez, essaye un autre jeu 👾, \n \(error.description)")
+//            }
+//        }
+//    }
 }

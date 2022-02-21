@@ -79,13 +79,6 @@ class NintendoViewController: UIViewController {
             }
         }
     }
-    
-    //MARK: Pop-up Alert
-       func showAlertMessage(title: String, message: String) {
-           let alert = UIAlertController(title: "\(title)", message: "\(message)", preferredStyle: .alert)
-           alert.addAction(UIAlertAction(title: "Done", style: .default, handler: nil))
-           self.present(alert, animated: true)
-       }
 }
 
 extension NintendoViewController: UITableViewDelegate, UITableViewDataSource {

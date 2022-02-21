@@ -33,6 +33,8 @@
 		B967464227B420A70037F729 /* MyGamesLibraryUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B967464127B420A70037F729 /* MyGamesLibraryUITestsLaunchTests.swift */; };
 		B96B34CA27B95DD400565053 /* AlertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96B34C827B95D6100565053 /* AlertHelper.swift */; };
 		B96B34CB27B95E0F00565053 /* AuthHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96B34C927B95D6300565053 /* AuthHelper.swift */; };
+		B99CAAA527C2561000358ADD /* Items.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99CAAA427C2561000358ADD /* Items.swift */; };
+		B99CAAA727C259F200358ADD /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99CAAA627C259F200358ADD /* UIViewController+Extension.swift */; };
 		B9BA031427B42FAA00D32908 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9BA031327B42FAA00D32908 /* UIView+Extension.swift */; };
 		B9BA031627B42FB700D32908 /* LogoAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9BA031527B42FB700D32908 /* LogoAnimationView.swift */; };
 		B9BA031827B430BB00D32908 /* logoGif.gif in Resources */ = {isa = PBXBuildFile; fileRef = B9BA031727B430BB00D32908 /* logoGif.gif */; };
@@ -105,6 +107,8 @@
 		B967464127B420A70037F729 /* MyGamesLibraryUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGamesLibraryUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		B96B34C827B95D6100565053 /* AlertHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertHelper.swift; sourceTree = "<group>"; };
 		B96B34C927B95D6300565053 /* AuthHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthHelper.swift; sourceTree = "<group>"; };
+		B99CAAA427C2561000358ADD /* Items.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Items.swift; sourceTree = "<group>"; };
+		B99CAAA627C259F200358ADD /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		B9BA031327B42FAA00D32908 /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		B9BA031527B42FB700D32908 /* LogoAnimationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogoAnimationView.swift; sourceTree = "<group>"; };
 		B9BA031727B430BB00D32908 /* logoGif.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = logoGif.gif; sourceTree = "<group>"; };
@@ -334,6 +338,7 @@
 				B9BA032027B433DD00D32908 /* ApiErrorManager.swift */,
 				B93AF74C27BAA52B001D42AD /* GameService.swift */,
 				B93AF74527BA90F3001D42AD /* Game.swift */,
+				B99CAAA427C2561000358ADD /* Items.swift */,
 				B93AF74727BA9112001D42AD /* Platform.swift */,
 				B966F5F927BE6A830022D9CD /* TableSection.swift */,
 			);
@@ -355,6 +360,7 @@
 				B9BA032627B4368D00D32908 /* UILabel+Extension.swift */,
 				B93AF74E27BAB33C001D42AD /* UIImageView+Extension.swift */,
 				B93DC3AE27BD405D005E0F7F /* UITextField+Extension.swift */,
+				B99CAAA627C259F200358ADD /* UIViewController+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -641,9 +647,11 @@
 				B9C5C4F227B6876600A01409 /* MyLibraryViewController.swift in Sources */,
 				B9BA032A27B437D700D32908 /* PS4ViewController.swift in Sources */,
 				B93AF74B27BAA29E001D42AD /* SecretApiKey.swift in Sources */,
+				B99CAAA727C259F200358ADD /* UIViewController+Extension.swift in Sources */,
 				B967461E27B420A60037F729 /* SceneDelegate.swift in Sources */,
 				B96B34CA27B95DD400565053 /* AlertHelper.swift in Sources */,
 				B9BA031427B42FAA00D32908 /* UIView+Extension.swift in Sources */,
+				B99CAAA527C2561000358ADD /* Items.swift in Sources */,
 				B967462627B420A60037F729 /* MyGamesLibrary.xcdatamodeld in Sources */,
 				B95CC85727B7C44700FC4FDD /* TabBarViewController.swift in Sources */,
 				B94C115827BFAA54006BCB12 /* MyScanViewController.swift in Sources */,
@@ -851,7 +859,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -884,7 +892,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

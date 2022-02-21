@@ -12,12 +12,11 @@ protocol NetworkService {
     func fetchGames(platform: Platform.RawValue, page: Int, completion: @escaping (Result<Games, APIError>) -> Void)
     func fetchSearchGames(search: String, completion: @escaping (Result<Games, APIError>) -> Void)
     func getDataFromUrl(next: String, completion: @escaping (Result<Games, APIError>) -> Void)
+    func getDataWithUPC(barCode: String, completion: @escaping (Result<ItemsList, APIError>) -> Void)
 }
 
 class GameService: NetworkService {
-   
-    
-    
+
     //MARK: Singleton
     static let shared = GameService()
     private init() {}
@@ -121,5 +120,36 @@ class GameService: NetworkService {
         dataTask?.resume()
     }
     
-}
+    func getDataWithUPC(barCode: String, completion: @escaping (Result<ItemsList, APIError>) -> Void) {
+        var urlComponents = URLComponents()
+        urlComponents.scheme = "https"
+        urlComponents.host = "api.upcitemdb.com"
+        urlComponents.path = "/prod/trial/lookup"
+        urlComponents.queryItems = [
+            URLQueryItem(name: "upc", value: barCode)]
 
+       guard let urlUPC = urlComponents.url?.absoluteString else { return }
+        guard let url = URL(string: urlUPC) else { return }
+
+        dataTask = session.dataTask(with: url) { (data, response, error) in
+            DispatchQueue.main.async {
+                guard error == nil else { completion(.failure(.server))
+                    return
+                }
+
+                guard let data = data, let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+                    completion(.failure(.network))
+                    return
+                }
+
+                guard let upcInfo = try? JSONDecoder().decode(ItemsList.self, from: data) else {
+                    completion(.failure(.decoding))
+                    return
+                }
+                completion(.success(upcInfo))
+            }
+        }
+        dataTask?.resume()
+        }
+}
+    

@@ -10,4 +10,5 @@ import Foundation
 class SecretApiKey {
     
     static let rawgApiKey = "d3ddbff177a54ba3aff10986628d8498"
+
 }

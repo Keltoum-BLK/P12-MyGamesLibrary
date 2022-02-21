@@ -81,13 +81,6 @@ class XboxOneViewController: UIViewController {
             xboxHeader.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: 0)
         ])
     }
-    
-    //MARK: Pop-up Alert
-       func showAlertMessage(title: String, message: String) {
-           let alert = UIAlertController(title: "\(title)", message: "\(message)", preferredStyle: .alert)
-           alert.addAction(UIAlertAction(title: "Done", style: .default, handler: nil))
-           self.present(alert, animated: true)
-       }
 }
 
 extension XboxOneViewController: UITableViewDelegate, UITableViewDataSource {

@@ -50,13 +50,13 @@ class PS4ViewController: UIViewController {
             }
         }
     }
-    
     private func loadMoreData() {
         GameService.shared.getDataFromUrl(next: nextPage) { [weak self] result in
             guard let self = self else { return }
             switch result {
             case .success(let games):
-                self.ps4Games = games.results
+                guard let gamesList = games.results else { return }
+                self.ps4Games?.append(contentsOf: gamesList)
                 self.nextPage = games.next ?? "no next page"
                 self.pS4GamesTableView.reloadData()
             case .failure(let error):
@@ -76,15 +76,9 @@ class PS4ViewController: UIViewController {
         ])
     }
 
-    //MARK: Pop-up Alert
-       func showAlertMessage(title: String, message: String) {
-           let alert = UIAlertController(title: "\(title)", message: "\(message)", preferredStyle: .alert)
-           alert.addAction(UIAlertAction(title: "Done", style: .default, handler: nil))
-           self.present(alert, animated: true)
-       }
 }
 
-extension PS4ViewController: UITableViewDelegate, UITableViewDataSource {
+extension PS4ViewController: UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return tableView.sizeWithTheDevice()
@@ -104,13 +98,11 @@ extension PS4ViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let scrollViewHeight = scrollView.frame.size.height;
-                let scrollContentSizeHeight = scrollView.contentSize.height;
-                let scrollOffset = scrollView.contentOffset.y;
-                if (scrollOffset + scrollViewHeight == scrollContentSizeHeight) {
-                    loadMoreData()
-//                    pS4GamesTableView.setContentOffset(.zero, animated: true)
-                }
+        let position = scrollView.contentOffset.y
+        if position > (pS4GamesTableView.contentSize.height-100-scrollView.frame.height) {
+            DispatchQueue.main.async {
+                self.loadMoreData()
+            }
+        }
     }
-    
 }

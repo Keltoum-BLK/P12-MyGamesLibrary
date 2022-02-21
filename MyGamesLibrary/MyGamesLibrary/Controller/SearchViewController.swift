@@ -8,7 +8,7 @@
 import UIKit
 import AVFoundation
 
-class SearchViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
+class SearchViewController: UIViewController {
     
     @IBOutlet weak var searchContainer: UIStackView!
     @IBOutlet weak var scanTitle: UILabel!
@@ -18,20 +18,30 @@ class SearchViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
     @IBOutlet weak var searchTableView: UITableView!
  
    
-    private var searchGames: [Game]?
-    private var nextPage: String = ""
+    var searchGames: [Game]? {
+        didSet {
+            searchTableView.reloadData()
+        }
+    }
+    
+    var nextPage: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         searchTableView.delegate = self
         searchTableView.dataSource = self
+        searchTextField.delegate = self
         setUpUI()
         setUpTableView()
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
     }
 
     func setUpUI() {
         view.backgroundColor = UIColor.white
-        searchBTN.backgroundColor = .lightGray
+        searchBTN.backgroundColor = .white
         searchBTN.layer.cornerRadius = searchBTN.frame.height / 2
         
         scanBTN.backgroundColor = .white
@@ -55,27 +65,33 @@ class SearchViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
             searchTableView.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor)
         ])
     }
+    //fetch Data to launch the search
+    private func fetchDataGames () {
+        guard let title = searchTextField.text else { return }
+        if title != ""{
+            GameService.shared.fetchSearchGames(search: title) { [weak self] result in
+                guard let self = self else { return }
+                switch result {
+                case .success(let games):
+                    self.searchGames = games.results
+                    self.nextPage = games.next ?? "no next"
+                case .failure(let error):
+                    print(error.description)
+                    self.showAlertMessage(title: "Erreur détectée ⛔️", message: "Nous n'avons pas trouvé le jeu que vous cherchez, essaye un autre nom 👾, \n \(error.description)")
+                }
+            }
+        } else {
+            self.showAlertMessage(title: "Erreur détectée ⛔️", message: "Vous ne pouvez pas faire requête avec un champ vide 👾.")
+        }
+    }
+    
     //search video games
     @IBAction func getGames(_ sender: Any) {
         searchTextField.resignFirstResponder()
+        searchTextField.text = ""
         fetchDataGames()
     }
-    
-    private func fetchDataGames () {
-        guard let title = searchTextField.text else { return }
-        GameService.shared.fetchSearchGames(search: title) { [weak self] result in
-            guard let self = self else { return }
-            switch result {
-            case .success(let games):
-                    self.searchGames = games.results
-                    self.searchTableView.reloadData()
-                    self.nextPage = games.next ?? "no next"
-            case .failure(let error):
-                print(error.description)
-                self.showAlertMessage(title: "Error", message: "Nous n'avons pas trouvé le jeu que vous cherchez, essaye un autre nom, \n \(error.description)")
-            }
-        }
-    }
+
     //load the next page of games data
     private func loadMoreData() {
         GameService.shared.getDataFromUrl(next: nextPage) { [weak self] result in
@@ -84,15 +100,9 @@ class SearchViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
             case .success(let games):
                 self.searchGames = games.results
                 self.nextPage = games.next ?? "no next page"
-                self.searchTableView.reloadData()
             case .failure(let error):
-                self.showAlertMessage(title: "Error", message: "Vous avez vu tout les jeux disponibles, \(error.description)")
+                self.showAlertMessage(title: "Erreur détectée ⛔️", message: "Vous avez vu tout les jeux disponibles, \(error.description)")
             }
-        }
-    }
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "SearchGameCard", let next = segue.destination as? GameCardViewController {
-            next.game = sender as? Game
         }
     }
     
@@ -107,13 +117,23 @@ class SearchViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
         present(nav, animated: true)
     }
     
-    //MARK: Pop-up Alert
-       func showAlertMessage(title: String, message: String) {
-           let alert = UIAlertController(title: "\(title)", message: "\(message)", preferredStyle: .alert)
-           alert.addAction(UIAlertAction(title: "Done", style: .default, handler: nil))
-           self.present(alert, animated: true)
-       }
+    //send data to the next Controller
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "SearchGameCard", let next = segue.destination as? GameCardViewController {
+            next.game = sender as? Game
+        }
+    }
     
+}
+
+extension SearchViewController: UITextFieldDelegate {
+
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        searchTextField.resignFirstResponder()
+        fetchDataGames()
+        searchTextField.text = ""
+        return true
+    }
 }
 
 extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
@@ -149,6 +169,4 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: "SearchGameCard", sender: searchGames?[indexPath.row])
     }
-    
-    
 }
