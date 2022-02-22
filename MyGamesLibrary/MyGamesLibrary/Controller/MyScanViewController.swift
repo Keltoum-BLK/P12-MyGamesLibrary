@@ -13,9 +13,11 @@ class MyScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
     //MARK: Properties
     var captureSession: AVCaptureSession!
     var previewLayer: AVCaptureVideoPreviewLayer!
-    var gameUPC = ""
-    var gameName = ""
+    var gameUPC: String = ""
+    var gameName: String = ""
     var items: [Item]?
+    var games: Games?
+    var searchController = SearchViewController()
     
     //MARK: Cycle Life
     override func viewDidLoad() {
@@ -96,16 +98,24 @@ class MyScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
             guard let stringValue = readableObject.stringValue else { return }
             AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
             found(code: stringValue)
+            getUpcInfo()
+            print(gameName)
+            print(games?.results?.count ?? 0)
+            getDataWithGameName()
         }
-//        if gameName == "" {
-//            self.showAlertMessageBeforeToDismiss(title: "Erreur détectée ⛔️", message: "Nous n'avons pas trouvé le jeu que vous cherchez, nous vous invitons à faire une recherche ou bien créer une fiche 👾")
-//        } else {
-        dismiss(animated: true)
-//        }
+        if gameName == "" {
+            self.showAlertMessageBeforeToDismiss(title: "Erreur détectée ⛔️", message: "Nous n'avons pas trouvé le jeu que vous cherchez, nous vous invitons à faire une recherche ou bien créer une fiche 👾")
+        } else {
+            dismiss(animated: true) { [self] in
+                self.searchController.searchGames = games?.results
+                self.searchController.nextPage = games?.next ?? "nope"
+            }
+        }
     }
 
     func found(code: String) {
         gameUPC = code
+        
     }
     
     private func getUpcInfo() {
@@ -113,24 +123,23 @@ class MyScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
             guard let self = self else { return }
             switch result {
             case .success(let itemsList):
-                self.items = itemsList.items
+                guard let title = itemsList.items.first?.title else { return }
+                self.gameName = title
             case .failure(let error):
                 self.showAlertMessage(title: "Erreur détectée ⛔️", message: "Nous n'avons pas trouvé le jeu que vous cherchez, nous vous invitons à faire une recherche ou bien créer une fiche 👾 \n \(error.description)")
                 }
             }
     }
-//    func getDataWithGameName() {
-//        GameService.shared.fetchSearchGames(search: gameName) { [weak self] result in
-//            guard let self = self else { return }
-//            switch result {
-//            case .success(let games):
-//                self.searchVC.searchGames = games.results
-//                self.searchVC.searchTableView.reloadData()
-//                self.searchVC.nextPage = games.next ?? "no next"
-//            case .failure(let error):
-//                print(error.description)
-//                self.showAlertMessage(title: "Erreur détectée ⛔️", message: "Nous n'avons pas trouvé le jeu que vous cherchez, essaye un autre jeu 👾, \n \(error.description)")
-//            }
-//        }
-//    }
+    func getDataWithGameName() {
+        GameService.shared.fetchSearchGames(search: gameName) { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let games):
+                self.games = games
+            case .failure(let error):
+                print(error.description)
+                self.showAlertMessage(title: "Erreur détectée ⛔️", message: "Nous n'avons pas trouvé le jeu que vous cherchez, essaye un autre jeu 👾, \n \(error.description)")
+            }
+        }
+    }
 }
