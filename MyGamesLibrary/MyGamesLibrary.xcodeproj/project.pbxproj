@@ -14,7 +14,7 @@
 		B93AF74B27BAA29E001D42AD /* SecretApiKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93AF74A27BAA29E001D42AD /* SecretApiKey.swift */; };
 		B93AF74D27BAA52B001D42AD /* GameService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93AF74C27BAA52B001D42AD /* GameService.swift */; };
 		B93AF74F27BAB33C001D42AD /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93AF74E27BAB33C001D42AD /* UIImageView+Extension.swift */; };
-		B93DC3AD27BD3D1F005E0F7F /* Scanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93DC3AC27BD3D1F005E0F7F /* Scanner.swift */; };
+		B93DC3AD27BD3D1F005E0F7F /* ScanData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93DC3AC27BD3D1F005E0F7F /* ScanData.swift */; };
 		B93DC3AF27BD405D005E0F7F /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93DC3AE27BD405D005E0F7F /* UITextField+Extension.swift */; };
 		B94C115827BFAA54006BCB12 /* MyScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B94C115727BFAA54006BCB12 /* MyScanViewController.swift */; };
 		B9593AA727B8428E00A9A91F /* Tool.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9593AA627B8428E00A9A91F /* Tool.swift */; };
@@ -51,6 +51,7 @@
 		B9C5C4FF27B6BCF000A01409 /* NintendoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9C5C4FE27B6BCF000A01409 /* NintendoViewController.swift */; };
 		B9C5C50427B6C9FD00A01409 /* GameTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9C5C50227B6C9FD00A01409 /* GameTableViewCell.swift */; };
 		B9C5C50527B6C9FD00A01409 /* GameTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9C5C50327B6C9FD00A01409 /* GameTableViewCell.xib */; };
+		B9D3687B27C62BAE00D2CC3D /* UPCScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D3687A27C62BAE00D2CC3D /* UPCScannerView.swift */; };
 		E26EFCA94BD55E4F31310E8D /* Pods_MyGamesLibrary_MyGamesLibraryUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8E621C1C6121DA6EBBE6EFD /* Pods_MyGamesLibrary_MyGamesLibraryUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -84,7 +85,7 @@
 		B93AF74A27BAA29E001D42AD /* SecretApiKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecretApiKey.swift; sourceTree = "<group>"; };
 		B93AF74C27BAA52B001D42AD /* GameService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameService.swift; sourceTree = "<group>"; };
 		B93AF74E27BAB33C001D42AD /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
-		B93DC3AC27BD3D1F005E0F7F /* Scanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scanner.swift; sourceTree = "<group>"; };
+		B93DC3AC27BD3D1F005E0F7F /* ScanData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanData.swift; sourceTree = "<group>"; };
 		B93DC3AE27BD405D005E0F7F /* UITextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
 		B94C115727BFAA54006BCB12 /* MyScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyScanViewController.swift; sourceTree = "<group>"; };
 		B9593AA627B8428E00A9A91F /* Tool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tool.swift; sourceTree = "<group>"; };
@@ -126,6 +127,7 @@
 		B9C5C4FE27B6BCF000A01409 /* NintendoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NintendoViewController.swift; sourceTree = "<group>"; };
 		B9C5C50227B6C9FD00A01409 /* GameTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTableViewCell.swift; sourceTree = "<group>"; };
 		B9C5C50327B6C9FD00A01409 /* GameTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameTableViewCell.xib; sourceTree = "<group>"; };
+		B9D3687A27C62BAE00D2CC3D /* UPCScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UPCScannerView.swift; sourceTree = "<group>"; };
 		C6FB3B454485BAB83D7BF11D /* Pods_MyGamesLibraryTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyGamesLibraryTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F216A4696F451C7195E091EE /* Pods-MyGamesLibrary.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyGamesLibrary.debug.xcconfig"; path = "Target Support Files/Pods-MyGamesLibrary/Pods-MyGamesLibrary.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -200,7 +202,7 @@
 		B93DC3AB27BD3D10005E0F7F /* Scanner */ = {
 			isa = PBXGroup;
 			children = (
-				B93DC3AC27BD3D1F005E0F7F /* Scanner.swift */,
+				B93DC3AC27BD3D1F005E0F7F /* ScanData.swift */,
 			);
 			path = Scanner;
 			sourceTree = "<group>";
@@ -234,7 +236,6 @@
 				B9BA031927B432AC00D32908 /* Model */,
 				B9BA031A27B432B100D32908 /* View */,
 				B9BA031B27B432BA00D32908 /* Controller */,
-				B9BA032827B4369300D32908 /* Extensions */,
 				B967462C27B420A70037F729 /* Info.plist */,
 			);
 			path = MyGamesLibrary;
@@ -274,8 +275,6 @@
 				B93AF74927BAA27E001D42AD /* SecretKey */,
 				B9BA031E27B4332A00D32908 /* RAWGService */,
 				B9593AA627B8428E00A9A91F /* Tool.swift */,
-				B96B34C927B95D6300565053 /* AuthHelper.swift */,
-				B96B34C827B95D6100565053 /* AlertHelper.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -283,8 +282,11 @@
 		B9BA031A27B432B100D32908 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				B967462127B420A60037F729 /* Main.storyboard */,
-				B93AF75027BABD59001D42AD /* Cell */,
+				B96B34C927B95D6300565053 /* AuthHelper.swift */,
+				B9D3687A27C62BAE00D2CC3D /* UPCScannerView.swift */,
+				B96B34C827B95D6100565053 /* AlertHelper.swift */,
+				B9D3687927C62B8800D2CC3D /* Storyboard */,
+				B9BA032827B4369300D32908 /* Extensions */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -378,6 +380,15 @@
 				B9C5C50227B6C9FD00A01409 /* GameTableViewCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		B9D3687927C62B8800D2CC3D /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				B967462127B420A60037F729 /* Main.storyboard */,
+				B93AF75027BABD59001D42AD /* Cell */,
+			);
+			path = Storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -655,9 +666,10 @@
 				B967462627B420A60037F729 /* MyGamesLibrary.xcdatamodeld in Sources */,
 				B95CC85727B7C44700FC4FDD /* TabBarViewController.swift in Sources */,
 				B94C115827BFAA54006BCB12 /* MyScanViewController.swift in Sources */,
+				B9D3687B27C62BAE00D2CC3D /* UPCScannerView.swift in Sources */,
 				B966F5FA27BE6A830022D9CD /* TableSection.swift in Sources */,
 				B9C5C4F027B6875500A01409 /* SearchViewController.swift in Sources */,
-				B93DC3AD27BD3D1F005E0F7F /* Scanner.swift in Sources */,
+				B93DC3AD27BD3D1F005E0F7F /* ScanData.swift in Sources */,
 				B96B34CB27B95E0F00565053 /* AuthHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

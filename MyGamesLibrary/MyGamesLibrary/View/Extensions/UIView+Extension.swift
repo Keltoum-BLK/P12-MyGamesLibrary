@@ -33,7 +33,7 @@ extension UIView {
         self.layer.insertSublayer(gradient, at: 0)
     }
     
-    
+    //the size adapts according to the device
     func sizeWithTheDevice() -> CGFloat {
         switch UIDevice.current.userInterfaceIdiom {
         case .phone:
@@ -46,6 +46,29 @@ extension UIView {
             break
         }
         return 200
+    }
+    
+    //MARK: UIConstraints
+    
+    func backgroundImage(view: UIView, multiplier: CGFloat) {
+        translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            widthAnchor.constraint(equalTo: view.widthAnchor),
+            topAnchor.constraint(equalTo: view.topAnchor),
+            heightAnchor.constraint(equalTo: view.heightAnchor,multiplier: multiplier),
+            leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 0),
+            trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: 0)
+        ])
+    }
+    
+    func tableViewConstraints(view: UIView) {
+        translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor, multiplier: 0.8),
+            topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 120),
+            bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 0),
+            centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor)
+        ])
     }
 }
 

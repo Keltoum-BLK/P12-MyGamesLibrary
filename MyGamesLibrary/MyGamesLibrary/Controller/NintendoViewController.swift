@@ -29,25 +29,19 @@ class NintendoViewController: UIViewController {
         nintendoHeader.addGradientLayerInBackground(frame: nintendoHeader.bounds, colors: [UIColor(ciColor: .clear), UIColor(ciColor: .white)])
     }
     
+    //send data to the next Controller
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "NintendoCard", let next = segue.destination as? GameCardViewController {
+            next.game = sender as? Game
+        }
+    }
+    
     private func setUpImage() {
-        nintendoHeader.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            nintendoHeader.widthAnchor.constraint(equalTo: view.widthAnchor),
-            nintendoHeader.topAnchor.constraint(equalTo: view.topAnchor),
-            nintendoHeader.heightAnchor.constraint(equalTo: view.heightAnchor,multiplier: 0.25),
-            nintendoHeader.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 0),
-            nintendoHeader.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: 0)
-        ])
+        nintendoHeader.backgroundImage(view: self.view, multiplier: 0.25)
     }
     private func setUpTableView() {
         nintendoTableView.register(UINib(nibName: "GameTableViewCell", bundle: nil), forCellReuseIdentifier: "GameTableViewCell")
-        nintendoTableView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            nintendoTableView.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor, multiplier: 0.8),
-            nintendoTableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 120),
-            nintendoTableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 0),
-            nintendoTableView.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor)
-        ])
+        nintendoTableView.tableViewConstraints(view: self.view)
     }
     
     private func getGames() {
@@ -55,11 +49,9 @@ class NintendoViewController: UIViewController {
             guard let self = self else { return }
             switch result {
             case .success(let games):
-                DispatchQueue.main.async {
                     self.nintendoGames = games.results
                     self.nintendoTableView.reloadData()
                     self.nextPage = games.next ?? "no next page"
-                }
             case .failure(let error):
                 self.showAlertMessage(title: "Error", message: "Une erreur est survenue, \(error.description)")
             }
@@ -71,7 +63,7 @@ class NintendoViewController: UIViewController {
             guard let self = self else { return }
             switch result {
             case .success(let games):
-                self.nintendoGames = games.results
+                self.nintendoGames?.append(contentsOf: games.results ?? [])
                 self.nextPage = games.next ?? "no next page"
                 self.nintendoTableView.reloadData()
             case .failure(let error):
@@ -103,11 +95,13 @@ extension NintendoViewController: UITableViewDelegate, UITableViewDataSource {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let scrollViewHeight = scrollView.frame.size.height;
-                let scrollContentSizeHeight = scrollView.contentSize.height;
-                let scrollOffset = scrollView.contentOffset.y;
-                if (scrollOffset + scrollViewHeight == scrollContentSizeHeight) {
-                    loadMoreData()
-                    nintendoTableView.setContentOffset(.zero, animated: true)
-                }
+              let scrollContentSizeHeight = scrollView.contentSize.height;
+              let scrollOffset = scrollView.contentOffset.y;
+              if (scrollOffset + scrollViewHeight == scrollContentSizeHeight) {
+                  loadMoreData()
+              }
+    }
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "NintendoCard", sender: nintendoGames?[indexPath.row])
     }
 }

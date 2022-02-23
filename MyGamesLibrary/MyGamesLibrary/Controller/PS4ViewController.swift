@@ -26,15 +26,22 @@ class PS4ViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         ps4Header.addGradientLayerInBackground(frame: ps4Header.bounds, colors: [UIColor(ciColor: .clear), UIColor(ciColor: .white)])
     }
+    
+    //send data to the next Controller
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "PlaystationCard", let next = segue.destination as? GameCardViewController {
+            next.game = sender as? Game
+        }
+        
+    }
+    
     private func setUpImage() {
-        ps4Header.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            ps4Header.widthAnchor.constraint(equalTo: view.widthAnchor),
-            ps4Header.topAnchor.constraint(equalTo: view.topAnchor),
-            ps4Header.heightAnchor.constraint(equalTo: view.heightAnchor,multiplier: 0.25),
-            ps4Header.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 0),
-            ps4Header.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: 0)
-        ])
+        ps4Header.backgroundImage(view: self.view, multiplier: 0.25)
+    }
+    
+    private func setUpTableView() {
+        pS4GamesTableView.register(UINib(nibName: "GameTableViewCell", bundle: nil), forCellReuseIdentifier: "GameTableViewCell")
+        pS4GamesTableView.tableViewConstraints(view: self.view)
     }
     
     private func getGames() {
@@ -42,9 +49,9 @@ class PS4ViewController: UIViewController {
             guard let self = self else { return }
             switch result {
             case .success(let games):
-                    self.ps4Games = games.results
-                    self.pS4GamesTableView.reloadData()
-                    self.nextPage = games.next ?? "no next page"
+                self.ps4Games = games.results
+                self.pS4GamesTableView.reloadData()
+                self.nextPage = games.next ?? "no next page"
             case .failure(let error):
                 self.showAlertMessage(title: "Error", message: "Une erreur est survenue, \(error.description)")
             }
@@ -55,8 +62,7 @@ class PS4ViewController: UIViewController {
             guard let self = self else { return }
             switch result {
             case .success(let games):
-                guard let gamesList = games.results else { return }
-                self.ps4Games?.append(contentsOf: gamesList)
+                self.ps4Games?.append(contentsOf: games.results ?? [])
                 self.nextPage = games.next ?? "no next page"
                 self.pS4GamesTableView.reloadData()
             case .failure(let error):
@@ -65,17 +71,6 @@ class PS4ViewController: UIViewController {
         }
     }
     
-    private func setUpTableView() {
-        pS4GamesTableView.register(UINib(nibName: "GameTableViewCell", bundle: nil), forCellReuseIdentifier: "GameTableViewCell")
-        pS4GamesTableView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            pS4GamesTableView.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor, multiplier: 0.8),
-            pS4GamesTableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 120),
-            pS4GamesTableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 0),
-            pS4GamesTableView.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor)
-        ])
-    }
-
 }
 
 extension PS4ViewController: UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate {
@@ -98,11 +93,16 @@ extension PS4ViewController: UITableViewDelegate, UITableViewDataSource, UIScrol
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let position = scrollView.contentOffset.y
-        if position > (pS4GamesTableView.contentSize.height-100-scrollView.frame.height) {
-            DispatchQueue.main.async {
-                self.loadMoreData()
-            }
-        }
+        let scrollViewHeight = scrollView.frame.size.height;
+              let scrollContentSizeHeight = scrollView.contentSize.height;
+              let scrollOffset = scrollView.contentOffset.y;
+              if (scrollOffset + scrollViewHeight == scrollContentSizeHeight) {
+                  loadMoreData()
+              }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(indexPath.row)
+        performSegue(withIdentifier: "PlaystationCard", sender: ps4Games?[indexPath.row])
     }
 }

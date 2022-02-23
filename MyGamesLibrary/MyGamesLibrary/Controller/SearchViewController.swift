@@ -57,13 +57,7 @@ class SearchViewController: UIViewController {
     
     private  func setUpTableView() {
         searchTableView.register(UINib(nibName: "GameTableViewCell", bundle: nil), forCellReuseIdentifier: "GameTableViewCell")
-        searchTableView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            searchTableView.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor, multiplier: 0.8),
-            searchTableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 159),
-            searchTableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 0),
-            searchTableView.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor)
-        ])
+        searchTableView.tableViewConstraints(view: self.view)
     }
     //fetch Data to launch the search
     private func fetchDataGames () {
@@ -75,6 +69,7 @@ class SearchViewController: UIViewController {
                 case .success(let games):
                     self.searchGames = games.results
                     self.nextPage = games.next ?? "no next"
+                    self.searchTextField.text = ""
                 case .failure(let error):
                     print(error.description)
                     self.showAlertMessage(title: "Erreur détectée ⛔️", message: "Nous n'avons pas trouvé le jeu que vous cherchez, essaye un autre nom 👾, \n \(error.description)")
@@ -88,7 +83,6 @@ class SearchViewController: UIViewController {
     //search video games
     @IBAction func getGames(_ sender: Any) {
         searchTextField.resignFirstResponder()
-        searchTextField.text = ""
         fetchDataGames()
     }
 
@@ -131,7 +125,6 @@ extension SearchViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         searchTextField.resignFirstResponder()
         fetchDataGames()
-        searchTextField.text = ""
         return true
     }
 }

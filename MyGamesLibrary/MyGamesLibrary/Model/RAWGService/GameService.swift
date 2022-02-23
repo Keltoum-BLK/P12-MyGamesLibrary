@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import UIKit
 
 protocol NetworkService {
     func fetchGames(platform: Platform.RawValue, page: Int, completion: @escaping (Result<Games, APIError>) -> Void)
