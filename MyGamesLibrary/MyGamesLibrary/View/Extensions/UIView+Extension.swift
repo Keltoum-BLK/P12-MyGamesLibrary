@@ -70,5 +70,12 @@ extension UIView {
             centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor)
         ])
     }
+
+    func addGameStackConstraints(view: UIView){
+        NSLayoutConstraint.activate([
+            centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
+            centerYAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerYAnchor),
+        ])
+    }
 }
 

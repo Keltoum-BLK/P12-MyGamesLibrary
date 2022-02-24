@@ -34,6 +34,7 @@
 		B96B34CB27B95E0F00565053 /* AuthHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96B34C927B95D6300565053 /* AuthHelper.swift */; };
 		B99CAAA527C2561000358ADD /* Items.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99CAAA427C2561000358ADD /* Items.swift */; };
 		B99CAAA727C259F200358ADD /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99CAAA627C259F200358ADD /* UIViewController+Extension.swift */; };
+		B9A01B2D27C800C60057B6F3 /* ScreenshotsViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A01B2C27C800C60057B6F3 /* ScreenshotsViewCell.swift */; };
 		B9BA031427B42FAA00D32908 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9BA031327B42FAA00D32908 /* UIView+Extension.swift */; };
 		B9BA031627B42FB700D32908 /* LogoAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9BA031527B42FB700D32908 /* LogoAnimationView.swift */; };
 		B9BA031827B430BB00D32908 /* logoGif.gif in Resources */ = {isa = PBXBuildFile; fileRef = B9BA031727B430BB00D32908 /* logoGif.gif */; };
@@ -107,6 +108,7 @@
 		B96B34C927B95D6300565053 /* AuthHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthHelper.swift; sourceTree = "<group>"; };
 		B99CAAA427C2561000358ADD /* Items.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Items.swift; sourceTree = "<group>"; };
 		B99CAAA627C259F200358ADD /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		B9A01B2C27C800C60057B6F3 /* ScreenshotsViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenshotsViewCell.swift; sourceTree = "<group>"; };
 		B9BA031327B42FAA00D32908 /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		B9BA031527B42FB700D32908 /* LogoAnimationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogoAnimationView.swift; sourceTree = "<group>"; };
 		B9BA031727B430BB00D32908 /* logoGif.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = logoGif.gif; sourceTree = "<group>"; };
@@ -270,7 +272,6 @@
 				B9C5C4F327B687A600A01409 /* UPCService */,
 				B93AF74927BAA27E001D42AD /* SecretKey */,
 				B9BA031E27B4332A00D32908 /* RAWGService */,
-				B9593AA627B8428E00A9A91F /* Tool.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -279,6 +280,7 @@
 			isa = PBXGroup;
 			children = (
 				B96B34C927B95D6300565053 /* AuthHelper.swift */,
+				B9593AA627B8428E00A9A91F /* Tool.swift */,
 				B9D3687927C62B8800D2CC3D /* Storyboard */,
 				B9BA032827B4369300D32908 /* Extensions */,
 			);
@@ -372,6 +374,7 @@
 			isa = PBXGroup;
 			children = (
 				B9C5C50227B6C9FD00A01409 /* GameTableViewCell.swift */,
+				B9A01B2C27C800C60057B6F3 /* ScreenshotsViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -652,6 +655,7 @@
 				B9C5C4F227B6876600A01409 /* MyLibraryViewController.swift in Sources */,
 				B9BA032A27B437D700D32908 /* PS4ViewController.swift in Sources */,
 				B93AF74B27BAA29E001D42AD /* SecretApiKey.swift in Sources */,
+				B9A01B2D27C800C60057B6F3 /* ScreenshotsViewCell.swift in Sources */,
 				B99CAAA727C259F200358ADD /* UIViewController+Extension.swift in Sources */,
 				B967461E27B420A60037F729 /* SceneDelegate.swift in Sources */,
 				B9BA031427B42FAA00D32908 /* UIView+Extension.swift in Sources */,

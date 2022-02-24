@@ -22,13 +22,14 @@ class GameCardViewController: UIViewController {
     @IBOutlet weak var release_date: UILabel!
     //rating
     @IBOutlet weak var addFavoriteStack: UIStackView!
+    @IBOutlet weak var backBTN: UIButton!
+    
+    @IBOutlet weak var ratingHeartsStack: UIStackView!
     @IBOutlet weak var heart1: UIImageView!
     @IBOutlet weak var heart2: UIImageView!
     @IBOutlet weak var heart3: UIImageView!
     @IBOutlet weak var heart4: UIImageView!
     @IBOutlet weak var heart5: UIImageView!
-    @IBOutlet weak var backBTN: UIButton!
-    
     
     var game: Game?
     var screenshots = [String]()
@@ -46,13 +47,17 @@ class GameCardViewController: UIViewController {
         gameImage.addGradientLayerInBackground(frame: gameImage.bounds, colors: [UIColor(ciColor: .clear), UIColor(ciColor: .white)])
     }
     private func setUp(){
+        screenshotCollectionView.dataSource = self
+        screenshotCollectionView.delegate = self
         //give data value to variables
         guard let finalGame = game else { return }
-        setRating(for: finalGame.rating ?? 0)
+//        setRating(for: finalGame.rating ?? 0)
         gameImage.cacheImage(urlString: finalGame.backgroundImage ?? "no image")
         gameTitle.text = finalGame.name ?? "no name"
         release_date.text = finalGame.released ?? "no date"
-       
+        setRating(for: finalGame.rating ?? 0)
+        
+        
         backBTN.backgroundColor = .white
         backBTN.layer.cornerRadius = backBTN.frame.height / 2
         
@@ -65,7 +70,6 @@ class GameCardViewController: UIViewController {
         xboxFavBTN.layer.cornerRadius = playstationFavBTN.frame.height / 2
         nintendoFavBTN.layer.cornerRadius = playstationFavBTN.frame.height / 2
         favBTN.layer.cornerRadius = playstationFavBTN.frame.height / 2
-        
     }
     private func setUpHeart(image : UIImageView) {
             image.image = UIImage(systemName: "heart.fill")
@@ -95,7 +99,7 @@ class GameCardViewController: UIViewController {
                 heart3.image = UIImage(systemName: "heart")
                 heart4.image = UIImage(systemName: "heart")
                 heart5.image = UIImage(systemName: "heart")
-                
+
             case 2:
                 heart3.image = UIImage(systemName: "heart")
                 heart4.image = UIImage(systemName: "heart")
@@ -105,7 +109,7 @@ class GameCardViewController: UIViewController {
                 heart5.image = UIImage(systemName: "heart")
             case 4:
                 heart5.image = UIImage(systemName: "heart")
-                
+
             default:
                 break
             }
@@ -128,7 +132,8 @@ extension GameCardViewController: UICollectionViewDelegate, UICollectionViewData
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = UICollectionViewCell()
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Screenshots", for: indexPath) as! ScreenshotsViewCell
+        cell.gameImage.cacheImage(urlString: screenshots[indexPath.row])
         return cell 
     }
     

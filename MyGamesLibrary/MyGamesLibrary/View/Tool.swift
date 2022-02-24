@@ -23,7 +23,7 @@ class Tool {
     func setUpShadowView(color: CGColor, view: UIView) {
         view.layer.shadowOpacity = 1
         view.layer.shadowColor = color
-        view.layer.shadowOffset = CGSize(width: 0, height: 5)
+        view.layer.shadowOffset = CGSize(width: 5, height: 5)
         view.layer.shadowRadius = 5
     }
     func setUpShadowCollectionCell(color: CGColor, cell: UICollectionViewCell) {

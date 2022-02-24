@@ -16,8 +16,10 @@ class SearchViewController: UIViewController {
     @IBOutlet weak var scanBTN: UIButton!
     @IBOutlet weak var searchBTN: UIButton!
     @IBOutlet weak var searchTableView: UITableView!
- 
-   
+    @IBOutlet weak var addGameStack: UIStackView!
+    @IBOutlet weak var addGameBTN: UIButton!
+    @IBOutlet weak var addLogo: UIImageView!
+    
     var searchGames: [Game]? {
         didSet {
             searchTableView.reloadData()
@@ -53,6 +55,15 @@ class SearchViewController: UIViewController {
         scanTitle.layer.cornerRadius = 20
         
         searchTextField.changeThePLaceholderFont(text: "Quel jeu cherches-tu?", textField: searchTextField)
+        
+        addGameStack.addGameStackConstraints(view: self.view)
+        addGameStack.layer.cornerRadius = 20
+        addLogo.image = UIImage(named: "icons8-game-controller-30")
+        addGameBTN.widthAnchor.constraint(equalToConstant: 150).isActive = true
+        addGameBTN.layer.cornerRadius = addGameBTN.frame.height / 2
+        Tool.shared.setUpShadowView(color: UIColor.black.cgColor, view: addGameBTN)
+        
+        searchTableView.isHidden = true
     }
     
     private  func setUpTableView() {
@@ -83,9 +94,14 @@ class SearchViewController: UIViewController {
     //search video games
     @IBAction func getGames(_ sender: Any) {
         searchTextField.resignFirstResponder()
+        addGameStack.isHidden = true
+        searchTableView.isHidden = false
         fetchDataGames()
     }
 
+    @IBAction func pushToTheForm(_ sender: Any) {
+    }
+    
     //load the next page of games data
     private func loadMoreData() {
         GameService.shared.getDataFromUrl(next: nextPage) { [weak self] result in
@@ -124,6 +140,8 @@ extension SearchViewController: UITextFieldDelegate {
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         searchTextField.resignFirstResponder()
+        addGameStack.isHidden = true
+        searchTableView.isHidden = false
         fetchDataGames()
         return true
     }
