@@ -19,7 +19,9 @@ class XboxOneViewController: UIViewController {
         super.viewDidLoad()
         xboxTableView.dataSource = self
         xboxTableView.delegate = self
-        getGames()
+        DispatchQueue.main.async {
+            self.getGames()
+        }
         setUpTableView()
         setUpImage()
         // Do any additional setup after loading the view.
@@ -27,12 +29,6 @@ class XboxOneViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         xboxHeader.addGradientLayerInBackground(frame: xboxHeader.bounds, colors: [UIColor(ciColor: .clear), UIColor(ciColor: .white)])
-    }
-    //send data to the next Controller
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "XboxCard", let next = segue.destination as? GameCardViewController {
-            next.game = sender as? Game
-        }
     }
     
     private func setUpImage() {
@@ -42,7 +38,7 @@ class XboxOneViewController: UIViewController {
     private  func setUpTableView() {
         xboxTableView.register(UINib(nibName: "GameTableViewCell", bundle: nil), forCellReuseIdentifier: "GameTableViewCell")
         
-        xboxTableView.tableViewConstraints(view: self.view)
+        xboxTableView.tableViewConstraints(view: self.view, constant: 120)
     }
     
     private func getGames() {
@@ -70,6 +66,12 @@ class XboxOneViewController: UIViewController {
             case .failure(let error):
                 self.showAlertMessage(title: "Error", message: "Vous avez vu tout les jeux disponibles, \(error.description)")
             }
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "XboxCard", let next = segue.destination as? GameCardViewController {
+            next.game = sender as? Game
         }
     }
     
@@ -103,9 +105,8 @@ extension XboxOneViewController: UITableViewDelegate, UITableViewDataSource {
                   loadMoreData()
               }
     }
-    
-    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-        print(indexPath.row)
-        self.performSegue(withIdentifier: "XboxCard", sender: xboxGames?[indexPath.row])
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "XboxCard", sender: xboxGames?[indexPath.row])
     }
 }

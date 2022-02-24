@@ -32,7 +32,6 @@ class PS4ViewController: UIViewController {
         if segue.identifier == "PlaystationCard", let next = segue.destination as? GameCardViewController {
             next.game = sender as? Game
         }
-        
     }
     
     private func setUpImage() {
@@ -41,7 +40,7 @@ class PS4ViewController: UIViewController {
     
     private func setUpTableView() {
         pS4GamesTableView.register(UINib(nibName: "GameTableViewCell", bundle: nil), forCellReuseIdentifier: "GameTableViewCell")
-        pS4GamesTableView.tableViewConstraints(view: self.view)
+        pS4GamesTableView.tableViewConstraints(view: self.view, constant: 120)
     }
     
     private func getGames() {
@@ -57,6 +56,7 @@ class PS4ViewController: UIViewController {
             }
         }
     }
+    
     private func loadMoreData() {
         GameService.shared.getDataFromUrl(next: nextPage) { [weak self] result in
             guard let self = self else { return }
@@ -70,7 +70,6 @@ class PS4ViewController: UIViewController {
             }
         }
     }
-    
 }
 
 extension PS4ViewController: UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate {

@@ -5,84 +5,102 @@
 //  Created by Kel_Jellysh on 18/02/2022.
 //
 
-import UIKit
 import AVFoundation
+import UIKit
 
 class MyScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
-    //MARK: Properties
-    @IBOutlet weak var scannerView: UPCScannerView! {
-        didSet {
-            scannerView.delegate = self 
-        }
-    }
-    @IBOutlet weak var scanBTN: UIButton! {
-        didSet {
-            scanBTN.setTitle("Stop", for: .normal)
-        }
-    }
-
-    var gameName: String = ""
-    var items: [Item]?
-    var games: [Game]?
-    var gameUPC: ScanData? = nil {
-        didSet {
-            if games != nil {
-                self.performSegue(withIdentifier: "SearchControllerID", sender: self)
-            }
-        }
-    }
-    var searchController = SearchViewController()
     
-    //MARK: Cycle Life
+    var captureSession: AVCaptureSession!
+    var previewLayer: AVCaptureVideoPreviewLayer!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
-    
-   
-    
-    private func getUpcInfo() {
-        guard let barCode = gameUPC?.scanData else {
+        
+        view.backgroundColor = UIColor.lightGray
+        captureSession = AVCaptureSession()
+        
+        guard let videoCaptureDevice = AVCaptureDevice.default(for: .video) else { return }
+        let videoInput: AVCaptureDeviceInput
+        
+        do {
+            videoInput = try AVCaptureDeviceInput(device: videoCaptureDevice)
+        } catch {
             return
         }
-        GameService.shared.getDataWithUPC(barCode: barCode) {[weak self] result in
-            guard let self = self else { return }
-            switch result {
-            case .success(let itemsList):
-                guard let title = itemsList.items.first?.title else { return }
-                self.gameName = title
-            case .failure(let error):
-                self.showAlertMessage(title: "Erreur détectée ⛔️", message: "Nous n'avons pas trouvé le jeu que vous cherchez, nous vous invitons à faire une recherche ou bien créer une fiche 👾 \n \(error.description)")
-                }
-            }
+        
+        if (captureSession.canAddInput(videoInput)) {
+            captureSession.addInput(videoInput)
+        } else {
+            failed()
+            return
+        }
+        
+        let metadataOutput = AVCaptureMetadataOutput()
+        
+        if (captureSession.canAddOutput(metadataOutput)) {
+            captureSession.addOutput(metadataOutput)
+            
+            metadataOutput.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
+            metadataOutput.metadataObjectTypes = [.ean8, .ean13, .pdf417]
+        } else {
+            failed()
+            return
+        }
+        
+        previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
+        previewLayer.frame = CGRect(x: 40, y: 80, width: 300, height: 200)
+        previewLayer.cornerRadius = 20
+        previewLayer.videoGravity = .resizeAspectFill
+        view.layer.addSublayer(previewLayer)
+        view.backgroundColor = .lightGray
+        captureSession.startRunning()
     }
-    func getDataWithGameName() {
-        GameService.shared.fetchSearchGames(search: gameName) { [weak self] result in
-            guard let self = self else { return }
-            switch result {
-            case .success(let games):
-                self.games = games.results
-            case .failure(let error):
-                print(error.description)
-                self.showAlertMessage(title: "Erreur détectée ⛔️", message: "Nous n'avons pas trouvé le jeu que vous cherchez, essaye un autre jeu 👾, \n \(error.description)")
-            }
+    
+    func failed() {
+        let ac = UIAlertController(title: "Scanning not supported", message: "Your device does not support scanning a code from an item. Please use a device with a camera.", preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "OK", style: .default))
+        present(ac, animated: true)
+        captureSession = nil
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if (captureSession?.isRunning == false) {
+            captureSession.startRunning()
         }
     }
-}
-
-extension MyScanViewController: UPCScannerViewDelegate {
-    func upcScanningDidFail() {
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
         
-        self.showAlertMessage(title: "Erreur détectée", message: "Impossible de lire le code barre, Veuillez réessayer.👾")
+        if (captureSession?.isRunning == true) {
+            captureSession.stopRunning()
+        }
     }
     
-    func upcScanningSucceededWithCode(_ str: String?) {
-        self.gameUPC = ScanData(scanData: str)
+    func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
+        captureSession.stopRunning()
+        
+        if let metadataObject = metadataObjects.first {
+            guard let readableObject = metadataObject as? AVMetadataMachineReadableCodeObject else { return }
+            guard let stringValue = readableObject.stringValue else { return }
+            AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
+            found(code: stringValue)
+        }
+        
+        dismiss(animated: true)
     }
     
-    func upcScanningDidStop() {
-        let buttonTitle = scannerView.isRunning ? "Stop" : "Scan"
-        scanBTN.setTitle(buttonTitle, for: .normal)
+    func found(code: String) {
+        print(code)
     }
     
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
     
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .portrait
+    }
 }

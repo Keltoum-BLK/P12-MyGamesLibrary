@@ -31,7 +31,6 @@
 		B967463627B420A70037F729 /* MyGamesLibraryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B967463527B420A70037F729 /* MyGamesLibraryTests.swift */; };
 		B967464027B420A70037F729 /* MyGamesLibraryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B967463F27B420A70037F729 /* MyGamesLibraryUITests.swift */; };
 		B967464227B420A70037F729 /* MyGamesLibraryUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B967464127B420A70037F729 /* MyGamesLibraryUITestsLaunchTests.swift */; };
-		B96B34CA27B95DD400565053 /* AlertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96B34C827B95D6100565053 /* AlertHelper.swift */; };
 		B96B34CB27B95E0F00565053 /* AuthHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96B34C927B95D6300565053 /* AuthHelper.swift */; };
 		B99CAAA527C2561000358ADD /* Items.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99CAAA427C2561000358ADD /* Items.swift */; };
 		B99CAAA727C259F200358ADD /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99CAAA627C259F200358ADD /* UIViewController+Extension.swift */; };
@@ -51,7 +50,6 @@
 		B9C5C4FF27B6BCF000A01409 /* NintendoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9C5C4FE27B6BCF000A01409 /* NintendoViewController.swift */; };
 		B9C5C50427B6C9FD00A01409 /* GameTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9C5C50227B6C9FD00A01409 /* GameTableViewCell.swift */; };
 		B9C5C50527B6C9FD00A01409 /* GameTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9C5C50327B6C9FD00A01409 /* GameTableViewCell.xib */; };
-		B9D3687B27C62BAE00D2CC3D /* UPCScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D3687A27C62BAE00D2CC3D /* UPCScannerView.swift */; };
 		E26EFCA94BD55E4F31310E8D /* Pods_MyGamesLibrary_MyGamesLibraryUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8E621C1C6121DA6EBBE6EFD /* Pods_MyGamesLibrary_MyGamesLibraryUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -106,7 +104,6 @@
 		B967463B27B420A70037F729 /* MyGamesLibraryUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyGamesLibraryUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B967463F27B420A70037F729 /* MyGamesLibraryUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGamesLibraryUITests.swift; sourceTree = "<group>"; };
 		B967464127B420A70037F729 /* MyGamesLibraryUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGamesLibraryUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		B96B34C827B95D6100565053 /* AlertHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertHelper.swift; sourceTree = "<group>"; };
 		B96B34C927B95D6300565053 /* AuthHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthHelper.swift; sourceTree = "<group>"; };
 		B99CAAA427C2561000358ADD /* Items.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Items.swift; sourceTree = "<group>"; };
 		B99CAAA627C259F200358ADD /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
@@ -127,7 +124,6 @@
 		B9C5C4FE27B6BCF000A01409 /* NintendoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NintendoViewController.swift; sourceTree = "<group>"; };
 		B9C5C50227B6C9FD00A01409 /* GameTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTableViewCell.swift; sourceTree = "<group>"; };
 		B9C5C50327B6C9FD00A01409 /* GameTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameTableViewCell.xib; sourceTree = "<group>"; };
-		B9D3687A27C62BAE00D2CC3D /* UPCScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UPCScannerView.swift; sourceTree = "<group>"; };
 		C6FB3B454485BAB83D7BF11D /* Pods_MyGamesLibraryTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyGamesLibraryTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F216A4696F451C7195E091EE /* Pods-MyGamesLibrary.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyGamesLibrary.debug.xcconfig"; path = "Target Support Files/Pods-MyGamesLibrary/Pods-MyGamesLibrary.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -283,8 +279,6 @@
 			isa = PBXGroup;
 			children = (
 				B96B34C927B95D6300565053 /* AuthHelper.swift */,
-				B9D3687A27C62BAE00D2CC3D /* UPCScannerView.swift */,
-				B96B34C827B95D6100565053 /* AlertHelper.swift */,
 				B9D3687927C62B8800D2CC3D /* Storyboard */,
 				B9BA032827B4369300D32908 /* Extensions */,
 			);
@@ -660,13 +654,11 @@
 				B93AF74B27BAA29E001D42AD /* SecretApiKey.swift in Sources */,
 				B99CAAA727C259F200358ADD /* UIViewController+Extension.swift in Sources */,
 				B967461E27B420A60037F729 /* SceneDelegate.swift in Sources */,
-				B96B34CA27B95DD400565053 /* AlertHelper.swift in Sources */,
 				B9BA031427B42FAA00D32908 /* UIView+Extension.swift in Sources */,
 				B99CAAA527C2561000358ADD /* Items.swift in Sources */,
 				B967462627B420A60037F729 /* MyGamesLibrary.xcdatamodeld in Sources */,
 				B95CC85727B7C44700FC4FDD /* TabBarViewController.swift in Sources */,
 				B94C115827BFAA54006BCB12 /* MyScanViewController.swift in Sources */,
-				B9D3687B27C62BAE00D2CC3D /* UPCScannerView.swift in Sources */,
 				B966F5FA27BE6A830022D9CD /* TableSection.swift in Sources */,
 				B9C5C4F027B6875500A01409 /* SearchViewController.swift in Sources */,
 				B93DC3AD27BD3D1F005E0F7F /* ScanData.swift in Sources */,

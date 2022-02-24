@@ -57,7 +57,7 @@ class SearchViewController: UIViewController {
     
     private  func setUpTableView() {
         searchTableView.register(UINib(nibName: "GameTableViewCell", bundle: nil), forCellReuseIdentifier: "GameTableViewCell")
-        searchTableView.tableViewConstraints(view: self.view)
+        searchTableView.tableViewConstraints(view: self.view, constant: 140)
     }
     //fetch Data to launch the search
     private func fetchDataGames () {
@@ -92,7 +92,7 @@ class SearchViewController: UIViewController {
             guard let self = self else { return }
             switch result {
             case .success(let games):
-                self.searchGames = games.results
+                self.searchGames?.append(contentsOf: games.results ?? [])
                 self.nextPage = games.next ?? "no next page"
             case .failure(let error):
                 self.showAlertMessage(title: "Erreur détectée ⛔️", message: "Vous avez vu tout les jeux disponibles, \(error.description)")

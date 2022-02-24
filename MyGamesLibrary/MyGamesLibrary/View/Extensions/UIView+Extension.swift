@@ -61,11 +61,11 @@ extension UIView {
         ])
     }
     
-    func tableViewConstraints(view: UIView) {
+    func tableViewConstraints(view: UIView, constant: CGFloat ) {
         translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor, multiplier: 0.8),
-            topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 120),
+            topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: constant),
             bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 0),
             centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor)
         ])

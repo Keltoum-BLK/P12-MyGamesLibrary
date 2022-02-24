@@ -40,7 +40,7 @@ class LaunchViewController: UIViewController {
                     self.performSegue(withIdentifier: "toMain", sender: nil)
                 } else {
                     if errString != nil {
-                        AlertHelper().errorAlert(errString!, self)
+                        self.errorAlert(errString!, self)
                     }
                 }
         }

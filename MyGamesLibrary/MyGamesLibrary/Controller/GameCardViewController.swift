@@ -31,6 +31,7 @@ class GameCardViewController: UIViewController {
     
     
     var game: Game?
+    var screenshots = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,6 +61,10 @@ class GameCardViewController: UIViewController {
         gameTitle.setMargins()
         gameTitle.textAlignment = .center
         
+        playstationFavBTN.layer.cornerRadius = playstationFavBTN.frame.height / 2
+        xboxFavBTN.layer.cornerRadius = playstationFavBTN.frame.height / 2
+        nintendoFavBTN.layer.cornerRadius = playstationFavBTN.frame.height / 2
+        favBTN.layer.cornerRadius = playstationFavBTN.frame.height / 2
         
     }
     private func setUpHeart(image : UIImageView) {
@@ -115,4 +120,17 @@ class GameCardViewController: UIViewController {
     @IBAction func BacktoTheList(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
+}
+
+extension GameCardViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = UICollectionViewCell()
+        return cell 
+    }
+    
+    
 }

@@ -28,8 +28,6 @@ class NintendoViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         nintendoHeader.addGradientLayerInBackground(frame: nintendoHeader.bounds, colors: [UIColor(ciColor: .clear), UIColor(ciColor: .white)])
     }
-    
-    //send data to the next Controller
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "NintendoCard", let next = segue.destination as? GameCardViewController {
             next.game = sender as? Game
@@ -41,7 +39,7 @@ class NintendoViewController: UIViewController {
     }
     private func setUpTableView() {
         nintendoTableView.register(UINib(nibName: "GameTableViewCell", bundle: nil), forCellReuseIdentifier: "GameTableViewCell")
-        nintendoTableView.tableViewConstraints(view: self.view)
+        nintendoTableView.tableViewConstraints(view: self.view, constant: 120)
     }
     
     private func getGames() {
@@ -101,7 +99,8 @@ extension NintendoViewController: UITableViewDelegate, UITableViewDataSource {
                   loadMoreData()
               }
     }
-    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: "NintendoCard", sender: nintendoGames?[indexPath.row])
     }
 }
