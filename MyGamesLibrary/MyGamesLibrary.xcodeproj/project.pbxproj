@@ -32,6 +32,7 @@
 		B967464027B420A70037F729 /* MyGamesLibraryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B967463F27B420A70037F729 /* MyGamesLibraryUITests.swift */; };
 		B967464227B420A70037F729 /* MyGamesLibraryUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B967464127B420A70037F729 /* MyGamesLibraryUITestsLaunchTests.swift */; };
 		B96B34CB27B95E0F00565053 /* AuthHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96B34C927B95D6300565053 /* AuthHelper.swift */; };
+		B98D725C27C8ECFF002C593D /* FormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98D725B27C8ECFF002C593D /* FormViewController.swift */; };
 		B99CAAA527C2561000358ADD /* Items.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99CAAA427C2561000358ADD /* Items.swift */; };
 		B99CAAA727C259F200358ADD /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99CAAA627C259F200358ADD /* UIViewController+Extension.swift */; };
 		B9A01B2D27C800C60057B6F3 /* ScreenshotsViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A01B2C27C800C60057B6F3 /* ScreenshotsViewCell.swift */; };
@@ -106,6 +107,7 @@
 		B967463F27B420A70037F729 /* MyGamesLibraryUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGamesLibraryUITests.swift; sourceTree = "<group>"; };
 		B967464127B420A70037F729 /* MyGamesLibraryUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGamesLibraryUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		B96B34C927B95D6300565053 /* AuthHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthHelper.swift; sourceTree = "<group>"; };
+		B98D725B27C8ECFF002C593D /* FormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormViewController.swift; sourceTree = "<group>"; };
 		B99CAAA427C2561000358ADD /* Items.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Items.swift; sourceTree = "<group>"; };
 		B99CAAA627C259F200358ADD /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		B9A01B2C27C800C60057B6F3 /* ScreenshotsViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenshotsViewCell.swift; sourceTree = "<group>"; };
@@ -300,6 +302,7 @@
 				B9C5C4F127B6876600A01409 /* MyLibraryViewController.swift */,
 				B966F5FF27BEDC100022D9CD /* GameCardViewController.swift */,
 				B9C5C50627B6DC6400A01409 /* Cells */,
+				B98D725B27C8ECFF002C593D /* FormViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -651,6 +654,7 @@
 				B93AF74F27BAB33C001D42AD /* UIImageView+Extension.swift in Sources */,
 				B93AF74D27BAA52B001D42AD /* GameService.swift in Sources */,
 				B9BA032127B433DD00D32908 /* ApiErrorManager.swift in Sources */,
+				B98D725C27C8ECFF002C593D /* FormViewController.swift in Sources */,
 				B9C5C50427B6C9FD00A01409 /* GameTableViewCell.swift in Sources */,
 				B9C5C4F227B6876600A01409 /* MyLibraryViewController.swift in Sources */,
 				B9BA032A27B437D700D32908 /* PS4ViewController.swift in Sources */,
