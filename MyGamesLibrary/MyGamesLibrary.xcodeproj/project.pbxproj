@@ -298,11 +298,11 @@
 				B9BA032B27B437E500D32908 /* XboxOneViewController.swift */,
 				B9C5C4FE27B6BCF000A01409 /* NintendoViewController.swift */,
 				B9C5C4EF27B6875500A01409 /* SearchViewController.swift */,
+				B98D725B27C8ECFF002C593D /* FormViewController.swift */,
 				B94C115727BFAA54006BCB12 /* MyScanViewController.swift */,
 				B9C5C4F127B6876600A01409 /* MyLibraryViewController.swift */,
 				B966F5FF27BEDC100022D9CD /* GameCardViewController.swift */,
 				B9C5C50627B6DC6400A01409 /* Cells */,
-				B98D725B27C8ECFF002C593D /* FormViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -328,7 +328,6 @@
 			children = (
 				B9BA031727B430BB00D32908 /* logoGif.gif */,
 				B9BA031527B42FB700D32908 /* LogoAnimationView.swift */,
-				B967462927B420A70037F729 /* LaunchScreen.storyboard */,
 			);
 			path = LaunchScreenAnimation;
 			sourceTree = "<group>";
@@ -386,6 +385,7 @@
 			isa = PBXGroup;
 			children = (
 				B967462127B420A60037F729 /* Main.storyboard */,
+				B967462927B420A70037F729 /* LaunchScreen.storyboard */,
 				B93AF75027BABD59001D42AD /* Cell */,
 			);
 			path = Storyboard;

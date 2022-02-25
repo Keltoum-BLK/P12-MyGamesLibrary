@@ -19,6 +19,7 @@ class SearchViewController: UIViewController {
     @IBOutlet weak var addGameStack: UIStackView!
     @IBOutlet weak var addGameBTN: UIButton!
     @IBOutlet weak var addLogo: UIImageView!
+    @IBOutlet weak var hideTabView: UIButton!
     
     var searchGames: [Game]? {
         didSet {
@@ -64,11 +65,13 @@ class SearchViewController: UIViewController {
         Tool.shared.setUpShadowView(color: UIColor.black.cgColor, view: addGameBTN)
         
         searchTableView.isHidden = true
+        
+        hideTabView.layer.cornerRadius = hideTabView.frame.height / 2
     }
     
     private  func setUpTableView() {
         searchTableView.register(UINib(nibName: "GameTableViewCell", bundle: nil), forCellReuseIdentifier: "GameTableViewCell")
-        searchTableView.tableViewConstraints(view: self.view, constant: 140)
+        searchTableView.tableViewConstraints(view: self.view, constant: 180)
     }
     //fetch Data to launch the search
     private func fetchDataGames () {
@@ -134,6 +137,10 @@ class SearchViewController: UIViewController {
         }
     }
     
+    @IBAction func hideTabViewAction(_ sender: Any) {
+        searchTableView.isHidden = true
+        addGameStack.isHidden = false 
+    }
 }
 
 extension SearchViewController: UITextFieldDelegate {

@@ -43,4 +43,16 @@ class Tool {
         
         return ID
     }
+    
+    func listOfScreenshots(game: Game, images: [String]) -> [String] {
+        var list = images
+        game.short_screenshots?.forEach({ image in
+            if image.image != game.short_screenshots?.last?.image {
+                list.append(image.image ?? "no data")
+            } else {
+                list.append(image.image ?? "no data")
+            }
+        })
+        return list
+    }
 }

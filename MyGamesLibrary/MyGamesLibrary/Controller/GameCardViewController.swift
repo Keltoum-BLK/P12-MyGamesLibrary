@@ -39,24 +39,24 @@ class GameCardViewController: UIViewController {
         setUp()
         setupConstraints()
         view.backgroundColor = .white
-        navigationItem.backButtonTitle = "back"
-        navigationItem.titleView?.tintColor = .black
-        // Do any additional setup after loading the view.
+      
+        screenshotCollectionView.dataSource = self
+        screenshotCollectionView.delegate = self
+        screenshotCollectionView.collectionViewLayout = UICollectionViewFlowLayout()
     }
     override func viewDidLayoutSubviews() {
         gameImage.addGradientLayerInBackground(frame: gameImage.bounds, colors: [UIColor(ciColor: .clear), UIColor(ciColor: .white)])
     }
     private func setUp(){
-        //        screenshotCollectionView.dataSource = self
-        //        screenshotCollectionView.delegate = self
-        //give data value to variables
+//        give data value to variables
         guard let finalGame = game else { return }
         //        setRating(for: finalGame.rating ?? 0)
         gameImage.cacheImage(urlString: finalGame.backgroundImage ?? "no image")
         gameTitle.text = finalGame.name ?? "no name"
         release_date.text = finalGame.released ?? "no date"
         setRating(for: finalGame.rating ?? 0)
-        
+        screenshots =  Tool.shared.listOfScreenshots(game: finalGame, images: self.screenshots)
+        screenshotCollectionView.showsHorizontalScrollIndicator = true 
         
         backBTN.backgroundColor = .white
         backBTN.layer.cornerRadius = backBTN.frame.height / 2
@@ -133,15 +133,19 @@ class GameCardViewController: UIViewController {
     }
 }
 
-extension GameCardViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension GameCardViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
+        return screenshots.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = UICollectionViewCell()
+        guard let finalGame = game else { return UICollectionViewCell() }
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ScreenshotsViewCell", for: indexPath) as! ScreenshotsViewCell
+        cell.setup(screenshot: finalGame.short_screenshots?[indexPath.row] ?? ShortScreenshot(id: 1, image: "no image"))
         return cell
     }
     
-    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 250, height: 190)
+    }
 }
