@@ -33,6 +33,7 @@ class GameCardViewController: UIViewController {
     
     var game: Game?
     var screenshots = [String]()
+    var layout = UICollectionViewFlowLayout()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,15 +43,17 @@ class GameCardViewController: UIViewController {
       
         screenshotCollectionView.dataSource = self
         screenshotCollectionView.delegate = self
-        screenshotCollectionView.collectionViewLayout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        screenshotCollectionView.collectionViewLayout = layout
     }
+    
     override func viewDidLayoutSubviews() {
         gameImage.addGradientLayerInBackground(frame: gameImage.bounds, colors: [UIColor(ciColor: .clear), UIColor(ciColor: .white)])
     }
+    
     private func setUp(){
 //        give data value to variables
         guard let finalGame = game else { return }
-        //        setRating(for: finalGame.rating ?? 0)
         gameImage.cacheImage(urlString: finalGame.backgroundImage ?? "no image")
         gameTitle.text = finalGame.name ?? "no name"
         release_date.text = finalGame.released ?? "no date"
@@ -146,6 +149,6 @@ extension GameCardViewController: UICollectionViewDataSource, UICollectionViewDe
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 250, height: 190)
+        return CGSize(width: 300, height: 200)
     }
 }

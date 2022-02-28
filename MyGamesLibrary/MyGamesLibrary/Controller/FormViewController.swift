@@ -16,9 +16,11 @@ class FormViewController: UIViewController {
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var releaseDateTextField: UITextField!
     @IBOutlet weak var imagePicker: UIImageView!
-    @IBOutlet weak var validateBTN: UIButton!
     @IBOutlet weak var takePicBTN: UIButton!
     @IBOutlet weak var ratingSlide: UISlider!
+    @IBOutlet weak var playstationBTN: UIButton!
+    @IBOutlet weak var xboxBTN: UIButton!
+    @IBOutlet weak var nintendoBTN: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,8 +28,11 @@ class FormViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     func setupUI() {
-        dismissBTN.layer.cornerRadius = 20
-        validateBTN.layer.cornerRadius = 20
+        playstationBTN.layer.cornerRadius = 20
+        xboxBTN.layer.cornerRadius = 20
+        nintendoBTN.layer.cornerRadius = 20
+        dismissBTN.layer.cornerRadius = dismissBTN.frame.height / 2
+        
         imagePicker.layer.cornerRadius = 20
         takePicBTN.layer.cornerRadius = 10
         titleTextField.changeThePLaceholderFont(text: "Saisissez le titre du jeu.", textField: self.titleTextField)
@@ -59,7 +64,8 @@ extension FormViewController: UINavigationControllerDelegate, PHPickerViewContro
         picker.dismiss(animated: true, completion: nil)
         
         results.forEach { result in
-            result.itemProvider.loadObject(ofClass: UIImage.self) { reading, error in
+            result.itemProvider.loadObject(ofClass: UIImage.self) { [weak self] reading, error in
+                guard let self = self else { return }
                 guard let image = reading as? UIImage, error == nil  else { return }
                 DispatchQueue.main.async {
                     self.imagePicker.image = image

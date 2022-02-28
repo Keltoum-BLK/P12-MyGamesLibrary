@@ -102,9 +102,7 @@ class SearchViewController: UIViewController {
         fetchDataGames()
     }
 
-    @IBAction func pushToTheForm(_ sender: Any) {
-    }
-    
+ 
     //load the next page of games data
     private func loadMoreData() {
         GameService.shared.getDataFromUrl(next: nextPage) { [weak self] result in

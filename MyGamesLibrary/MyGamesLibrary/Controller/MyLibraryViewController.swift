@@ -35,6 +35,17 @@ class MyLibraryViewController: UIViewController {
         xboxBTN.layer.cornerRadius = 20
         nintendoBTN.layer.cornerRadius = 20
     }
+    
+    @IBAction func playstationBtnAction(_ sender: Any) {
+    }
+    
+    @IBAction func xboxBTNAction(_ sender: Any) {
+    }
+    
+    @IBAction func nintendoBTNAction(_ sender: Any) {
+    }
+    
+    
 }
 
 

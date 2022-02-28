@@ -52,6 +52,7 @@
 		B9C5C4FF27B6BCF000A01409 /* NintendoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9C5C4FE27B6BCF000A01409 /* NintendoViewController.swift */; };
 		B9C5C50427B6C9FD00A01409 /* GameTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9C5C50227B6C9FD00A01409 /* GameTableViewCell.swift */; };
 		B9C5C50527B6C9FD00A01409 /* GameTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9C5C50327B6C9FD00A01409 /* GameTableViewCell.xib */; };
+		B9DFF4FF27CCC72A004E498E /* GamesFavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9DFF4FE27CCC72A004E498E /* GamesFavoriteViewController.swift */; };
 		E26EFCA94BD55E4F31310E8D /* Pods_MyGamesLibrary_MyGamesLibraryUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8E621C1C6121DA6EBBE6EFD /* Pods_MyGamesLibrary_MyGamesLibraryUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -128,6 +129,7 @@
 		B9C5C4FE27B6BCF000A01409 /* NintendoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NintendoViewController.swift; sourceTree = "<group>"; };
 		B9C5C50227B6C9FD00A01409 /* GameTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTableViewCell.swift; sourceTree = "<group>"; };
 		B9C5C50327B6C9FD00A01409 /* GameTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameTableViewCell.xib; sourceTree = "<group>"; };
+		B9DFF4FE27CCC72A004E498E /* GamesFavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesFavoriteViewController.swift; sourceTree = "<group>"; };
 		C6FB3B454485BAB83D7BF11D /* Pods_MyGamesLibraryTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyGamesLibraryTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F216A4696F451C7195E091EE /* Pods-MyGamesLibrary.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyGamesLibrary.debug.xcconfig"; path = "Target Support Files/Pods-MyGamesLibrary/Pods-MyGamesLibrary.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -302,6 +304,7 @@
 				B94C115727BFAA54006BCB12 /* MyScanViewController.swift */,
 				B9C5C4F127B6876600A01409 /* MyLibraryViewController.swift */,
 				B966F5FF27BEDC100022D9CD /* GameCardViewController.swift */,
+				B9DFF4FE27CCC72A004E498E /* GamesFavoriteViewController.swift */,
 				B9C5C50627B6DC6400A01409 /* Cells */,
 			);
 			path = Controller;
@@ -664,6 +667,7 @@
 				B967461E27B420A60037F729 /* SceneDelegate.swift in Sources */,
 				B9BA031427B42FAA00D32908 /* UIView+Extension.swift in Sources */,
 				B99CAAA527C2561000358ADD /* Items.swift in Sources */,
+				B9DFF4FF27CCC72A004E498E /* GamesFavoriteViewController.swift in Sources */,
 				B967462627B420A60037F729 /* MyGamesLibrary.xcdatamodeld in Sources */,
 				B95CC85727B7C44700FC4FDD /* TabBarViewController.swift in Sources */,
 				B94C115827BFAA54006BCB12 /* MyScanViewController.swift in Sources */,
