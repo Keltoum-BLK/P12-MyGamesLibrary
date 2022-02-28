@@ -575,18 +575,33 @@
                                         <rect key="frame" x="0.0" y="90" width="315" height="34"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="0.0"/>
+                                        <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="18"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notez le jeu sur 5:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wsc-fa-SMD">
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="dy8-Ae-gbv">
                                         <rect key="frame" x="0.0" y="129" width="315" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notez le jeu:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wsc-fa-SMD">
+                                                <rect key="frame" x="0.0" y="0.0" width="260" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="/5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YLe-ch-FJc">
+                                                <rect key="frame" x="265" y="0.0" width="50" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="5" minValue="0.0" maxValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="7Zk-WT-r10">
                                         <rect key="frame" x="-2" y="154.5" width="319" height="31"/>
-                                        <color key="minimumTrackTintColor" red="0.57625562060000002" green="0.10387228229999999" blue="0.074509803920000006" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="minimumTrackTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="maximumTrackTintColor" systemColor="tintColor"/>
+                                        <connections>
+                                            <action selector="ratingValue:" destination="D8c-9I-NBV" eventType="valueChanged" id="ax2-oh-A9p"/>
+                                        </connections>
                                     </slider>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="8Ds-bd-yjD">
                                         <rect key="frame" x="0.0" y="189.5" width="315" height="26"/>
@@ -662,7 +677,7 @@
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="1NB-ol-eBA"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.96085506679999999" green="0.96467119459999995" blue="0.98821061850000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="P4I-WI-3T4" firstAttribute="leading" secondItem="1NB-ol-eBA" secondAttribute="leading" constant="25" id="8ae-Z2-klm"/>
                             <constraint firstItem="1NB-ol-eBA" firstAttribute="trailing" secondItem="VuF-m6-C7K" secondAttribute="trailing" constant="40" id="Cf0-NU-H1x"/>
@@ -686,6 +701,7 @@
                         <outlet property="nintendoBTN" destination="hDY-gi-NMh" id="cKP-qH-eMa"/>
                         <outlet property="playstationBTN" destination="cdm-3W-f8B" id="jk2-Eq-bX3"/>
                         <outlet property="ratingSlide" destination="7Zk-WT-r10" id="BbM-Yw-Seg"/>
+                        <outlet property="ratingValue" destination="YLe-ch-FJc" id="FW1-v0-QIH"/>
                         <outlet property="releaseDateTextField" destination="wc3-qz-3TF" id="7Gx-mr-x9Q"/>
                         <outlet property="takePicBTN" destination="TEh-Ef-9eU" id="1uQ-gz-ecx"/>
                         <outlet property="titleTextField" destination="yaS-q6-ZRi" id="Jq1-68-IQz"/>
@@ -985,6 +1001,9 @@
         </systemColor>
         <systemColor name="systemGrayColor">
             <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="tintColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

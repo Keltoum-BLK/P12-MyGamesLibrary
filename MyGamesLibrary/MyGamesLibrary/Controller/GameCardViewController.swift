@@ -129,8 +129,8 @@ class GameCardViewController: UIViewController {
         //image constraints
         gameImage.backgroundImage(view: self.view, multiplier: 0.45)
         gameImage.contentMode = .scaleAspectFill
-        
     }
+    
     @IBAction func BacktoTheList(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }

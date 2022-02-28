@@ -13,8 +13,8 @@ class MyScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
     private var captureSession: AVCaptureSession!
     private var previewLayer: AVCaptureVideoPreviewLayer!
     
-    lazy var gameUPC = ""
-    lazy var gameName = ""
+    private var gameUPC = ""
+    private var gameName = ""
     var games: [Game]?
     private var item: [Item]?
     

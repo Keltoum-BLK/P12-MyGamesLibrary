@@ -40,10 +40,12 @@ class GamesFavoriteViewController: UIViewController {
      
        
         searchBarContainer.layer.cornerRadius = 20
+        Tool.shared.setUpShadowView(color: UIColor.black.cgColor, view: searchBarContainer)
+        
         searchTextField.changeThePLaceholderFont(text: "Quel jeu recherchez-vous?", textField: searchTextField.self)
         searchBTN.layer.cornerRadius = 10
         
-        gamesFavoriteTableView.tableViewConstraints(view: self.view, constant: 220)
+        gamesFavoriteTableView.tableViewConstraints(view: self.view, constant: 240)
         gamesFavoriteTableView.register(GameTableViewCell.self, forCellReuseIdentifier: "GameTableViewCell")
         gamesFavoriteTableView.dataSource = self
         gamesFavoriteTableView.delegate = self

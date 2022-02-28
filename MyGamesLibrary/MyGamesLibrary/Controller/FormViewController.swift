@@ -21,6 +21,7 @@ class FormViewController: UIViewController {
     @IBOutlet weak var playstationBTN: UIButton!
     @IBOutlet weak var xboxBTN: UIButton!
     @IBOutlet weak var nintendoBTN: UIButton!
+    @IBOutlet weak var ratingValue: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,7 +38,6 @@ class FormViewController: UIViewController {
         takePicBTN.layer.cornerRadius = 10
         titleTextField.changeThePLaceholderFont(text: "Saisissez le titre du jeu.", textField: self.titleTextField)
         releaseDateTextField.changeThePLaceholderFont(text: "Quand est-il sorti?", textField: self.releaseDateTextField)
-        
     }
     
     @IBAction func dismissBTN(_ sender: Any) {
@@ -51,6 +51,11 @@ class FormViewController: UIViewController {
         let pickerController = PHPickerViewController(configuration: configuration)
         pickerController.delegate = self
         present(pickerController, animated: true)
+    }
+    
+    
+    @IBAction func ratingValue(_ sender: UISlider) {
+        ratingValue.text = String(Int(sender.value)) + "/5"
     }
 }
 
