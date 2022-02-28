@@ -61,6 +61,7 @@ extension UIView {
         ])
     }
     
+ 
     func tableViewConstraints(view: UIView, constant: CGFloat ) {
         translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -72,6 +73,14 @@ extension UIView {
     }
 
     func addGameStackConstraints(view: UIView){
+        NSLayoutConstraint.activate([
+            centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
+            centerYAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerYAnchor),
+        ])
+    }
+    
+    func addLoaderConstraints(view: UIView) {
+        translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
             centerYAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerYAnchor),

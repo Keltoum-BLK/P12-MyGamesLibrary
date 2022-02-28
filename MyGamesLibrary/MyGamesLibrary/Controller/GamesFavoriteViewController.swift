@@ -19,9 +19,11 @@ class GamesFavoriteViewController: UIViewController {
     lazy var playstationFavorite = [Game]()
     lazy var xboxFavorite = [Game]()
     lazy var nintendoFavorite = [Game]()
+    var image: UIImage?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+       
         setup()
         // Do any additional setup after loading the view.
     }
@@ -30,8 +32,12 @@ class GamesFavoriteViewController: UIViewController {
     }
     
     private func setup() {
+        DispatchQueue.main.async {
+            self.backgroundImage.image = self.image
+        }
         dismissBTN.layer.cornerRadius = dismissBTN.frame.height / 2
         backgroundImage.backgroundImage(view: self.view, multiplier: 0.35)
+     
        
         searchBarContainer.layer.cornerRadius = 20
         searchTextField.changeThePLaceholderFont(text: "Quel jeu recherchez-vous?", textField: searchTextField.self)

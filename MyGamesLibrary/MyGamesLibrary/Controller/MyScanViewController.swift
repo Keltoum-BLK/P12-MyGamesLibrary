@@ -10,12 +10,22 @@ import UIKit
 
 class MyScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     
-    var captureSession: AVCaptureSession!
-    var previewLayer: AVCaptureVideoPreviewLayer!
+    private var captureSession: AVCaptureSession!
+    private var previewLayer: AVCaptureVideoPreviewLayer!
+    
+    lazy var gameUPC = ""
+    lazy var gameName = ""
+    var games: [Game]?
+    private var item: [Item]?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setup()
+
+    }
+    
+    private func setup() {
         view.backgroundColor = UIColor.lightGray
         captureSession = AVCaptureSession()
         
@@ -57,9 +67,7 @@ class MyScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
     }
     
     func failed() {
-        let ac = UIAlertController(title: "Scanning not supported", message: "Your device does not support scanning a code from an item. Please use a device with a camera.", preferredStyle: .alert)
-        ac.addAction(UIAlertAction(title: "OK", style: .default))
-        present(ac, animated: true)
+        self.showAlertMessageBeforeToDismiss(title: "Erreur détectée ⛔️", message: "Impossible de lire le code barre 👾.")
         captureSession = nil
     }
     
@@ -87,12 +95,20 @@ class MyScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
             guard let stringValue = readableObject.stringValue else { return }
             AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
             found(code: stringValue)
+            captureSession.stopRunning()
         }
-        
-        dismiss(animated: true)
+        games = getDataWithGameName()
+        dump(item)
+        dismiss(animated: true) {
+            let searchVC = SearchViewController()
+            searchVC.searchGames = self.games
+        }
     }
     
     func found(code: String) {
+        getUpcInfo()
+        gameName = item?.first?.title ?? "no title"
+        print(gameName)
         print(code)
     }
     
@@ -103,4 +119,32 @@ class MyScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return .portrait
     }
+    
+     private func getUpcInfo() {
+            GameService.shared.getDataWithUPC(barCode: gameUPC) {[weak self] result in
+                guard let self = self else { return }
+                switch result {
+                case .success(let itemsList):
+                    self.item = itemsList.items
+                case .failure(let error):
+                    self.showAlertMessageBeforeToDismiss(title: "Erreur détectée ⛔️", message: "Nous n'avons pas trouvé le jeu que vous cherchez, nous vous invitons à faire une recherche ou bien créer une fiche 👾 \n \(error.description)")
+                    }
+                }
+        }
+        
+    func getDataWithGameName() -> [Game] {
+            GameService.shared.fetchSearchGames(search: gameName) { [weak self] result in
+                guard let self = self else { return }
+                switch result {
+                case .success(let games):
+                    guard let gameList = games.results else { return }
+                    return self.games = gameList
+                case .failure(let error):
+                    self.showAlertMessageBeforeToDismiss(title: "Erreur détectée ⛔️", message: "Nous n'avons pas trouvé le jeu que vous cherchez, essaye un autre jeu 👾, \n \(error.description)")
+                    return self.games = []
+                }
+            }
+        dump(games)
+        return games ?? []
+        }
 }

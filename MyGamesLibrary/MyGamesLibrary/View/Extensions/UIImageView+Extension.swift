@@ -54,4 +54,15 @@ extension UIImageView {
         downloaded(from: url, contentMode: mode)
     }
     
+    func backgroundImageLibrary(view: UIView, multiplier: CGFloat, image: UIImage) {
+        self.image = image
+        translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            widthAnchor.constraint(equalTo: view.widthAnchor),
+            topAnchor.constraint(equalTo: view.topAnchor),
+            heightAnchor.constraint(equalTo: view.heightAnchor,multiplier: multiplier),
+            leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 0),
+            trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: 0)
+        ])
+    }
 }

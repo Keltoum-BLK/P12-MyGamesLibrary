@@ -40,6 +40,7 @@ class SearchViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        searchTableView.reloadData()
     }
 
     func setUpUI() {

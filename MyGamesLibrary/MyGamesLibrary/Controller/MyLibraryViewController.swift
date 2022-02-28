@@ -16,6 +16,11 @@ class MyLibraryViewController: UIViewController {
     @IBOutlet weak var nintendoBTN: UIButton!
     @IBOutlet weak var myLibraryLabel: UILabel!
     
+    var playstationImage = UIImage(named: "ps4Image")
+    var xboxImage = UIImage(named: "XboxImage")
+    var nintendoImage = UIImage(named: "switchImage")
+   
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpLabel()
@@ -36,13 +41,23 @@ class MyLibraryViewController: UIViewController {
         nintendoBTN.layer.cornerRadius = 20
     }
     
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "GamesLibraries", let next = segue.destination as? GamesFavoriteViewController {
+            next.image = sender as? UIImage
+        }
+    }
+    
     @IBAction func playstationBtnAction(_ sender: Any) {
+        performSegue(withIdentifier: "GamesLibraries", sender: playstationImage)
     }
     
     @IBAction func xboxBTNAction(_ sender: Any) {
+        performSegue(withIdentifier: "GamesLibraries", sender: xboxImage)
     }
     
     @IBAction func nintendoBTNAction(_ sender: Any) {
+        performSegue(withIdentifier: "GamesLibraries", sender: nintendoImage)
     }
     
     
