@@ -144,7 +144,7 @@ extension GameCardViewController: UICollectionViewDataSource, UICollectionViewDe
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let finalGame = game else { return UICollectionViewCell() }
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ScreenshotsViewCell", for: indexPath) as! ScreenshotsViewCell
-        cell.setup(screenshot: finalGame.short_screenshots?[indexPath.row] ?? ShortScreenshot(id: 1, image: "no image"))
+        cell.setup(screenshot: finalGame.short_screenshots?[indexPath.row] ?? ShortScreenshot(image: "no image"))
         return cell
     }
     

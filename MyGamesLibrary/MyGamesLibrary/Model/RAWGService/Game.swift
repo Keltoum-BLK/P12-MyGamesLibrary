@@ -19,8 +19,7 @@ struct Games: Decodable {
 
 // MARK: - Game
 struct Game: Decodable {
-    let slug, name: String?
-    let playtime: Int?
+    let name: String?
     let released: String?
     let backgroundImage: String?
     let rating: Double?
@@ -28,21 +27,19 @@ struct Game: Decodable {
     let short_screenshots: [ShortScreenshot]?
     
     enum CodingKeys: String, CodingKey {
-        case slug, name, playtime, released
+        case name, released
         case backgroundImage = "background_image"
         case rating
-        case  id
+        case id
         case short_screenshots
     }
 }
 
 // MARK: - ShortScreenshot
 struct ShortScreenshot: Decodable {
-    let id: Int?
     let image: String?
     
     enum CodingKeys: String, CodingKey {
-        case id
         case image
     }
     

@@ -16,7 +16,7 @@ class MyScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
     private var gameUPC = ""
     private var gameName = ""
     var games: [Game]?
-    private var item: [Item]?
+    private var item: ItemsList?
     
     
     override func viewDidLoad() {
@@ -96,20 +96,21 @@ class MyScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
             AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
             found(code: stringValue)
             captureSession.stopRunning()
+            getUPCInfo(gameCode: gameUPC)
+            gameName = item?.items.first?.title ?? "no title"
+            print(gameName)
         }
-        games = getDataWithGameName()
-        dump(item)
-        dismiss(animated: true) {
-            let searchVC = SearchViewController()
-            searchVC.searchGames = self.games
-        }
+//        games = getDataWithGameName()
+        dismiss(animated: true)
+//        {
+//            let searchVC = SearchViewController()
+//            searchVC.searchGames = self.games
+//        }
     }
     
     func found(code: String) {
-        getUpcInfo()
-        gameName = item?.first?.title ?? "no title"
-        print(gameName)
-        print(code)
+        gameUPC = code
+        print(gameUPC)
     }
     
     override var prefersStatusBarHidden: Bool {
@@ -120,18 +121,24 @@ class MyScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
         return .portrait
     }
     
-     private func getUpcInfo() {
-            GameService.shared.getDataWithUPC(barCode: gameUPC) {[weak self] result in
-                guard let self = self else { return }
-                switch result {
-                case .success(let itemsList):
-                    self.item = itemsList.items
-                case .failure(let error):
-                    self.showAlertMessageBeforeToDismiss(title: "Erreur détectée ⛔️", message: "Nous n'avons pas trouvé le jeu que vous cherchez, nous vous invitons à faire une recherche ou bien créer une fiche 👾 \n \(error.description)")
-                    }
+    private func getUPCInfo(gameCode: String){
+        if gameCode != "" {
+        GameService.shared.getDataWithUPC(barCode: gameCode) { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let searching):
+                self.item = searching
+            case .failure(let error):
+                self.showAlertMessageBeforeToDismiss(title: "Erreur détectée ⛔️", message: "Nous n'avons pas trouvé le jeu que vous cherchez, nous vous invitons à faire une recherche ou bien créer une fiche 👾 \n \(error.description)")
                 }
+            }
+        } else {
+            self.showAlertMessageBeforeToDismiss(title: "Erreur détectée ⛔️", message: "Nous n'avons pas trouvé le jeu que vous cherchez, nous vous invitons à faire une recherche ou bien créer une fiche 👾.")
         }
-        
+       
+}
+    
+
     func getDataWithGameName() -> [Game] {
             GameService.shared.fetchSearchGames(search: gameName) { [weak self] result in
                 guard let self = self else { return }
