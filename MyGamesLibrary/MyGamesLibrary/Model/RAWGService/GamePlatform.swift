@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum Platform: String {
+enum GamePlatform: String {
     case playstation = "18"
     case xbox = "1"
     case nintendo = "7"

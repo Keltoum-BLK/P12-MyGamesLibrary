@@ -14,7 +14,6 @@ class GamesFavoriteViewController: UIViewController {
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var searchBTN: UIButton!
     @IBOutlet weak var gamesFavoriteTableView: UITableView!
-    @IBOutlet weak var dismissBTN: UIButton!
     
     lazy var playstationFavorite = [Game]()
     lazy var xboxFavorite = [Game]()
@@ -35,7 +34,6 @@ class GamesFavoriteViewController: UIViewController {
         DispatchQueue.main.async {
             self.backgroundImage.image = self.image
         }
-        dismissBTN.layer.cornerRadius = dismissBTN.frame.height / 2
         backgroundImage.backgroundImage(view: self.view, multiplier: 0.35)
      
        
@@ -45,17 +43,12 @@ class GamesFavoriteViewController: UIViewController {
         searchTextField.changeThePLaceholderFont(text: "Quel jeu recherchez-vous?", textField: searchTextField.self)
         searchBTN.layer.cornerRadius = 10
         
-        gamesFavoriteTableView.tableViewConstraints(view: self.view, constant: 240)
+        gamesFavoriteTableView.tableViewConstraints(view: self.view, constant: 200)
         gamesFavoriteTableView.register(GameTableViewCell.self, forCellReuseIdentifier: "GameTableViewCell")
         gamesFavoriteTableView.dataSource = self
         gamesFavoriteTableView.delegate = self
     }
-    
-    @IBAction func dismissAction(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
-    }
 }
-
 extension GamesFavoriteViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return playstationFavorite.count
@@ -65,6 +58,4 @@ extension GamesFavoriteViewController: UITableViewDelegate, UITableViewDataSourc
         let cell = gamesFavoriteTableView.dequeueReusableCell(withIdentifier: "GameTableViewCell", for: indexPath) as! GameTableViewCell
         return cell 
     }
-    
-    
 }

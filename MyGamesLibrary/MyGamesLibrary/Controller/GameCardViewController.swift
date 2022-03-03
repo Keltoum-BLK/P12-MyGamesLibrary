@@ -13,17 +13,11 @@ class GameCardViewController: UIViewController {
     @IBOutlet weak var gameImage: UIImageView!
     @IBOutlet weak var screenshotCollectionView: UICollectionView!
     //btn to add in favorite
-    @IBOutlet weak var playstationFavBTN: UIButton!
-    @IBOutlet weak var xboxFavBTN: UIButton!
-    @IBOutlet weak var nintendoFavBTN: UIButton!
     @IBOutlet weak var favBTN: UIButton!
     //game's informations
     @IBOutlet weak var gameTitle: UILabel!
     @IBOutlet weak var release_date: UILabel!
     //rating
-    @IBOutlet weak var addFavoriteStack: UIStackView!
-    @IBOutlet weak var backBTN: UIButton!
-    
     @IBOutlet weak var ratingHeartsStack: UIStackView!
     @IBOutlet weak var heart1: UIImageView!
     @IBOutlet weak var heart2: UIImageView!
@@ -31,16 +25,20 @@ class GameCardViewController: UIViewController {
     @IBOutlet weak var heart4: UIImageView!
     @IBOutlet weak var heart5: UIImageView!
     
+    var gamesAdded = [MyGame]()
     var game: Game?
     var screenshots = [String]()
     var layout = UICollectionViewFlowLayout()
+    
+    //MARK: CoreDataManager
+    let coreDataManager = CoreDataManager(managedObjectContext: CoreDataStack.shared.mainContext)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setUp()
         setupConstraints()
         view.backgroundColor = .white
-      
+        
         screenshotCollectionView.dataSource = self
         screenshotCollectionView.delegate = self
         layout.scrollDirection = .horizontal
@@ -51,30 +49,33 @@ class GameCardViewController: UIViewController {
         gameImage.addGradientLayerInBackground(frame: gameImage.bounds, colors: [UIColor(ciColor: .clear), UIColor(ciColor: .white)])
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        //        if !coreDataManager.checkGameIsAlreadySaved(urlImage: game?.name ?? "no name") {
+        ////            favBTN.setImage(UIImage(systemName: "heart.slash"), for: .normal)
+        //        } else {
+        ////            favBTN.setImage(UIImage(systemName: "heart.fill"), for: .selected)
+        //        }
+    }
+    
     private func setUp(){
-//        give data value to variables
+        //        give data value to variables
         guard let finalGame = game else { return }
         gameImage.cacheImage(urlString: finalGame.backgroundImage ?? "no image")
         gameTitle.text = finalGame.name ?? "no name"
         release_date.text = finalGame.released ?? "no date"
         setRating(for: finalGame.rating ?? 0)
         screenshots =  Tool.shared.listOfScreenshots(game: finalGame, images: self.screenshots)
-        screenshotCollectionView.showsHorizontalScrollIndicator = true 
-        
-        backBTN.backgroundColor = .white
-        backBTN.layer.cornerRadius = backBTN.frame.height / 2
+        screenshotCollectionView.showsHorizontalScrollIndicator = true
         
         gameTitle.layer.cornerRadius = gameTitle.frame.height / 2
         gameTitle.layer.masksToBounds = true
         gameTitle.setMargins()
         gameTitle.textAlignment = .center
         
-        playstationFavBTN.layer.cornerRadius = playstationFavBTN.frame.height / 2
-        xboxFavBTN.layer.cornerRadius = playstationFavBTN.frame.height / 2
-        nintendoFavBTN.layer.cornerRadius = playstationFavBTN.frame.height / 2
-        favBTN.layer.cornerRadius = playstationFavBTN.frame.height / 2
+        //
+        favBTN.layer.cornerRadius = favBTN.frame.height / 2
+        Tool.shared.setUpShadowView(color: UIColor.black.cgColor, view: favBTN)
         
-        addFavoriteStack.translatesAutoresizingMaskIntoConstraints = false
         heart1.translatesAutoresizingMaskIntoConstraints = false
         heart2.translatesAutoresizingMaskIntoConstraints = false
         heart3.translatesAutoresizingMaskIntoConstraints = false
@@ -131,8 +132,28 @@ class GameCardViewController: UIViewController {
         gameImage.contentMode = .scaleAspectFill
     }
     
-    @IBAction func BacktoTheList(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
+    func checkData() {
+        gamesAdded = coreDataManager.fetchGames(mygames: self.gamesAdded)
+    }
+    @IBAction func addGameInLibrary(_ sender: Any) {
+        addGameInLibraryWithPlatform()
+    }
+    
+    private func addGameInLibraryWithPlatform() {
+        let tabBarViewControllers = tabBarController?.viewControllers
+        dump(tabBarViewControllers)
+        self.showAlertMessage(title: "Félicitation 🤓", message: "Ton jeu est bien ajouté à ton catalogue 👾.")
+       
+            if tabBarViewControllers?[0] == tabBarViewControllers?[0] {
+                game?.platforms = [Platform(name: "Playstation 4")]
+                coreDataManager.addGame(game: game ?? Game(name: "", released: "", backgroundImage: "", rating: 0, platforms: [], short_screenshots: []))
+            } else if tabBarViewControllers?[1] == tabBarViewControllers?[1] {
+                game?.platforms = [Platform(name: "Xbox One")]
+                coreDataManager.addGame(game: game ?? Game(name: "", released: "", backgroundImage: "", rating: 0, platforms: [], short_screenshots: []))
+            } else {
+                game?.platforms = [Platform(name: "Nintendo Switch")]
+                coreDataManager.addGame(game: game ?? Game(name: "", released: "", backgroundImage: "", rating: 0, platforms: [], short_screenshots: []))
+            }
     }
 }
 
@@ -149,6 +170,6 @@ extension GameCardViewController: UICollectionViewDataSource, UICollectionViewDe
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 300, height: 200)
+        return CGSize(width: 270, height: 170)
     }
 }

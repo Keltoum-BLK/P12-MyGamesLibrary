@@ -6,8 +6,10 @@
 //
 
 import UIKit
+import CoreData
 
 extension UIViewController {
+    
     //MARK: Pop-Up Alert 
     func showAlertMessage(title: String, message: String) {
           let alert = UIAlertController(title: "\(title)", message: "\(message)", preferredStyle: .alert)
@@ -40,4 +42,13 @@ extension UIViewController {
             alert.dismiss(animated: true)
         }
     }
+    
+    func setupNavigationBack() {
+        let backButton = UIBarButtonItem()
+        backButton.image = UIImage(systemName: "arrowshape.turn.up.left.fill")
+        navigationController?.navigationBar.tintColor = .black
+        self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
+    }
 }
+
+

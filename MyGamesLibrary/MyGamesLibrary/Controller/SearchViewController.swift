@@ -44,6 +44,7 @@ class SearchViewController: UIViewController {
     }
 
     func setUpUI() {
+        self.setupNavigationBack()
         view.backgroundColor = UIColor.white
         searchBTN.backgroundColor = .white
         searchBTN.layer.cornerRadius = searchBTN.frame.height / 2
@@ -72,7 +73,7 @@ class SearchViewController: UIViewController {
     
     private  func setUpTableView() {
         searchTableView.register(UINib(nibName: "GameTableViewCell", bundle: nil), forCellReuseIdentifier: "GameTableViewCell")
-        searchTableView.tableViewConstraints(view: self.view, constant: 180)
+        searchTableView.tableViewConstraints(view: self.view, constant: 160)
     }
     //fetch Data to launch the search
     private func fetchDataGames () {
@@ -166,7 +167,6 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = searchTableView.dequeueReusableCell(withIdentifier: "GameTableViewCell", for: indexPath) as! GameTableViewCell
-            cell.favoriteBTN.isHidden = true
             cell.gameImage.cacheImage(urlString: searchGames?[indexPath.row].backgroundImage ?? "no image")
             cell.gameTitle.text = searchGames?[indexPath.row].name ?? "no name"
             cell.gameTitle.textColor = .black

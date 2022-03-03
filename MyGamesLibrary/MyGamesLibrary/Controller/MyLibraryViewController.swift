@@ -25,6 +25,7 @@ class MyLibraryViewController: UIViewController {
         super.viewDidLoad()
         setUpLabel()
         setupBTN()
+        self.setupNavigationBack()
     }
 
     
@@ -59,8 +60,6 @@ class MyLibraryViewController: UIViewController {
     @IBAction func nintendoBTNAction(_ sender: Any) {
         performSegue(withIdentifier: "GamesLibraries", sender: nintendoImage)
     }
-    
-    
 }
 
 

@@ -35,15 +35,16 @@ class NintendoViewController: UIViewController {
     }
     
     private func setUpImage() {
+        self.setupNavigationBack()
         nintendoHeader.backgroundImage(view: self.view, multiplier: 0.25)
     }
     private func setUpTableView() {
         nintendoTableView.register(UINib(nibName: "GameTableViewCell", bundle: nil), forCellReuseIdentifier: "GameTableViewCell")
-        nintendoTableView.tableViewConstraints(view: self.view, constant: 120)
+        nintendoTableView.tableViewConstraints(view: self.view, constant: 100)
     }
     
     private func getGames() {
-        GameService.shared.fetchGames(platform: Platform.nintendo.rawValue, page: 1) { [weak self] result in
+        GameService.shared.fetchGames(platform: GamePlatform.nintendo.rawValue, page: 1) { [weak self] result in
             guard let self = self else { return }
             switch result {
             case .success(let games):

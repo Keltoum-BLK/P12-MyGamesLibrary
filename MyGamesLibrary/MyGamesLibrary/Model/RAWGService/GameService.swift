@@ -8,7 +8,7 @@
 import Foundation
 
 protocol NetworkService {
-    func fetchGames(platform: Platform.RawValue, page: Int, completion: @escaping (Result<Games, APIError>) -> Void)
+    func fetchGames(platform: GamePlatform.RawValue, page: Int, completion: @escaping (Result<Games, APIError>) -> Void)
     func fetchSearchGames(search: String, completion: @escaping (Result<Games, APIError>) -> Void)
     func getDataFromUrl(next: String, completion: @escaping (Result<Games, APIError>) -> Void)
     func getDataWithUPC(barCode: String, completion: @escaping (Result<ItemsList, APIError>) -> Void)
@@ -28,7 +28,7 @@ class GameService: NetworkService {
         self.session = session
     }
     
-    func fetchGames(platform: Platform.RawValue, page: Int, completion: @escaping (Result<Games, APIError>) -> Void) {
+    func fetchGames(platform: GamePlatform.RawValue, page: Int, completion: @escaping (Result<Games, APIError>) -> Void) {
         var urlComponents = URLComponents()
         urlComponents.scheme = "https"
         urlComponents.host = "api.rawg.io"

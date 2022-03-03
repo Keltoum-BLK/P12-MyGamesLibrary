@@ -33,18 +33,19 @@ class PS4ViewController: UIViewController {
             next.game = sender as? Game
         }
     }
-    
+
     private func setUpImage() {
+        self.setupNavigationBack()
         ps4Header.backgroundImage(view: self.view, multiplier: 0.25)
     }
     
     private func setUpTableView() {
         pS4GamesTableView.register(UINib(nibName: "GameTableViewCell", bundle: nil), forCellReuseIdentifier: "GameTableViewCell")
-        pS4GamesTableView.tableViewConstraints(view: self.view, constant: 120)
+        pS4GamesTableView.tableViewConstraints(view: self.view, constant: 100)
     }
     
     private func getGames() {
-        GameService.shared.fetchGames(platform: Platform.playstation.rawValue, page: 1) { [weak self] result in
+        GameService.shared.fetchGames(platform: GamePlatform.playstation.rawValue, page: 1) { [weak self] result in
             guard let self = self else { return }
             switch result {
             case .success(let games):

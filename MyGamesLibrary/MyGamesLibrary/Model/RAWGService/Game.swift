@@ -23,17 +23,38 @@ struct Game: Decodable {
     let released: String?
     let backgroundImage: String?
     let rating: Double?
-    let id: Int?
+    var platforms: [Platform]?
     let short_screenshots: [ShortScreenshot]?
     
     enum CodingKeys: String, CodingKey {
         case name, released
         case backgroundImage = "background_image"
         case rating
-        case id
+        case platforms = "platforms"
         case short_screenshots
+        
+    }
+    
+
+    //MARK: Method to convert array of object values to string array
+    func createList(for platforms: [Platform]?) -> String {
+            guard let platforms = platforms else { return "" }
+            return  platforms
+                .compactMap { $0.name }
+                .joined(separator: ", ")
+        }
+     
+    
+}
+
+struct Platform: Decodable {
+    let name: String?
+    
+    enum CodingKeys: String, CodingKey {
+        case name
     }
 }
+
 
 // MARK: - ShortScreenshot
 struct ShortScreenshot: Decodable {

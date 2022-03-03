@@ -12,6 +12,7 @@ class CoreDataStack {
     
     //MARK: property
     var persistentContainer: NSPersistentContainer
+    static let shared = CoreDataStack(modelName: "MyGamesLibrary")
     
     //MARK: Iniialization 
     init(modelName: String) {
