@@ -50,11 +50,11 @@ class GameCardViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        //        if !coreDataManager.checkGameIsAlreadySaved(urlImage: game?.name ?? "no name") {
-        ////            favBTN.setImage(UIImage(systemName: "heart.slash"), for: .normal)
-        //        } else {
-        ////            favBTN.setImage(UIImage(systemName: "heart.fill"), for: .selected)
-        //        }
+        if !coreDataManager.checkGameIsAlreadySaved(backgroundImage: game?.backgroundImage ?? "no name") {
+            favBTN.setImage(UIImage(systemName: "heart.slash"), for: .normal)
+        } else {
+            favBTN.setImage(UIImage(systemName: "heart.fill"), for: .selected)
+        }
     }
     
     private func setUp(){
@@ -137,23 +137,24 @@ class GameCardViewController: UIViewController {
     }
     @IBAction func addGameInLibrary(_ sender: Any) {
         addGameInLibraryWithPlatform()
+        favBTN.setImage(UIImage(systemName: "heart.fill"), for: .selected)
     }
     
     private func addGameInLibraryWithPlatform() {
         let tabBarViewControllers = tabBarController?.viewControllers
         dump(tabBarViewControllers)
         self.showAlertMessage(title: "Félicitation 🤓", message: "Ton jeu est bien ajouté à ton catalogue 👾.")
-       
-            if tabBarViewControllers?[0] == tabBarViewControllers?[0] {
-                game?.platforms = [Platform(name: "Playstation 4")]
-                coreDataManager.addGame(game: game ?? Game(name: "", released: "", backgroundImage: "", rating: 0, platforms: [], short_screenshots: []))
-            } else if tabBarViewControllers?[1] == tabBarViewControllers?[1] {
-                game?.platforms = [Platform(name: "Xbox One")]
-                coreDataManager.addGame(game: game ?? Game(name: "", released: "", backgroundImage: "", rating: 0, platforms: [], short_screenshots: []))
-            } else {
-                game?.platforms = [Platform(name: "Nintendo Switch")]
-                coreDataManager.addGame(game: game ?? Game(name: "", released: "", backgroundImage: "", rating: 0, platforms: [], short_screenshots: []))
-            }
+        
+        if tabBarViewControllers?[0] == tabBarViewControllers?[0] {
+            game?.platforms = [Platform(name: "Playstation 4")]
+            coreDataManager.addGame(game: game ?? Game(name: "", released: "", backgroundImage: "", rating: 0, platforms: [], short_screenshots: []))
+        } else if tabBarViewControllers?[1] == tabBarViewControllers?[1] {
+            game?.platforms = [Platform(name: "Xbox One")]
+            coreDataManager.addGame(game: game ?? Game(name: "", released: "", backgroundImage: "", rating: 0, platforms: [], short_screenshots: []))
+        } else {
+            game?.platforms = [Platform(name: "Nintendo Switch")]
+            coreDataManager.addGame(game: game ?? Game(name: "", released: "", backgroundImage: "", rating: 0, platforms: [], short_screenshots: []))
+        }
     }
 }
 

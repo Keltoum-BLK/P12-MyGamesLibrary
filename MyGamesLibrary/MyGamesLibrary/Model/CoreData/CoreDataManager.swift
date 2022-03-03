@@ -36,8 +36,6 @@ class CoreDataManager {
     //add Data to a array
     func fetchGames(mygames: [MyGame]) -> [MyGame] {
         let request: NSFetchRequest<MyGame> = MyGame.fetchRequest()
-        request.returnsObjectsAsFaults = false
-       
         do {
             var mygamesList = mygames
             mygamesList = try managedObjectContext.fetch(request)
@@ -59,9 +57,9 @@ class CoreDataManager {
     }
     
     //check if already added
-    func checkGameIsAlreadySaved(urlImage: String) -> Bool {
+    func checkGameIsAlreadySaved(backgroundImage: String) -> Bool {
         let request: NSFetchRequest<MyGame> = MyGame.fetchRequest()
-        request.predicate = NSPredicate(format: "backgroundImage == %@", urlImage)
+        request.predicate = NSPredicate(format: "backgroundImage == %@", backgroundImage)
         guard let gamesList = try? managedObjectContext.fetch(request) else { return false }
         if gamesList.isEmpty { return false }
         return true
