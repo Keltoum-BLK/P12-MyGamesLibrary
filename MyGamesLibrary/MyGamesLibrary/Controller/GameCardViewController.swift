@@ -29,7 +29,7 @@ class GameCardViewController: UIViewController {
     var game: Game?
     var screenshots = [String]()
     var layout = UICollectionViewFlowLayout()
-    
+    var ratingViews = [UIImageView]()
     //MARK: CoreDataManager
     let coreDataManager = CoreDataManager(managedObjectContext: CoreDataStack.shared.mainContext)
     
@@ -50,12 +50,11 @@ class GameCardViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        if !coreDataManager.checkGameIsAlreadySaved(backgroundImage: game?.backgroundImage ?? "no name") {
-            favBTN.setImage(UIImage(systemName: "heart.slash"), for: .normal)
-        } else {
-            favBTN.setImage(UIImage(systemName: "heart.fill"), for: .selected)
-        }
+        let gameExist = coreDataManager.checkGameIsAlreadySaved(with: game?.name)
+        let buttonImageName = gameExist ? "heart.fill" : "heart.slash"
+        favBTN.setImage(UIImage(systemName: buttonImageName), for: .normal)
     }
+    
     
     private func setUp(){
         //        give data value to variables
@@ -76,27 +75,23 @@ class GameCardViewController: UIViewController {
         favBTN.layer.cornerRadius = favBTN.frame.height / 2
         Tool.shared.setUpShadowView(color: UIColor.black.cgColor, view: favBTN)
         
-        heart1.translatesAutoresizingMaskIntoConstraints = false
-        heart2.translatesAutoresizingMaskIntoConstraints = false
-        heart3.translatesAutoresizingMaskIntoConstraints = false
-        heart4.translatesAutoresizingMaskIntoConstraints = false
-        heart5.translatesAutoresizingMaskIntoConstraints = false
+        screenshotCollectionView.translatesAutoresizingMaskIntoConstraints = false
     }
-    private func setUpHeart(image : UIImageView) {
-        image.image = UIImage(systemName: "heart.fill")
-        image.sizeThatFits(CGSize(width: 8, height: 8))
-        image.contentMode = .scaleAspectFit
-        image.translatesAutoresizingMaskIntoConstraints = true
+    private func setUpHeart() {
+        ratingViews = [heart1, heart2, heart3, heart4, heart5]
+        ratingViews.forEach {
+            $0.translatesAutoresizingMaskIntoConstraints = false
+            $0.image = UIImage(systemName: "heart.fill")
+            $0.sizeThatFits(CGSize(width: 8, height: 8))
+            $0.contentMode = .scaleAspectFit
+            $0.translatesAutoresizingMaskIntoConstraints = true
+        }
     }
     
     //MARK: SetUp and method for update the rating star for each destination.
     //condition to change the star's shape according to the rating
     func setRating(for star : Double) {
-        setUpHeart(image: heart1)
-        setUpHeart(image: heart2)
-        setUpHeart(image: heart3)
-        setUpHeart(image: heart4)
-        setUpHeart(image: heart5)
+        setUpHeart()
         let rating = Int(star)
         switch rating {
         case 0:
@@ -137,24 +132,27 @@ class GameCardViewController: UIViewController {
     }
     @IBAction func addGameInLibrary(_ sender: Any) {
         addGameInLibraryWithPlatform()
-        favBTN.setImage(UIImage(systemName: "heart.fill"), for: .selected)
+        favBTN.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+        self.showAlertMessage(title: "Mission Accomplie 🤓", message: "Ton jeu est bien ajouté à ton catalogue")
     }
     
     private func addGameInLibraryWithPlatform() {
-        let tabBarViewControllers = tabBarController?.viewControllers
-        dump(tabBarViewControllers)
-        self.showAlertMessage(title: "Félicitation 🤓", message: "Ton jeu est bien ajouté à ton catalogue 👾.")
-        
-        if tabBarViewControllers?[0] == tabBarViewControllers?[0] {
-            game?.platforms = [Platform(name: "Playstation 4")]
-            coreDataManager.addGame(game: game ?? Game(name: "", released: "", backgroundImage: "", rating: 0, platforms: [], short_screenshots: []))
-        } else if tabBarViewControllers?[1] == tabBarViewControllers?[1] {
-            game?.platforms = [Platform(name: "Xbox One")]
-            coreDataManager.addGame(game: game ?? Game(name: "", released: "", backgroundImage: "", rating: 0, platforms: [], short_screenshots: []))
+        if !coreDataManager.checkGameIsAlreadySaved(with: game?.name ?? "no name") {
+        guard let tabIndex = tabBarController?.selectedIndex else { return }
+        let platform = PlatformType.allCases[tabIndex].rawValue
+        game?.platforms = [Platform(name: platform)]
+        guard let game = game else { return }
+        coreDataManager.addGame(game: game)
+            navigationController?.popViewController(animated: true)
         } else {
-            game?.platforms = [Platform(name: "Nintendo Switch")]
-            coreDataManager.addGame(game: game ?? Game(name: "", released: "", backgroundImage: "", rating: 0, platforms: [], short_screenshots: []))
+            self.showAlertMessage(title: "Mission échouée ☠️", message: "Tu as déjà ajouté ce jeu à ton catalogue")
         }
+    }
+    
+    enum PlatformType: String, CaseIterable {
+        case playsstation = "Playstation 4"
+        case xbox = "Xbox One"
+        case nintendo = "Nintendo"
     }
 }
 

@@ -57,12 +57,11 @@ class CoreDataManager {
     }
     
     //check if already added
-    func checkGameIsAlreadySaved(backgroundImage: String) -> Bool {
+    func checkGameIsAlreadySaved(with name: String?) -> Bool {
+        guard let name = name else { return false }
         let request: NSFetchRequest<MyGame> = MyGame.fetchRequest()
-        request.predicate = NSPredicate(format: "backgroundImage == %@", backgroundImage)
+        request.predicate = NSPredicate(format: "name == %@", name)
         guard let gamesList = try? managedObjectContext.fetch(request) else { return false }
-        if gamesList.isEmpty { return false }
-        return true
+        return !gamesList.isEmpty
     }
-   
 }
