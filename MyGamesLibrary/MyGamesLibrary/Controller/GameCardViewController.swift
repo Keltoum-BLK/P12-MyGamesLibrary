@@ -55,7 +55,11 @@ class GameCardViewController: UIViewController {
         favBTN.setImage(UIImage(systemName: buttonImageName), for: .normal)
     }
     
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let webPageVC = segue.destination as! WebViewController
+            webPageVC.query = game?.name
+        
+    }
     private func setUp(){
         //        give data value to variables
         guard let finalGame = game else { return }
@@ -76,6 +80,8 @@ class GameCardViewController: UIViewController {
         Tool.shared.setUpShadowView(color: UIColor.black.cgColor, view: favBTN)
         
         screenshotCollectionView.translatesAutoresizingMaskIntoConstraints = false
+        
+        
     }
     private func setUpHeart() {
         ratingViews = [heart1, heart2, heart3, heart4, heart5]
@@ -134,6 +140,9 @@ class GameCardViewController: UIViewController {
         addGameInLibraryWithPlatform()
     }
     
+    @IBAction func goToTheWebPage(_ sender: Any) {
+        performSegue(withIdentifier: "WebPage", sender: game?.name)
+    }
     private func addGameInLibraryWithPlatform() {
         let gameExist = coreDataManager.checkGameIsAlreadySaved(with: game?.name)
         if !gameExist {

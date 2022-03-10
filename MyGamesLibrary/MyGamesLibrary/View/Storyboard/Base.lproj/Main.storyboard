@@ -266,7 +266,15 @@
                             <constraint firstItem="bhL-oD-rNa" firstAttribute="top" secondItem="qhB-2p-IVT" secondAttribute="top" priority="999" constant="290" id="wYY-eg-JUM"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="tzK-rq-pny"/>
+                    <navigationItem key="navigationItem" id="tzK-rq-pny">
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="play" id="A7T-0Y-oZR">
+                            <color key="tintColor" red="0.77890230429999996" green="0.10387228229999999" blue="0.076120110500000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <connections>
+                                <action selector="goToTheWebPage:" destination="xSA-L3-xtr" id="neh-H9-QWS"/>
+                                <segue destination="kJB-7P-q4M" kind="show" identifier="WebPage" id="g7L-pq-7qs"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="favBTN" destination="B2N-IG-jDn" id="FTk-q3-Q8F"/>
                         <outlet property="gameImage" destination="Khj-n3-Fz6" id="pjq-u1-d9t"/>
@@ -284,6 +292,41 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kZg-bj-Uf4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5087.1999999999998" y="344.97751124437787"/>
+        </scene>
+        <!--Web View Controller-->
+        <scene sceneID="aHa-Ae-ozd">
+            <objects>
+                <viewController storyboardIdentifier="WebViewController" id="kJB-7P-q4M" customClass="WebViewController" customModule="MyGamesLibrary" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="PFw-kh-a6U">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p3t-Ku-6Z4">
+                                <rect key="frame" x="0.0" y="44" width="375" height="574"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Rx9-H2-K0j"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="p3t-Ku-6Z4" firstAttribute="bottom" secondItem="Rx9-H2-K0j" secondAttribute="bottom" id="73h-sE-u1E"/>
+                            <constraint firstAttribute="trailing" secondItem="p3t-Ku-6Z4" secondAttribute="trailing" id="7IY-br-dBK"/>
+                            <constraint firstItem="p3t-Ku-6Z4" firstAttribute="top" secondItem="Rx9-H2-K0j" secondAttribute="top" id="hu6-jf-CbM"/>
+                            <constraint firstItem="p3t-Ku-6Z4" firstAttribute="leading" secondItem="Rx9-H2-K0j" secondAttribute="leading" id="xZQ-Hz-F53"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="p4j-tm-oNp"/>
+                    <connections>
+                        <outlet property="youtubeVideosWebPage" destination="p3t-Ku-6Z4" id="sZr-0Q-yVz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dqw-kh-rPt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5829.6000000000004" y="344.97751124437787"/>
         </scene>
         <!--Nintendo View Controller-->
         <scene sceneID="xoU-If-t3z">
@@ -1071,7 +1114,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="SRF-fg-aY4"/>
+        <segue reference="CxL-RQ-j6B"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Group 2" width="22" height="17"/>

@@ -63,11 +63,11 @@ class MyLibraryViewController: UIViewController {
         performSegue(withIdentifier: "GamesLibraries", sender: nintendoImage)
     }
     
-    func fetchGame(array: [MyGame], slug: String) -> [MyGame] {
-        var gamesList = array
-        gamesList = coreDataManager.fetchGamesByPlateform(slug: slug)
-        return gamesList
-    }
+//    func fetchGame(array: [MyGame], slug: String) -> [MyGame] {
+//        var gamesList = array
+//        gamesList = coreDataManager.fetchGamesByPlateform(slug: slug)
+//        return gamesList
+//    }
 }
 
 

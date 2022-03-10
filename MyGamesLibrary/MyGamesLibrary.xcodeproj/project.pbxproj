@@ -32,6 +32,7 @@
 		B969756627DA586A00801094 /* MyLibraryElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = B969756527DA586A00801094 /* MyLibraryElements.swift */; };
 		B96B34CB27B95E0F00565053 /* AuthHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96B34C927B95D6300565053 /* AuthHelper.swift */; };
 		B970370E27CF677700FB144A /* NSManagedObject+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B970370D27CF677700FB144A /* NSManagedObject+Extension.swift */; };
+		B97A8EC727DA94E3004294AA /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B97A8EC627DA94E3004294AA /* WebViewController.swift */; };
 		B9846C3027CE350100AA5057 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9846C2F27CE350100AA5057 /* CoreDataStack.swift */; };
 		B9846C3227CE36BE00AA5057 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9846C3127CE36BE00AA5057 /* CoreDataManager.swift */; };
 		B9846C3427CE574B00AA5057 /* MyGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9846C3327CE574B00AA5057 /* MyGame.swift */; };
@@ -111,6 +112,7 @@
 		B969756527DA586A00801094 /* MyLibraryElements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLibraryElements.swift; sourceTree = "<group>"; };
 		B96B34C927B95D6300565053 /* AuthHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthHelper.swift; sourceTree = "<group>"; };
 		B970370D27CF677700FB144A /* NSManagedObject+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSManagedObject+Extension.swift"; sourceTree = "<group>"; };
+		B97A8EC627DA94E3004294AA /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		B9846C2F27CE350100AA5057 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		B9846C3127CE36BE00AA5057 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		B9846C3327CE574B00AA5057 /* MyGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGame.swift; sourceTree = "<group>"; };
@@ -289,12 +291,13 @@
 				B9BA032927B437D700D32908 /* PS4ViewController.swift */,
 				B9BA032B27B437E500D32908 /* XboxOneViewController.swift */,
 				B9C5C4FE27B6BCF000A01409 /* NintendoViewController.swift */,
+				B966F5FF27BEDC100022D9CD /* GameCardViewController.swift */,
+				B97A8EC627DA94E3004294AA /* WebViewController.swift */,
 				B9C5C4EF27B6875500A01409 /* SearchViewController.swift */,
 				B9C5C4F127B6876600A01409 /* MyLibraryViewController.swift */,
+				B9DFF4FE27CCC72A004E498E /* GamesFavoriteViewController.swift */,
 				B98D725B27C8ECFF002C593D /* FormViewController.swift */,
 				B94C115727BFAA54006BCB12 /* MyScanViewController.swift */,
-				B966F5FF27BEDC100022D9CD /* GameCardViewController.swift */,
-				B9DFF4FE27CCC72A004E498E /* GamesFavoriteViewController.swift */,
 				B9C5C50627B6DC6400A01409 /* Cells */,
 			);
 			path = Controller;
@@ -655,6 +658,7 @@
 				B93AF74D27BAA52B001D42AD /* GameService.swift in Sources */,
 				B969756627DA586A00801094 /* MyLibraryElements.swift in Sources */,
 				B9BA032127B433DD00D32908 /* ApiErrorManager.swift in Sources */,
+				B97A8EC727DA94E3004294AA /* WebViewController.swift in Sources */,
 				B98D725C27C8ECFF002C593D /* FormViewController.swift in Sources */,
 				B9C5C50427B6C9FD00A01409 /* GameTableViewCell.swift in Sources */,
 				B9C5C4F227B6876600A01409 /* MyLibraryViewController.swift in Sources */,
