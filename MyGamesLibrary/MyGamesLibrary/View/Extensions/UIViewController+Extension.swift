@@ -20,7 +20,7 @@ extension UIViewController {
     func showAlertMessageBeforeToDismiss(title: String, message: String) {
           let alert = UIAlertController(title: "\(title)", message: "\(message)", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: { UIAlertAction in
-            self.dismiss(animated: true)
+            self.navigationController?.popViewController(animated: true)
         }))
           self.present(alert, animated: true)
       }

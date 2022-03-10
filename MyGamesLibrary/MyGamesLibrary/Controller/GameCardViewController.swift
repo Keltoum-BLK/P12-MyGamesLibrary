@@ -132,27 +132,25 @@ class GameCardViewController: UIViewController {
     }
     @IBAction func addGameInLibrary(_ sender: Any) {
         addGameInLibraryWithPlatform()
-        favBTN.setImage(UIImage(systemName: "heart.fill"), for: .normal)
-        self.showAlertMessage(title: "Mission Accomplie 🤓", message: "Ton jeu est bien ajouté à ton catalogue")
     }
     
     private func addGameInLibraryWithPlatform() {
-        if !coreDataManager.checkGameIsAlreadySaved(with: game?.name ?? "no name") {
-        guard let tabIndex = tabBarController?.selectedIndex else { return }
-        let platform = PlatformType.allCases[tabIndex].rawValue
-        game?.platforms = [Platform(name: platform)]
-        guard let game = game else { return }
-        coreDataManager.addGame(game: game)
-            navigationController?.popViewController(animated: true)
+        let gameExist = coreDataManager.checkGameIsAlreadySaved(with: game?.name)
+        if !gameExist {
+            guard let game = game else { return }
+            coreDataManager.addGame(game: game)
+            favBTN.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+            DispatchQueue.main.async {
+                self.showAlertMessageBeforeToDismiss(title: "Mission Accomplie 🤓", message: "Ton jeu est bien ajouté à ton catalogue")
+            }
         } else {
-            self.showAlertMessage(title: "Mission échouée ☠️", message: "Tu as déjà ajouté ce jeu à ton catalogue")
+            guard let gameToRemove = game?.name else { return }
+            coreDataManager.removeGame(name: gameToRemove)
+            favBTN.setImage(UIImage(systemName: "heart.slash"), for: .normal)
+            DispatchQueue.main.async {
+                self.showAlertMessage(title: "Mission échouée ☠️", message: "Tu as bien supprimé le jeu de ton catalogue")
+            }
         }
-    }
-    
-    enum PlatformType: String, CaseIterable {
-        case playsstation = "Playstation 4"
-        case xbox = "Xbox One"
-        case nintendo = "Nintendo"
     }
 }
 

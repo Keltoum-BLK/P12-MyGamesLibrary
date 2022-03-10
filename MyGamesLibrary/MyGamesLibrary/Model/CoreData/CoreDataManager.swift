@@ -36,6 +36,7 @@ class CoreDataManager {
     //add Data to a array
     func fetchGames(mygames: [MyGame]) -> [MyGame] {
         let request: NSFetchRequest<MyGame> = MyGame.fetchRequest()
+        request.returnsObjectsAsFaults = false 
         do {
             var mygamesList = mygames
             mygamesList = try managedObjectContext.fetch(request)
@@ -45,10 +46,36 @@ class CoreDataManager {
         }
     }
     
+//    func fetchGamesByPlateform(slug: String) -> [MyGame] {
+//        let request: NSFetchRequest<MyGame> = MyGame.fetchRequest()
+//        request.returnsObjectsAsFaults = false
+//        request.predicate = NSPredicate(format: "slug == %", slug)
+//        do {
+//            let mygamesList = try managedObjectContext.fetch(request)
+//            return mygamesList
+//        } catch {
+//            return []
+//        }
+//    }
+//    
     
     //remove
-    func removeGame(row: Int, array: [MyGame]) {
+    func removeGameInArray(row: Int, array: [MyGame]) {
         managedObjectContext.delete(array[row])
+        do {
+            try managedObjectContext.save()
+        } catch {
+            debugPrint("Couldn't remove \(error.localizedDescription)")
+        }
+    }
+    
+    func removeGame(name: String) {
+        let request: NSFetchRequest<MyGame> = MyGame.fetchRequest()
+        request.predicate = NSPredicate(format: "name == %@", name)
+        guard let game = try? managedObjectContext.fetch(request) else { return }
+        game.forEach { game in
+            managedObjectContext.delete(game)
+        }
         do {
             try managedObjectContext.save()
         } catch {

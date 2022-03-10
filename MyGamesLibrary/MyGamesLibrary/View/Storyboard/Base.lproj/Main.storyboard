@@ -564,7 +564,7 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ikR-kW-wzk">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gamesLibrary" translatesAutoresizingMaskIntoConstraints="NO" id="ikR-kW-wzk">
                                 <rect key="frame" x="50" y="334.5" width="275" height="183.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" secondItem="ikR-kW-wzk" secondAttribute="height" multiplier="1:1" id="I9g-91-wB2"/>
@@ -582,8 +582,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <action selector="addGaminPS4List:" destination="D8c-9I-NBV" eventType="touchUpInside" id="dva-f2-Qn3"/>
-                                            <action selector="playstationBTN:" destination="2BQ-Do-zRT" eventType="touchUpInside" id="6XV-Fx-cSr"/>
+                                            <action selector="addGamInPS4List:" destination="D8c-9I-NBV" eventType="touchUpInside" id="Vrg-cp-50L"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4VP-2k-yd7">
@@ -595,7 +594,6 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <action selector="Xbox:" destination="2BQ-Do-zRT" eventType="touchUpInside" id="dnd-Nx-zqb"/>
                                             <action selector="addGameInXboxList:" destination="D8c-9I-NBV" eventType="touchUpInside" id="WVk-So-cfT"/>
                                         </connections>
                                     </button>
@@ -646,7 +644,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eG4-ax-rAU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <exit id="2BQ-Do-zRT" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="5572" y="2112.5937031484259"/>
         </scene>
@@ -864,6 +861,9 @@
                                             <rect key="frame" x="0.0" y="0.0" width="315" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="EJP-1r-1LI" kind="show" trigger="accessoryAction" id="4Ih-1g-E3c"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -889,10 +889,81 @@
             </objects>
             <point key="canvasLocation" x="3640.8000000000002" y="2424.7376311844082"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="YcY-qV-JtN">
+            <objects>
+                <viewController id="EJP-1r-1LI" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="mhj-DU-H2b">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XXh-hd-xab">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="375"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="AFJ-wA-HKM">
+                                <rect key="frame" x="30" y="354" width="315" height="75.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iTh-Hi-HlM">
+                                        <rect key="frame" x="0.0" y="0.0" width="315" height="35"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" name="Menlo-Bold" family="Menlo" pointSize="30"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SX8-lf-1tJ">
+                                        <rect key="frame" x="0.0" y="52" width="315" height="23.5"/>
+                                        <fontDescription key="fontDescription" name="Menlo-BoldItalic" family="Menlo" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="LGg-5w-nff">
+                                <rect key="frame" x="67" y="454" width="240" height="128"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QAC-ZP-NZB">
+                                        <rect key="frame" x="0.0" y="0.0" width="48" height="128"/>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="Xu2-dB-zK5">
+                                        <rect key="frame" x="48" y="0.0" width="48" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="RoN-Oa-fkA">
+                                        <rect key="frame" x="96" y="0.0" width="48" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="tYe-v9-37b">
+                                        <rect key="frame" x="144" y="0.0" width="48" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="yv0-A4-buS">
+                                        <rect key="frame" x="192" y="0.0" width="48" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="oRH-6f-KyN"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="LGg-5w-nff" firstAttribute="leading" secondItem="oRH-6f-KyN" secondAttribute="leading" constant="67" id="0gs-WY-OxM"/>
+                            <constraint firstItem="AFJ-wA-HKM" firstAttribute="top" secondItem="oRH-6f-KyN" secondAttribute="top" constant="310" id="HeH-RL-8Kc"/>
+                            <constraint firstItem="oRH-6f-KyN" firstAttribute="trailing" secondItem="LGg-5w-nff" secondAttribute="trailing" constant="68" id="bqL-7M-X7E"/>
+                            <constraint firstItem="oRH-6f-KyN" firstAttribute="trailing" secondItem="AFJ-wA-HKM" secondAttribute="trailing" constant="30" id="ch3-bK-IL8"/>
+                            <constraint firstItem="AFJ-wA-HKM" firstAttribute="leading" secondItem="oRH-6f-KyN" secondAttribute="leading" constant="30" id="th3-qh-hWc"/>
+                            <constraint firstItem="oRH-6f-KyN" firstAttribute="bottom" secondItem="LGg-5w-nff" secondAttribute="bottom" constant="36" id="y6q-me-swI"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="BPH-fZ-MlP"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ae4-G7-kgh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4341.6000000000004" y="2424.7376311844082"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="jWZ-Y9-SQX">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="NIQ-wl-D0y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController storyboardIdentifier="PS4ViewCOntroller" automaticallyAdjustsScrollViewInsets="NO" id="Ugo-1y-Ez8" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="Group 2" id="lkI-8l-uyP">
                         <color key="badgeColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -907,6 +978,7 @@
                         <segue destination="5zp-lr-8DH" kind="relationship" relationship="rootViewController" id="Wjr-44-HtE"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NIQ-wl-D0y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1791.2" y="-256.82158920539734"/>
         </scene>

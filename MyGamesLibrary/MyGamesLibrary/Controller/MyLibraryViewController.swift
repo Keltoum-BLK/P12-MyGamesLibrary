@@ -16,10 +16,11 @@ class MyLibraryViewController: UIViewController {
     @IBOutlet weak var nintendoBTN: UIButton!
     @IBOutlet weak var myLibraryLabel: UILabel!
     
-    var playstationImage = UIImage(named: "ps4Image")
-    var xboxImage = UIImage(named: "XboxImage")
-    var nintendoImage = UIImage(named: "switchImage")
-   
+    private var coreDataManager = CoreDataManager(managedObjectContext: CoreDataStack.shared.mainContext)
+    let playstationImage = "ps4Image"
+    let xboxImage = "XboxImage"
+    let nintendoImage = "switchImage"
+    var playstationGames = [MyGame]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,12 +46,13 @@ class MyLibraryViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "GamesLibraries", let next = segue.destination as? GamesFavoriteViewController {
-            next.image = sender as? UIImage
+            next.platformElements = sender as? MyLibraryElements
         }
     }
     
     @IBAction func playstationBtnAction(_ sender: Any) {
-        performSegue(withIdentifier: "GamesLibraries", sender: playstationImage)
+        let playstationElements = MyLibraryElements(background: playstationImage, games: playstationGames)
+        performSegue(withIdentifier: "GamesLibraries", sender: playstationElements)
     }
     
     @IBAction func xboxBTNAction(_ sender: Any) {
@@ -59,6 +61,12 @@ class MyLibraryViewController: UIViewController {
     
     @IBAction func nintendoBTNAction(_ sender: Any) {
         performSegue(withIdentifier: "GamesLibraries", sender: nintendoImage)
+    }
+    
+    func fetchGame(array: [MyGame], slug: String) -> [MyGame] {
+        var gamesList = array
+        gamesList = coreDataManager.fetchGamesByPlateform(slug: slug)
+        return gamesList
     }
 }
 

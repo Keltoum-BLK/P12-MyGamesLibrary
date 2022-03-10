@@ -53,31 +53,33 @@ class FormViewController: UIViewController {
         pickerController.delegate = self
         present(pickerController, animated: true)
     }
-    
+
     func createAGameCard(platform: Platform) -> Game {
-        let gameImage = imagePicker.image?.pngData()?.base64EncodedString()
-        let game = Game(name: titleTextField.text, released: releaseDateTextField.text, backgroundImage: gameImage, rating: Double(ratingValue.text ?? "0"),platforms: [platform], short_screenshots: [])
-        return game
+            let gameImage = imagePicker.image?.pngData()?.base64EncodedString()
+          let game = Game(name: titleTextField.text, released: releaseDateTextField.text, backgroundImage: gameImage, rating: Double(ratingValue.text ?? "0"),platforms: [PlatformElements(platform: platform)], short_screenshots: [])
+            return game
     }
     
-    @IBAction func addGaminPS4List(_ sender: Any) {
-        let game = createAGameCard(platform: Platform(name: "Playstation 4"))
+    @IBAction func addGamInPS4List(_ sender: Any) {
+        let game = createAGameCard(platform: Platform(slug: "playstation"))
         coreDataManager.addGame(game: game)
         checkData()
-        navigationController?.popViewController(animated: true)
+        self.showAlertMessageBeforeToDismiss(title: "Bravo", message: "Tu as bien rajouté le jeu au catalogue. 🤖")
         print(games)
     }
     
     @IBAction func addGameInXboxList(_ sender: Any) {
-        let game = createAGameCard(platform: Platform(name: "Xbox One"))
+        let game = createAGameCard(platform: Platform(slug: "xbox"))
         coreDataManager.addGame(game: game)
-        navigationController?.popViewController(animated: true)
+        self.showAlertMessageBeforeToDismiss(title: "Bravo", message: "Tu as bien rajouté le jeu au catalogue. 🤖")
     }
     
     @IBAction func addGameInSwitchList(_ sender: Any) {
-        let game = createAGameCard(platform: Platform(name: "Nintendo Switch"))
+        if everyElementAreFilled() {
+        let game = createAGameCard(platform: Platform(slug: "nintendo-switch"))
         coreDataManager.addGame(game: game)
-        navigationController?.popViewController(animated: true)
+        self.showAlertMessageBeforeToDismiss(title: "Bravo", message: "Tu as bien rajouté le jeu au catalogue. 🤖")
+        }
     }
     
     @IBAction func ratingValue(_ sender: UISlider) {
@@ -93,7 +95,15 @@ class FormViewController: UIViewController {
     func checkData() {
         games = coreDataManager.fetchGames(mygames: self.games)
     }
- 
+    
+    private func everyElementAreFilled() -> Bool {
+        if titleTextField.text != "", releaseDateTextField.text != "", imagePicker.image != nil, ratingValue.text != "" {
+            return true
+        } else {
+            self.showAlertMessage(title: "Erreur détectée", message: "Tu as oublié un élement 🙀.")
+            return false
+        }
+    }
 }
 
 extension FormViewController: UINavigationControllerDelegate, PHPickerViewControllerDelegate, UITextFieldDelegate {

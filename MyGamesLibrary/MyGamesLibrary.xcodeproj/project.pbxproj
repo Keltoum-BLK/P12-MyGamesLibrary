@@ -18,7 +18,6 @@
 		B94C115827BFAA54006BCB12 /* MyScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B94C115727BFAA54006BCB12 /* MyScanViewController.swift */; };
 		B9593AA727B8428E00A9A91F /* Tool.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9593AA627B8428E00A9A91F /* Tool.swift */; };
 		B95CC85727B7C44700FC4FDD /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95CC85627B7C44700FC4FDD /* TabBarViewController.swift */; };
-		B966F5FA27BE6A830022D9CD /* TableSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B966F5F927BE6A830022D9CD /* TableSection.swift */; };
 		B966F60127BEDC100022D9CD /* GameCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B966F5FF27BEDC100022D9CD /* GameCardViewController.swift */; };
 		B967461C27B420A60037F729 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B967461B27B420A60037F729 /* AppDelegate.swift */; };
 		B967461E27B420A60037F729 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B967461D27B420A60037F729 /* SceneDelegate.swift */; };
@@ -30,6 +29,7 @@
 		B967463627B420A70037F729 /* MyGamesLibraryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B967463527B420A70037F729 /* MyGamesLibraryTests.swift */; };
 		B967464027B420A70037F729 /* MyGamesLibraryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B967463F27B420A70037F729 /* MyGamesLibraryUITests.swift */; };
 		B967464227B420A70037F729 /* MyGamesLibraryUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B967464127B420A70037F729 /* MyGamesLibraryUITestsLaunchTests.swift */; };
+		B969756627DA586A00801094 /* MyLibraryElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = B969756527DA586A00801094 /* MyLibraryElements.swift */; };
 		B96B34CB27B95E0F00565053 /* AuthHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96B34C927B95D6300565053 /* AuthHelper.swift */; };
 		B970370E27CF677700FB144A /* NSManagedObject+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B970370D27CF677700FB144A /* NSManagedObject+Extension.swift */; };
 		B9846C3027CE350100AA5057 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9846C2F27CE350100AA5057 /* CoreDataStack.swift */; };
@@ -93,7 +93,6 @@
 		B94C115727BFAA54006BCB12 /* MyScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyScanViewController.swift; sourceTree = "<group>"; };
 		B9593AA627B8428E00A9A91F /* Tool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tool.swift; sourceTree = "<group>"; };
 		B95CC85627B7C44700FC4FDD /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
-		B966F5F927BE6A830022D9CD /* TableSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableSection.swift; sourceTree = "<group>"; };
 		B966F5FF27BEDC100022D9CD /* GameCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCardViewController.swift; sourceTree = "<group>"; };
 		B967461827B420A60037F729 /* MyGamesLibrary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyGamesLibrary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B967461B27B420A60037F729 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -109,6 +108,7 @@
 		B967463B27B420A70037F729 /* MyGamesLibraryUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyGamesLibraryUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B967463F27B420A70037F729 /* MyGamesLibraryUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGamesLibraryUITests.swift; sourceTree = "<group>"; };
 		B967464127B420A70037F729 /* MyGamesLibraryUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGamesLibraryUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		B969756527DA586A00801094 /* MyLibraryElements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLibraryElements.swift; sourceTree = "<group>"; };
 		B96B34C927B95D6300565053 /* AuthHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthHelper.swift; sourceTree = "<group>"; };
 		B970370D27CF677700FB144A /* NSManagedObject+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSManagedObject+Extension.swift"; sourceTree = "<group>"; };
 		B9846C2F27CE350100AA5057 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
@@ -265,6 +265,7 @@
 				B9C5C4F327B687A600A01409 /* UPCService */,
 				B93AF74927BAA27E001D42AD /* SecretKey */,
 				B9BA031E27B4332A00D32908 /* RAWGService */,
+				B969756527DA586A00801094 /* MyLibraryElements.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -332,7 +333,6 @@
 				B93AF74527BA90F3001D42AD /* Game.swift */,
 				B99CAAA427C2561000358ADD /* Items.swift */,
 				B93AF74727BA9112001D42AD /* GamePlatform.swift */,
-				B966F5F927BE6A830022D9CD /* TableSection.swift */,
 			);
 			path = RAWGService;
 			sourceTree = "<group>";
@@ -653,6 +653,7 @@
 				B9BA031627B42FB700D32908 /* LogoAnimationView.swift in Sources */,
 				B93AF74F27BAB33C001D42AD /* UIImageView+Extension.swift in Sources */,
 				B93AF74D27BAA52B001D42AD /* GameService.swift in Sources */,
+				B969756627DA586A00801094 /* MyLibraryElements.swift in Sources */,
 				B9BA032127B433DD00D32908 /* ApiErrorManager.swift in Sources */,
 				B98D725C27C8ECFF002C593D /* FormViewController.swift in Sources */,
 				B9C5C50427B6C9FD00A01409 /* GameTableViewCell.swift in Sources */,
@@ -668,7 +669,6 @@
 				B967462627B420A60037F729 /* MyGamesLibrary.xcdatamodeld in Sources */,
 				B95CC85727B7C44700FC4FDD /* TabBarViewController.swift in Sources */,
 				B94C115827BFAA54006BCB12 /* MyScanViewController.swift in Sources */,
-				B966F5FA27BE6A830022D9CD /* TableSection.swift in Sources */,
 				B9C5C4F027B6875500A01409 /* SearchViewController.swift in Sources */,
 				B96B34CB27B95E0F00565053 /* AuthHelper.swift in Sources */,
 			);

@@ -15,28 +15,30 @@ class GamesFavoriteViewController: UIViewController {
     @IBOutlet weak var searchBTN: UIButton!
     @IBOutlet weak var gamesFavoriteTableView: UITableView!
     
-    lazy var playstationFavorite = [Game]()
-    lazy var xboxFavorite = [Game]()
-    lazy var nintendoFavorite = [Game]()
+    lazy var gamesLibrary = [MyGame]()
     var image: UIImage?
+    var platformElements: MyLibraryElements?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        let imageStr = gamesLibrary.first?.backgroundImage?.base64EncodedString() ?? "no image"
+        print(imageStr)
         setup()
         // Do any additional setup after loading the view.
     }
+    
     override func viewDidLayoutSubviews() {
         backgroundImage.addGradientLayerInBackground(frame: backgroundImage.bounds, colors: [UIColor(ciColor: .clear), UIColor(ciColor: .white)])
     }
     
     private func setup() {
+        guard let imageStr = platformElements?.image else { return }
         DispatchQueue.main.async {
-            self.backgroundImage.image = self.image
+            self.backgroundImage.image = UIImage(contentsOfFile: imageStr)
         }
         backgroundImage.backgroundImage(view: self.view, multiplier: 0.35)
-     
-       
+        guard let games = platformElements?.myGames else { return }
+        gamesLibrary = games
         searchBarContainer.layer.cornerRadius = 20
         Tool.shared.setUpShadowView(color: UIColor.black.cgColor, view: searchBarContainer)
         
@@ -51,11 +53,15 @@ class GamesFavoriteViewController: UIViewController {
 }
 extension GamesFavoriteViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return playstationFavorite.count
+        return gamesLibrary.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = gamesFavoriteTableView.dequeueReusableCell(withIdentifier: "GameTableViewCell", for: indexPath) as! GameTableViewCell
+        cell.gameTitle.text = gamesLibrary[indexPath.row].name
+       
+//        cell.gameImage.cacheImage(urlString: imageStr)
+       
         return cell 
     }
 }
