@@ -22,7 +22,7 @@ class MyScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
-        
+       
     }
     
     private func setup() {
@@ -97,7 +97,9 @@ class MyScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
             found(code: stringValue)
             captureSession.stopRunning()
         }
-        getDataWithUPC()
+        getDataWithUPC { title in
+            self.gameName = title
+        }
         print("=>\(gameName)")
     }
     
@@ -114,16 +116,13 @@ class MyScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
         return .portrait
     }
     
-    private func getDataWithUPC() {
-        GameService.shared.getDataWithUPC(barCode: gameUPC) { [weak self] result in
-            guard let self = self else { return }
+    private func getDataWithUPC(completion: @escaping (String) -> Void) {
+        GameService.shared.getDataWithUPC(barCode: gameUPC) { result in
             switch result {
             case .success(let info):
-                DispatchQueue.main.async {
-                    self.gameName = info.items.first?.title ?? "=> no title"
-                    self.fetchGamesWithGameTitle(title: self.gameName)
-                }
+                    completion(info.items.first?.title ?? "no title")
             case .failure(let error):
+                completion("")
                 print(error.description)
             }
         }

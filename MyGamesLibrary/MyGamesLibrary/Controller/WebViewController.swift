@@ -17,6 +17,7 @@ class WebViewController: UIViewController, WKNavigationDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         youtubeVideosWebPage.navigationDelegate = self
+        self.setupNavigationBack()
         guard let searchQuery = query?.replacingOccurrences(of: " ", with: "+") else { return }
         guard let url = URL(string: "https://www.youtube.com/results?search_query=\(searchQuery)") else { return }
         youtubeVideosWebPage.load(URLRequest(url: url))

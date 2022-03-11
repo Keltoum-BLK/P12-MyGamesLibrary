@@ -46,17 +46,17 @@ class CoreDataManager {
         }
     }
     
-//    func fetchGamesByPlateform(slug: String) -> [MyGame] {
-//        let request: NSFetchRequest<MyGame> = MyGame.fetchRequest()
-//        request.returnsObjectsAsFaults = false
-//        request.predicate = NSPredicate(format: "slug == %", slug)
-//        do {
-//            let mygamesList = try managedObjectContext.fetch(request)
-//            return mygamesList
-//        } catch {
-//            return []
-//        }
-//    }
+    func fetchGamesByPlateform(platform: String) -> [MyGame] {
+        let request: NSFetchRequest<MyGame> = MyGame.fetchRequest()
+        request.returnsObjectsAsFaults = false
+        request.predicate = NSPredicate(format: "platform == %@", platform)
+        do {
+            let mygamesList = try managedObjectContext.fetch(request)
+            return mygamesList
+        } catch {
+            return []
+        }
+    }
 //    
     
     //remove

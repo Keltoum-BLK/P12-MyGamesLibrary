@@ -131,7 +131,7 @@ class GameService: NetworkService {
         guard let url = URL(string: urlUPC) else { return }
 
         dataTask = session.dataTask(with: url) { (data, response, error) in
-            DispatchQueue.main.async {
+      
                 guard error == nil else { completion(.failure(.server))
                     return
                 }
@@ -145,6 +145,7 @@ class GameService: NetworkService {
                     completion(.failure(.decoding))
                     return
                 }
+            DispatchQueue.main.async {
                 completion(.success(upcInfo))
             }
         }

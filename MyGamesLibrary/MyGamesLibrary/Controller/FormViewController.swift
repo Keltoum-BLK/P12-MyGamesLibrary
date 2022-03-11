@@ -40,7 +40,7 @@ class FormViewController: UIViewController {
         imagePicker.layer.cornerRadius = 20
         takePicBTN.layer.cornerRadius = 10
         titleTextField.changeThePLaceholderFont(text: "Saisissez le titre du jeu.", textField: self.titleTextField)
-        releaseDateTextField.changeThePLaceholderFont(text: "Quand est-il sorti?", textField: self.releaseDateTextField)
+        releaseDateTextField.changeThePLaceholderFont(text: "JJ/MM/AAAA", textField: self.releaseDateTextField)
         titleTextField.delegate = self
         releaseDateTextField.delegate = self
     }
@@ -55,7 +55,7 @@ class FormViewController: UIViewController {
     }
 
     func createAGameCard(platform: Platform) -> Game {
-            let gameImage = imagePicker.image?.pngData()?.base64EncodedString()
+        let gameImage = imagePicker.image
           let game = Game(name: titleTextField.text, released: releaseDateTextField.text, backgroundImage: gameImage, rating: Double(ratingValue.text ?? "0"),platforms: [PlatformElements(platform: platform)], short_screenshots: [])
             return game
     }

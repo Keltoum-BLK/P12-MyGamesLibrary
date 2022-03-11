@@ -56,8 +56,8 @@ extension UIView {
             widthAnchor.constraint(equalTo: view.widthAnchor),
             topAnchor.constraint(equalTo: view.topAnchor),
             heightAnchor.constraint(equalTo: view.heightAnchor,multiplier: multiplier),
-            leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 0),
-            trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: 0)
+            leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
+            trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0)
         ])
     }
     
