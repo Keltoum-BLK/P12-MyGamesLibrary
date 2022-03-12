@@ -28,8 +28,6 @@ class FormViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-       
-        // Do any additional setup after loading the view.
     }
     
     private func setupUI() {
@@ -38,7 +36,9 @@ class FormViewController: UIViewController {
         nintendoBTN.layer.cornerRadius = 20
         
         imagePicker.layer.cornerRadius = 20
+        
         takePicBTN.layer.cornerRadius = 10
+        
         titleTextField.changeThePLaceholderFont(text: "Saisissez le titre du jeu.", textField: self.titleTextField)
         releaseDateTextField.changeThePLaceholderFont(text: "JJ/MM/AAAA", textField: self.releaseDateTextField)
         titleTextField.delegate = self
@@ -49,13 +49,14 @@ class FormViewController: UIViewController {
         var configuration = PHPickerConfiguration(photoLibrary: .shared())
         configuration.selectionLimit = 1
         configuration.filter = .images
+        configuration.preferredAssetRepresentationMode = .automatic
         let pickerController = PHPickerViewController(configuration: configuration)
         pickerController.delegate = self
         present(pickerController, animated: true)
     }
 
     func createAGameCard(platform: Platform) -> Game {
-        let gameImage = imagePicker.image
+        let gameImage = imagePicker.image?.pngData()?.base64EncodedString()
           let game = Game(name: titleTextField.text, released: releaseDateTextField.text, backgroundImage: gameImage, rating: Double(ratingValue.text ?? "0"),platforms: [PlatformElements(platform: platform)], short_screenshots: [])
             return game
     }

@@ -14,6 +14,8 @@ class GameCardViewController: UIViewController {
     @IBOutlet weak var screenshotCollectionView: UICollectionView!
     //btn to add in favorite
     @IBOutlet weak var favBTN: UIButton!
+    @IBOutlet weak var marketBTN: UIButton!
+    @IBOutlet weak var youtubeBTN: UIButton!
     //game's informations
     @IBOutlet weak var gameTitle: UILabel!
     @IBOutlet weak var release_date: UILabel!
@@ -57,7 +59,7 @@ class GameCardViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let webPageVC = segue.destination as! WebViewController
-            webPageVC.query = game?.name
+        webPageVC.url = sender as? String
         
     }
     private func setUp(){
@@ -77,12 +79,15 @@ class GameCardViewController: UIViewController {
         
         //
         favBTN.layer.cornerRadius = favBTN.frame.height / 2
-        Tool.shared.setUpShadowView(color: UIColor.black.cgColor, view: favBTN)
-        
+      
+        youtubeBTN.layer.cornerRadius = youtubeBTN.frame.height / 2
+        youtubeBTN.layer.borderColor = UIColor.black.cgColor
+        youtubeBTN.layer.borderWidth = 1
+        marketBTN.layer.cornerRadius = marketBTN.frame.height / 2
+      
         screenshotCollectionView.translatesAutoresizingMaskIntoConstraints = false
-        
-        
     }
+    
     private func setUpHeart() {
         ratingViews = [heart1, heart2, heart3, heart4, heart5]
         ratingViews.forEach {
@@ -140,9 +145,17 @@ class GameCardViewController: UIViewController {
         addGameInLibraryWithPlatform()
     }
     
-    @IBAction func goToTheWebPage(_ sender: Any) {
-        performSegue(withIdentifier: "WebPage", sender: game?.name)
+    @IBAction func goToYoutubePage(_ sender: Any) {
+        let gameUrl = "https://www.youtube.com/results?search_query=\(game?.name?.replacingOccurrences(of: " ", with: "+") ?? "no url")"
+        performSegue(withIdentifier: "WebPage", sender: gameUrl)
     }
+    
+    
+    @IBAction func goToTheMarketPage(_ sender: Any) {
+        let gameUrl = "https://ledenicheur.fr/search?search=\(game?.name?.replacingOccurrences(of: " ", with: "%20") ?? "no url")"
+        performSegue(withIdentifier: "WebPage", sender: gameUrl)
+    }
+    
     private func addGameInLibraryWithPlatform() {
         let gameExist = coreDataManager.checkGameIsAlreadySaved(with: game?.name)
         if !gameExist {

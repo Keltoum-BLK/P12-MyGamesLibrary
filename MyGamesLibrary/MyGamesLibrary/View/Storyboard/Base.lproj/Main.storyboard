@@ -232,49 +232,68 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B2N-IG-jDn">
-                                <rect key="frame" x="100" y="721" width="190" height="30"/>
-                                <color key="backgroundColor" red="0.77890230429999996" green="0.10387228229999999" blue="0.076120110500000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="OBX-cN-niW">
+                                <rect key="frame" x="40" y="711" width="310" height="40"/>
+                                <subviews>
+                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B2N-IG-jDn">
+                                        <rect key="frame" x="0.0" y="0.0" width="100" height="40"/>
+                                        <color key="backgroundColor" red="0.77890230429999996" green="0.10387228229999999" blue="0.076120110500000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal">
+                                            <imageReference key="image" image="heart.slash.fill" catalog="system" symbolScale="large"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="addGameInLibrary:" destination="xSA-L3-xtr" eventType="touchUpInside" id="zZM-nB-xZi"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q2d-CZ-Db3">
+                                        <rect key="frame" x="105" y="0.0" width="100" height="40"/>
+                                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" image="cart.fill" catalog="system"/>
+                                        <connections>
+                                            <action selector="goToTheMarketPage:" destination="xSA-L3-xtr" eventType="touchUpInside" id="dhL-wo-goI"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8tH-lZ-ucf">
+                                        <rect key="frame" x="210" y="0.0" width="100" height="40"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="tintColor" red="0.77890230429999996" green="0.10387228229999999" blue="0.076120110500000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" image="play.fill" catalog="system">
+                                            <color key="titleColor" red="0.77890230429999996" green="0.10387228229999999" blue="0.076120110500000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="goToYoutubePage:" destination="xSA-L3-xtr" eventType="touchUpInside" id="tdn-cQ-LVR"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="vJ0-yZ-2fI"/>
+                                    <constraint firstAttribute="height" constant="40" id="GXn-pr-obT"/>
                                 </constraints>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal">
-                                    <imageReference key="image" image="heart.slash.fill" catalog="system" symbolScale="large"/>
-                                </state>
-                                <connections>
-                                    <action selector="addGameInLibrary:" destination="xSA-L3-xtr" eventType="touchUpInside" id="zZM-nB-xZi"/>
-                                </connections>
-                            </button>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="qhB-2p-IVT"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="qhB-2p-IVT" firstAttribute="bottom" secondItem="B2N-IG-jDn" secondAttribute="bottom" constant="10" id="0Ze-P5-Hjz"/>
-                            <constraint firstItem="B2N-IG-jDn" firstAttribute="leading" secondItem="qhB-2p-IVT" secondAttribute="leading" constant="100" id="6tv-ez-0O7"/>
                             <constraint firstItem="LWn-Bo-tp9" firstAttribute="top" secondItem="qhB-2p-IVT" secondAttribute="top" constant="320" id="OnO-pA-Kko"/>
                             <constraint firstItem="rhm-lv-qni" firstAttribute="top" secondItem="qhB-2p-IVT" secondAttribute="top" constant="190" id="PhM-Fs-ocT"/>
+                            <constraint firstItem="OBX-cN-niW" firstAttribute="leading" secondItem="qhB-2p-IVT" secondAttribute="leading" constant="40" id="Pyx-UT-XdC"/>
                             <constraint firstItem="qhB-2p-IVT" firstAttribute="trailing" secondItem="LWn-Bo-tp9" secondAttribute="trailing" constant="30" id="VYd-K5-xZO"/>
+                            <constraint firstItem="qhB-2p-IVT" firstAttribute="bottom" secondItem="OBX-cN-niW" secondAttribute="bottom" constant="10" id="Zcv-Gu-dSE"/>
                             <constraint firstItem="qhB-2p-IVT" firstAttribute="bottom" secondItem="LWn-Bo-tp9" secondAttribute="bottom" constant="60" id="fyU-HK-gUY"/>
                             <constraint firstItem="qhB-2p-IVT" firstAttribute="trailing" secondItem="bhL-oD-rNa" secondAttribute="trailing" priority="999" constant="80" id="hxX-az-pP0"/>
+                            <constraint firstItem="qhB-2p-IVT" firstAttribute="trailing" secondItem="OBX-cN-niW" secondAttribute="trailing" constant="40" id="mzf-1d-eic"/>
                             <constraint firstItem="qhB-2p-IVT" firstAttribute="trailing" secondItem="rhm-lv-qni" secondAttribute="trailing" constant="40" id="rUX-c9-TwJ"/>
                             <constraint firstItem="rhm-lv-qni" firstAttribute="leading" secondItem="qhB-2p-IVT" secondAttribute="leading" constant="40" id="rWT-qJ-K2i"/>
                             <constraint firstItem="LWn-Bo-tp9" firstAttribute="leading" secondItem="qhB-2p-IVT" secondAttribute="leading" constant="30" id="rh6-0L-aP8"/>
                             <constraint firstItem="bhL-oD-rNa" firstAttribute="leading" secondItem="qhB-2p-IVT" secondAttribute="leading" priority="990" constant="80" id="rrJ-cK-FvZ"/>
-                            <constraint firstItem="qhB-2p-IVT" firstAttribute="trailing" secondItem="B2N-IG-jDn" secondAttribute="trailing" constant="100" id="s8a-LD-Z0S"/>
                             <constraint firstItem="bhL-oD-rNa" firstAttribute="top" secondItem="qhB-2p-IVT" secondAttribute="top" priority="999" constant="290" id="wYY-eg-JUM"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="tzK-rq-pny">
-                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="play" id="A7T-0Y-oZR">
-                            <color key="tintColor" red="0.77890230429999996" green="0.10387228229999999" blue="0.076120110500000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                            <connections>
-                                <action selector="goToTheWebPage:" destination="xSA-L3-xtr" id="neh-H9-QWS"/>
-                                <segue destination="kJB-7P-q4M" kind="show" identifier="WebPage" id="g7L-pq-7qs"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="tzK-rq-pny"/>
                     <connections>
                         <outlet property="favBTN" destination="B2N-IG-jDn" id="FTk-q3-Q8F"/>
                         <outlet property="gameImage" destination="Khj-n3-Fz6" id="pjq-u1-d9t"/>
@@ -284,14 +303,17 @@
                         <outlet property="heart3" destination="64V-qW-AfB" id="qfW-x7-JUo"/>
                         <outlet property="heart4" destination="iJA-dx-jJD" id="g7E-IV-qVx"/>
                         <outlet property="heart5" destination="0VW-hq-xBS" id="5Ir-t0-iyT"/>
+                        <outlet property="marketBTN" destination="Q2d-CZ-Db3" id="g37-34-zX5"/>
                         <outlet property="ratingHeartsStack" destination="bhL-oD-rNa" id="lb8-A6-jRo"/>
                         <outlet property="release_date" destination="Zsd-6z-FfM" id="opO-70-Eh0"/>
                         <outlet property="screenshotCollectionView" destination="LWn-Bo-tp9" id="ZM6-Kx-h0S"/>
+                        <outlet property="youtubeBTN" destination="8tH-lZ-ucf" id="7FN-xf-WCP"/>
+                        <segue destination="kJB-7P-q4M" kind="show" identifier="WebPage" id="JH9-pA-bH9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kZg-bj-Uf4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5086.1538461538457" y="344.78672985781986"/>
+            <point key="canvasLocation" x="5177" y="345"/>
         </scene>
         <!--Web View Controller-->
         <scene sceneID="aHa-Ae-ozd">
@@ -1053,6 +1075,7 @@
         <image name="XboxImage" width="750" height="413"/>
         <image name="barcode" catalog="system" width="128" height="93"/>
         <image name="camera.on.rectangle.fill" catalog="system" width="128" height="96"/>
+        <image name="cart.fill" catalog="system" width="128" height="102"/>
         <image name="eye.slash.fill" catalog="system" width="128" height="82"/>
         <image name="gamesLibrary" width="3295" height="2328"/>
         <image name="heart" catalog="system" width="128" height="109"/>
@@ -1061,6 +1084,7 @@
         <image name="icons8-game-controller-30" width="30" height="30"/>
         <image name="lock.fill" catalog="system" width="128" height="128"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
+        <image name="play.fill" catalog="system" width="116" height="128"/>
         <image name="ps4Image" width="744" height="423"/>
         <image name="switchImage" width="2048" height="697"/>
         <image name="switchx" width="22" height="22"/>
