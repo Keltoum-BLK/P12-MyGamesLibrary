@@ -98,10 +98,17 @@ class MyScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
             captureSession.stopRunning()
         }
         getDataWithUPC { title in
-            self.gameName = title
-        }
-        print("=>\(gameName)")
-    }
+                    GameService.shared.fetchSearchGames(search: title) { result in
+                        switch result {
+                        case .success(let result):
+                            print("=> result ici", result.results)
+                        case .failure(_):
+                            fatalError()
+                        }
+                    }
+                }
+                print("=>\(gameName)")
+            }
     
     func found(code: String) {
         gameUPC = code
@@ -121,6 +128,7 @@ class MyScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
             switch result {
             case .success(let info):
                     completion(info.items.first?.title ?? "no title")
+                print(info)
             case .failure(let error):
                 completion("")
                 print(error.description)

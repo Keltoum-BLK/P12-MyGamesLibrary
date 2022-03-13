@@ -163,14 +163,14 @@ class GameCardViewController: UIViewController {
             coreDataManager.addGame(game: game)
             favBTN.setImage(UIImage(systemName: "heart.fill"), for: .normal)
             DispatchQueue.main.async {
-                self.showAlertMessageBeforeToDismiss(title: "Mission Accomplie 🤓", message: "Ton jeu est bien ajouté à ton catalogue")
+                self.showAlertMessage(title: "Mission Accomplie 🤓", message: "Ton jeu est bien ajouté à ton catalogue")
             }
         } else {
             guard let gameToRemove = game?.name else { return }
             coreDataManager.removeGame(name: gameToRemove)
             favBTN.setImage(UIImage(systemName: "heart.slash"), for: .normal)
             DispatchQueue.main.async {
-                self.showAlertMessage(title: "Mission échouée ☠️", message: "Tu as bien supprimé le jeu de ton catalogue")
+                self.showAlertMessage(title: "Suppression confirmée ❌", message: "Tu as bien supprimé le jeu de ton catalogue")
             }
         }
     }

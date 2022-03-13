@@ -26,7 +26,7 @@ class GamesFavoriteViewController: UIViewController {
         gamesLibrary = platformElements?.myGames
         gamesFavoriteTableView.reloadData()
         dump(gamesLibrary)
-       
+        gamesFavoriteTableView.reloadData()
         // Do any additional setup after loading the view.
     }
     

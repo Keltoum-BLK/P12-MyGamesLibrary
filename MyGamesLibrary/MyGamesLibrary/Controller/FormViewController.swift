@@ -14,13 +14,14 @@ class FormViewController: UIViewController {
 
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var releaseDateTextField: UITextField!
-    @IBOutlet weak var imagePicker: UIImageView!
+    @IBOutlet weak var gameImage: UIImageView!
     @IBOutlet weak var takePicBTN: UIButton!
     @IBOutlet weak var ratingSlide: UISlider!
     @IBOutlet weak var playstationBTN: UIButton!
     @IBOutlet weak var xboxBTN: UIButton!
     @IBOutlet weak var nintendoBTN: UIButton!
     @IBOutlet weak var ratingValue: UILabel!
+    @IBOutlet weak var imagePickerTableView: UITableViewCell!
     
     var coreDataManager = CoreDataManager(managedObjectContext: CoreDataStack.shared.mainContext)
     var games = [MyGame]()
@@ -35,7 +36,7 @@ class FormViewController: UIViewController {
         xboxBTN.layer.cornerRadius = 20
         nintendoBTN.layer.cornerRadius = 20
         
-        imagePicker.layer.cornerRadius = 20
+        gameImage.layer.cornerRadius = 20
         
         takePicBTN.layer.cornerRadius = 10
         
@@ -56,7 +57,7 @@ class FormViewController: UIViewController {
     }
 
     func createAGameCard(platform: Platform) -> Game {
-        let gameImage = imagePicker.image?.pngData()?.base64EncodedString()
+        let gameImage = gameImage.image?.pngData()?.base64EncodedString()
           let game = Game(name: titleTextField.text, released: releaseDateTextField.text, backgroundImage: gameImage, rating: Double(ratingValue.text ?? "0"),platforms: [PlatformElements(platform: platform)], short_screenshots: [])
             return game
     }
@@ -98,7 +99,7 @@ class FormViewController: UIViewController {
     }
     
     private func everyElementAreFilled() -> Bool {
-        if titleTextField.text != "", releaseDateTextField.text != "", imagePicker.image != nil, ratingValue.text != "" {
+        if titleTextField.text != "", releaseDateTextField.text != "", gameImage.image != nil, ratingValue.text != "" {
             return true
         } else {
             self.showAlertMessage(title: "Erreur détectée", message: "Tu as oublié un élement 🙀.")
@@ -119,9 +120,9 @@ extension FormViewController: UINavigationControllerDelegate, PHPickerViewContro
         results.forEach { result in
             result.itemProvider.loadObject(ofClass: UIImage.self) { [weak self] reading, error in
                 guard let self = self else { return }
-                guard let image = reading as? UIImage, error == nil  else { return }
+                guard let image = reading as? Data, error == nil  else { return }
                 DispatchQueue.main.async {
-                    self.imagePicker.image = image
+                    self.gameImage.image = UIImage(data: image)
                 }
             }
         }

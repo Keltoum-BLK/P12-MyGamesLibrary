@@ -679,6 +679,14 @@
                                     <constraint firstAttribute="height" constant="40" id="DTX-1i-AME"/>
                                 </constraints>
                             </stackView>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="283" translatesAutoresizingMaskIntoConstraints="NO" id="65I-5C-Pxk">
+                                <rect key="frame" x="16" y="378" width="358" height="283"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="65I-5C-Pxk" id="c6f-0c-lb0">
+                                    <rect key="frame" x="0.0" y="0.0" width="358" height="283"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="1NB-ol-eBA"/>
                         <color key="backgroundColor" red="0.96085506679999999" green="0.96467119459999995" blue="0.98821061850000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -697,7 +705,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="rOU-Rl-DvT"/>
                     <connections>
-                        <outlet property="imagePicker" destination="ikR-kW-wzk" id="GED-TJ-hqf"/>
+                        <outlet property="gameImage" destination="ikR-kW-wzk" id="dBm-yG-kVL"/>
+                        <outlet property="imagePickerTableView" destination="65I-5C-Pxk" id="sKp-Us-Zct"/>
                         <outlet property="nintendoBTN" destination="hDY-gi-NMh" id="cKP-qH-eMa"/>
                         <outlet property="playstationBTN" destination="cdm-3W-f8B" id="jk2-Eq-bX3"/>
                         <outlet property="ratingSlide" destination="7Zk-WT-r10" id="BbM-Yw-Seg"/>
@@ -710,7 +719,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eG4-ax-rAU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5572" y="2112.5937031484259"/>
+            <point key="canvasLocation" x="5600" y="2110.6635071090045"/>
         </scene>
         <!--Search View Controller-->
         <scene sceneID="fki-uD-C5t">
@@ -721,7 +730,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scan" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yn8-LX-522">
-                                <rect key="frame" x="20" y="68" width="350" height="40"/>
+                                <rect key="frame" x="20" y="68" width="506" height="40"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="4qF-FA-0Hg"/>
@@ -731,17 +740,17 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="awy-bG-87q">
-                                <rect key="frame" x="20" y="168" width="350" height="50"/>
+                                <rect key="frame" x="20" y="168" width="506" height="50"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Quel jeu cherchez-vous?" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FGG-DW-Z8m">
-                                        <rect key="frame" x="8" y="8" width="234" height="34"/>
+                                        <rect key="frame" x="8" y="8" width="390" height="34"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                         <textInputTraits key="textInputTraits" keyboardType="webSearch" returnKeyType="search"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xcv-oE-pf7">
-                                        <rect key="frame" x="252" y="8" width="40" height="34"/>
+                                        <rect key="frame" x="408" y="8" width="40" height="34"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="40" id="LQd-6x-13D"/>
                                         </constraints>
@@ -753,7 +762,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Cs-yl-SaY">
-                                        <rect key="frame" x="302" y="8" width="40" height="34"/>
+                                        <rect key="frame" x="458" y="8" width="40" height="34"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="40" id="jIU-We-278"/>
                                         </constraints>
@@ -813,10 +822,11 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G9x-WM-TJM">
-                                <rect key="frame" x="310" y="223" width="50" height="50"/>
+                                <rect key="frame" x="310" y="223" width="206" height="40"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="G9x-WM-TJM" secondAttribute="height" multiplier="1:1" id="2Xv-BJ-2Bj"/>
+                                    <constraint firstAttribute="width" constant="40" id="Nj8-2W-74T"/>
+                                    <constraint firstAttribute="height" constant="40" id="gXP-8t-QS3"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="18"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

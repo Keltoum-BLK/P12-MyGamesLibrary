@@ -264,7 +264,6 @@
 			isa = PBXGroup;
 			children = (
 				B9BA031F27B4334000D32908 /* CoreData */,
-				B9C5C4F327B687A600A01409 /* UPCService */,
 				B93AF74927BAA27E001D42AD /* SecretKey */,
 				B9BA031E27B4332A00D32908 /* RAWGService */,
 				B969756527DA586A00801094 /* MyLibraryElements.swift */,
@@ -362,13 +361,6 @@
 				B99CAAA627C259F200358ADD /* UIViewController+Extension.swift */,
 			);
 			path = Extensions;
-			sourceTree = "<group>";
-		};
-		B9C5C4F327B687A600A01409 /* UPCService */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = UPCService;
 			sourceTree = "<group>";
 		};
 		B9C5C50627B6DC6400A01409 /* Cells */ = {

@@ -124,8 +124,7 @@ class GameService: NetworkService {
         urlComponents.scheme = "https"
         urlComponents.host = "api.upcitemdb.com"
         urlComponents.path = "/prod/trial/lookup"
-        urlComponents.queryItems = [
-            URLQueryItem(name: "upc", value: barCode)]
+        urlComponents.queryItems = [ URLQueryItem(name: "upc", value: barCode)]
 
        guard let urlUPC = urlComponents.url?.absoluteString else { return }
         guard let url = URL(string: urlUPC) else { return }
