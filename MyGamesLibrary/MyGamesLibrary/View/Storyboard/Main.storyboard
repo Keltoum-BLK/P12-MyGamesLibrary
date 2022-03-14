@@ -972,7 +972,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Pgj-6C-Oy4">
-                                <rect key="frame" x="30" y="265" width="330" height="496"/>
+                                <rect key="frame" x="30" y="240" width="330" height="521"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="GameTableViewCell" id="Z6c-x8-nil" customClass="GameTableViewCell" customModule="MyGamesLibrary" customModuleProvider="target">
@@ -988,29 +988,33 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="BW3-jR-4aS">
-                                <rect key="frame" x="0.0" y="189" width="390" height="51"/>
-                                <textInputTraits key="textInputTraits"/>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="BAG-3K-t11">
+                                <rect key="frame" x="0.0" y="182" width="390" height="40"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="ZyV-Id-TuM"/>
+                                </constraints>
+                                <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
                             </searchBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="aCH-09-kA1"/>
                         <color key="backgroundColor" red="0.96085506679999999" green="0.96467119459999995" blue="0.98821061850000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="BAG-3K-t11" firstAttribute="leading" secondItem="8eO-HS-eHL" secondAttribute="leading" id="4pv-Ma-Voj"/>
+                            <constraint firstItem="BAG-3K-t11" firstAttribute="top" secondItem="8eO-HS-eHL" secondAttribute="top" constant="182" id="HUb-z7-HOW"/>
                             <constraint firstItem="Pgj-6C-Oy4" firstAttribute="bottom" secondItem="aCH-09-kA1" secondAttribute="bottom" id="IZw-M8-G2H"/>
-                            <constraint firstItem="aCH-09-kA1" firstAttribute="trailing" secondItem="BW3-jR-4aS" secondAttribute="trailing" id="NMg-DP-lb8"/>
-                            <constraint firstItem="BW3-jR-4aS" firstAttribute="leading" secondItem="aCH-09-kA1" secondAttribute="leading" id="RZe-f1-jVx"/>
+                            <constraint firstAttribute="trailing" secondItem="BAG-3K-t11" secondAttribute="trailing" id="OY3-uU-49a"/>
                             <constraint firstItem="aCH-09-kA1" firstAttribute="trailing" secondItem="Pgj-6C-Oy4" secondAttribute="trailing" constant="30" id="aSo-8t-oXk"/>
-                            <constraint firstItem="aCH-09-kA1" firstAttribute="bottom" secondItem="BW3-jR-4aS" secondAttribute="bottom" constant="521" id="dI2-Uh-509"/>
                             <constraint firstItem="Pgj-6C-Oy4" firstAttribute="leading" secondItem="aCH-09-kA1" secondAttribute="leading" constant="30" id="hL1-9P-FBT"/>
-                            <constraint firstItem="Pgj-6C-Oy4" firstAttribute="top" secondItem="BW3-jR-4aS" secondAttribute="bottom" constant="25" id="hZc-Xx-tOC"/>
-                            <constraint firstItem="BW3-jR-4aS" firstAttribute="top" secondItem="aCH-09-kA1" secondAttribute="top" constant="101" id="hwL-V7-APw"/>
+                            <constraint firstItem="Pgj-6C-Oy4" firstAttribute="top" secondItem="BAG-3K-t11" secondAttribute="bottom" constant="18" id="sP5-Lt-RUp"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Hij-Rl-ary"/>
                     <connections>
                         <outlet property="backgroundImage" destination="JZb-KH-Klw" id="N9C-2C-Oyk"/>
                         <outlet property="gamesFavoriteTableView" destination="Pgj-6C-Oy4" id="u1C-5p-Uut"/>
-                        <outlet property="searchBar" destination="BW3-jR-4aS" id="eA9-ez-hki"/>
+                        <outlet property="searchBar" destination="BAG-3K-t11" id="Pdk-st-NIP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z39-9l-wEc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

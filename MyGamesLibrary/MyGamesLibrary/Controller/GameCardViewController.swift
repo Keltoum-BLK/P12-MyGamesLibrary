@@ -29,6 +29,7 @@ class GameCardViewController: UIViewController {
     
     var gamesAdded = [MyGame]()
     var game: Game?
+    var favoriteGame: MyGame?
     var screenshots = [String]()
     var layout = UICollectionViewFlowLayout()
     var ratingViews = [UIImageView]()
