@@ -21,12 +21,8 @@ class SearchViewController: UIViewController {
     @IBOutlet weak var addLogo: UIImageView!
     @IBOutlet weak var hideTabView: UIButton!
     
-    var searchGames: [Game]? {
-        didSet {
-            searchTableView.reloadData()
-        }
-    }
-    
+    var searchGames: [Game]?
+    var gameTitle = "" 
     var nextPage: String = ""
     
     override func viewDidLoad() {
@@ -36,11 +32,6 @@ class SearchViewController: UIViewController {
         searchTextField.delegate = self
         setUpUI()
         setUpTableView()
-        
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        searchTableView.reloadData()
     }
 
     func setUpUI() {

@@ -11,7 +11,7 @@ import Photos
 import CoreData
 
 class FormViewController: UIViewController {
-
+    
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var releaseDateTextField: UITextField!
     @IBOutlet weak var gameImage: UIImageView!
@@ -21,14 +21,50 @@ class FormViewController: UIViewController {
     @IBOutlet weak var xboxBTN: UIButton!
     @IBOutlet weak var nintendoBTN: UIButton!
     @IBOutlet weak var ratingValue: UILabel!
-    @IBOutlet weak var imagePickerTableView: UITableViewCell!
     
-    var coreDataManager = CoreDataManager(managedObjectContext: CoreDataStack.shared.mainContext)
+    private let datePicker = UIDatePicker()
+    private var coreDataManager = CoreDataManager(managedObjectContext: CoreDataStack.shared.mainContext)
     var games = [MyGame]()
+    var imageUrl = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        createDtePicker()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        gameImage.downloaded(from: imageUrl)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "SuggestedImages", let next = segue.destination as? SuggestedImagesViewController {
+            next.gameTitle = titleTextField.text ?? "no title"
+        }
+    }
+    
+    private func createDtePicker() {
+        let toolbar = UIToolbar()
+        toolbar.sizeToFit()
+        
+        let doneBTN = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(donePressed))
+        toolbar.setItems([doneBTN], animated: true)
+        
+        releaseDateTextField.inputAccessoryView = toolbar
+        
+        releaseDateTextField.inputView = datePicker
+        
+        datePicker.datePickerMode = .date
+        self.view.bringSubviewToFront(datePicker)
+    }
+    
+    @objc func donePressed() {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .medium
+        formatter.timeStyle = .none
+        formatter.dateFormat = "JJ/MM/AAAA"
+        releaseDateTextField.text = "\(datePicker.date)"
+        self.view.endEditing(true)
     }
     
     private func setupUI() {
@@ -47,23 +83,20 @@ class FormViewController: UIViewController {
     }
     
     @IBAction func pickAnImage(_ sender: Any) {
-        var configuration = PHPickerConfiguration(photoLibrary: .shared())
-        configuration.selectionLimit = 1
-        configuration.filter = .images
-        configuration.preferredAssetRepresentationMode = .automatic
-        let pickerController = PHPickerViewController(configuration: configuration)
-        pickerController.delegate = self
-        present(pickerController, animated: true)
+        if let vc = storyboard?.instantiateViewController(withIdentifier: "SuggestedImages") as? SuggestedImagesViewController {
+            vc.delegate = self
+            vc.gameTitle = titleTextField.text ?? ""
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
-
+    
     func createAGameCard(platform: Platform) -> Game {
-        let gameImage = gameImage.image?.pngData()?.base64EncodedString()
-          let game = Game(name: titleTextField.text, released: releaseDateTextField.text, backgroundImage: gameImage, rating: Double(ratingValue.text ?? "0"),platforms: [PlatformElements(platform: platform)], short_screenshots: [])
-            return game
+        let game = Game(name: titleTextField.text, released: releaseDateTextField.text, backgroundImage: imageUrl, rating: Double(ratingValue.text ?? "0"),platforms: [PlatformElements(platform: platform)], short_screenshots: [])
+        return game
     }
     
     @IBAction func addGamInPS4List(_ sender: Any) {
-        let game = createAGameCard(platform: Platform(slug: "playstation"))
+        let game = createAGameCard(platform: Platform(slug: "playstation4"))
         coreDataManager.addGame(game: game)
         checkData()
         self.showAlertMessageBeforeToDismiss(title: "Bravo", message: "Tu as bien rajouté le jeu au catalogue. 🤖")
@@ -71,16 +104,16 @@ class FormViewController: UIViewController {
     }
     
     @IBAction func addGameInXboxList(_ sender: Any) {
-        let game = createAGameCard(platform: Platform(slug: "xbox"))
+        let game = createAGameCard(platform: Platform(slug: "xbox-one"))
         coreDataManager.addGame(game: game)
         self.showAlertMessageBeforeToDismiss(title: "Bravo", message: "Tu as bien rajouté le jeu au catalogue. 🤖")
     }
     
     @IBAction func addGameInSwitchList(_ sender: Any) {
         if everyElementAreFilled() {
-        let game = createAGameCard(platform: Platform(slug: "nintendo-switch"))
-        coreDataManager.addGame(game: game)
-        self.showAlertMessageBeforeToDismiss(title: "Bravo", message: "Tu as bien rajouté le jeu au catalogue. 🤖")
+            let game = createAGameCard(platform: Platform(slug: "nintendo-switch"))
+            coreDataManager.addGame(game: game)
+            self.showAlertMessageBeforeToDismiss(title: "Bravo", message: "Tu as bien rajouté le jeu au catalogue. 🤖")
         }
     }
     
@@ -88,18 +121,14 @@ class FormViewController: UIViewController {
         ratingValue.text = String(Int(sender.value))
     }
     
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        titleTextField.resignFirstResponder()
-        releaseDateTextField.resignFirstResponder()
-        return true
-    }
     func checkData() {
         games = coreDataManager.fetchGames(mygames: self.games)
     }
     
     private func everyElementAreFilled() -> Bool {
         if titleTextField.text != "", releaseDateTextField.text != "", gameImage.image != nil, ratingValue.text != "" {
+            return true
+        } else if (releaseDateTextField.text?.first?.isNumber ?? true) {
             return true
         } else {
             self.showAlertMessage(title: "Erreur détectée", message: "Tu as oublié un élement 🙀.")
@@ -108,24 +137,17 @@ class FormViewController: UIViewController {
     }
 }
 
-extension FormViewController: UINavigationControllerDelegate, PHPickerViewControllerDelegate, UITextFieldDelegate {
-   
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        picker.dismiss(animated: true, completion: nil)
+extension FormViewController: UITextFieldDelegate, SendImageDelegate {
+    func sendImage(imageStr: String) {
+        imageUrl = imageStr
     }
     
-    func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
-        picker.dismiss(animated: true, completion: nil)
-        
-        results.forEach { result in
-            result.itemProvider.loadObject(ofClass: UIImage.self) { [weak self] reading, error in
-                guard let self = self else { return }
-                guard let image = reading as? Data, error == nil  else { return }
-                DispatchQueue.main.async {
-                    self.gameImage.image = UIImage(data: image)
-                }
-            }
-        }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        titleTextField.resignFirstResponder()
+        releaseDateTextField.resignFirstResponder()
+        return true
     }
+    
 }
 

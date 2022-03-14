@@ -16,6 +16,8 @@
 		B93AF74F27BAB33C001D42AD /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93AF74E27BAB33C001D42AD /* UIImageView+Extension.swift */; };
 		B93DC3AF27BD405D005E0F7F /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93DC3AE27BD405D005E0F7F /* UITextField+Extension.swift */; };
 		B94C115827BFAA54006BCB12 /* MyScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B94C115727BFAA54006BCB12 /* MyScanViewController.swift */; };
+		B94E180A27DE4DAD00814CC1 /* SuggestedViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B94E180927DE4DAD00814CC1 /* SuggestedViewCell.swift */; };
+		B94E180C27DE5D5C00814CC1 /* SuggestedImagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B94E180B27DE5D5C00814CC1 /* SuggestedImagesViewController.swift */; };
 		B9593AA727B8428E00A9A91F /* Tool.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9593AA627B8428E00A9A91F /* Tool.swift */; };
 		B95CC85727B7C44700FC4FDD /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95CC85627B7C44700FC4FDD /* TabBarViewController.swift */; };
 		B966F60127BEDC100022D9CD /* GameCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B966F5FF27BEDC100022D9CD /* GameCardViewController.swift */; };
@@ -92,6 +94,8 @@
 		B93AF74E27BAB33C001D42AD /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		B93DC3AE27BD405D005E0F7F /* UITextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
 		B94C115727BFAA54006BCB12 /* MyScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyScanViewController.swift; sourceTree = "<group>"; };
+		B94E180927DE4DAD00814CC1 /* SuggestedViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestedViewCell.swift; sourceTree = "<group>"; };
+		B94E180B27DE5D5C00814CC1 /* SuggestedImagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestedImagesViewController.swift; sourceTree = "<group>"; };
 		B9593AA627B8428E00A9A91F /* Tool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tool.swift; sourceTree = "<group>"; };
 		B95CC85627B7C44700FC4FDD /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		B966F5FF27BEDC100022D9CD /* GameCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCardViewController.swift; sourceTree = "<group>"; };
@@ -296,6 +300,7 @@
 				B9C5C4F127B6876600A01409 /* MyLibraryViewController.swift */,
 				B9DFF4FE27CCC72A004E498E /* GamesFavoriteViewController.swift */,
 				B98D725B27C8ECFF002C593D /* FormViewController.swift */,
+				B94E180B27DE5D5C00814CC1 /* SuggestedImagesViewController.swift */,
 				B94C115727BFAA54006BCB12 /* MyScanViewController.swift */,
 				B9C5C50627B6DC6400A01409 /* Cells */,
 			);
@@ -368,6 +373,7 @@
 			children = (
 				B9C5C50227B6C9FD00A01409 /* GameTableViewCell.swift */,
 				B9A01B2C27C800C60057B6F3 /* ScreenshotsViewCell.swift */,
+				B94E180927DE4DAD00814CC1 /* SuggestedViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -631,7 +637,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B94E180A27DE4DAD00814CC1 /* SuggestedViewCell.swift in Sources */,
 				B9846C3027CE350100AA5057 /* CoreDataStack.swift in Sources */,
+				B94E180C27DE5D5C00814CC1 /* SuggestedImagesViewController.swift in Sources */,
 				B9BA032C27B437E500D32908 /* XboxOneViewController.swift in Sources */,
 				B9BA032727B4368D00D32908 /* UILabel+Extension.swift in Sources */,
 				B9846C3427CE574B00AA5057 /* MyGame.swift in Sources */,

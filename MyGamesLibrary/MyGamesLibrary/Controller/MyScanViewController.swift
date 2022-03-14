@@ -12,7 +12,6 @@ class MyScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
     
     private var captureSession: AVCaptureSession!
     private var previewLayer: AVCaptureVideoPreviewLayer!
-    
     private var gameUPC = ""
     private var gameName = ""
     var games: [Game]?
@@ -22,7 +21,7 @@ class MyScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
-       
+        
     }
     
     private func setup() {
@@ -97,18 +96,16 @@ class MyScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
             found(code: stringValue)
             captureSession.stopRunning()
         }
-        getDataWithUPC { title in
-                    GameService.shared.fetchSearchGames(search: title) { result in
-                        switch result {
-                        case .success(let result):
-                            print("=> result ici", result.results)
-                        case .failure(_):
-                            fatalError()
-                        }
-                    }
-                }
-                print("=>\(gameName)")
+        getDataWithUPC { [weak self] title in
+            guard let self = self else { return }
+            self.fetchGamesList(title: title) { result in
+                let searchVC = SearchViewController()
+                searchVC.searchGames = result
+                self.navigationController?.pushViewController(searchVC, animated: true)
             }
+        }
+        
+    }
     
     func found(code: String) {
         gameUPC = code
@@ -127,7 +124,7 @@ class MyScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
         GameService.shared.getDataWithUPC(barCode: gameUPC) { result in
             switch result {
             case .success(let info):
-                    completion(info.items.first?.title ?? "no title")
+                completion(info.items.first?.title ?? "no title")
                 print(info)
             case .failure(let error):
                 completion("")
@@ -136,7 +133,16 @@ class MyScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
         }
     }
     
-    func fetchGamesWithGameTitle(title: String) {
-        gameName = title
+    func fetchGamesList(title: String, completion: @escaping ([Game]) -> Void) {
+        GameService.shared.fetchSearchGames(search: title) { result in
+            switch result {
+            case .success(let result):
+                guard let gamesArray = result.results else { return }
+                completion(gamesArray)
+            case .failure(let error):
+                completion([])
+                print(error.description)
+            }
+        }
     }
 }

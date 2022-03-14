@@ -66,8 +66,7 @@ class MyLibraryViewController: UIViewController {
     
     func fetchGame(array: [MyGame]) -> [MyGame] {
         var gamesList = array
-//        gamesList = coreDataManager.fetchGamesByPlateform(platform: platform)
-        gamesList = coreDataManager.fetchGames(mygames: gamesList)
+        gamesList = coreDataManager.fetchGamesByPlateform(platform: "playstation4")
         return gamesList
     }
 }

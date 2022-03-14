@@ -50,12 +50,8 @@ class CoreDataManager {
         let request: NSFetchRequest<MyGame> = MyGame.fetchRequest()
         request.returnsObjectsAsFaults = false
         request.predicate = NSPredicate(format: "platform == %@", platform)
-        do {
-            let mygamesList = try managedObjectContext.fetch(request)
-            return mygamesList
-        } catch {
-            return []
-        }
+        let games = (try? managedObjectContext.fetch(request)) ?? []
+        return games
     }
 //    
     

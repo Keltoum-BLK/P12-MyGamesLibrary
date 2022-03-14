@@ -35,11 +35,9 @@ class GamesFavoriteViewController: UIViewController {
     }
     
     private func setup() {
-        guard let imageStr = platformElements?.image else { return }
-        DispatchQueue.main.async {
-            self.backgroundImage.image = UIImage(contentsOfFile: imageStr)
-        }
+    
         backgroundImage.backgroundImage(view: self.view, multiplier: 0.35)
+        backgroundImage.image = UIImage(named: "videogames")
         
         searchBarContainer.layer.cornerRadius = 20
         Tool.shared.setUpShadowView(color: UIColor.black.cgColor, view: searchBarContainer)
