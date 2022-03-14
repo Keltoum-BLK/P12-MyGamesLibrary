@@ -44,7 +44,7 @@ class FormViewController: UIViewController {
     }
     
     private func createDtePicker() {
-        let toolbar = UIToolbar()
+        let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
         toolbar.sizeToFit()
         
         let doneBTN = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(donePressed))
@@ -55,15 +55,15 @@ class FormViewController: UIViewController {
         releaseDateTextField.inputView = datePicker
         
         datePicker.datePickerMode = .date
-        self.view.bringSubviewToFront(datePicker)
+        datePicker.preferredDatePickerStyle = .wheels
+        self.view.window?.addSubview(datePicker)
     }
     
     @objc func donePressed() {
         let formatter = DateFormatter()
         formatter.dateStyle = .medium
         formatter.timeStyle = .none
-        formatter.dateFormat = "JJ/MM/AAAA"
-        releaseDateTextField.text = "\(datePicker.date)"
+        releaseDateTextField.text = formatter.string(from: datePicker.date)
         self.view.endEditing(true)
     }
     
@@ -145,7 +145,6 @@ extension FormViewController: UITextFieldDelegate, SendImageDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         titleTextField.resignFirstResponder()
-        releaseDateTextField.resignFirstResponder()
         return true
     }
     

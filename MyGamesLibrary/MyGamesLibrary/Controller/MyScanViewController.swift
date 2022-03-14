@@ -81,7 +81,7 @@ class MyScanViewController: UIViewController {
             switch result {
             case .success(let info):
                 guard let gameTitle = info.items.first?.title else {
-                    // TODO: Inform user of no title found with this code
+                    self?.showAlertMessageBeforeToDismiss(title: "Erreur détectée ⛔️", message: "Nous n'avons pas trouvé ton jeu, tu peux l'ajouter ou bien le chercher, appuies sur OK pour y accéder.")
                     return
                 }
                 self?.fetchGamesList(title: gameTitle)

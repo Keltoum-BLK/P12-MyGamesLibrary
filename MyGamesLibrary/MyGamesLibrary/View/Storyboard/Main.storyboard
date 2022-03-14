@@ -143,7 +143,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="rhm-lv-qni">
-                                <rect key="frame" x="40" y="234" width="310" height="90"/>
+                                <rect key="frame" x="40" y="278" width="310" height="90"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JcH-9a-h6E">
                                         <rect key="frame" x="0.0" y="0.0" width="310" height="40"/>
@@ -173,7 +173,7 @@
                                 </constraints>
                             </stackView>
                             <stackView autoresizesSubviews="NO" opaque="NO" contentMode="scaleAspectFit" insetsLayoutMarginsFromSafeArea="NO" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="bhL-oD-rNa">
-                                <rect key="frame" x="80" y="334" width="230" height="20.333333333333314"/>
+                                <rect key="frame" x="80" y="378" width="230" height="20.333333333333314"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="EI8-FK-osG">
                                         <rect key="frame" x="0.0" y="1.9999999999999982" width="46" height="17.333333333333336"/>
@@ -198,7 +198,7 @@
                                 </subviews>
                             </stackView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="LWn-Bo-tp9">
-                                <rect key="frame" x="30" y="364" width="330" height="386"/>
+                                <rect key="frame" x="30" y="408" width="330" height="293"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Fer-wr-0B6">
                                     <size key="itemSize" width="128" height="128"/>
@@ -208,7 +208,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell autoresizesSubviews="NO" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" reuseIdentifier="ScreenshotsViewCell" id="mzy-fk-QNQ" customClass="ScreenshotsViewCell" customModule="MyGamesLibrary" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="262" height="171"/>
+                                        <rect key="frame" x="0.0" y="61" width="262" height="171"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" autoresizesSubviews="NO" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="LUm-4t-fJv">
                                             <rect key="frame" x="0.0" y="0.0" width="262" height="171"/>
@@ -233,7 +233,7 @@
                                 </cells>
                             </collectionView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="OBX-cN-niW">
-                                <rect key="frame" x="40" y="760" width="310" height="40"/>
+                                <rect key="frame" x="40" y="711" width="310" height="40"/>
                                 <subviews>
                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B2N-IG-jDn">
                                         <rect key="frame" x="0.0" y="0.0" width="100" height="40"/>
@@ -308,7 +308,7 @@
                         <outlet property="release_date" destination="Zsd-6z-FfM" id="opO-70-Eh0"/>
                         <outlet property="screenshotCollectionView" destination="LWn-Bo-tp9" id="ZM6-Kx-h0S"/>
                         <outlet property="youtubeBTN" destination="8tH-lZ-ucf" id="7FN-xf-WCP"/>
-                        <segue destination="kJB-7P-q4M" kind="show" identifier="WebPage" id="JH9-pA-bH9"/>
+                        <segue destination="kJB-7P-q4M" kind="presentation" identifier="WebPage" id="JH9-pA-bH9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kZg-bj-Uf4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -342,13 +342,14 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="p4j-tm-oNp"/>
+                    <modalPageSheetSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="youtubeVideosWebPage" destination="p3t-Ku-6Z4" id="sZr-0Q-yVz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dqw-kh-rPt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5829.6000000000004" y="344.97751124437787"/>
+            <point key="canvasLocation" x="6474" y="321"/>
         </scene>
         <!--Nintendo View Controller-->
         <scene sceneID="xoU-If-t3z">
@@ -862,10 +863,6 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
-                                <connections>
-                                    <outlet property="dataSource" destination="0eg-zH-SLp" id="BDp-NH-7KI"/>
-                                    <outlet property="delegate" destination="0eg-zH-SLp" id="Ccu-A9-ZCq"/>
-                                </connections>
                             </tableView>
                             <stackView opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" axis="vertical" distribution="fillEqually" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="TXZ-be-ZlK">
                                 <rect key="frame" x="67.5" y="58" width="240" height="105"/>
@@ -974,35 +971,8 @@
                                 <rect key="frame" x="0.0" y="0.0" width="390" height="189"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="a8l-0i-dpw">
-                                <rect key="frame" x="30" y="188" width="330" height="50"/>
-                                <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qbG-04-AVQ">
-                                        <rect key="frame" x="8" y="8" width="256" height="34"/>
-                                        <color key="backgroundColor" red="0.96085506679999999" green="0.96467119459999995" blue="0.98821061850000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" returnKeyType="search"/>
-                                    </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9vg-At-cJ7">
-                                        <rect key="frame" x="272" y="10" width="50" height="30"/>
-                                        <color key="backgroundColor" red="0.96085506679999999" green="0.96467119459999995" blue="0.98821061850000003" alpha="0.76031037414965985" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="50" id="1eT-RI-MD8"/>
-                                            <constraint firstAttribute="height" constant="30" id="T3n-Fr-8pl"/>
-                                        </constraints>
-                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" image="magnifyingglass" catalog="system"/>
-                                        <connections>
-                                            <action selector="searchingBTN:" destination="LXE-Dz-hX2" eventType="touchUpInside" id="I0X-s4-m6k"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" systemColor="systemGrayColor"/>
-                                <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
-                            </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Pgj-6C-Oy4">
-                                <rect key="frame" x="30" y="258" width="330" height="503"/>
+                                <rect key="frame" x="30" y="265" width="330" height="496"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="GameTableViewCell" id="Z6c-x8-nil" customClass="GameTableViewCell" customModule="MyGamesLibrary" customModuleProvider="target">
@@ -1012,29 +982,35 @@
                                             <rect key="frame" x="0.0" y="0.0" width="330" height="43.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="xSA-L3-xtr" kind="show" identifier="FavoriteCard" trigger="accessoryAction" id="vYi-2m-1Ov"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="BW3-jR-4aS">
+                                <rect key="frame" x="0.0" y="189" width="390" height="51"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="aCH-09-kA1"/>
                         <color key="backgroundColor" red="0.96085506679999999" green="0.96467119459999995" blue="0.98821061850000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Pgj-6C-Oy4" firstAttribute="bottom" secondItem="aCH-09-kA1" secondAttribute="bottom" id="IZw-M8-G2H"/>
-                            <constraint firstItem="aCH-09-kA1" firstAttribute="trailing" secondItem="a8l-0i-dpw" secondAttribute="trailing" constant="30" id="NRJ-VP-tdS"/>
-                            <constraint firstItem="a8l-0i-dpw" firstAttribute="leading" secondItem="aCH-09-kA1" secondAttribute="leading" constant="30" id="P2J-sV-Hbd"/>
+                            <constraint firstItem="aCH-09-kA1" firstAttribute="trailing" secondItem="BW3-jR-4aS" secondAttribute="trailing" id="NMg-DP-lb8"/>
+                            <constraint firstItem="BW3-jR-4aS" firstAttribute="leading" secondItem="aCH-09-kA1" secondAttribute="leading" id="RZe-f1-jVx"/>
                             <constraint firstItem="aCH-09-kA1" firstAttribute="trailing" secondItem="Pgj-6C-Oy4" secondAttribute="trailing" constant="30" id="aSo-8t-oXk"/>
+                            <constraint firstItem="aCH-09-kA1" firstAttribute="bottom" secondItem="BW3-jR-4aS" secondAttribute="bottom" constant="521" id="dI2-Uh-509"/>
                             <constraint firstItem="Pgj-6C-Oy4" firstAttribute="leading" secondItem="aCH-09-kA1" secondAttribute="leading" constant="30" id="hL1-9P-FBT"/>
-                            <constraint firstItem="a8l-0i-dpw" firstAttribute="top" secondItem="aCH-09-kA1" secondAttribute="top" constant="100" id="krn-Fb-Rdj"/>
-                            <constraint firstItem="Pgj-6C-Oy4" firstAttribute="top" secondItem="a8l-0i-dpw" secondAttribute="bottom" constant="20" id="mcN-8u-TCP"/>
+                            <constraint firstItem="Pgj-6C-Oy4" firstAttribute="top" secondItem="BW3-jR-4aS" secondAttribute="bottom" constant="25" id="hZc-Xx-tOC"/>
+                            <constraint firstItem="BW3-jR-4aS" firstAttribute="top" secondItem="aCH-09-kA1" secondAttribute="top" constant="101" id="hwL-V7-APw"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Hij-Rl-ary"/>
                     <connections>
                         <outlet property="backgroundImage" destination="JZb-KH-Klw" id="N9C-2C-Oyk"/>
                         <outlet property="gamesFavoriteTableView" destination="Pgj-6C-Oy4" id="u1C-5p-Uut"/>
-                        <outlet property="searchBTN" destination="9vg-At-cJ7" id="ULB-lU-Zxs"/>
-                        <outlet property="searchBarContainer" destination="a8l-0i-dpw" id="fWG-P3-E5C"/>
-                        <outlet property="searchTextField" destination="qbG-04-AVQ" id="msq-O7-czF"/>
+                        <outlet property="searchBar" destination="BW3-jR-4aS" id="eA9-ez-hki"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z39-9l-wEc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1049,7 +1025,7 @@
                         <color key="badgeColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" autoresizesSubviews="NO" contentMode="scaleToFill" id="XP8-sk-Ajd">
+                    <navigationBar key="navigationBar" autoresizesSubviews="NO" opaque="NO" contentMode="scaleToFill" id="XP8-sk-Ajd">
                         <rect key="frame" x="0.0" y="44" width="390" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1152,8 +1128,8 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="eEE-LI-7gn"/>
-        <segue reference="e3v-DM-yph"/>
-        <segue reference="CxL-RQ-j6B"/>
+        <segue reference="AJ5-GP-lNK"/>
+        <segue reference="vYi-2m-1Ov"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Group 2" width="22" height="17"/>
@@ -1177,9 +1153,6 @@
         <image name="xboxx" width="22" height="22"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemGrayColor">
-            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="tintColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

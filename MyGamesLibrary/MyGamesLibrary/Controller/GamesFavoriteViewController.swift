@@ -9,19 +9,20 @@ import UIKit
 
 class GamesFavoriteViewController: UIViewController {
 
-    @IBOutlet weak var searchBarContainer: UIStackView!
+
+    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var backgroundImage: UIImageView!
-    @IBOutlet weak var searchTextField: UITextField!
-    @IBOutlet weak var searchBTN: UIButton!
     @IBOutlet weak var gamesFavoriteTableView: UITableView!
     
     var gamesLibrary: [MyGame]?
     var image: UIImage?
     var platformElements: MyLibraryElements?
+    private var filteredGames: [MyGame]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
+        searchBar.delegate = self
         backgroundImage.image = UIImage(named: platformElements?.image ?? "gamesLibrary")
         gamesLibrary = platformElements?.myGames
         gamesFavoriteTableView.reloadData()
@@ -37,27 +38,18 @@ class GamesFavoriteViewController: UIViewController {
     private func setup() {
     
         backgroundImage.backgroundImage(view: self.view, multiplier: 0.35)
-        backgroundImage.image = UIImage(named: "videogames")
         
-        searchBarContainer.layer.cornerRadius = 20
-        Tool.shared.setUpShadowView(color: UIColor.black.cgColor, view: searchBarContainer)
-        
-        searchTextField.changeThePLaceholderFont(text: "Quel jeu recherchez-vous?", textField: searchTextField.self)
-        searchTextField.delegate = self 
-        searchBTN.layer.cornerRadius = 10
-        
+
         gamesFavoriteTableView.register(UINib(nibName: "GameTableViewCell", bundle: nil), forCellReuseIdentifier: "GameTableViewCell")
         gamesFavoriteTableView.dataSource = self
         gamesFavoriteTableView.delegate = self
     }
     
     
-    @IBAction func searchingBTN(_ sender: Any) {
-        
-    }
-    
 }
-extension GamesFavoriteViewController: UITableViewDelegate, UITableViewDataSource {
+extension GamesFavoriteViewController: UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
+    
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let count = gamesLibrary?.count else { return 1}
         return count
@@ -74,13 +66,7 @@ extension GamesFavoriteViewController: UITableViewDelegate, UITableViewDataSourc
         cell.gameTitle.text = gamesLibrary?[indexPath.row].name ?? "no name"
         cell.gameTitle.textColor = .black
         Tool.shared.setUpShadowTableCell(color: UIColor.black.cgColor, cell: cell)
-        return cell 
+        return cell
     }
 }
-extension GamesFavoriteViewController: UITextFieldDelegate {
 
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        searchTextField.resignFirstResponder()
-        return true
-    }
-}

@@ -14,6 +14,7 @@
 		B93AF74B27BAA29E001D42AD /* SecretApiKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93AF74A27BAA29E001D42AD /* SecretApiKey.swift */; };
 		B93AF74D27BAA52B001D42AD /* GameService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93AF74C27BAA52B001D42AD /* GameService.swift */; };
 		B93AF74F27BAB33C001D42AD /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93AF74E27BAB33C001D42AD /* UIImageView+Extension.swift */; };
+		B93DB8FF27DFE34D0000F651 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B93DB8FE27DFE34D0000F651 /* Main.storyboard */; };
 		B93DC3AF27BD405D005E0F7F /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93DC3AE27BD405D005E0F7F /* UITextField+Extension.swift */; };
 		B94C115827BFAA54006BCB12 /* MyScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B94C115727BFAA54006BCB12 /* MyScanViewController.swift */; };
 		B94E180A27DE4DAD00814CC1 /* SuggestedViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B94E180927DE4DAD00814CC1 /* SuggestedViewCell.swift */; };
@@ -24,7 +25,6 @@
 		B967461C27B420A60037F729 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B967461B27B420A60037F729 /* AppDelegate.swift */; };
 		B967461E27B420A60037F729 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B967461D27B420A60037F729 /* SceneDelegate.swift */; };
 		B967462027B420A60037F729 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B967461F27B420A60037F729 /* LaunchViewController.swift */; };
-		B967462327B420A60037F729 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B967462127B420A60037F729 /* Main.storyboard */; };
 		B967462627B420A60037F729 /* MyGamesLibrary.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B967462427B420A60037F729 /* MyGamesLibrary.xcdatamodeld */; };
 		B967462827B420A70037F729 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B967462727B420A70037F729 /* Assets.xcassets */; };
 		B967462B27B420A70037F729 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B967462927B420A70037F729 /* LaunchScreen.storyboard */; };
@@ -92,6 +92,7 @@
 		B93AF74A27BAA29E001D42AD /* SecretApiKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecretApiKey.swift; sourceTree = "<group>"; };
 		B93AF74C27BAA52B001D42AD /* GameService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameService.swift; sourceTree = "<group>"; };
 		B93AF74E27BAB33C001D42AD /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
+		B93DB8FE27DFE34D0000F651 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		B93DC3AE27BD405D005E0F7F /* UITextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
 		B94C115727BFAA54006BCB12 /* MyScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyScanViewController.swift; sourceTree = "<group>"; };
 		B94E180927DE4DAD00814CC1 /* SuggestedViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestedViewCell.swift; sourceTree = "<group>"; };
@@ -103,7 +104,6 @@
 		B967461B27B420A60037F729 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B967461D27B420A60037F729 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		B967461F27B420A60037F729 /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
-		B967462227B420A60037F729 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B967462527B420A60037F729 /* MyGamesLibrary.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MyGamesLibrary.xcdatamodel; sourceTree = "<group>"; };
 		B967462727B420A70037F729 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B967462A27B420A70037F729 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -381,7 +381,7 @@
 		B9D3687927C62B8800D2CC3D /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
-				B967462127B420A60037F729 /* Main.storyboard */,
+				B93DB8FE27DFE34D0000F651 /* Main.storyboard */,
 				B967462927B420A70037F729 /* LaunchScreen.storyboard */,
 				B93AF75027BABD59001D42AD /* Cell */,
 			);
@@ -502,10 +502,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				B967462B27B420A70037F729 /* LaunchScreen.storyboard in Resources */,
+				B93DB8FF27DFE34D0000F651 /* Main.storyboard in Resources */,
 				B9C5C50527B6C9FD00A01409 /* GameTableViewCell.xib in Resources */,
 				B967462827B420A70037F729 /* Assets.xcassets in Resources */,
 				B9BA031827B430BB00D32908 /* logoGif.gif in Resources */,
-				B967462327B420A60037F729 /* Main.storyboard in Resources */,
 				B9C5C4FD27B6B9C000A01409 /* HWYGCOND.TTF in Resources */,
 				B9C5C4F727B6B78800A01409 /* X360.ttf in Resources */,
 				B9BA032427B4345200D32908 /* Gamejot.ttf in Resources */,
@@ -711,14 +711,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		B967462127B420A60037F729 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B967462227B420A60037F729 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		B967462927B420A70037F729 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
