@@ -297,11 +297,11 @@
 				B966F5FF27BEDC100022D9CD /* GameCardViewController.swift */,
 				B97A8EC627DA94E3004294AA /* WebViewController.swift */,
 				B9C5C4EF27B6875500A01409 /* SearchViewController.swift */,
+				B94C115727BFAA54006BCB12 /* MyScanViewController.swift */,
 				B9C5C4F127B6876600A01409 /* MyLibraryViewController.swift */,
 				B9DFF4FE27CCC72A004E498E /* GamesFavoriteViewController.swift */,
 				B98D725B27C8ECFF002C593D /* FormViewController.swift */,
 				B94E180B27DE5D5C00814CC1 /* SuggestedImagesViewController.swift */,
-				B94C115727BFAA54006BCB12 /* MyScanViewController.swift */,
 				B9C5C50627B6DC6400A01409 /* Cells */,
 			);
 			path = Controller;
@@ -857,7 +857,8 @@
 				DEVELOPMENT_TEAM = BP4DYC4UP8;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MyGamesLibrary/Info.plist;
-				INFOPLIST_KEY_NSCameraUsageDescription = "Used to read barcode";
+				INFOPLIST_KEY_NSAppleMusicUsageDescription = "take picture in albums";
+				INFOPLIST_KEY_NSCameraUsageDescription = "take a picture of the video game";
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "User's Identification ";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -865,7 +866,7 @@
 				INFOPLIST_KEY_UIRequiresFullScreen = NO;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -890,7 +891,8 @@
 				DEVELOPMENT_TEAM = BP4DYC4UP8;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MyGamesLibrary/Info.plist;
-				INFOPLIST_KEY_NSCameraUsageDescription = "Used to read barcode";
+				INFOPLIST_KEY_NSAppleMusicUsageDescription = "take picture in albums";
+				INFOPLIST_KEY_NSCameraUsageDescription = "take a picture of the video game";
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "User's Identification ";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -898,7 +900,7 @@
 				INFOPLIST_KEY_UIRequiresFullScreen = NO;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -8,141 +8,124 @@
 import AVFoundation
 import UIKit
 
-class MyScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
+protocol ScanControllerDelegate: AnyObject {
+    func showGameList(with games: [Game])
+}
+
+class MyScanViewController: UIViewController {
     
-    private var captureSession: AVCaptureSession!
-    private var previewLayer: AVCaptureVideoPreviewLayer!
-    private var gameUPC = ""
-    private var gameName = ""
-    var games: [Game]?
-    private var isLoading: Bool = false
+    weak var delegate: ScanControllerDelegate?
+    private var captureSession = AVCaptureSession()
     
-    
+    // MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        setup()
-        
-    }
-    
-    private func setup() {
-        view.backgroundColor = UIColor.lightGray
-        captureSession = AVCaptureSession()
-        
-        guard let videoCaptureDevice = AVCaptureDevice.default(for: .video) else { return }
-        let videoInput: AVCaptureDeviceInput
-        
-        do {
-            videoInput = try AVCaptureDeviceInput(device: videoCaptureDevice)
-        } catch {
-            return
-        }
-        
-        if (captureSession.canAddInput(videoInput)) {
-            captureSession.addInput(videoInput)
-        } else {
-            failed()
-            return
-        }
-        
-        let metadataOutput = AVCaptureMetadataOutput()
-        
-        if (captureSession.canAddOutput(metadataOutput)) {
-            captureSession.addOutput(metadataOutput)
-            
-            metadataOutput.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
-            metadataOutput.metadataObjectTypes = [.ean8, .ean13, .pdf417]
-        } else {
-            failed()
-            return
-        }
-        
-        previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
-        previewLayer.frame = CGRect(x: 40, y: 80, width: 300, height: 200)
-        previewLayer.cornerRadius = 20
-        previewLayer.videoGravity = .resizeAspectFill
-        view.layer.addSublayer(previewLayer)
         view.backgroundColor = .lightGray
-        captureSession.startRunning()
-    }
-    
-    func failed() {
-        self.showAlertMessageBeforeToDismiss(title: "Erreur détectée ⛔️", message: "Impossible de lire le code barre 👾.")
-        captureSession = nil
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        if (captureSession?.isRunning == false) {
-            captureSession.startRunning()
-        }
+        setupLiveView()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        
-        if (captureSession?.isRunning == true) {
-            captureSession.stopRunning()
-        }
-    }
-    
-    func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
         captureSession.stopRunning()
-        
-        if let metadataObject = metadataObjects.first {
-            guard let readableObject = metadataObject as? AVMetadataMachineReadableCodeObject else { return }
-            guard let stringValue = readableObject.stringValue else { return }
-            AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
-            found(code: stringValue)
-            captureSession.stopRunning()
+    }
+    
+    // MARK: Private functions
+    private func setupLiveView() {
+        captureSession.sessionPreset = .hd1280x720
+        guard let videoDeviceInput = addVideoInput() else { return }
+        captureSession.addInput(videoDeviceInput)
+        addCaptureOutput()
+    }
+    
+    private func addVideoInput() -> AVCaptureDeviceInput? {
+        let captureDevice = AVCaptureDevice.default(.builtInWideAngleCamera,
+                                                    for: .video,
+                                                    position: .back)
+        guard let videoCaptureDevice = captureDevice,
+              let videoInput = try? AVCaptureDeviceInput(device: videoCaptureDevice),
+              captureSession.canAddInput(videoInput) else {
+            return nil
         }
-        getDataWithUPC { [weak self] title in
-            guard let self = self else { return }
-            self.fetchGamesList(title: title) { result in
-                let searchVC = SearchViewController()
-                searchVC.searchGames = result
-                self.navigationController?.pushViewController(searchVC, animated: true)
-            }
+        return videoInput
+    }
+    
+    private func addCaptureOutput() {
+        let metadataOutput = AVCaptureMetadataOutput()
+        guard captureSession.canAddOutput(metadataOutput) else {
+            showFailedSessionMessage()
+            return
         }
+        captureSession.addOutput(metadataOutput)
+        let queue = DispatchQueue.main
+        metadataOutput.setMetadataObjectsDelegate(self, queue: queue)
+        metadataOutput.metadataObjectTypes = [.ean8, .ean13, .pdf417]
         
+        configurePreviewLayer()
+        captureSession.startRunning()
     }
     
-    func found(code: String) {
-        gameUPC = code
-        print("=>\(gameUPC)")
+    private func configurePreviewLayer() {
+        let previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
+        previewLayer.frame = CGRect(x: 20,
+                                    y: 20,
+                                    width: view.bounds.size.width - 40,
+                                    height: view.bounds.size.height * 0.3)
+        previewLayer.cornerRadius = 20
+        previewLayer.videoGravity = .resizeAspectFill
+        view.layer.addSublayer(previewLayer)
     }
     
-    override var prefersStatusBarHidden: Bool {
-        return true
-    }
-    
-    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-        return .portrait
-    }
-    
-    private func getDataWithUPC(completion: @escaping (String) -> Void) {
-        GameService.shared.getDataWithUPC(barCode: gameUPC) { result in
+    // MARK: Api call
+    private func fetchTitle(from code: String) {
+        GameService.shared.getDataWithUPC(barCode: code) { [weak self] result in
             switch result {
             case .success(let info):
-                completion(info.items.first?.title ?? "no title")
+                guard let gameTitle = info.items.first?.title else {
+                    // TODO: Inform user of no title found with this code
+                    return
+                }
+                self?.fetchGamesList(title: gameTitle)
                 print(info)
             case .failure(let error):
-                completion("")
                 print(error.description)
             }
         }
     }
     
-    func fetchGamesList(title: String, completion: @escaping ([Game]) -> Void) {
-        GameService.shared.fetchSearchGames(search: title) { result in
+    func fetchGamesList(title: String) {
+        GameService.shared.fetchSearchGames(search: title) { [weak self] result in
             switch result {
             case .success(let result):
-                guard let gamesArray = result.results else { return }
-                completion(gamesArray)
+                guard let foundGamesList = result.results else {
+                    // TODO: Inform user or no game found with title
+                    return
+                }
+                self?.delegate?.showGameList(with: foundGamesList)
+                self?.dismiss(animated: true)
             case .failure(let error):
-                completion([])
                 print(error.description)
             }
         }
     }
+    
+    private func showFailedSessionMessage() {
+        self.showAlertMessageBeforeToDismiss(title: "Erreur détectée ⛔️",
+                                             message: "Impossible de lire le code barre 👾.")
+    }
+}
+
+extension MyScanViewController: AVCaptureMetadataOutputObjectsDelegate {
+    
+    func metadataOutput(_ output: AVCaptureMetadataOutput,
+                        didOutput metadataObjects: [AVMetadataObject],
+                        from connection: AVCaptureConnection) {
+           captureSession.stopRunning()
+
+           if let metadataObject = metadataObjects.first {
+               guard let readableObject = metadataObject as? AVMetadataMachineReadableCodeObject else { return }
+               guard let stringValue = readableObject.stringValue else { return }
+               AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
+               fetchTitle(from: stringValue)
+           }
+       }
 }

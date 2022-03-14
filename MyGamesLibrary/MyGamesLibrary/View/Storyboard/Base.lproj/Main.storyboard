@@ -718,7 +718,7 @@
             <objects>
                 <viewController storyboardIdentifier="SuggestedImages" id="xD9-DT-Iyy" customClass="SuggestedImagesViewController" customModule="MyGamesLibrary" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZRD-Ho-Z5z">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Dxw-Sn-0Vg">
@@ -862,6 +862,10 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="0eg-zH-SLp" id="BDp-NH-7KI"/>
+                                    <outlet property="delegate" destination="0eg-zH-SLp" id="Ccu-A9-ZCq"/>
+                                </connections>
                             </tableView>
                             <stackView opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" axis="vertical" distribution="fillEqually" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="TXZ-be-ZlK">
                                 <rect key="frame" x="67.5" y="58" width="240" height="105"/>
@@ -1148,7 +1152,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="eEE-LI-7gn"/>
-        <segue reference="AJ5-GP-lNK"/>
+        <segue reference="e3v-DM-yph"/>
         <segue reference="CxL-RQ-j6B"/>
     </inferredMetricsTieBreakers>
     <resources>

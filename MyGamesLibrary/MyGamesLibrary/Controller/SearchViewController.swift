@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import AVFoundation
 
 class SearchViewController: UIViewController {
     
@@ -21,14 +20,18 @@ class SearchViewController: UIViewController {
     @IBOutlet weak var addLogo: UIImageView!
     @IBOutlet weak var hideTabView: UIButton!
     
-    var searchGames: [Game]?
+    var searchGames: [Game] = [] {
+        didSet {
+            DispatchQueue.main.async {
+                self.searchTableView.reloadData()
+            }
+        }
+    }
     var gameTitle = "" 
     var nextPage: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        searchTableView.delegate = self
-        searchTableView.dataSource = self
         searchTextField.delegate = self
         setUpUI()
         setUpTableView()
@@ -56,35 +59,36 @@ class SearchViewController: UIViewController {
         addGameBTN.widthAnchor.constraint(equalToConstant: 150).isActive = true
         addGameBTN.layer.cornerRadius = addGameBTN.frame.height / 2
         Tool.shared.setUpShadowView(color: UIColor.black.cgColor, view: addGameBTN)
-        
-        searchTableView.isHidden = true
-        
         hideTabView.layer.cornerRadius = hideTabView.frame.height / 2
     }
     
     private  func setUpTableView() {
-        searchTableView.register(UINib(nibName: "GameTableViewCell", bundle: nil), forCellReuseIdentifier: "GameTableViewCell")
+        searchTableView.register(UINib(nibName: "GameTableViewCell", bundle: nil),
+                                 forCellReuseIdentifier: "GameTableViewCell")
         searchTableView.tableViewConstraints(view: self.view, constant: 160)
     }
     //fetch Data to launch the search
     private func fetchDataGames () {
-        guard let title = searchTextField.text else { return }
-        if title != ""{
+        guard let title = searchTextField.text, !title.isEmpty else {
+            self.showAlertMessage(title: "Erreur détectée ⛔️",
+                                  message: "Vous ne pouvez pas faire requête avec un champ vide 👾.")
+            return
+        }
             GameService.shared.fetchSearchGames(search: title) { [weak self] result in
                 guard let self = self else { return }
                 switch result {
                 case .success(let games):
-                    self.searchGames = games.results
-                    self.nextPage = games.next ?? "no next"
-                    self.searchTextField.text = ""
+                    guard let results = games.results,
+                          let next = games.next else { return }
+                    self.searchGames = results
+                    self.nextPage = next
+                    self.searchTextField.text = nil
                 case .failure(let error):
                     print(error.description)
-                    self.showAlertMessage(title: "Erreur détectée ⛔️", message: "Nous n'avons pas trouvé le jeu que vous cherchez, essaye un autre nom 👾, \n \(error.description)")
+                    self.showAlertMessage(title: "Erreur détectée ⛔️",
+                                          message: "Nous n'avons pas trouvé le jeu que vous cherchez, essaye un autre nom 👾, \n \(error.description)")
                 }
             }
-        } else {
-            self.showAlertMessage(title: "Erreur détectée ⛔️", message: "Vous ne pouvez pas faire requête avec un champ vide 👾.")
-        }
     }
     
     //search video games
@@ -102,7 +106,7 @@ class SearchViewController: UIViewController {
             guard let self = self else { return }
             switch result {
             case .success(let games):
-                self.searchGames?.append(contentsOf: games.results ?? [])
+                self.searchGames.append(contentsOf: games.results ?? [])
                 self.nextPage = games.next ?? "no next page"
             case .failure(let error):
                 self.showAlertMessage(title: "Erreur détectée ⛔️", message: "Vous avez vu tout les jeux disponibles, \(error.description)")
@@ -111,14 +115,13 @@ class SearchViewController: UIViewController {
     }
     
     @IBAction func getGamesbyBarcode(_ sender: Any) {
-       let myscanVC = MyScanViewController()
-        let nav = UINavigationController(rootViewController: myscanVC)
-        
-        nav.modalPresentationStyle = .pageSheet
-        if let sheet = nav.sheetPresentationController {
-            sheet.detents = [.medium()]
-        }
-        present(nav, animated: true)
+        addGameStack.isHidden = true
+        let myscanVC = MyScanViewController()
+        myscanVC.modalPresentationStyle = .pageSheet
+        myscanVC.delegate = self
+        let sheet = myscanVC.sheetPresentationController
+        sheet?.detents = [.medium()]
+        present(myscanVC, animated: true)
     }
     
     //send data to the next Controller
@@ -152,14 +155,15 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let gamesCount = searchGames?.count else {return 0}
-        return gamesCount
+//        searchTableView.isHidden = searchGames.isEmpty
+//        addGameStack.isHidden = !searchGames.isEmpty
+        return searchGames.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = searchTableView.dequeueReusableCell(withIdentifier: "GameTableViewCell", for: indexPath) as! GameTableViewCell
-            cell.gameImage.cacheImage(urlString: searchGames?[indexPath.row].backgroundImage ?? "no image")
-            cell.gameTitle.text = searchGames?[indexPath.row].name ?? "no name"
+            cell.gameImage.cacheImage(urlString: searchGames[indexPath.row].backgroundImage ?? "no image")
+            cell.gameTitle.text = searchGames[indexPath.row].name ?? "no name"
             cell.gameTitle.textColor = .black
             Tool.shared.setUpShadowTableCell(color: UIColor.black.cgColor, cell: cell)
         return cell
@@ -175,7 +179,12 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "SearchGameCard", sender: searchGames?[indexPath.row])
+        performSegue(withIdentifier: "SearchGameCard", sender: searchGames[indexPath.row])
+    }
+}
 
+extension SearchViewController: ScanControllerDelegate {
+    func showGameList(with games: [Game]) {
+        searchGames = games
     }
 }
