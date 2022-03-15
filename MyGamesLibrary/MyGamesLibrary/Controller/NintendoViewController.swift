@@ -88,7 +88,7 @@ extension NintendoViewController: UITableViewDelegate, UITableViewDataSource {
         cell.gameImage.cacheImage(urlString: nintendoGames?[indexPath.row].backgroundImage ?? "no image")
         cell.gameTitle.text = nintendoGames?[indexPath.row].name ?? "no name"
         cell.gameTitle.textColor = .red
-        Tool.shared.setUpShadowTableCell(color: UIColor.systemRed.cgColor, cell: cell)
+        Tool.shared.setUpShadow(color: UIColor.systemRed.cgColor, cell: cell, width: 0, height: 5)
         return cell
     }
     

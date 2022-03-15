@@ -12,24 +12,10 @@ class Tool {
     
     static let shared = Tool()
     
-    func setUpShadowTableCell(color: CGColor, cell: UITableViewCell) {
+    func setUpShadow(color: CGColor, cell: UIView, width: CGFloat, height: CGFloat) {
         cell.layer.shadowOpacity = 1
         cell.layer.shadowColor = color
-        cell.layer.shadowOffset = CGSize(width: 0, height: 5)
-        cell.layer.shadowRadius = 5
-        cell.selectionStyle = .none
-    }
-    
-    func setUpShadowView(color: CGColor, view: UIView) {
-        view.layer.shadowOpacity = 1
-        view.layer.shadowColor = color
-        view.layer.shadowOffset = CGSize(width: 5, height: 5)
-        view.layer.shadowRadius = 5
-    }
-    func setUpShadowCollectionCell(color: CGColor, cell: UICollectionViewCell) {
-        cell.layer.shadowOpacity = 1
-        cell.layer.shadowColor = color
-        cell.layer.shadowOffset = CGSize(width: 0, height: 3)
+        cell.layer.shadowOffset = CGSize(width: width, height: height)
         cell.layer.shadowRadius = 5
     }
     
@@ -55,4 +41,13 @@ class Tool {
         })
         return list
     }
+    
+//    func changeDateFormat(releaseDate : String) -> String {
+//        let date = Date(from: releaseDate)
+//        let dateFormatter = DateFormatter()
+//        dateFormatter.dateFormat = "d MMMM YY"
+//        guard let date = dateFormatter.date(from: releaseDate) else { return "" }
+//        let released = dateFormatter.string(from: date)
+//        return released
+//    }
 }

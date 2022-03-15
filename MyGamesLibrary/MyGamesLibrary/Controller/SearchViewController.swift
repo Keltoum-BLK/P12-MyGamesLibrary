@@ -27,7 +27,7 @@ class SearchViewController: UIViewController {
             }
         }
     }
-    var gameTitle = "" 
+    var gameTitle = ""
     var nextPage: String = ""
     
     override func viewDidLoad() {
@@ -58,8 +58,8 @@ class SearchViewController: UIViewController {
         addLogo.image = UIImage(named: "icons8-game-controller-30")
         addGameBTN.widthAnchor.constraint(equalToConstant: 150).isActive = true
         addGameBTN.layer.cornerRadius = addGameBTN.frame.height / 2
-        Tool.shared.setUpShadowView(color: UIColor.black.cgColor, view: addGameBTN)
-        hideTabView.layer.cornerRadius = hideTabView.frame.height / 2
+        Tool.shared.setUpShadow(color: UIColor.black.cgColor, cell: addGameBTN, width: 5, height: 5)
+        hideTabView.layer.cornerRadius = 20
     }
     
     private  func setUpTableView() {
@@ -97,6 +97,7 @@ class SearchViewController: UIViewController {
         addGameStack.isHidden = true
         searchTableView.isHidden = false
         fetchDataGames()
+        print("==>\(searchGames)")
     }
 
  
@@ -133,7 +134,7 @@ class SearchViewController: UIViewController {
     
     @IBAction func hideTabViewAction(_ sender: Any) {
         searchTableView.isHidden = true
-        addGameStack.isHidden = false 
+        addGameStack.isHidden = false
     }
 }
 
@@ -155,8 +156,8 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        searchTableView.isHidden = searchGames.isEmpty
-//        addGameStack.isHidden = !searchGames.isEmpty
+        searchTableView.isHidden = searchGames.isEmpty
+        addGameStack.isHidden = !searchGames.isEmpty
         return searchGames.count
     }
     
@@ -165,7 +166,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
             cell.gameImage.cacheImage(urlString: searchGames[indexPath.row].backgroundImage ?? "no image")
             cell.gameTitle.text = searchGames[indexPath.row].name ?? "no name"
             cell.gameTitle.textColor = .black
-            Tool.shared.setUpShadowTableCell(color: UIColor.black.cgColor, cell: cell)
+            Tool.shared.setUpShadow(color: UIColor.black.cgColor, cell: cell, width: 0, height: 5)
         return cell
     }
     //back to the tableView's top and load next page

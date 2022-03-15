@@ -94,7 +94,7 @@ extension XboxOneViewController: UITableViewDelegate, UITableViewDataSource {
         cell.gameImage.cacheImage(urlString: xboxGames?[indexPath.row].backgroundImage ?? "no image")
         cell.gameTitle.text = xboxGames?[indexPath.row].name ?? "no name"
         cell.gameTitle.textColor = .green
-        Tool.shared.setUpShadowTableCell(color: UIColor.systemGreen.cgColor, cell: cell)
+        Tool.shared.setUpShadow(color: UIColor.systemGreen.cgColor, cell: cell, width: 0, height: 5)
         return cell
     }
     

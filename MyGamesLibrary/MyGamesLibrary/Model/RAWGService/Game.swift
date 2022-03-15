@@ -43,8 +43,8 @@ struct Game: Decodable {
             .compactMap { $0.platform.slug }
                 .joined(separator: ", ")
         }
-     
     
+   
 }
 
 struct PlatformElements: Decodable {
