@@ -40,7 +40,7 @@ class NintendoViewController: UIViewController {
     }
     private func setUpTableView() {
         nintendoTableView.register(UINib(nibName: "GameTableViewCell", bundle: nil), forCellReuseIdentifier: "GameTableViewCell")
-        nintendoTableView.tableViewConstraints(view: self.view, constant: 100)
+        nintendoTableView.tableViewConstraints(view: self.view, constant: 120)
     }
     
     private func getGames() {
@@ -85,6 +85,7 @@ extension NintendoViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = nintendoTableView.dequeueReusableCell(withIdentifier: "GameTableViewCell", for: indexPath) as! GameTableViewCell
+        cell.selectionStyle = .none
         cell.gameImage.cacheImage(urlString: nintendoGames?[indexPath.row].backgroundImage ?? "no image")
         cell.gameTitle.text = nintendoGames?[indexPath.row].name ?? "no name"
         cell.gameTitle.textColor = .red

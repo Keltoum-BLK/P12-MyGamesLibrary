@@ -16,6 +16,7 @@ class GameCardViewController: UIViewController {
     @IBOutlet weak var favBTN: UIButton!
     @IBOutlet weak var marketBTN: UIButton!
     @IBOutlet weak var youtubeBTN: UIButton!
+    @IBOutlet weak var dismissBTN: UIButton!
     //game's informations
     @IBOutlet weak var gameTitle: UILabel!
     @IBOutlet weak var release_date: UILabel!
@@ -29,7 +30,7 @@ class GameCardViewController: UIViewController {
     
     var gamesAdded = [MyGame]()
     var game: Game?
-    var favoriteGame: MyGame?
+
     var screenshots = [String]()
     var layout = UICollectionViewFlowLayout()
     var ratingViews = [UIImageView]()
@@ -96,7 +97,6 @@ class GameCardViewController: UIViewController {
             $0.image = UIImage(systemName: "heart.fill")
             $0.sizeThatFits(CGSize(width: 8, height: 8))
             $0.contentMode = .scaleAspectFit
-            $0.translatesAutoresizingMaskIntoConstraints = true
         }
     }
     
@@ -139,9 +139,6 @@ class GameCardViewController: UIViewController {
         gameImage.contentMode = .scaleAspectFill
     }
     
-    func checkData() {
-        gamesAdded = coreDataManager.fetchGames(mygames: self.gamesAdded)
-    }
     @IBAction func addGameInLibrary(_ sender: Any) {
         addGameInLibraryWithPlatform()
     }
@@ -155,6 +152,10 @@ class GameCardViewController: UIViewController {
     @IBAction func goToTheMarketPage(_ sender: Any) {
         let gameUrl = "https://ledenicheur.fr/search?search=\(game?.name?.replacingOccurrences(of: " ", with: "%20") ?? "no url")"
         performSegue(withIdentifier: "WebPage", sender: gameUrl)
+    }
+    
+    @IBAction func dismissBTN(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
     }
     
     private func addGameInLibraryWithPlatform() {

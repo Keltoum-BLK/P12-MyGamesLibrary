@@ -21,6 +21,7 @@ class FormViewController: UIViewController {
     @IBOutlet weak var xboxBTN: UIButton!
     @IBOutlet weak var nintendoBTN: UIButton!
     @IBOutlet weak var ratingValue: UILabel!
+    @IBOutlet weak var backBTN: UIButton!
     
     private let datePicker = UIDatePicker()
     private var coreDataManager = CoreDataManager(managedObjectContext: CoreDataStack.shared.mainContext)
@@ -82,6 +83,9 @@ class FormViewController: UIViewController {
         releaseDateTextField.delegate = self
     }
     
+    @IBAction func dismissAction(_ sender: Any) {
+        dismiss(animated: true)
+    }
     @IBAction func pickAnImage(_ sender: Any) {
         if let vc = storyboard?.instantiateViewController(withIdentifier: "SuggestedImages") as? SuggestedImagesViewController {
             vc.delegate = self

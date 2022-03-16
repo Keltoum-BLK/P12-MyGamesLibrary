@@ -81,7 +81,7 @@ class MyScanViewController: UIViewController {
             switch result {
             case .success(let info):
                 guard let gameTitle = info.items.first?.title else {
-                    self?.showAlertMessageBeforeToDismiss(title: "Erreur détectée ⛔️", message: "Nous n'avons pas trouvé ton jeu, tu peux l'ajouter ou bien le chercher, appuies sur OK pour y accéder.")
+                    self?.showFailedSessionMessage()
                     return
                 }
                 self?.fetchGamesList(title: gameTitle)
@@ -110,7 +110,7 @@ class MyScanViewController: UIViewController {
     
     private func showFailedSessionMessage() {
         self.showAlertMessageBeforeToDismiss(title: "Erreur détectée ⛔️",
-                                             message: "Impossible de lire le code barre 👾.")
+                                             message: "Impossible de lire le code barre 👾. Tu peux soit effectuer une recherche ou bien créer la fiche de ton jeu.")
     }
 }
 

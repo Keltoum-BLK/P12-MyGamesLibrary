@@ -45,11 +45,26 @@ extension UIViewController {
     
     func setupNavigationBack() {
         if #available(iOS 15.0, *) {
+
+                navigationController?.navigationBar.shadowImage = UIImage()
+                self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+                self.navigationController?.navigationBar.shadowImage = UIImage()
+                self.navigationController?.navigationBar.isTranslucent = true
+                self.navigationController?.view.backgroundColor = UIColor.clear
+                navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.black]
+            
             let backButton = UIBarButtonItem()
             backButton.image = UIImage(systemName: "arrowshape.turn.up.left.fill")
             navigationController?.navigationBar.tintColor = .black
             self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
         }
+        navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController?.view.backgroundColor = UIColor.clear
+        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.black]
+    
         let backButton = UIBarButtonItem()
         backButton.image = UIImage(systemName: "arrowshape.turn.up.left.fill")
         navigationController?.navigationBar.tintColor = .black

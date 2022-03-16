@@ -16,6 +16,8 @@ class TabBarViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpTabBar()
+       
+
         // Do any additional setup after loading the view.
     }
     
@@ -29,6 +31,7 @@ class TabBarViewController: UITabBarController {
             appearance.backgroundColor = .white
             tabBar.standardAppearance = appearance
             tabBar.scrollEdgeAppearance = appearance
+            
         }
     }
 }

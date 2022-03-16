@@ -13,6 +13,7 @@ class GamesFavoriteViewController: UIViewController {
     
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var backgroundImage: UIImageView!
+    @IBOutlet weak var backBTN: UIButton!
     @IBOutlet weak var gamesFavoriteTableView: UITableView!
     
     var gamesLibrary: [MyGame]?
@@ -35,7 +36,7 @@ class GamesFavoriteViewController: UIViewController {
         gamesFavoriteTableView.reloadData()
         gamesFavoriteTableView.reloadData()
         
-        
+        backBTN.layer.cornerRadius = 5
         // Do any additional setup after loading the view.
     }
     
@@ -44,26 +45,27 @@ class GamesFavoriteViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "FavoriteCard", let next = segue.destination as? GameCardViewController {
-            next.favoriteGame = sender as? MyGame
+        if segue.identifier == "MyGameCard", let next = segue.destination as? MyGameViewController {
+            next.myGame = sender as? MyGame
         }
     }
     
+    @IBAction func dismissBTN(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
     private func setup() {
-        
+        searchBar.delegate = self
+        searchBar.searchTextField.textColor = .black
+        searchBar.searchTextField.font = UIFont(name: "Menlo", size: 15)
         backgroundImage.backgroundImage(view: self.view, multiplier: 0.25)
-        
         
         gamesFavoriteTableView.register(UINib(nibName: "GameTableViewCell", bundle: nil), forCellReuseIdentifier: "GameTableViewCell")
         gamesFavoriteTableView.dataSource = self
         gamesFavoriteTableView.delegate = self
     }
-    
-    
 }
+
 extension GamesFavoriteViewController: UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
-    
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if isSearching {
             return filteredGames?.count ?? 0
@@ -77,7 +79,7 @@ extension GamesFavoriteViewController: UITableViewDelegate, UITableViewDataSourc
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "FavoriteCard", sender: filteredGames?[indexPath.row])
+        performSegue(withIdentifier: "MyGameCard", sender: gamesLibrary?[indexPath.row])
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
@@ -90,6 +92,7 @@ extension GamesFavoriteViewController: UITableViewDelegate, UITableViewDataSourc
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = gamesFavoriteTableView.dequeueReusableCell(withIdentifier: "GameTableViewCell", for: indexPath) as! GameTableViewCell
+        cell.selectionStyle = .none
         if isSearching {
             guard let dataImage = filteredGames?[indexPath.row].backgroundImage else { return UITableViewCell() }
             cell.gameImage.cacheImage(urlString: String(decoding: dataImage, as: UTF8.self))
@@ -126,5 +129,8 @@ extension GamesFavoriteViewController: UITableViewDelegate, UITableViewDataSourc
         return searchBar.text?.isEmpty ?? true
     }
     
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        searchBar.endEditing(true)
+    }
 }
 

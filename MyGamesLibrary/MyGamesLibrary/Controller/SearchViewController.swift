@@ -63,9 +63,11 @@ class SearchViewController: UIViewController {
     }
     
     private  func setUpTableView() {
+        searchTableView.delegate = self
+        searchTableView.dataSource = self
         searchTableView.register(UINib(nibName: "GameTableViewCell", bundle: nil),
                                  forCellReuseIdentifier: "GameTableViewCell")
-        searchTableView.tableViewConstraints(view: self.view, constant: 160)
+        searchTableView.tableViewConstraints(view: self.view, constant: 200)
     }
     //fetch Data to launch the search
     private func fetchDataGames () {
@@ -97,7 +99,6 @@ class SearchViewController: UIViewController {
         addGameStack.isHidden = true
         searchTableView.isHidden = false
         fetchDataGames()
-        print("==>\(searchGames)")
     }
 
  
@@ -163,6 +164,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = searchTableView.dequeueReusableCell(withIdentifier: "GameTableViewCell", for: indexPath) as! GameTableViewCell
+            cell.selectionStyle = .none
             cell.gameImage.cacheImage(urlString: searchGames[indexPath.row].backgroundImage ?? "no image")
             cell.gameTitle.text = searchGames[indexPath.row].name ?? "no name"
             cell.gameTitle.textColor = .black

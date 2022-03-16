@@ -39,7 +39,7 @@ class XboxOneViewController: UIViewController {
     private  func setUpTableView() {
         xboxTableView.register(UINib(nibName: "GameTableViewCell", bundle: nil), forCellReuseIdentifier: "GameTableViewCell")
         
-        xboxTableView.tableViewConstraints(view: self.view, constant: 100)
+        xboxTableView.tableViewConstraints(view: self.view, constant: 120)
     }
     
     private func getGames() {
@@ -91,6 +91,7 @@ extension XboxOneViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = xboxTableView.dequeueReusableCell(withIdentifier: "GameTableViewCell", for: indexPath) as! GameTableViewCell
+        cell.selectionStyle = .none
         cell.gameImage.cacheImage(urlString: xboxGames?[indexPath.row].backgroundImage ?? "no image")
         cell.gameTitle.text = xboxGames?[indexPath.row].name ?? "no name"
         cell.gameTitle.textColor = .green

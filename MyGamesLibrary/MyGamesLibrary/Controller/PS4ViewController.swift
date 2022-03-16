@@ -27,6 +27,13 @@ class PS4ViewController: UIViewController {
         ps4Header.addGradientLayerInBackground(frame: ps4Header.bounds, colors: [UIColor(ciColor: .clear), UIColor(ciColor: .white)])
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default) //UIImage.init(named: "transparent.png")
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController?.view.backgroundColor = .clear
+    }
+    
     //send data to the next Controller
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "PlaystationCard", let next = segue.destination as? GameCardViewController {
@@ -41,7 +48,7 @@ class PS4ViewController: UIViewController {
     
     private func setUpTableView() {
         pS4GamesTableView.register(UINib(nibName: "GameTableViewCell", bundle: nil), forCellReuseIdentifier: "GameTableViewCell")
-        pS4GamesTableView.tableViewConstraints(view: self.view, constant: 100)
+        pS4GamesTableView.tableViewConstraints(view: self.view, constant: 120)
     }
     
     private func getGames() {
@@ -85,6 +92,7 @@ extension PS4ViewController: UITableViewDelegate, UITableViewDataSource, UIScrol
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = pS4GamesTableView.dequeueReusableCell(withIdentifier: "GameTableViewCell", for: indexPath) as! GameTableViewCell
+        cell.selectionStyle = .none
         cell.gameImage.cacheImage(urlString: ps4Games?[indexPath.row].backgroundImage ?? "no image")
         cell.gameTitle.text = ps4Games?[indexPath.row].name ?? "no name"
         cell.gameTitle.textColor = .blue
