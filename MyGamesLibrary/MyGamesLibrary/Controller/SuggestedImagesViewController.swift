@@ -6,7 +6,7 @@
 //
 
 import UIKit
-protocol SendImageDelegate {
+protocol SendImageDelegate: AnyObject {
     func sendImage(imageStr: String)
 }
 
@@ -19,7 +19,7 @@ class SuggestedImagesViewController: UIViewController {
     
     var gameTitle: String = ""
     var gameImages = [String]()
-    var delegate: SendImageDelegate?
+    weak var delegate: SendImageDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,14 +29,13 @@ class SuggestedImagesViewController: UIViewController {
             DispatchQueue.main.async {
                 self.gameImages = result
                 self.suggestedImagesCollectionView.reloadData()
-                print(self.gameImages)
             }
         }
         suggestedImagesCollectionView.dataSource = self
         suggestedImagesCollectionView.delegate = self
         // Do any additional setup after loading the view.
     }
-
+    
     private func fetchSuggestion(title: String, images : [String], completion: @escaping ([String]) -> Void) {
         var pics = images
         GameService.shared.fetchSearchGames(search: title) { result in
@@ -86,6 +85,5 @@ extension SuggestedImagesViewController: UICollectionViewDelegate, UICollectionV
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         delegate?.sendImage(imageStr: gameImages[indexPath.row])
-        navigationController?.popViewController(animated: true)
     }
 }

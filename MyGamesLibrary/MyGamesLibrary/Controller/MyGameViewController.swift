@@ -49,8 +49,8 @@ class MyGameViewController: UIViewController {
    private func setupUI() {
        guard let myGameCard = myGame else { return }
        guard let dataImage = myGameCard.backgroundImage else { return }
-       backgroundImage.downloaded(from: String(decoding: dataImage, as: UTF8.self))
-       gameImage.downloaded(from: String(decoding: dataImage, as: UTF8.self))
+       backgroundImage.cacheImage(urlString: String(decoding: dataImage, as: UTF8.self))
+       gameImage.cacheImage(urlString: String(decoding: dataImage, as: UTF8.self))
        gameImage.layer.borderColor = UIColor.white.cgColor
        gameImage.layer.borderWidth = 3
        gameImage.layer.cornerRadius = 20

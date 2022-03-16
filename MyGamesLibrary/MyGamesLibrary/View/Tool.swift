@@ -41,13 +41,4 @@ class Tool {
         })
         return list
     }
-    
-//    func changeDateFormat(releaseDate : String) -> String {
-//        let date = Date(from: releaseDate)
-//        let dateFormatter = DateFormatter()
-//        dateFormatter.dateFormat = "d MMMM YY"
-//        guard let date = dateFormatter.date(from: releaseDate) else { return "" }
-//        let released = dateFormatter.string(from: date)
-//        return released
-//    }
 }

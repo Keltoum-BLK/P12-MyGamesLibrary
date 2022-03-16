@@ -30,7 +30,7 @@ class FormViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupUI()
+        setup()
         createDtePicker()
     }
     
@@ -40,7 +40,8 @@ class FormViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "SuggestedImages", let next = segue.destination as? SuggestedImagesViewController {
-            next.gameTitle = titleTextField.text ?? "no title"
+            next.delegate = self 
+            next.gameTitle = sender as? String ?? "no title"
         }
     }
     
@@ -63,12 +64,16 @@ class FormViewController: UIViewController {
     @objc func donePressed() {
         let formatter = DateFormatter()
         formatter.dateStyle = .medium
+        formatter.dateFormat = "dd/MM/yyyy"
         formatter.timeStyle = .none
         releaseDateTextField.text = formatter.string(from: datePicker.date)
         self.view.endEditing(true)
     }
     
-    private func setupUI() {
+    private func setup() {
+        let imagesVC = SuggestedImagesViewController()
+        imagesVC.delegate = self
+        
         playstationBTN.layer.cornerRadius = 20
         xboxBTN.layer.cornerRadius = 20
         nintendoBTN.layer.cornerRadius = 20
@@ -86,12 +91,10 @@ class FormViewController: UIViewController {
     @IBAction func dismissAction(_ sender: Any) {
         dismiss(animated: true)
     }
+    
     @IBAction func pickAnImage(_ sender: Any) {
-        if let vc = storyboard?.instantiateViewController(withIdentifier: "SuggestedImages") as? SuggestedImagesViewController {
-            vc.delegate = self
-            vc.gameTitle = titleTextField.text ?? ""
-            self.navigationController?.pushViewController(vc, animated: true)
-        }
+        print("ici")
+        performSegue(withIdentifier: "SuggestedImages", sender: titleTextField.text)
     }
     
     func createAGameCard(platform: Platform) -> Game {
@@ -102,31 +105,25 @@ class FormViewController: UIViewController {
     @IBAction func addGamInPS4List(_ sender: Any) {
         let game = createAGameCard(platform: Platform(slug: "playstation4"))
         coreDataManager.addGame(game: game)
-        checkData()
-        self.showAlertMessageBeforeToDismiss(title: "Bravo", message: "Tu as bien rajouté le jeu au catalogue. 🤖")
-        print(games)
+        self.showAlertMessage(title: "Bravo", message: "Tu as bien rajouté le jeu au catalogue. 🤖")
     }
     
     @IBAction func addGameInXboxList(_ sender: Any) {
         let game = createAGameCard(platform: Platform(slug: "xbox-one"))
         coreDataManager.addGame(game: game)
-        self.showAlertMessageBeforeToDismiss(title: "Bravo", message: "Tu as bien rajouté le jeu au catalogue. 🤖")
+        self.showAlertMessage(title: "Bravo", message: "Tu as bien rajouté le jeu au catalogue. 🤖")
     }
     
     @IBAction func addGameInSwitchList(_ sender: Any) {
         if everyElementAreFilled() {
             let game = createAGameCard(platform: Platform(slug: "nintendo-switch"))
             coreDataManager.addGame(game: game)
-            self.showAlertMessageBeforeToDismiss(title: "Bravo", message: "Tu as bien rajouté le jeu au catalogue. 🤖")
+            self.showAlertMessage(title: "Bravo", message: "Tu as bien rajouté le jeu au catalogue. 🤖")
         }
     }
     
     @IBAction func ratingValue(_ sender: UISlider) {
         ratingValue.text = String(Int(sender.value))
-    }
-    
-    func checkData() {
-        games = coreDataManager.fetchGames(mygames: self.games)
     }
     
     private func everyElementAreFilled() -> Bool {
@@ -145,7 +142,6 @@ extension FormViewController: UITextFieldDelegate, SendImageDelegate {
     func sendImage(imageStr: String) {
         imageUrl = imageStr
     }
-    
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         titleTextField.resignFirstResponder()
