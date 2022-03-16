@@ -27,6 +27,7 @@ class MyGameViewController: UIViewController {
     
     var myGame: MyGame?
     private var ratingViews = [UIImageView]()
+    private var images = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,6 +52,7 @@ class MyGameViewController: UIViewController {
        guard let dataImage = myGameCard.backgroundImage else { return }
        backgroundImage.cacheImage(urlString: String(decoding: dataImage, as: UTF8.self))
        gameImage.cacheImage(urlString: String(decoding: dataImage, as: UTF8.self))
+   
        gameImage.layer.borderColor = UIColor.white.cgColor
        gameImage.layer.borderWidth = 3
        gameImage.layer.cornerRadius = 20
@@ -116,7 +118,7 @@ class MyGameViewController: UIViewController {
     }
     
     @IBAction func dismissBTN(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
+        navigationController?.popViewController(animated: true)
     }
     
     @IBAction func marketAction(_ sender: Any) {
@@ -129,3 +131,4 @@ class MyGameViewController: UIViewController {
         performSegue(withIdentifier: "MyWebPage", sender: gameUrl)
     }
 }
+

@@ -68,7 +68,6 @@ extension SuggestedImagesViewController: UICollectionViewDelegate, UICollectionV
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print("==>\(gameImages.count)")
         return gameImages.count
     }
     
@@ -85,5 +84,6 @@ extension SuggestedImagesViewController: UICollectionViewDelegate, UICollectionV
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         delegate?.sendImage(imageStr: gameImages[indexPath.row])
+        navigationController?.popViewController(animated: true)
     }
 }

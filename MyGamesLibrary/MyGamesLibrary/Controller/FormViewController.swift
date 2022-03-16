@@ -26,15 +26,16 @@ class FormViewController: UIViewController {
     private let datePicker = UIDatePicker()
     private var coreDataManager = CoreDataManager(managedObjectContext: CoreDataStack.shared.mainContext)
     var games = [MyGame]()
-    var imageUrl = ""
-    
+    var imageUrl = "" {
+        didSet {
+            gameImage.downloaded(from: imageUrl)
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
         createDtePicker()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
+        print(imageUrl)
         gameImage.downloaded(from: imageUrl)
     }
     
@@ -71,9 +72,6 @@ class FormViewController: UIViewController {
     }
     
     private func setup() {
-        let imagesVC = SuggestedImagesViewController()
-        imagesVC.delegate = self
-        
         playstationBTN.layer.cornerRadius = 20
         xboxBTN.layer.cornerRadius = 20
         nintendoBTN.layer.cornerRadius = 20
@@ -89,11 +87,10 @@ class FormViewController: UIViewController {
     }
     
     @IBAction func dismissAction(_ sender: Any) {
-        dismiss(animated: true)
+        navigationController?.popViewController(animated: true)
     }
     
     @IBAction func pickAnImage(_ sender: Any) {
-        print("ici")
         performSegue(withIdentifier: "SuggestedImages", sender: titleTextField.text)
     }
     
@@ -147,6 +144,5 @@ extension FormViewController: UITextFieldDelegate, SendImageDelegate {
         titleTextField.resignFirstResponder()
         return true
     }
-    
 }
 
