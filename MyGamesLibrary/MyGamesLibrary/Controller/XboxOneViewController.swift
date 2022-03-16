@@ -32,7 +32,6 @@ class XboxOneViewController: UIViewController {
     }
     
     private func setUpImage() {
-        self.setupNavigationBack()
         xboxHeader.backgroundImage(view: self.view, multiplier: 0.25)
     }
 

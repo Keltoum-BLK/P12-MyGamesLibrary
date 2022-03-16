@@ -42,7 +42,6 @@ class PS4ViewController: UIViewController {
     }
 
     private func setUpImage() {
-        self.setupNavigationBack()
         ps4Header.backgroundImage(view: self.view, multiplier: 0.25)
     }
     

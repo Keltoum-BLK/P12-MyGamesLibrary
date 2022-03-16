@@ -38,7 +38,6 @@ class SearchViewController: UIViewController {
     }
 
     func setUpUI() {
-        self.setupNavigationBack()
         view.backgroundColor = UIColor.white
         searchBTN.backgroundColor = .white
         searchBTN.layer.cornerRadius = searchBTN.frame.height / 2

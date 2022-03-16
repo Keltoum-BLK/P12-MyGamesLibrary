@@ -35,7 +35,6 @@ class NintendoViewController: UIViewController {
     }
     
     private func setUpImage() {
-        self.setupNavigationBack()
         nintendoHeader.backgroundImage(view: self.view, multiplier: 0.25)
     }
     private func setUpTableView() {

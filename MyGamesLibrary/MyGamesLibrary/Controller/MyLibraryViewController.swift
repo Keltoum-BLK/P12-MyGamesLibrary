@@ -29,7 +29,6 @@ class MyLibraryViewController: UIViewController {
         super.viewDidLoad()
         setUpLabel()
         setupBTN()
-        self.setupNavigationBack()
     }
 
     

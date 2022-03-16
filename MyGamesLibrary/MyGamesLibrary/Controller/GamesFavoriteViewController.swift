@@ -29,7 +29,8 @@ class GamesFavoriteViewController: UIViewController {
         setup()
         searchBar.delegate = self
         searchBar.enablesReturnKeyAutomatically = false
-        
+        searchBar.translatesAutoresizingMaskIntoConstraints = false
+        searchBar.bottomAnchor.constraint(equalTo: backgroundImage.bottomAnchor).isActive = true 
         backgroundImage.image = UIImage(named: platformElements?.image ?? "gamesLibrary")
         
         gamesLibrary = platformElements?.myGames
