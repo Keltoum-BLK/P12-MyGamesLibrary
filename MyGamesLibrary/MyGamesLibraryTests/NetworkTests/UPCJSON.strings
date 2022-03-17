@@ -1,0 +1,24 @@
+{
+    "code": "OK",
+    "total": 1,
+    "offset": 0,
+    "items": [
+        {
+            "ean": "5030947112332",
+            "title": "Electronic Arts Dragon Age In (uk Import) Dvd [region 2]",
+            "description": "",
+            "elid": "362445537355",
+            "brand": "",
+            "model": "",
+            "color": "",
+            "size": "",
+            "dimension": "",
+            "weight": "",
+            "category": "Electronics > Video > Video Players & Recorders > DVD & Blu-ray Players",
+            "lowest_recorded_price": 9.84,
+            "highest_recorded_price": 28.16,
+            "images": [],
+            "offers": []
+        }
+    ]
+}

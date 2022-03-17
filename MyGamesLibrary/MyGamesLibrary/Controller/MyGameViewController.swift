@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 class MyGameViewController: UIViewController {
 
@@ -18,6 +19,7 @@ class MyGameViewController: UIViewController {
     @IBOutlet weak var ratingStack: UIStackView!
     @IBOutlet weak var marketBTN: UIButton!
     @IBOutlet weak var videoWebBTN: UIButton!
+    @IBOutlet weak var addFavoriteBTN: UIButton!
     
     @IBOutlet weak var heart1: UIImageView!
     @IBOutlet weak var heart2: UIImageView!
@@ -28,6 +30,7 @@ class MyGameViewController: UIViewController {
     var myGame: MyGame?
     private var ratingViews = [UIImageView]()
     private var images = [String]()
+    private let coreDataManager = CoreDataManager(managedObjectContext: CoreDataStack.shared.mainContext)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,10 +38,11 @@ class MyGameViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "MyWebPage", let next = segue.destination as? WebViewController {
-            next.url = sender as? String
-        }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        let gameExist = coreDataManager.checkGameIsAlreadySaved(with: myGame?.name)
+        let buttonImageName = gameExist ? "heart.fill" : "heart.slash"
+        addFavoriteBTN.setImage(UIImage(systemName: buttonImageName), for: .normal)
     }
     
     override func viewDidLayoutSubviews() {
@@ -46,31 +50,44 @@ class MyGameViewController: UIViewController {
     }
     
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "MyWebPage", let next = segue.destination as? WebViewController {
+            next.url = sender as? String
+        }
+    }
     
    private func setupUI() {
+       //give value to UI
        guard let myGameCard = myGame else { return }
        guard let dataImage = myGameCard.backgroundImage else { return }
        backgroundImage.cacheImage(urlString: String(decoding: dataImage, as: UTF8.self))
        gameImage.cacheImage(urlString: String(decoding: dataImage, as: UTF8.self))
-   
-       gameImage.layer.borderColor = UIColor.white.cgColor
-       gameImage.layer.borderWidth = 3
-       gameImage.layer.cornerRadius = 20
-       
        gameTitle.text = myGameCard.name
        releaseDate.text = myGameCard.release_date
        setRating(for: myGameCard.rating)
        
+       //Setup UI
+       gameImage.layer.borderColor = UIColor.white.cgColor
+       gameImage.layer.borderWidth = 3
+       gameImage.layer.cornerRadius = 20
+       
        videoWebBTN.layer.borderWidth = 3
        videoWebBTN.layer.borderColor = UIColor.black.cgColor
        videoWebBTN.layer.cornerRadius = 20
+       
+      
        gameTitle.layer.masksToBounds = true
        gameTitle.layer.cornerRadius = 20
        gameTitle.setMargins()
        gameTitle.textAlignment = .center
+       
        marketBTN.layer.cornerRadius = 20
+       
        ratingStack.translatesAutoresizingMaskIntoConstraints = false
+       
        backgroundImage.backgroundImage(view: self.view, multiplier: 0.60)
+       
+       addFavoriteBTN.layer.cornerRadius = 20
     }
     
     
@@ -117,6 +134,18 @@ class MyGameViewController: UIViewController {
         }
     }
     
+    private func removeGameInLibraryWithPlatform() {
+        let gameExist = coreDataManager.checkGameIsAlreadySaved(with: myGame?.name)
+        if gameExist {
+            guard let gameToRemove = myGame?.name else { return }
+            coreDataManager.removeGame(name: gameToRemove)
+            addFavoriteBTN.setImage(UIImage(systemName: "heart.slash"), for: .normal)
+            DispatchQueue.main.async {
+                self.showAlertMessageBeforeToDismiss(title: "Suppression confirmée ❌", message: "Tu as bien supprimé le jeu de ton catalogue")
+            }
+        }
+    }
+    
     @IBAction func dismissBTN(_ sender: Any) {
         navigationController?.popViewController(animated: true)
     }
@@ -129,6 +158,9 @@ class MyGameViewController: UIViewController {
     @IBAction func videoWebAction(_ sender: Any) {
         let gameUrl = "https://www.youtube.com/results?search_query=\(myGame?.name?.replacingOccurrences(of: " ", with: "+") ?? "no url")"
         performSegue(withIdentifier: "MyWebPage", sender: gameUrl)
+    }
+    @IBAction func addGame(_ sender: Any) {
+        removeGameInLibraryWithPlatform()
     }
 }
 

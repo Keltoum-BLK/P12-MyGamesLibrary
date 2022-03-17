@@ -65,7 +65,7 @@ class FormViewController: UIViewController {
     @objc func donePressed() {
         let formatter = DateFormatter()
         formatter.dateStyle = .medium
-        formatter.dateFormat = "dd/MM/yyyy"
+        formatter.dateFormat = "MM/dd/yyyy"
         formatter.timeStyle = .none
         releaseDateTextField.text = formatter.string(from: datePicker.date)
         self.view.endEditing(true)

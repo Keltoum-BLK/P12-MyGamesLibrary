@@ -1,0 +1,2797 @@
+{
+    "count": 173,
+    "next": "https://api.rawg.io/api/games?key=d3ddbff177a54ba3aff10986628d8498&page=2&search=zelda",
+    "previous": null,
+    "results": [
+        {
+            "slug": "zelda-2",
+            "name": "ZELDA (Raul Fernandes)",
+            "playtime": 0,
+            "platforms": [
+                {
+                    "platform": {
+                        "id": 4,
+                        "name": "PC",
+                        "slug": "pc"
+                    }
+                },
+                {
+                    "platform": {
+                        "id": 5,
+                        "name": "macOS",
+                        "slug": "macos"
+                    }
+                },
+                {
+                    "platform": {
+                        "id": 6,
+                        "name": "Linux",
+                        "slug": "linux"
+                    }
+                }
+            ],
+            "stores": [
+                {
+                    "store": {
+                        "id": 9,
+                        "name": "itch.io",
+                        "slug": "itch"
+                    }
+                }
+            ],
+            "released": "2020-08-13",
+            "tba": false,
+            "background_image": null,
+            "rating": 0.0,
+            "rating_top": 0,
+            "ratings": [],
+            "ratings_count": 0,
+            "reviews_text_count": 0,
+            "added": 0,
+            "added_by_status": null,
+            "metacritic": null,
+            "suggestions_count": 0,
+            "updated": "2021-09-03T16:42:22",
+            "id": 479836,
+            "score": "50.290794",
+            "clip": null,
+            "tags": [
+                {
+                    "id": 31,
+                    "name": "Singleplayer",
+                    "slug": "singleplayer",
+                    "language": "eng",
+                    "games_count": 126098,
+                    "image_background": "https://media.rawg.io/media/games/73e/73eecb8909e0c39fb246f457b5d6cbbe.jpg"
+                },
+                {
+                    "id": 45,
+                    "name": "2D",
+                    "slug": "2d",
+                    "language": "eng",
+                    "games_count": 123202,
+                    "image_background": "https://media.rawg.io/media/games/4cb/4cb855e8ef1578415a928e53c9f51867.png"
+                },
+                {
+                    "id": 4,
+                    "name": "Funny",
+                    "slug": "funny",
+                    "language": "eng",
+                    "games_count": 14432,
+                    "image_background": "https://media.rawg.io/media/games/84d/84da2ac3fdfc6507807a1808595afb12.jpg"
+                },
+                {
+                    "id": 122,
+                    "name": "Pixel Graphics",
+                    "slug": "pixel-graphics",
+                    "language": "eng",
+                    "games_count": 55743,
+                    "image_background": "https://media.rawg.io/media/screenshots/604/6046ad65ac38adfe0553823489bb7ed4.jpg"
+                },
+                {
+                    "id": 220,
+                    "name": "Experimental",
+                    "slug": "experimental",
+                    "language": "eng",
+                    "games_count": 7211,
+                    "image_background": "https://media.rawg.io/media/screenshots/405/40567fe45e6074a5b2bfbd4a3fea7809.jpg"
+                },
+                {
+                    "id": 958,
+                    "name": "sprites",
+                    "slug": "sprites",
+                    "language": "eng",
+                    "games_count": 1809,
+                    "image_background": "https://media.rawg.io/media/screenshots/d67/d6753c80c36d73b13975ff8fa5d2e0b6.jpeg"
+                },
+                {
+                    "id": 1532,
+                    "name": "Tilemap based tools",
+                    "slug": "tilemap-based-tools",
+                    "language": "eng",
+                    "games_count": 474,
+                    "image_background": "https://media.rawg.io/media/screenshots/cd4/cd487191b8e9a1d940ac771dcea54b74.jpg"
+                }
+            ],
+            "esrb_rating": null,
+            "user_game": null,
+            "reviews_count": 0,
+            "community_rating": 0,
+            "saturated_color": "0f0f0f",
+            "dominant_color": "0f0f0f",
+            "short_screenshots": [],
+            "parent_platforms": [
+                {
+                    "platform": {
+                        "id": 1,
+                        "name": "PC",
+                        "slug": "pc"
+                    }
+                },
+                {
+                    "platform": {
+                        "id": 5,
+                        "name": "Apple Macintosh",
+                        "slug": "mac"
+                    }
+                },
+                {
+                    "platform": {
+                        "id": 6,
+                        "name": "Linux",
+                        "slug": "linux"
+                    }
+                }
+            ],
+            "genres": [
+                {
+                    "id": 10,
+                    "name": "Strategy",
+                    "slug": "strategy"
+                },
+                {
+                    "id": 3,
+                    "name": "Adventure",
+                    "slug": "adventure"
+                },
+                {
+                    "id": 4,
+                    "name": "Action",
+                    "slug": "action"
+                }
+            ]
+        },
+        {
+            "slug": "zelda-ii-the-adventure-of-link-2",
+            "name": "Zelda II: The Adventure of Link",
+            "playtime": 2,
+            "platforms": [
+                {
+                    "platform": {
+                        "id": 8,
+                        "name": "Nintendo 3DS",
+                        "slug": "nintendo-3ds"
+                    }
+                },
+                {
+                    "platform": {
+                        "id": 10,
+                        "name": "Wii U",
+                        "slug": "wii-u"
+                    }
+                },
+                {
+                    "platform": {
+                        "id": 11,
+                        "name": "Wii",
+                        "slug": "wii"
+                    }
+                },
+                {
+                    "platform": {
+                        "id": 105,
+                        "name": "GameCube",
+                        "slug": "gamecube"
+                    }
+                },
+                {
+                    "platform": {
+                        "id": 24,
+                        "name": "Game Boy Advance",
+                        "slug": "game-boy-advance"
+                    }
+                },
+                {
+                    "platform": {
+                        "id": 49,
+                        "name": "NES",
+                        "slug": "nes"
+                    }
+                }
+            ],
+            "stores": [
+                {
+                    "store": {
+                        "id": 6,
+                        "name": "Nintendo Store",
+                        "slug": "nintendo"
+                    }
+                }
+            ],
+            "released": "1987-01-14",
+            "tba": false,
+            "background_image": "https://media.rawg.io/media/screenshots/2dc/2dcc5b76de63a99799364f962334525f.jpg",
+            "rating": 3.37,
+            "rating_top": 4,
+            "ratings": [
+                {
+                    "id": 4,
+                    "title": "recommended",
+                    "count": 48,
+                    "percent": 40.34
+                },
+                {
+                    "id": 3,
+                    "title": "meh",
+                    "count": 43,
+                    "percent": 36.13
+                },
+                {
+                    "id": 1,
+                    "title": "skip",
+                    "count": 15,
+                    "percent": 12.61
+                },
+                {
+                    "id": 5,
+                    "title": "exceptional",
+                    "count": 13,
+                    "percent": 10.92
+                }
+            ],
+            "ratings_count": 118,
+            "reviews_text_count": 1,
+            "added": 311,
+            "added_by_status": {
+                "yet": 36,
+                "owned": 73,
+                "beaten": 81,
+                "toplay": 29,
+                "dropped": 80,
+                "playing": 12
+            },
+            "metacritic": null,
+            "suggestions_count": 253,
+            "updated": "2020-06-20T14:13:40",
+            "id": 53205,
+            "score": "28.115505",
+            "clip": null,
+            "tags": [
+                {
+                    "id": 31,
+                    "name": "Singleplayer",
+                    "slug": "singleplayer",
+                    "language": "eng",
+                    "games_count": 153647,
+                    "image_background": "https://media.rawg.io/media/games/4be/4be6a6ad0364751a96229c56bf69be59.jpg"
+                }
+            ],
+            "esrb_rating": null,
+            "user_game": null,
+            "reviews_count": 119,
+            "saturated_color": "0f0f0f",
+            "dominant_color": "0f0f0f",
+            "short_screenshots": [
+                {
+                    "id": -1,
+                    "image": "https://media.rawg.io/media/screenshots/2dc/2dcc5b76de63a99799364f962334525f.jpg"
+                },
+                {
+                    "id": 731395,
+                    "image": "https://media.rawg.io/media/screenshots/82c/82cd88a72b9b0b860c34af232c5eff36.jpg"
+                },
+                {
+                    "id": 731396,
+                    "image": "https://media.rawg.io/media/screenshots/a7b/a7b1432fd675f5a894d1184e536141c0.jpg"
+                },
+                {
+                    "id": 731397,
+                    "image": "https://media.rawg.io/media/screenshots/262/262a8b917b03aaa59dbeebafaba13000.jpg"
+                },
+                {
+                    "id": 731398,
+                    "image": "https://media.rawg.io/media/screenshots/add/adddf483f1f3e3bb22591cd2389d4b02.jpg"
+                },
+                {
+                    "id": 731399,
+                    "image": "https://media.rawg.io/media/screenshots/da6/da627e4fcaa6a6c17dda374fd641feeb.jpg"
+                },
+                {
+                    "id": 1709334,
+                    "image": "https://media.rawg.io/media/screenshots/eb5/eb584c83cb734f7054c2263d74ac6cb6.jpg"
+                }
+            ],
+            "parent_platforms": [
+                {
+                    "platform": {
+                        "id": 7,
+                        "name": "Nintendo",
+                        "slug": "nintendo"
+                    }
+                }
+            ],
+            "genres": [
+                {
+                    "id": 5,
+                    "name": "RPG",
+                    "slug": "role-playing-games-rpg"
+                }
+            ]
+        },
+        {
+            "slug": "zeldas-adventure",
+            "name": "Zelda's Adventure",
+            "playtime": 0,
+            "platforms": [
+                {
+                    "platform": {
+                        "id": 171,
+                        "name": "Web",
+                        "slug": "web"
+                    }
+                }
+            ],
+            "stores": [
+                {
+                    "store": {
+                        "id": 9,
+                        "name": "itch.io",
+                        "slug": "itch"
+                    }
+                }
+            ],
+            "released": "2020-07-12",
+            "tba": false,
+            "background_image": "https://media.rawg.io/media/screenshots/0f3/0f3b3dae729bed1f477061d69a4d81df.jpg",
+            "rating": 0.0,
+            "rating_top": 0,
+            "ratings": [],
+            "ratings_count": 0,
+            "reviews_text_count": 0,
+            "added": 2,
+            "added_by_status": {
+                "toplay": 2
+            },
+            "metacritic": null,
+            "suggestions_count": 107,
+            "updated": "2020-07-13T13:14:50",
+            "id": 466577,
+            "score": "20.274109",
+            "clip": null,
+            "tags": [
+                {
+                    "id": 69,
+                    "name": "Action-Adventure",
+                    "slug": "action-adventure",
+                    "language": "eng",
+                    "games_count": 8417,
+                    "image_background": "https://media.rawg.io/media/games/cc1/cc196a5ad763955d6532cdba236f730c.jpg"
+                },
+                {
+                    "id": 867,
+                    "name": "zelda",
+                    "slug": "zelda",
+                    "language": "eng",
+                    "games_count": 344,
+                    "image_background": "https://media.rawg.io/media/screenshots/450/450c2456dec2dd40f11f96d4dc5819bd.jpeg"
+                },
+                {
+                    "id": 40229,
+                    "name": "gb-studio",
+                    "slug": "gb-studio",
+                    "language": "eng",
+                    "games_count": 178,
+                    "image_background": "https://media.rawg.io/media/screenshots/ad7/ad7f592a1f577d4b728bc95592cc73a2.jpg"
+                }
+            ],
+            "esrb_rating": null,
+            "user_game": null,
+            "reviews_count": 0,
+            "community_rating": 0,
+            "saturated_color": "0f0f0f",
+            "dominant_color": "0f0f0f",
+            "short_screenshots": [
+                {
+                    "id": -1,
+                    "image": "https://media.rawg.io/media/screenshots/0f3/0f3b3dae729bed1f477061d69a4d81df.jpg"
+                },
+                {
+                    "id": 2444732,
+                    "image": "https://media.rawg.io/media/screenshots/622/62295b4f20a500d8e1b9e79caee273e7.jpg"
+                },
+                {
+                    "id": 2444733,
+                    "image": "https://media.rawg.io/media/screenshots/c6d/c6d9f54e8e393920640b630150888ac9.jpg"
+                },
+                {
+                    "id": 2444734,
+                    "image": "https://media.rawg.io/media/screenshots/352/3524cfcd052df56a20ec8a24744c227d.jpg"
+                },
+                {
+                    "id": 2444735,
+                    "image": "https://media.rawg.io/media/screenshots/a18/a187ad020a4aa4d2a8a997eeed0d3f1e.jpg"
+                },
+                {
+                    "id": 2444736,
+                    "image": "https://media.rawg.io/media/screenshots/0f3/0f3b3dae729bed1f477061d69a4d81df.jpg"
+                }
+            ],
+            "parent_platforms": [
+                {
+                    "platform": {
+                        "id": 14,
+                        "name": "Web",
+                        "slug": "web"
+                    }
+                }
+            ],
+            "genres": [
+                {
+                    "id": 3,
+                    "name": "Adventure",
+                    "slug": "adventure"
+                }
+            ]
+        },
+        {
+            "slug": "the-legend-of-zelda-skyward-sword",
+            "name": "The Legend of Zelda: Skyward Sword",
+            "playtime": 33,
+            "platforms": [
+                {
+                    "platform": {
+                        "id": 7,
+                        "name": "Nintendo Switch",
+                        "slug": "nintendo-switch"
+                    }
+                },
+                {
+                    "platform": {
+                        "id": 10,
+                        "name": "Wii U",
+                        "slug": "wii-u"
+                    }
+                },
+                {
+                    "platform": {
+                        "id": 11,
+                        "name": "Wii",
+                        "slug": "wii"
+                    }
+                }
+            ],
+            "stores": [
+                {
+                    "store": {
+                        "id": 6,
+                        "name": "Nintendo Store",
+                        "slug": "nintendo"
+                    }
+                }
+            ],
+            "released": "2011-11-20",
+            "tba": false,
+            "background_image": "https://media.rawg.io/media/games/884/884d12f527a9a12b5e486ee1b79ecf7f.jpeg",
+            "rating": 4.09,
+            "rating_top": 4,
+            "ratings": [
+                {
+                    "id": 4,
+                    "title": "recommended",
+                    "count": 106,
+                    "percent": 45.3
+                },
+                {
+                    "id": 5,
+                    "title": "exceptional",
+                    "count": 81,
+                    "percent": 34.62
+                },
+                {
+                    "id": 3,
+                    "title": "meh",
+                    "count": 40,
+                    "percent": 17.09
+                },
+                {
+                    "id": 1,
+                    "title": "skip",
+                    "count": 7,
+                    "percent": 2.99
+                }
+            ],
+            "ratings_count": 229,
+            "reviews_text_count": 5,
+            "added": 623,
+            "added_by_status": {
+                "yet": 64,
+                "owned": 109,
+                "beaten": 257,
+                "toplay": 92,
+                "dropped": 85,
+                "playing": 16
+            },
+            "metacritic": 93,
+            "suggestions_count": 419,
+            "updated": "2021-07-16T23:07:05",
+            "id": 26824,
+            "score": "20.178001",
+            "clip": null,
+            "tags": [
+                {
+                    "id": 37796,
+                    "name": "exclusive",
+                    "slug": "exclusive",
+                    "language": "eng",
+                    "games_count": 4514,
+                    "image_background": "https://media.rawg.io/media/games/4be/4be6a6ad0364751a96229c56bf69be59.jpg"
+                }
+            ],
+            "esrb_rating": {
+                "id": 2,
+                "name": "Everyone 10+",
+                "slug": "everyone-10-plus",
+                "name_en": "Everyone 10+",
+                "name_ru": "С 10 лет"
+            },
+            "user_game": null,
+            "reviews_count": 234,
+            "saturated_color": "0f0f0f",
+            "dominant_color": "0f0f0f",
+            "short_screenshots": [
+                {
+                    "id": -1,
+                    "image": "https://media.rawg.io/media/games/884/884d12f527a9a12b5e486ee1b79ecf7f.jpeg"
+                },
+                {
+                    "id": 258096,
+                    "image": "https://media.rawg.io/media/screenshots/135/135535ee17029445286f19f25b875a3c.jpg"
+                },
+                {
+                    "id": 258097,
+                    "image": "https://media.rawg.io/media/screenshots/0ec/0ec7f09f3beb7fb61915fd482ee5d07c.jpg"
+                },
+                {
+                    "id": 258098,
+                    "image": "https://media.rawg.io/media/screenshots/ace/ace3ce5a00ab980d36a73865739ba4de.jpg"
+                },
+                {
+                    "id": 258099,
+                    "image": "https://media.rawg.io/media/screenshots/a1c/a1c007a85325ffb4303a577a10ae661f.jpg"
+                },
+                {
+                    "id": 258100,
+                    "image": "https://media.rawg.io/media/screenshots/d92/d92de46333a14e1848948852fba55700.jpg"
+                },
+                {
+                    "id": 258101,
+                    "image": "https://media.rawg.io/media/screenshots/734/7345e48872a3a0a609387a3b75dead8e.jpg"
+                }
+            ],
+            "parent_platforms": [
+                {
+                    "platform": {
+                        "id": 7,
+                        "name": "Nintendo",
+                        "slug": "nintendo"
+                    }
+                }
+            ],
+            "genres": [
+                {
+                    "id": 3,
+                    "name": "Adventure",
+                    "slug": "adventure"
+                }
+            ]
+        },
+        {
+            "slug": "the-legend-of-zelda-majoras-mask",
+            "name": "The Legend of Zelda: Majora's Mask",
+            "playtime": 23,
+            "platforms": [
+                {
+                    "platform": {
+                        "id": 10,
+                        "name": "Wii U",
+                        "slug": "wii-u"
+                    }
+                },
+                {
+                    "platform": {
+                        "id": 11,
+                        "name": "Wii",
+                        "slug": "wii"
+                    }
+                },
+                {
+                    "platform": {
+                        "id": 83,
+                        "name": "Nintendo 64",
+                        "slug": "nintendo-64"
+                    }
+                }
+            ],
+            "stores": [
+                {
+                    "store": {
+                        "id": 6,
+                        "name": "Nintendo Store",
+                        "slug": "nintendo"
+                    }
+                }
+            ],
+            "released": "2000-04-27",
+            "tba": false,
+            "background_image": "https://media.rawg.io/media/screenshots/19b/19b2867fa37100443f73312a9de80760.jpg",
+            "rating": 4.35,
+            "rating_top": 5,
+            "ratings": [
+                {
+                    "id": 5,
+                    "title": "exceptional",
+                    "count": 218,
+                    "percent": 63.56
+                },
+                {
+                    "id": 4,
+                    "title": "recommended",
+                    "count": 81,
+                    "percent": 23.62
+                },
+                {
+                    "id": 1,
+                    "title": "skip",
+                    "count": 27,
+                    "percent": 7.87
+                },
+                {
+                    "id": 3,
+                    "title": "meh",
+                    "count": 17,
+                    "percent": 4.96
+                }
+            ],
+            "ratings_count": 340,
+            "reviews_text_count": 3,
+            "added": 802,
+            "added_by_status": {
+                "yet": 75,
+                "owned": 199,
+                "beaten": 314,
+                "toplay": 114,
+                "dropped": 83,
+                "playing": 17
+            },
+            "metacritic": 95,
+            "suggestions_count": 400,
+            "updated": "2019-09-17T06:24:27",
+            "id": 25924,
+            "score": "18.817455",
+            "clip": null,
+            "tags": [
+                {
+                    "id": 31,
+                    "name": "Singleplayer",
+                    "slug": "singleplayer",
+                    "language": "eng",
+                    "games_count": 154366,
+                    "image_background": "https://media.rawg.io/media/games/7fa/7fa0b586293c5861ee32490e953a4996.jpg"
+                }
+            ],
+            "esrb_rating": null,
+            "user_game": null,
+            "reviews_count": 343,
+            "saturated_color": "0f0f0f",
+            "dominant_color": "0f0f0f",
+            "short_screenshots": [
+                {
+                    "id": -1,
+                    "image": "https://media.rawg.io/media/screenshots/19b/19b2867fa37100443f73312a9de80760.jpg"
+                },
+                {
+                    "id": 1964342,
+                    "image": "https://media.rawg.io/media/screenshots/f3c/f3cddbb360b0aa0df1fae21241dacbd0.jpg"
+                },
+                {
+                    "id": 251611,
+                    "image": "https://media.rawg.io/media/screenshots/071/0713404846d66edb8882271cbf6a9bf3.jpg"
+                },
+                {
+                    "id": 251612,
+                    "image": "https://media.rawg.io/media/screenshots/ff4/ff4ed16a2f1994d730eefb3d764ef9ec.jpg"
+                },
+                {
+                    "id": 266632,
+                    "image": "https://media.rawg.io/media/screenshots/3d5/3d535b458e5d67206e82e8a839b3bb0a.jpg"
+                },
+                {
+                    "id": 266633,
+                    "image": "https://media.rawg.io/media/screenshots/33b/33bb575258791e2d129249813e78b85f.jpg"
+                },
+                {
+                    "id": 266634,
+                    "image": "https://media.rawg.io/media/screenshots/fc6/fc68a972087f64db931de45259073cf4.jpg"
+                }
+            ],
+            "parent_platforms": [
+                {
+                    "platform": {
+                        "id": 7,
+                        "name": "Nintendo",
+                        "slug": "nintendo"
+                    }
+                }
+            ],
+            "genres": [
+                {
+                    "id": 3,
+                    "name": "Adventure",
+                    "slug": "adventure"
+                },
+                {
+                    "id": 4,
+                    "name": "Action",
+                    "slug": "action"
+                }
+            ]
+        },
+        {
+            "slug": "zelda-like-free",
+            "name": "Zelda-like FREE",
+            "playtime": 0,
+            "platforms": [
+                {
+                    "platform": {
+                        "id": 171,
+                        "name": "Web",
+                        "slug": "web"
+                    }
+                }
+            ],
+            "stores": [
+                {
+                    "store": {
+                        "id": 9,
+                        "name": "itch.io",
+                        "slug": "itch"
+                    }
+                }
+            ],
+            "released": "2014-09-11",
+            "tba": false,
+            "background_image": "https://media.rawg.io/media/screenshots/191/1911742a8e8868dd7b0134f846a461bc.jpg",
+            "rating": 0.0,
+            "rating_top": 0,
+            "ratings": [],
+            "ratings_count": 0,
+            "reviews_text_count": 0,
+            "added": 0,
+            "added_by_status": null,
+            "metacritic": null,
+            "suggestions_count": 7,
+            "updated": "2019-01-09T12:41:06",
+            "id": 104595,
+            "score": "18.663494",
+            "clip": null,
+            "tags": [
+                {
+                    "id": 61,
+                    "name": "Top-Down",
+                    "slug": "top-down",
+                    "language": "eng",
+                    "games_count": 8964,
+                    "image_background": "https://media.rawg.io/media/games/f3e/f3eec35c6218dcfd93a537751e6bfa61.jpg"
+                }
+            ],
+            "esrb_rating": null,
+            "user_game": null,
+            "reviews_count": 0,
+            "community_rating": 0,
+            "saturated_color": "0f0f0f",
+            "dominant_color": "0f0f0f",
+            "short_screenshots": [
+                {
+                    "id": -1,
+                    "image": "https://media.rawg.io/media/screenshots/191/1911742a8e8868dd7b0134f846a461bc.jpg"
+                },
+                {
+                    "id": 1051086,
+                    "image": "https://media.rawg.io/media/screenshots/191/1911742a8e8868dd7b0134f846a461bc.jpg"
+                }
+            ],
+            "parent_platforms": [
+                {
+                    "platform": {
+                        "id": 14,
+                        "name": "Web",
+                        "slug": "web"
+                    }
+                }
+            ],
+            "genres": [
+                {
+                    "id": 5,
+                    "name": "RPG",
+                    "slug": "role-playing-games-rpg"
+                }
+            ]
+        },
+        {
+            "slug": "zelda-like-dungeon",
+            "name": "Zelda-Like Dungeon",
+            "playtime": 0,
+            "platforms": [
+                {
+                    "platform": {
+                        "id": 171,
+                        "name": "Web",
+                        "slug": "web"
+                    }
+                }
+            ],
+            "stores": [
+                {
+                    "store": {
+                        "id": 9,
+                        "name": "itch.io",
+                        "slug": "itch"
+                    }
+                }
+            ],
+            "released": "2019-05-28",
+            "tba": false,
+            "background_image": "https://media.rawg.io/media/screenshots/804/804a68f2ba92c626e26545459b241518.jpg",
+            "rating": 0.0,
+            "rating_top": 0,
+            "ratings": [],
+            "ratings_count": 0,
+            "reviews_text_count": 0,
+            "added": 0,
+            "added_by_status": null,
+            "metacritic": null,
+            "suggestions_count": 5,
+            "updated": "2019-05-31T06:31:05",
+            "id": 323924,
+            "score": "18.663494",
+            "clip": null,
+            "tags": [
+                {
+                    "id": 45,
+                    "name": "2D",
+                    "slug": "2d",
+                    "language": "eng",
+                    "games_count": 85731,
+                    "image_background": "https://media.rawg.io/media/games/14a/14a83c56ff668baaced6e8c8704b6391.jpg"
+                },
+                {
+                    "id": 48,
+                    "name": "Dungeon Crawler",
+                    "slug": "dungeon-crawler",
+                    "language": "eng",
+                    "games_count": 2997,
+                    "image_background": "https://media.rawg.io/media/games/920/92039cd19460532b76f6244b2bb3e4ac.jpg"
+                },
+                {
+                    "id": 61,
+                    "name": "Top-Down",
+                    "slug": "top-down",
+                    "language": "eng",
+                    "games_count": 8964,
+                    "image_background": "https://media.rawg.io/media/games/f3e/f3eec35c6218dcfd93a537751e6bfa61.jpg"
+                }
+            ],
+            "esrb_rating": null,
+            "user_game": null,
+            "reviews_count": 0,
+            "community_rating": 0,
+            "saturated_color": "0f0f0f",
+            "dominant_color": "0f0f0f",
+            "short_screenshots": [
+                {
+                    "id": -1,
+                    "image": "https://media.rawg.io/media/screenshots/804/804a68f2ba92c626e26545459b241518.jpg"
+                },
+                {
+                    "id": 1949621,
+                    "image": "https://media.rawg.io/media/screenshots/804/804a68f2ba92c626e26545459b241518.jpg"
+                }
+            ],
+            "parent_platforms": [
+                {
+                    "platform": {
+                        "id": 14,
+                        "name": "Web",
+                        "slug": "web"
+                    }
+                }
+            ],
+            "genres": []
+        },
+        {
+            "slug": "zelda-ticking-pressure",
+            "name": "Zelda- Ticking Pressure",
+            "playtime": 0,
+            "platforms": [
+                {
+                    "platform": {
+                        "id": 4,
+                        "name": "PC",
+                        "slug": "pc"
+                    }
+                }
+            ],
+            "stores": [
+                {
+                    "store": {
+                        "id": 9,
+                        "name": "itch.io",
+                        "slug": "itch"
+                    }
+                }
+            ],
+            "released": "2021-12-22",
+            "tba": false,
+            "background_image": "https://media.rawg.io/media/screenshots/39f/39f627ea5f9628e4c0c8bd4e9ef7f741.jpg",
+            "rating": 0.0,
+            "rating_top": 0,
+            "ratings": [],
+            "ratings_count": 0,
+            "reviews_text_count": 0,
+            "added": 0,
+            "added_by_status": null,
+            "metacritic": null,
+            "suggestions_count": 0,
+            "updated": "2021-12-24T09:12:34",
+            "id": 713367,
+            "score": "18.375633",
+            "clip": null,
+            "tags": [
+                {
+                    "id": 867,
+                    "name": "zelda",
+                    "slug": "zelda",
+                    "language": "eng",
+                    "games_count": 379,
+                    "image_background": "https://media.rawg.io/media/screenshots/34c/34cd988c94696c8d63f6edfc2ff3a339.jpg"
+                }
+            ],
+            "esrb_rating": null,
+            "user_game": null,
+            "reviews_count": 0,
+            "community_rating": 0,
+            "saturated_color": "0f0f0f",
+            "dominant_color": "0f0f0f",
+            "short_screenshots": [
+                {
+                    "id": -1,
+                    "image": "https://media.rawg.io/media/screenshots/39f/39f627ea5f9628e4c0c8bd4e9ef7f741.jpg"
+                },
+                {
+                    "id": 3165746,
+                    "image": "https://media.rawg.io/media/screenshots/39f/39f627ea5f9628e4c0c8bd4e9ef7f741.jpg"
+                }
+            ],
+            "parent_platforms": [
+                {
+                    "platform": {
+                        "id": 1,
+                        "name": "PC",
+                        "slug": "pc"
+                    }
+                }
+            ],
+            "genres": [
+                {
+                    "id": 4,
+                    "name": "Action",
+                    "slug": "action"
+                }
+            ]
+        },
+        {
+            "slug": "the-legend-of-zelda-four-swords",
+            "name": "The Legend of Zelda: Four Swords",
+            "playtime": 0,
+            "platforms": [
+                {
+                    "platform": {
+                        "id": 8,
+                        "name": "Nintendo 3DS",
+                        "slug": "nintendo-3ds"
+                    }
+                },
+                {
+                    "platform": {
+                        "id": 9,
+                        "name": "Nintendo DS",
+                        "slug": "nintendo-ds"
+                    }
+                },
+                {
+                    "platform": {
+                        "id": 24,
+                        "name": "Game Boy Advance",
+                        "slug": "game-boy-advance"
+                    }
+                }
+            ],
+            "stores": null,
+            "released": "2002-12-02",
+            "tba": false,
+            "background_image": "https://media.rawg.io/media/screenshots/063/063e24eb22d69c8d4febc5b938a50b57.jpg",
+            "rating": 3.97,
+            "rating_top": 4,
+            "ratings": [
+                {
+                    "id": 4,
+                    "title": "recommended",
+                    "count": 17,
+                    "percent": 56.67
+                },
+                {
+                    "id": 5,
+                    "title": "exceptional",
+                    "count": 7,
+                    "percent": 23.33
+                },
+                {
+                    "id": 3,
+                    "title": "meh",
+                    "count": 5,
+                    "percent": 16.67
+                },
+                {
+                    "id": 1,
+                    "title": "skip",
+                    "count": 1,
+                    "percent": 3.33
+                }
+            ],
+            "ratings_count": 30,
+            "reviews_text_count": 0,
+            "added": 114,
+            "added_by_status": {
+                "yet": 13,
+                "owned": 20,
+                "beaten": 46,
+                "toplay": 15,
+                "dropped": 18,
+                "playing": 2
+            },
+            "metacritic": null,
+            "suggestions_count": 49,
+            "updated": "2019-08-18T19:02:29",
+            "id": 290864,
+            "score": "18.106796",
+            "clip": null,
+            "tags": [],
+            "esrb_rating": {
+                "id": 1,
+                "name": "Everyone",
+                "slug": "everyone",
+                "name_en": "Everyone",
+                "name_ru": "Для всех"
+            },
+            "user_game": null,
+            "reviews_count": 30,
+            "saturated_color": "0f0f0f",
+            "dominant_color": "0f0f0f",
+            "short_screenshots": [
+                {
+                    "id": -1,
+                    "image": "https://media.rawg.io/media/screenshots/063/063e24eb22d69c8d4febc5b938a50b57.jpg"
+                },
+                {
+                    "id": 2285596,
+                    "image": "https://media.rawg.io/media/screenshots/063/063e24eb22d69c8d4febc5b938a50b57.jpg"
+                }
+            ],
+            "parent_platforms": [
+                {
+                    "platform": {
+                        "id": 7,
+                        "name": "Nintendo",
+                        "slug": "nintendo"
+                    }
+                }
+            ],
+            "genres": [
+                {
+                    "id": 3,
+                    "name": "Adventure",
+                    "slug": "adventure"
+                },
+                {
+                    "id": 4,
+                    "name": "Action",
+                    "slug": "action"
+                }
+            ]
+        },
+        {
+            "slug": "the-legend-of-zelda-twilight-princess",
+            "name": "The Legend of Zelda: Twilight Princess",
+            "playtime": 60,
+            "platforms": [
+                {
+                    "platform": {
+                        "id": 10,
+                        "name": "Wii U",
+                        "slug": "wii-u"
+                    }
+                },
+                {
+                    "platform": {
+                        "id": 11,
+                        "name": "Wii",
+                        "slug": "wii"
+                    }
+                },
+                {
+                    "platform": {
+                        "id": 105,
+                        "name": "GameCube",
+                        "slug": "gamecube"
+                    }
+                }
+            ],
+            "stores": [
+                {
+                    "store": {
+                        "id": 6,
+                        "name": "Nintendo Store",
+                        "slug": "nintendo"
+                    }
+                }
+            ],
+            "released": "2006-11-19",
+            "tba": false,
+            "background_image": "https://media.rawg.io/media/games/dd1/dd167cf8753db3748a975d61cc926e54.jpg",
+            "rating": 4.4,
+            "rating_top": 5,
+            "ratings": [
+                {
+                    "id": 5,
+                    "title": "exceptional",
+                    "count": 212,
+                    "percent": 55.94
+                },
+                {
+                    "id": 4,
+                    "title": "recommended",
+                    "count": 129,
+                    "percent": 34.04
+                },
+                {
+                    "id": 3,
+                    "title": "meh",
+                    "count": 27,
+                    "percent": 7.12
+                },
+                {
+                    "id": 1,
+                    "title": "skip",
+                    "count": 11,
+                    "percent": 2.9
+                }
+            ],
+            "ratings_count": 372,
+            "reviews_text_count": 4,
+            "added": 893,
+            "added_by_status": {
+                "yet": 71,
+                "owned": 177,
+                "beaten": 414,
+                "toplay": 108,
+                "dropped": 94,
+                "playing": 29
+            },
+            "metacritic": null,
+            "suggestions_count": 485,
+            "updated": "2021-07-28T12:12:58",
+            "id": 27015,
+            "score": "18.106796",
+            "clip": null,
+            "tags": [
+                {
+                    "id": 31,
+                    "name": "Singleplayer",
+                    "slug": "singleplayer",
+                    "language": "eng",
+                    "games_count": 154366,
+                    "image_background": "https://media.rawg.io/media/games/7fa/7fa0b586293c5861ee32490e953a4996.jpg"
+                }
+            ],
+            "esrb_rating": null,
+            "user_game": null,
+            "reviews_count": 379,
+            "saturated_color": "0f0f0f",
+            "dominant_color": "0f0f0f",
+            "short_screenshots": [
+                {
+                    "id": -1,
+                    "image": "https://media.rawg.io/media/games/dd1/dd167cf8753db3748a975d61cc926e54.jpg"
+                },
+                {
+                    "id": 259394,
+                    "image": "https://media.rawg.io/media/screenshots/e9e/e9e7d1b82c9b6283a5dcfc884fad318c.jpg"
+                },
+                {
+                    "id": 259395,
+                    "image": "https://media.rawg.io/media/screenshots/459/459b9e27b1490254c78a1926e55e5c68.jpg"
+                },
+                {
+                    "id": 259396,
+                    "image": "https://media.rawg.io/media/screenshots/d07/d07efee9b28bfc7725ee1d6928917757.jpg"
+                },
+                {
+                    "id": 259397,
+                    "image": "https://media.rawg.io/media/screenshots/cb7/cb75a188c2591b2c626048db6190feb2.jpg"
+                },
+                {
+                    "id": 259398,
+                    "image": "https://media.rawg.io/media/screenshots/af4/af4efc6ddfc8c47b64cfe7388894a75f.jpg"
+                },
+                {
+                    "id": 259399,
+                    "image": "https://media.rawg.io/media/screenshots/4c4/4c4c850cc5f00781afa34866e237fc55.jpg"
+                }
+            ],
+            "parent_platforms": [
+                {
+                    "platform": {
+                        "id": 7,
+                        "name": "Nintendo",
+                        "slug": "nintendo"
+                    }
+                }
+            ],
+            "genres": [
+                {
+                    "id": 4,
+                    "name": "Action",
+                    "slug": "action"
+                },
+                {
+                    "id": 5,
+                    "name": "RPG",
+                    "slug": "role-playing-games-rpg"
+                }
+            ]
+        },
+        {
+            "slug": "the-legend-of-zelda-links-awakening-dx",
+            "name": "The Legend of Zelda: Link's Awakening",
+            "playtime": 18,
+            "platforms": [
+                {
+                    "platform": {
+                        "id": 8,
+                        "name": "Nintendo 3DS",
+                        "slug": "nintendo-3ds"
+                    }
+                },
+                {
+                    "platform": {
+                        "id": 43,
+                        "name": "Game Boy Color",
+                        "slug": "game-boy-color"
+                    }
+                },
+                {
+                    "platform": {
+                        "id": 26,
+                        "name": "Game Boy",
+                        "slug": "game-boy"
+                    }
+                }
+            ],
+            "stores": [
+                {
+                    "store": {
+                        "id": 6,
+                        "name": "Nintendo Store",
+                        "slug": "nintendo"
+                    }
+                }
+            ],
+            "released": "1993-06-06",
+            "tba": false,
+            "background_image": "https://media.rawg.io/media/games/a1b/a1b2af4caa3c61f9922431baf1fca447.jpg",
+            "rating": 4.41,
+            "rating_top": 5,
+            "ratings": [
+                {
+                    "id": 5,
+                    "title": "exceptional",
+                    "count": 79,
+                    "percent": 51.97
+                },
+                {
+                    "id": 4,
+                    "title": "recommended",
+                    "count": 62,
+                    "percent": 40.79
+                },
+                {
+                    "id": 3,
+                    "title": "meh",
+                    "count": 8,
+                    "percent": 5.26
+                },
+                {
+                    "id": 1,
+                    "title": "skip",
+                    "count": 3,
+                    "percent": 1.97
+                }
+            ],
+            "ratings_count": 151,
+            "reviews_text_count": 1,
+            "added": 389,
+            "added_by_status": {
+                "yet": 35,
+                "owned": 87,
+                "beaten": 186,
+                "toplay": 39,
+                "dropped": 32,
+                "playing": 10
+            },
+            "metacritic": null,
+            "suggestions_count": 279,
+            "updated": "2020-02-22T15:17:06",
+            "id": 27057,
+            "score": "18.103453",
+            "clip": null,
+            "tags": [
+                {
+                    "id": 478,
+                    "name": "3rd-Person Perspective",
+                    "slug": "3rd-person-perspective",
+                    "language": "eng",
+                    "games_count": 86,
+                    "image_background": "https://media.rawg.io/media/games/053/053fc543bf488349610f1ae2d0c1b51b.jpg"
+                }
+            ],
+            "esrb_rating": null,
+            "user_game": null,
+            "reviews_count": 152,
+            "saturated_color": "0f0f0f",
+            "dominant_color": "0f0f0f",
+            "short_screenshots": [
+                {
+                    "id": -1,
+                    "image": "https://media.rawg.io/media/games/a1b/a1b2af4caa3c61f9922431baf1fca447.jpg"
+                },
+                {
+                    "id": 259839,
+                    "image": "https://media.rawg.io/media/screenshots/abc/abc2017250571b8974a8c63caa30248f.jpg"
+                },
+                {
+                    "id": 259840,
+                    "image": "https://media.rawg.io/media/screenshots/9f4/9f4ef745a08db25d0b322535df1a9367.jpg"
+                },
+                {
+                    "id": 259841,
+                    "image": "https://media.rawg.io/media/screenshots/2b1/2b1843911ce534ae8d25753a92ad45cb.jpg"
+                },
+                {
+                    "id": 259842,
+                    "image": "https://media.rawg.io/media/screenshots/3b6/3b64495e157c3f9e359de807f4a10fe2.jpg"
+                },
+                {
+                    "id": 259843,
+                    "image": "https://media.rawg.io/media/screenshots/163/1630d02036e39a94a95cad10d38b1db3.jpg"
+                },
+                {
+                    "id": 793956,
+                    "image": "https://media.rawg.io/media/screenshots/976/9760e1d9900707810fcd964c7e5e06b3.jpg"
+                }
+            ],
+            "parent_platforms": [
+                {
+                    "platform": {
+                        "id": 7,
+                        "name": "Nintendo",
+                        "slug": "nintendo"
+                    }
+                }
+            ],
+            "genres": [
+                {
+                    "id": 3,
+                    "name": "Adventure",
+                    "slug": "adventure"
+                },
+                {
+                    "id": 4,
+                    "name": "Action",
+                    "slug": "action"
+                }
+            ]
+        },
+        {
+            "slug": "zelda-monarch-madness",
+            "name": "Zelda: Monarch Madness",
+            "playtime": 0,
+            "platforms": [
+                {
+                    "platform": {
+                        "id": 4,
+                        "name": "PC",
+                        "slug": "pc"
+                    }
+                }
+            ],
+            "stores": [
+                {
+                    "store": {
+                        "id": 9,
+                        "name": "itch.io",
+                        "slug": "itch"
+                    }
+                }
+            ],
+            "released": "2021-12-21",
+            "tba": false,
+            "background_image": "https://media.rawg.io/media/screenshots/e0a/e0a457e1a989f6608dc69c3f8f8dd69b.jpg",
+            "rating": 0.0,
+            "rating_top": 0,
+            "ratings": [],
+            "ratings_count": 0,
+            "reviews_text_count": 0,
+            "added": 0,
+            "added_by_status": null,
+            "metacritic": null,
+            "suggestions_count": 0,
+            "updated": "2021-12-24T10:45:52",
+            "id": 713743,
+            "score": "17.732645",
+            "clip": null,
+            "tags": [
+                {
+                    "id": 122,
+                    "name": "Pixel Graphics",
+                    "slug": "pixel-graphics",
+                    "language": "eng",
+                    "games_count": 63774,
+                    "image_background": "https://media.rawg.io/media/games/91c/91c4f377c1e09755b60a0102c5252843.jpg"
+                },
+                {
+                    "id": 867,
+                    "name": "zelda",
+                    "slug": "zelda",
+                    "language": "eng",
+                    "games_count": 382,
+                    "image_background": "https://media.rawg.io/media/screenshots/315/315c9a8eb096da541d628ba6df98f8b8.jpg"
+                },
+                {
+                    "id": 1968,
+                    "name": "nintendo",
+                    "slug": "nintendo",
+                    "language": "eng",
+                    "games_count": 152,
+                    "image_background": "https://media.rawg.io/media/screenshots/916/916e69cb98303b6c629928dea4100120.jpg"
+                }
+            ],
+            "esrb_rating": null,
+            "user_game": null,
+            "reviews_count": 0,
+            "community_rating": 0,
+            "saturated_color": "0f0f0f",
+            "dominant_color": "0f0f0f",
+            "short_screenshots": [
+                {
+                    "id": -1,
+                    "image": "https://media.rawg.io/media/screenshots/e0a/e0a457e1a989f6608dc69c3f8f8dd69b.jpg"
+                },
+                {
+                    "id": 3166706,
+                    "image": "https://media.rawg.io/media/screenshots/566/566fc52e9b6a8251c68173428d379aba.jpg"
+                },
+                {
+                    "id": 3166707,
+                    "image": "https://media.rawg.io/media/screenshots/4c4/4c4cb674b8d047efda4c055badaeb116.jpg"
+                },
+                {
+                    "id": 3166708,
+                    "image": "https://media.rawg.io/media/screenshots/61a/61ac45b95b9adbaa7340451f74e01962.jpg"
+                },
+                {
+                    "id": 3166709,
+                    "image": "https://media.rawg.io/media/screenshots/e0a/e0a457e1a989f6608dc69c3f8f8dd69b.jpg"
+                }
+            ],
+            "parent_platforms": [
+                {
+                    "platform": {
+                        "id": 1,
+                        "name": "PC",
+                        "slug": "pc"
+                    }
+                }
+            ],
+            "genres": []
+        },
+        {
+            "slug": "the-legend-of-zelda-spirit-tracks",
+            "name": "The Legend of Zelda: Spirit Tracks",
+            "playtime": 19,
+            "platforms": [
+                {
+                    "platform": {
+                        "id": 9,
+                        "name": "Nintendo DS",
+                        "slug": "nintendo-ds"
+                    }
+                },
+                {
+                    "platform": {
+                        "id": 10,
+                        "name": "Wii U",
+                        "slug": "wii-u"
+                    }
+                }
+            ],
+            "stores": [
+                {
+                    "store": {
+                        "id": 6,
+                        "name": "Nintendo Store",
+                        "slug": "nintendo"
+                    }
+                }
+            ],
+            "released": "2009-12-07",
+            "tba": false,
+            "background_image": "https://media.rawg.io/media/games/4a1/4a1ed758c53873d6442562f0c772b640.jpeg",
+            "rating": 3.88,
+            "rating_top": 4,
+            "ratings": [
+                {
+                    "id": 4,
+                    "title": "recommended",
+                    "count": 80,
+                    "percent": 57.55
+                },
+                {
+                    "id": 5,
+                    "title": "exceptional",
+                    "count": 28,
+                    "percent": 20.14
+                },
+                {
+                    "id": 3,
+                    "title": "meh",
+                    "count": 24,
+                    "percent": 17.27
+                },
+                {
+                    "id": 1,
+                    "title": "skip",
+                    "count": 7,
+                    "percent": 5.04
+                }
+            ],
+            "ratings_count": 139,
+            "reviews_text_count": 0,
+            "added": 376,
+            "added_by_status": {
+                "yet": 42,
+                "owned": 60,
+                "beaten": 149,
+                "toplay": 40,
+                "dropped": 75,
+                "playing": 10
+            },
+            "metacritic": 87,
+            "suggestions_count": 173,
+            "updated": "2019-09-17T09:42:34",
+            "id": 23850,
+            "score": "17.659918",
+            "clip": null,
+            "tags": [
+                {
+                    "id": 1867,
+                    "name": "puzzles",
+                    "slug": "puzzles",
+                    "language": "eng",
+                    "games_count": 8091,
+                    "image_background": "https://media.rawg.io/media/screenshots/0c3/0c383a754af823c31204533b16fdd31a.jpg"
+                }
+            ],
+            "esrb_rating": null,
+            "user_game": null,
+            "reviews_count": 139,
+            "saturated_color": "0f0f0f",
+            "dominant_color": "0f0f0f",
+            "short_screenshots": [
+                {
+                    "id": -1,
+                    "image": "https://media.rawg.io/media/games/4a1/4a1ed758c53873d6442562f0c772b640.jpeg"
+                },
+                {
+                    "id": 246712,
+                    "image": "https://media.rawg.io/media/screenshots/d36/d367b4f33bdb3c012a698eff8fb001b2.jpg"
+                },
+                {
+                    "id": 246714,
+                    "image": "https://media.rawg.io/media/screenshots/a73/a73a2d59ebda6ae0474cd6595ac4b481.jpg"
+                },
+                {
+                    "id": 246715,
+                    "image": "https://media.rawg.io/media/screenshots/8e2/8e21a984b3f791e3076308aa2b971dcc.jpg"
+                },
+                {
+                    "id": 246716,
+                    "image": "https://media.rawg.io/media/screenshots/563/5634fd4c4d0c669dae519a0a404c2f6f.jpg"
+                },
+                {
+                    "id": 784681,
+                    "image": "https://media.rawg.io/media/screenshots/e71/e710cc7ae95ee3efef1fbea97fcf19c1.jpg"
+                }
+            ],
+            "parent_platforms": [
+                {
+                    "platform": {
+                        "id": 7,
+                        "name": "Nintendo",
+                        "slug": "nintendo"
+                    }
+                }
+            ],
+            "genres": [
+                {
+                    "id": 3,
+                    "name": "Adventure",
+                    "slug": "adventure"
+                },
+                {
+                    "id": 4,
+                    "name": "Action",
+                    "slug": "action"
+                }
+            ]
+        },
+        {
+            "slug": "the-legend-of-zelda-phantom-hourglass",
+            "name": "The Legend of Zelda: Phantom Hourglass",
+            "playtime": 18,
+            "platforms": [
+                {
+                    "platform": {
+                        "id": 9,
+                        "name": "Nintendo DS",
+                        "slug": "nintendo-ds"
+                    }
+                },
+                {
+                    "platform": {
+                        "id": 10,
+                        "name": "Wii U",
+                        "slug": "wii-u"
+                    }
+                }
+            ],
+            "stores": [
+                {
+                    "store": {
+                        "id": 6,
+                        "name": "Nintendo Store",
+                        "slug": "nintendo"
+                    }
+                }
+            ],
+            "released": "2007-10-01",
+            "tba": false,
+            "background_image": "https://media.rawg.io/media/screenshots/b23/b23b3b0f25b10123c0338cf9f5c8bc12.jpg",
+            "rating": 4.04,
+            "rating_top": 4,
+            "ratings": [
+                {
+                    "id": 4,
+                    "title": "recommended",
+                    "count": 100,
+                    "percent": 60.61
+                },
+                {
+                    "id": 5,
+                    "title": "exceptional",
+                    "count": 39,
+                    "percent": 23.64
+                },
+                {
+                    "id": 3,
+                    "title": "meh",
+                    "count": 23,
+                    "percent": 13.94
+                },
+                {
+                    "id": 1,
+                    "title": "skip",
+                    "count": 3,
+                    "percent": 1.82
+                }
+            ],
+            "ratings_count": 165,
+            "reviews_text_count": 0,
+            "added": 418,
+            "added_by_status": {
+                "yet": 33,
+                "owned": 68,
+                "beaten": 219,
+                "toplay": 34,
+                "dropped": 58,
+                "playing": 6
+            },
+            "metacritic": 90,
+            "suggestions_count": 271,
+            "updated": "2020-10-24T11:26:48",
+            "id": 27023,
+            "score": "17.659918",
+            "clip": null,
+            "tags": [
+                {
+                    "id": 406,
+                    "name": "Story",
+                    "slug": "story",
+                    "language": "eng",
+                    "games_count": 9896,
+                    "image_background": "https://media.rawg.io/media/games/315/3156817d3ac1f341da73de6495fb28f5.jpg"
+                },
+                {
+                    "id": 413,
+                    "name": "online",
+                    "slug": "online",
+                    "language": "eng",
+                    "games_count": 6116,
+                    "image_background": "https://media.rawg.io/media/games/73d/73db43df633477d4604c7248292f34b2.jpg"
+                },
+                {
+                    "id": 1867,
+                    "name": "puzzles",
+                    "slug": "puzzles",
+                    "language": "eng",
+                    "games_count": 8091,
+                    "image_background": "https://media.rawg.io/media/screenshots/0c3/0c383a754af823c31204533b16fdd31a.jpg"
+                },
+                {
+                    "id": 997,
+                    "name": "island",
+                    "slug": "island",
+                    "language": "eng",
+                    "games_count": 2343,
+                    "image_background": "https://media.rawg.io/media/games/d0c/d0cfde21933c9075e793d6cc0c49c91d.jpg"
+                },
+                {
+                    "id": 1505,
+                    "name": "ship",
+                    "slug": "ship",
+                    "language": "eng",
+                    "games_count": 2479,
+                    "image_background": "https://media.rawg.io/media/games/569/5695d8534579129ad6b40fefa2ef360c.jpg"
+                },
+                {
+                    "id": 2075,
+                    "name": "sound",
+                    "slug": "sound",
+                    "language": "eng",
+                    "games_count": 8974,
+                    "image_background": "https://media.rawg.io/media/screenshots/eca/eca5a3a8061951cbca3c38141448637e_3wfi7Pu.jpg"
+                },
+                {
+                    "id": 1015,
+                    "name": "survive",
+                    "slug": "survive",
+                    "language": "eng",
+                    "games_count": 1123,
+                    "image_background": "https://media.rawg.io/media/games/86c/86c4cfd81576dba6f0d2ee2d7a8dd97f.jpg"
+                },
+                {
+                    "id": 867,
+                    "name": "zelda",
+                    "slug": "zelda",
+                    "language": "eng",
+                    "games_count": 402,
+                    "image_background": "https://media.rawg.io/media/games/9f3/9f3c513b301d8d7250a64dd7e73c62df.jpg"
+                }
+            ],
+            "esrb_rating": null,
+            "user_game": null,
+            "reviews_count": 165,
+            "saturated_color": "0f0f0f",
+            "dominant_color": "0f0f0f",
+            "short_screenshots": [
+                {
+                    "id": -1,
+                    "image": "https://media.rawg.io/media/screenshots/b23/b23b3b0f25b10123c0338cf9f5c8bc12.jpg"
+                },
+                {
+                    "id": 2366791,
+                    "image": "https://media.rawg.io/media/screenshots/c6d/c6d5f0f59319c09f9b001ea15e5ff011.jpg"
+                },
+                {
+                    "id": 2366792,
+                    "image": "https://media.rawg.io/media/screenshots/1d0/1d057e8788af094189fc5ec59733cf0c.jpg"
+                },
+                {
+                    "id": 2366793,
+                    "image": "https://media.rawg.io/media/screenshots/9f4/9f4d87541171d2609f53a0542a70fd6e.jpg"
+                },
+                {
+                    "id": 2366794,
+                    "image": "https://media.rawg.io/media/screenshots/cca/ccac1628a2e726e95b66d5a9cb91b396.jpg"
+                },
+                {
+                    "id": 2366795,
+                    "image": "https://media.rawg.io/media/screenshots/0a2/0a2ca6df24eaa2238b1591f5d91d2246.jpg"
+                }
+            ],
+            "parent_platforms": [
+                {
+                    "platform": {
+                        "id": 7,
+                        "name": "Nintendo",
+                        "slug": "nintendo"
+                    }
+                }
+            ],
+            "genres": [
+                {
+                    "id": 3,
+                    "name": "Adventure",
+                    "slug": "adventure"
+                },
+                {
+                    "id": 4,
+                    "name": "Action",
+                    "slug": "action"
+                },
+                {
+                    "id": 7,
+                    "name": "Puzzle",
+                    "slug": "puzzle"
+                }
+            ]
+        },
+        {
+            "slug": "the-legend-of-zelda-oracle-of-ages",
+            "name": "The Legend of Zelda: Oracle of Ages",
+            "playtime": 52,
+            "platforms": [
+                {
+                    "platform": {
+                        "id": 8,
+                        "name": "Nintendo 3DS",
+                        "slug": "nintendo-3ds"
+                    }
+                },
+                {
+                    "platform": {
+                        "id": 43,
+                        "name": "Game Boy Color",
+                        "slug": "game-boy-color"
+                    }
+                }
+            ],
+            "stores": [
+                {
+                    "store": {
+                        "id": 6,
+                        "name": "Nintendo Store",
+                        "slug": "nintendo"
+                    }
+                }
+            ],
+            "released": "2001-02-27",
+            "tba": false,
+            "background_image": "https://media.rawg.io/media/screenshots/0e0/0e02b3c6aaf4bf6d7a59f8c001bb3fac.jpg",
+            "rating": 4.26,
+            "rating_top": 4,
+            "ratings": [
+                {
+                    "id": 4,
+                    "title": "recommended",
+                    "count": 44,
+                    "percent": 54.32
+                },
+                {
+                    "id": 5,
+                    "title": "exceptional",
+                    "count": 29,
+                    "percent": 35.8
+                },
+                {
+                    "id": 3,
+                    "title": "meh",
+                    "count": 8,
+                    "percent": 9.88
+                }
+            ],
+            "ratings_count": 80,
+            "reviews_text_count": 1,
+            "added": 257,
+            "added_by_status": {
+                "yet": 41,
+                "owned": 52,
+                "beaten": 88,
+                "toplay": 40,
+                "dropped": 28,
+                "playing": 8
+            },
+            "metacritic": null,
+            "suggestions_count": 228,
+            "updated": "2019-09-17T11:05:23",
+            "id": 27256,
+            "score": "17.290249",
+            "clip": null,
+            "tags": [
+                {
+                    "id": 37796,
+                    "name": "exclusive",
+                    "slug": "exclusive",
+                    "language": "eng",
+                    "games_count": 4514,
+                    "image_background": "https://media.rawg.io/media/games/4be/4be6a6ad0364751a96229c56bf69be59.jpg"
+                }
+            ],
+            "esrb_rating": null,
+            "user_game": null,
+            "reviews_count": 81,
+            "saturated_color": "0f0f0f",
+            "dominant_color": "0f0f0f",
+            "short_screenshots": [
+                {
+                    "id": -1,
+                    "image": "https://media.rawg.io/media/screenshots/0e0/0e02b3c6aaf4bf6d7a59f8c001bb3fac.jpg"
+                },
+                {
+                    "id": 261744,
+                    "image": "https://media.rawg.io/media/screenshots/693/693cffacb0a81c62827712296fbd8900.jpg"
+                },
+                {
+                    "id": 261745,
+                    "image": "https://media.rawg.io/media/screenshots/d22/d221a011b2278cf740f5a1a7c79f8919.jpg"
+                },
+                {
+                    "id": 261746,
+                    "image": "https://media.rawg.io/media/screenshots/169/1691991d96762bea26e7598159bd2b63.jpg"
+                },
+                {
+                    "id": 261747,
+                    "image": "https://media.rawg.io/media/screenshots/bbd/bbdd1ad46cf5314a25fba8e4c8f26fe0.jpg"
+                },
+                {
+                    "id": 261748,
+                    "image": "https://media.rawg.io/media/screenshots/745/7454e903ef51e47d23711134c0530db5_iEKDWRR.jpg"
+                },
+                {
+                    "id": 261749,
+                    "image": "https://media.rawg.io/media/screenshots/af7/af7db81f980277abb160d4e8d64eb72c_VP0ZNIN.jpg"
+                }
+            ],
+            "parent_platforms": [
+                {
+                    "platform": {
+                        "id": 7,
+                        "name": "Nintendo",
+                        "slug": "nintendo"
+                    }
+                }
+            ],
+            "genres": [
+                {
+                    "id": 3,
+                    "name": "Adventure",
+                    "slug": "adventure"
+                },
+                {
+                    "id": 4,
+                    "name": "Action",
+                    "slug": "action"
+                }
+            ]
+        },
+        {
+            "slug": "the-legend-of-zelda-the-minish-cap",
+            "name": "The Legend of Zelda: The Minish Cap",
+            "playtime": 24,
+            "platforms": [
+                {
+                    "platform": {
+                        "id": 8,
+                        "name": "Nintendo 3DS",
+                        "slug": "nintendo-3ds"
+                    }
+                },
+                {
+                    "platform": {
+                        "id": 10,
+                        "name": "Wii U",
+                        "slug": "wii-u"
+                    }
+                },
+                {
+                    "platform": {
+                        "id": 24,
+                        "name": "Game Boy Advance",
+                        "slug": "game-boy-advance"
+                    }
+                }
+            ],
+            "stores": [
+                {
+                    "store": {
+                        "id": 6,
+                        "name": "Nintendo Store",
+                        "slug": "nintendo"
+                    }
+                }
+            ],
+            "released": "2004-11-04",
+            "tba": false,
+            "background_image": "https://media.rawg.io/media/games/25d/25d9592abbd02dccd67d83108ae79582.jpg",
+            "rating": 4.4,
+            "rating_top": 5,
+            "ratings": [
+                {
+                    "id": 5,
+                    "title": "exceptional",
+                    "count": 141,
+                    "percent": 51.46
+                },
+                {
+                    "id": 4,
+                    "title": "recommended",
+                    "count": 116,
+                    "percent": 42.34
+                },
+                {
+                    "id": 3,
+                    "title": "meh",
+                    "count": 10,
+                    "percent": 3.65
+                },
+                {
+                    "id": 1,
+                    "title": "skip",
+                    "count": 7,
+                    "percent": 2.55
+                }
+            ],
+            "ratings_count": 271,
+            "reviews_text_count": 2,
+            "added": 629,
+            "added_by_status": {
+                "yet": 52,
+                "owned": 118,
+                "beaten": 306,
+                "toplay": 81,
+                "dropped": 55,
+                "playing": 17
+            },
+            "metacritic": null,
+            "suggestions_count": 378,
+            "updated": "2019-09-17T07:29:02",
+            "id": 27418,
+            "score": "17.290249",
+            "clip": null,
+            "tags": [
+                {
+                    "id": 31,
+                    "name": "Singleplayer",
+                    "slug": "singleplayer",
+                    "language": "eng",
+                    "games_count": 154366,
+                    "image_background": "https://media.rawg.io/media/games/7fa/7fa0b586293c5861ee32490e953a4996.jpg"
+                }
+            ],
+            "esrb_rating": null,
+            "user_game": null,
+            "reviews_count": 274,
+            "saturated_color": "0f0f0f",
+            "dominant_color": "0f0f0f",
+            "short_screenshots": [
+                {
+                    "id": -1,
+                    "image": "https://media.rawg.io/media/games/25d/25d9592abbd02dccd67d83108ae79582.jpg"
+                },
+                {
+                    "id": 732378,
+                    "image": "https://media.rawg.io/media/screenshots/9e9/9e9f0ccd3353dcf84caac227e06ad074.jpg"
+                },
+                {
+                    "id": 732379,
+                    "image": "https://media.rawg.io/media/screenshots/8b0/8b0422663a09ba5ae2e3c3c7c3a6843a.jpg"
+                },
+                {
+                    "id": 732380,
+                    "image": "https://media.rawg.io/media/screenshots/fc8/fc89d6e037eb55a226816cfc28541892.jpg"
+                },
+                {
+                    "id": 732381,
+                    "image": "https://media.rawg.io/media/screenshots/c42/c42a6fec2f219338a085c39884a74a93.jpg"
+                },
+                {
+                    "id": 732382,
+                    "image": "https://media.rawg.io/media/screenshots/cb7/cb7aad25c6b8564983df7161b6707ad4.jpg"
+                },
+                {
+                    "id": 732383,
+                    "image": "https://media.rawg.io/media/screenshots/4eb/4eb0f9c8a96ac91091fc63a35947c3ec.jpg"
+                }
+            ],
+            "parent_platforms": [
+                {
+                    "platform": {
+                        "id": 7,
+                        "name": "Nintendo",
+                        "slug": "nintendo"
+                    }
+                }
+            ],
+            "genres": [
+                {
+                    "id": 3,
+                    "name": "Adventure",
+                    "slug": "adventure"
+                },
+                {
+                    "id": 4,
+                    "name": "Action",
+                    "slug": "action"
+                },
+                {
+                    "id": 5,
+                    "name": "RPG",
+                    "slug": "role-playing-games-rpg"
+                }
+            ]
+        },
+        {
+            "slug": "zelda-rpg-links-reawakening",
+            "name": "Zelda RPG: Link's Reawakening",
+            "playtime": 0,
+            "platforms": [
+                {
+                    "platform": {
+                        "id": 4,
+                        "name": "PC",
+                        "slug": "pc"
+                    }
+                },
+                {
+                    "platform": {
+                        "id": 5,
+                        "name": "macOS",
+                        "slug": "macos"
+                    }
+                },
+                {
+                    "platform": {
+                        "id": 6,
+                        "name": "Linux",
+                        "slug": "linux"
+                    }
+                }
+            ],
+            "stores": [
+                {
+                    "store": {
+                        "id": 9,
+                        "name": "itch.io",
+                        "slug": "itch"
+                    }
+                }
+            ],
+            "released": "2021-06-20",
+            "tba": false,
+            "background_image": "https://media.rawg.io/media/screenshots/10a/10a383c77fdcf98d8cbb9ed56cf96b95.jpg",
+            "rating": 0.0,
+            "rating_top": 0,
+            "ratings": [],
+            "ratings_count": 0,
+            "reviews_text_count": 0,
+            "added": 0,
+            "added_by_status": null,
+            "metacritic": null,
+            "suggestions_count": 0,
+            "updated": "2021-06-21T03:33:22",
+            "id": 624566,
+            "score": "16.967436",
+            "clip": null,
+            "tags": [
+                {
+                    "id": 102,
+                    "name": "Turn-Based",
+                    "slug": "turn-based",
+                    "language": "eng",
+                    "games_count": 3674,
+                    "image_background": "https://media.rawg.io/media/games/d1f/d1f872a48286b6b751670817d5c1e1be.jpg"
+                },
+                {
+                    "id": 12894,
+                    "name": "sequel",
+                    "slug": "sequel",
+                    "language": "eng",
+                    "games_count": 47,
+                    "image_background": "https://media.rawg.io/media/screenshots/a79/a793ea2a0f0fbeedc8143346cb1f9f9d.jpg"
+                },
+                {
+                    "id": 66558,
+                    "name": "links-reawakening",
+                    "slug": "links-reawakening",
+                    "language": "eng",
+                    "games_count": 0,
+                    "image_background": null
+                },
+                {
+                    "id": 66559,
+                    "name": "passion-project",
+                    "slug": "passion-project",
+                    "language": "eng",
+                    "games_count": 0,
+                    "image_background": null
+                },
+                {
+                    "id": 66560,
+                    "name": "zelda-rpg",
+                    "slug": "zelda-rpg",
+                    "language": "eng",
+                    "games_count": 0,
+                    "image_background": null
+                }
+            ],
+            "esrb_rating": null,
+            "user_game": null,
+            "reviews_count": 0,
+            "community_rating": 0,
+            "saturated_color": "0f0f0f",
+            "dominant_color": "0f0f0f",
+            "short_screenshots": [
+                {
+                    "id": -1,
+                    "image": "https://media.rawg.io/media/screenshots/10a/10a383c77fdcf98d8cbb9ed56cf96b95.jpg"
+                },
+                {
+                    "id": 2904040,
+                    "image": "https://media.rawg.io/media/screenshots/4bd/4bdaa80f7dc2c4f1ced2770294dec6e7.jpg"
+                },
+                {
+                    "id": 2904041,
+                    "image": "https://media.rawg.io/media/screenshots/415/4155405ff677471adc4829537aa7fffe.jpg"
+                },
+                {
+                    "id": 2904042,
+                    "image": "https://media.rawg.io/media/screenshots/cdb/cdb1f4a4f43b04fc1669a3c3177004a0.jpg"
+                },
+                {
+                    "id": 2904043,
+                    "image": "https://media.rawg.io/media/screenshots/8ab/8abcf7f6c665da96208d22921e5a0be6.jpg"
+                },
+                {
+                    "id": 2904044,
+                    "image": "https://media.rawg.io/media/screenshots/f1e/f1ea11f142c5b1c022a58d7372a29bc0.jpg"
+                },
+                {
+                    "id": 2904045,
+                    "image": "https://media.rawg.io/media/screenshots/10a/10a383c77fdcf98d8cbb9ed56cf96b95.jpg"
+                }
+            ],
+            "parent_platforms": [
+                {
+                    "platform": {
+                        "id": 1,
+                        "name": "PC",
+                        "slug": "pc"
+                    }
+                },
+                {
+                    "platform": {
+                        "id": 5,
+                        "name": "Apple Macintosh",
+                        "slug": "mac"
+                    }
+                },
+                {
+                    "platform": {
+                        "id": 6,
+                        "name": "Linux",
+                        "slug": "linux"
+                    }
+                }
+            ],
+            "genres": [
+                {
+                    "id": 5,
+                    "name": "RPG",
+                    "slug": "role-playing-games-rpg"
+                }
+            ]
+        },
+        {
+            "slug": "the-legend-of-zelda-links-awakening",
+            "name": "The Legend of Zelda: Link's Awakening (2019)",
+            "playtime": 0,
+            "platforms": [
+                {
+                    "platform": {
+                        "id": 7,
+                        "name": "Nintendo Switch",
+                        "slug": "nintendo-switch"
+                    }
+                }
+            ],
+            "stores": [
+                {
+                    "store": {
+                        "id": 6,
+                        "name": "Nintendo Store",
+                        "slug": "nintendo"
+                    }
+                }
+            ],
+            "released": "2019-09-20",
+            "tba": false,
+            "background_image": "https://media.rawg.io/media/games/1bb/1bb38f1354db6596ccd6bdcb4a7f6cbc.jpg",
+            "rating": 4.36,
+            "rating_top": 4,
+            "ratings": [
+                {
+                    "id": 4,
+                    "title": "recommended",
+                    "count": 193,
+                    "percent": 47.77
+                },
+                {
+                    "id": 5,
+                    "title": "exceptional",
+                    "count": 183,
+                    "percent": 45.3
+                },
+                {
+                    "id": 3,
+                    "title": "meh",
+                    "count": 23,
+                    "percent": 5.69
+                },
+                {
+                    "id": 1,
+                    "title": "skip",
+                    "count": 5,
+                    "percent": 1.24
+                }
+            ],
+            "ratings_count": 394,
+            "reviews_text_count": 8,
+            "added": 1242,
+            "added_by_status": {
+                "yet": 115,
+                "owned": 138,
+                "beaten": 421,
+                "toplay": 438,
+                "dropped": 61,
+                "playing": 69
+            },
+            "metacritic": 87,
+            "suggestions_count": 444,
+            "updated": "2021-05-27T23:31:16",
+            "id": 292842,
+            "score": "16.771128",
+            "clip": null,
+            "tags": [
+                {
+                    "id": 468,
+                    "name": "role-playing",
+                    "slug": "role-playing",
+                    "language": "eng",
+                    "games_count": 1329,
+                    "image_background": "https://media.rawg.io/media/games/8ca/8ca40b562a755d6a0e30d48e6c74b178.jpg"
+                },
+                {
+                    "id": 37796,
+                    "name": "exclusive",
+                    "slug": "exclusive",
+                    "language": "eng",
+                    "games_count": 4514,
+                    "image_background": "https://media.rawg.io/media/games/806/8060a7663364ac23e15480728938d6f3.jpg"
+                },
+                {
+                    "id": 37797,
+                    "name": "true exclusive",
+                    "slug": "true-exclusive",
+                    "language": "eng",
+                    "games_count": 3996,
+                    "image_background": "https://media.rawg.io/media/games/fba/fbae1bcfae1feffda6a11fbc1c939420.jpg"
+                }
+            ],
+            "esrb_rating": {
+                "id": 1,
+                "name": "Everyone",
+                "slug": "everyone",
+                "name_en": "Everyone",
+                "name_ru": "Для всех"
+            },
+            "user_game": null,
+            "reviews_count": 404,
+            "saturated_color": "0f0f0f",
+            "dominant_color": "0f0f0f",
+            "short_screenshots": [
+                {
+                    "id": -1,
+                    "image": "https://media.rawg.io/media/games/1bb/1bb38f1354db6596ccd6bdcb4a7f6cbc.jpg"
+                },
+                {
+                    "id": 1837492,
+                    "image": "https://media.rawg.io/media/screenshots/55f/55f83f0dc48c6d5907947b04fe3a3bf7.jpg"
+                },
+                {
+                    "id": 1837493,
+                    "image": "https://media.rawg.io/media/screenshots/e21/e21615c4b4d3ddeb3e5104768c436e6d.jpg"
+                },
+                {
+                    "id": 1837494,
+                    "image": "https://media.rawg.io/media/screenshots/63d/63d28b0704246943e8e405ba34fdd283.jpg"
+                },
+                {
+                    "id": 1837495,
+                    "image": "https://media.rawg.io/media/screenshots/a00/a004e37ada339c47c9d061efd4847f2a.jpg"
+                },
+                {
+                    "id": 1837496,
+                    "image": "https://media.rawg.io/media/screenshots/707/707f959465e2673f57bd4df58b47e89a.jpg"
+                },
+                {
+                    "id": 1837497,
+                    "image": "https://media.rawg.io/media/screenshots/71a/71ac982d0d75f392fa671d61c5ddd1ed.jpg"
+                }
+            ],
+            "parent_platforms": [
+                {
+                    "platform": {
+                        "id": 7,
+                        "name": "Nintendo",
+                        "slug": "nintendo"
+                    }
+                }
+            ],
+            "genres": [
+                {
+                    "id": 3,
+                    "name": "Adventure",
+                    "slug": "adventure"
+                },
+                {
+                    "id": 4,
+                    "name": "Action",
+                    "slug": "action"
+                },
+                {
+                    "id": 5,
+                    "name": "RPG",
+                    "slug": "role-playing-games-rpg"
+                }
+            ]
+        },
+        {
+            "slug": "the-legend-of-zelda-the-wind-waker",
+            "name": "The Legend of Zelda: The Wind Waker",
+            "playtime": 37,
+            "platforms": [
+                {
+                    "platform": {
+                        "id": 105,
+                        "name": "GameCube",
+                        "slug": "gamecube"
+                    }
+                }
+            ],
+            "stores": null,
+            "released": "2002-12-13",
+            "tba": false,
+            "background_image": "https://media.rawg.io/media/games/45f/45f6d31b0fcefe029e33d258a7beb6a2.jpg",
+            "rating": 4.36,
+            "rating_top": 5,
+            "ratings": [
+                {
+                    "id": 5,
+                    "title": "exceptional",
+                    "count": 252,
+                    "percent": 63.96
+                },
+                {
+                    "id": 4,
+                    "title": "recommended",
+                    "count": 89,
+                    "percent": 22.59
+                },
+                {
+                    "id": 1,
+                    "title": "skip",
+                    "count": 29,
+                    "percent": 7.36
+                },
+                {
+                    "id": 3,
+                    "title": "meh",
+                    "count": 24,
+                    "percent": 6.09
+                }
+            ],
+            "ratings_count": 392,
+            "reviews_text_count": 1,
+            "added": 764,
+            "added_by_status": {
+                "yet": 44,
+                "owned": 207,
+                "beaten": 333,
+                "toplay": 102,
+                "dropped": 63,
+                "playing": 15
+            },
+            "metacritic": null,
+            "suggestions_count": 270,
+            "updated": "2021-07-28T11:35:58",
+            "id": 56092,
+            "score": "16.753445",
+            "clip": null,
+            "tags": [
+                {
+                    "id": 31,
+                    "name": "Singleplayer",
+                    "slug": "singleplayer",
+                    "language": "eng",
+                    "games_count": 153647,
+                    "image_background": "https://media.rawg.io/media/games/4be/4be6a6ad0364751a96229c56bf69be59.jpg"
+                },
+                {
+                    "id": 7,
+                    "name": "Multiplayer",
+                    "slug": "multiplayer",
+                    "language": "eng",
+                    "games_count": 29764,
+                    "image_background": "https://media.rawg.io/media/games/157/15742f2f67eacff546738e1ab5c19d20.jpg"
+                },
+                {
+                    "id": 411,
+                    "name": "cooperative",
+                    "slug": "cooperative",
+                    "language": "eng",
+                    "games_count": 3253,
+                    "image_background": "https://media.rawg.io/media/games/5bb/5bb55ccb8205aadbb6a144cf6d8963f1.jpg"
+                },
+                {
+                    "id": 37796,
+                    "name": "exclusive",
+                    "slug": "exclusive",
+                    "language": "eng",
+                    "games_count": 4514,
+                    "image_background": "https://media.rawg.io/media/games/364/3642d850efb217c58feab80b8affaa89.jpg"
+                },
+                {
+                    "id": 37797,
+                    "name": "true exclusive",
+                    "slug": "true-exclusive",
+                    "language": "eng",
+                    "games_count": 3996,
+                    "image_background": "https://media.rawg.io/media/games/c5b/c5b3b6aa220050f7f504f4477cb51d3b.jpg"
+                }
+            ],
+            "esrb_rating": {
+                "id": 1,
+                "name": "Everyone",
+                "slug": "everyone",
+                "name_en": "Everyone",
+                "name_ru": "Для всех"
+            },
+            "user_game": null,
+            "reviews_count": 394,
+            "saturated_color": "0f0f0f",
+            "dominant_color": "0f0f0f",
+            "short_screenshots": [
+                {
+                    "id": -1,
+                    "image": "https://media.rawg.io/media/games/45f/45f6d31b0fcefe029e33d258a7beb6a2.jpg"
+                },
+                {
+                    "id": 752746,
+                    "image": "https://media.rawg.io/media/screenshots/5e4/5e4fb12597bbefa12e15d7143ebdc4d6.jpg"
+                },
+                {
+                    "id": 752747,
+                    "image": "https://media.rawg.io/media/screenshots/1fd/1fd393d859ba5a0c82801e5d3f10913c.jpg"
+                },
+                {
+                    "id": 752748,
+                    "image": "https://media.rawg.io/media/screenshots/069/0699d0e8adc3db06dc8b6bc43918a2d2.jpg"
+                },
+                {
+                    "id": 752749,
+                    "image": "https://media.rawg.io/media/screenshots/8c9/8c91a24415640e85cef2685d41e581b9.jpg"
+                },
+                {
+                    "id": 752750,
+                    "image": "https://media.rawg.io/media/screenshots/d0e/d0edced0fd4e8d76725e062b31836c93.jpg"
+                },
+                {
+                    "id": 752751,
+                    "image": "https://media.rawg.io/media/screenshots/1e7/1e7b9bc4bf4c4259a644e73f7147ed38.jpg"
+                }
+            ],
+            "parent_platforms": [
+                {
+                    "platform": {
+                        "id": 7,
+                        "name": "Nintendo",
+                        "slug": "nintendo"
+                    }
+                }
+            ],
+            "genres": [
+                {
+                    "id": 4,
+                    "name": "Action",
+                    "slug": "action"
+                }
+            ]
+        },
+        {
+            "slug": "the-legend-of-zelda-oracle-of-seasons",
+            "name": "The Legend of Zelda: Oracle of Seasons",
+            "playtime": 62,
+            "platforms": [
+                {
+                    "platform": {
+                        "id": 8,
+                        "name": "Nintendo 3DS",
+                        "slug": "nintendo-3ds"
+                    }
+                },
+                {
+                    "platform": {
+                        "id": 43,
+                        "name": "Game Boy Color",
+                        "slug": "game-boy-color"
+                    }
+                }
+            ],
+            "stores": [
+                {
+                    "store": {
+                        "id": 6,
+                        "name": "Nintendo Store",
+                        "slug": "nintendo"
+                    }
+                }
+            ],
+            "released": "2001-02-27",
+            "tba": false,
+            "background_image": "https://media.rawg.io/media/screenshots/8ab/8ab43c6316d0b5bf16039345867e025a.jpg",
+            "rating": 4.25,
+            "rating_top": 4,
+            "ratings": [
+                {
+                    "id": 4,
+                    "title": "recommended",
+                    "count": 45,
+                    "percent": 59.21
+                },
+                {
+                    "id": 5,
+                    "title": "exceptional",
+                    "count": 25,
+                    "percent": 32.89
+                },
+                {
+                    "id": 3,
+                    "title": "meh",
+                    "count": 6,
+                    "percent": 7.89
+                }
+            ],
+            "ratings_count": 75,
+            "reviews_text_count": 1,
+            "added": 258,
+            "added_by_status": {
+                "yet": 41,
+                "owned": 48,
+                "beaten": 93,
+                "toplay": 40,
+                "dropped": 27,
+                "playing": 9
+            },
+            "metacritic": null,
+            "suggestions_count": 314,
+            "updated": "2019-09-17T10:48:50",
+            "id": 27255,
+            "score": "16.753445",
+            "clip": null,
+            "tags": [
+                {
+                    "id": 31,
+                    "name": "Singleplayer",
+                    "slug": "singleplayer",
+                    "language": "eng",
+                    "games_count": 154366,
+                    "image_background": "https://media.rawg.io/media/games/7fa/7fa0b586293c5861ee32490e953a4996.jpg"
+                },
+                {
+                    "id": 37796,
+                    "name": "exclusive",
+                    "slug": "exclusive",
+                    "language": "eng",
+                    "games_count": 4514,
+                    "image_background": "https://media.rawg.io/media/games/4be/4be6a6ad0364751a96229c56bf69be59.jpg"
+                }
+            ],
+            "esrb_rating": null,
+            "user_game": null,
+            "reviews_count": 76,
+            "saturated_color": "0f0f0f",
+            "dominant_color": "0f0f0f",
+            "short_screenshots": [
+                {
+                    "id": -1,
+                    "image": "https://media.rawg.io/media/screenshots/8ab/8ab43c6316d0b5bf16039345867e025a.jpg"
+                },
+                {
+                    "id": 261734,
+                    "image": "https://media.rawg.io/media/screenshots/2ac/2ac351169cf5feb0b9b69855ffe17d4f.jpg"
+                },
+                {
+                    "id": 261735,
+                    "image": "https://media.rawg.io/media/screenshots/aa0/aa0d586e4bbcf85927687f41f1aeaf7b.jpg"
+                },
+                {
+                    "id": 261736,
+                    "image": "https://media.rawg.io/media/screenshots/3b7/3b75cc87e4f3abee0f5c0d5a67de5362.jpg"
+                },
+                {
+                    "id": 261737,
+                    "image": "https://media.rawg.io/media/screenshots/be4/be473f085d0e8941585d72209a41bfee.jpg"
+                },
+                {
+                    "id": 261738,
+                    "image": "https://media.rawg.io/media/screenshots/712/712208ae7e30b20373e0d179fb68d4f7.jpg"
+                },
+                {
+                    "id": 742840,
+                    "image": "https://media.rawg.io/media/screenshots/601/601e794d0b06ae8a9eb932f5af5cc616.jpg"
+                }
+            ],
+            "parent_platforms": [
+                {
+                    "platform": {
+                        "id": 7,
+                        "name": "Nintendo",
+                        "slug": "nintendo"
+                    }
+                }
+            ],
+            "genres": [
+                {
+                    "id": 3,
+                    "name": "Adventure",
+                    "slug": "adventure"
+                },
+                {
+                    "id": 4,
+                    "name": "Action",
+                    "slug": "action"
+                }
+            ]
+        }
+    ],
+    "user_platforms": false
+}

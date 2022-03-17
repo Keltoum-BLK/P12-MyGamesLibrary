@@ -16,7 +16,14 @@ class GamesFavoriteViewController: UIViewController {
     @IBOutlet weak var backBTN: UIButton!
     @IBOutlet weak var gamesFavoriteTableView: UITableView!
     
-    var gamesLibrary: [MyGame]?
+    var gamesLibrary: [MyGame]? {
+        didSet {
+            DispatchQueue.main.async {
+                self.gamesFavoriteTableView.reloadData()
+            }
+        }
+    }
+    
     var image: UIImage?
     var platformElements: MyLibraryElements?
     
@@ -34,11 +41,14 @@ class GamesFavoriteViewController: UIViewController {
         backgroundImage.image = UIImage(named: platformElements?.image ?? "gamesLibrary")
         
         gamesLibrary = platformElements?.myGames
-        gamesFavoriteTableView.reloadData()
-        gamesFavoriteTableView.reloadData()
         
         backBTN.layer.cornerRadius = 5
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+            self.gamesFavoriteTableView.reloadData()
     }
     
     override func viewDidLayoutSubviews() {
@@ -80,7 +90,11 @@ extension GamesFavoriteViewController: UITableViewDelegate, UITableViewDataSourc
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "MyGameCard", sender: gamesLibrary?[indexPath.row])
+        if isSearching {
+            performSegue(withIdentifier: "MyGameCard", sender: filteredGames?[indexPath.row])
+        } else {
+            performSegue(withIdentifier: "MyGameCard", sender: gamesLibrary?[indexPath.row])
+        }
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {

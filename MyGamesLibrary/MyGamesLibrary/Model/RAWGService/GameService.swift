@@ -74,7 +74,7 @@ class GameService: NetworkService {
         
         guard let urlRawg = urlComponents.url?.absoluteString else { return }
         guard let url = URL(string: urlRawg) else { return }
-       
+       print(url)
         dataTask = session.dataTask(with: url) { (data, response, error) in
             DispatchQueue.main.async {
                 guard error == nil else { completion(.failure(.server))
@@ -90,6 +90,7 @@ class GameService: NetworkService {
                     completion(.failure(.decoding))
                     return
                 }
+                dump(gameInfo)
                 completion(.success(gameInfo))
             }
         }
