@@ -75,7 +75,7 @@ extension SuggestedImagesViewController: UICollectionViewDelegate, UICollectionV
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SuggestedViewCell", for: indexPath) as! SuggestedViewCell
         cell.suggestedImage.cacheImage(urlString: gameImages[indexPath.row])
-        cell.suggestedImage.layer.cornerRadius = 10
+        cell.suggestedImage.layer.cornerRadius = 15
         return cell
     }
     

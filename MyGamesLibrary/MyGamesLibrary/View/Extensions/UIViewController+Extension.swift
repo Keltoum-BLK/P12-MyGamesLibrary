@@ -20,7 +20,7 @@ extension UIViewController {
     func showAlertMessageBeforeToDismiss(title: String, message: String) {
           let alert = UIAlertController(title: "\(title)", message: "\(message)", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: { UIAlertAction in
-            self.navigationController?.popViewController(animated: true)
+            self.dismiss(animated: true, completion: nil)
         }))
           self.present(alert, animated: true)
       }
@@ -30,17 +30,6 @@ extension UIViewController {
         let ok = UIAlertAction(title: "OK", style: .default, handler: nil)
         c.addAction(ok)
         controller.present(c, animated: true, completion: nil)
-    }
-    
-    func showToast(message: String, seconds: Double = 3.0) {
-        let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
-        alert.view.backgroundColor = .black
-        alert.view.alpha = 0.6
-        alert.view.layer.cornerRadius = 15
-        
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + seconds) {
-            alert.dismiss(animated: true)
-        }
     }
 }
 

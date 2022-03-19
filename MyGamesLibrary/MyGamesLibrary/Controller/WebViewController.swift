@@ -10,27 +10,19 @@ import WebKit
 
 class WebViewController: UIViewController, WKNavigationDelegate {
 
-    @IBOutlet weak var youtubeVideosWebPage: WKWebView!
+    @IBOutlet weak var webPage: WKWebView!
     
     var url: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        youtubeVideosWebPage.navigationDelegate = self
-        self.setupNavigationBar()
+        webPage.navigationDelegate = self
         guard let url = URL(string: url ?? "no url") else { return }
-        youtubeVideosWebPage.load(URLRequest(url: url))
+        webPage.load(URLRequest(url: url))
+        webPage.allowsBackForwardNavigationGestures = true
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        youtubeVideosWebPage.stopLoading()
+        webPage.stopLoading()
     }
-    private func setupNavigationBar() {
-        if #available(iOS 15.0, *) {
-            let navigationBarAppearance = UINavigationBarAppearance()
-            UINavigationBar.appearance().standardAppearance = navigationBarAppearance
-            UINavigationBar.appearance().scrollEdgeAppearance = navigationBarAppearance
-        }
-    }
-
 }

@@ -52,6 +52,7 @@ class MyGameViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "MyWebPage", let next = segue.destination as? WebViewController {
+            next.modalPresentationStyle = .pageSheet
             next.url = sender as? String
         }
     }
