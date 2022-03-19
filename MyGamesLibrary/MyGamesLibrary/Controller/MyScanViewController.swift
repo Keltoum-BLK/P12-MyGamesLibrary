@@ -97,7 +97,8 @@ class MyScanViewController: UIViewController {
             switch result {
             case .success(let result):
                 guard let foundGamesList = result.results else {
-                    // TODO: Inform user or no game found with title
+                    self?.showAlertMessageBeforeToDismiss(title: "Erreur détectée ⛔️",
+                                                         message: "Impossible de trouver ton jeu 👾. Tu peux soit effectuer une recherche ou bien créer la fiche de ton jeu.")
                     return
                 }
                 self?.delegate?.showGameList(with: foundGamesList)

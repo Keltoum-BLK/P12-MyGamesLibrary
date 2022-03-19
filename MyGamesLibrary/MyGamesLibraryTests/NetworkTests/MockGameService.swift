@@ -6,30 +6,195 @@
 //
 
 import XCTest
+@testable import MyGamesLibrary
 
 class MockGameService: XCTestCase {
-
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    
+    var gameService: GameService!
+    
+    override func setUp() {
+        let configuration = URLSessionConfiguration.ephemeral
+        configuration.protocolClasses = [URLTestProtocol.self]
+        let session = URLSession(configuration: configuration)
+        gameService = GameService(session: session)
     }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
+    
+//    func testGetWeatherShouldPostFailWithIncorrectData() {
+//        
+//        URLTestProtocol.loadingHandler = { request in
+//            let response: HTTPURLResponse = FakeResponseData.responseOK!
+//            let error: Error? = nil
+//            let data = FakeResponseData.weatherIncorrectData
+//            return (response, data, error)
+//        }
+//   
+//        let expectation = XCTestExpectation(description: "wait for change")
+//        
+//        weatherService.getTheWeather(city: "Paris") { (result) in
+//            print(result)
+//            guard case .failure(let error) = result else { XCTFail("failure")
+//                return
+//            }
+//            
+//            XCTAssertNotNil(error)
+//            
+//            expectation.fulfill()
+//        }
+//        wait(for: [expectation], timeout: 1)
+//    }
+//    
+//    func testGetWeatherShouldPostFailWithError() {
+//        
+//        URLTestProtocol.loadingHandler = { request in
+//            let response: HTTPURLResponse = FakeResponseData.responseKO!
+//            let error: Error? = nil
+//            let data = FakeResponseData.weatherIncorrectData
+//            return (response, data, error)
+//        }
+//   
+//        let expectation = XCTestExpectation(description: "wait for change")
+//        
+//        weatherService.getTheWeather(city: "") { (result) in
+//            print(result)
+//            guard case .failure(let error) = result else { XCTFail("failure")
+//                return
+//            }
+//            
+//            XCTAssertNotNil(error)
+//            
+//            expectation.fulfill()
+//        }
+//        wait(for: [expectation], timeout: 1)
+//    }
+//    
+//    func testGetWeatherShouldPostSuccessWithNoErrorAndCorrectWeatherData() {
+//        
+//        URLTestProtocol.loadingHandler = { request in
+//            let response: HTTPURLResponse = FakeResponseData.responseOK!
+//            let error: Error? = nil
+//            let data = FakeResponseData.weatherCorrectData
+//            return (response, data, error)
+//        }
+//   
+//        let expectation = XCTestExpectation(description: "wait for change")
+//        
+//        weatherService.getTheWeather(city: "Paris") { (result) in
+//            print(result)
+//            guard case .success(let weatherInfo) = result else {
+//                return
+//            }
+//            let city = "Paris"
+//            let country = "FR"
+//            let description = "couvert"
+//            let temperature = 10.96
+//            let sunrise = 1637305560
+//            let sunset = 1637337981
+//            let icon = "04d"
+//            XCTAssertNotNil(weatherInfo)
+//            
+//            XCTAssertEqual(city, weatherInfo.name)
+//            XCTAssertEqual(country, weatherInfo.sys?.country)
+//            XCTAssertEqual(description, weatherInfo.weather?.first?.description)
+//            XCTAssertEqual(temperature, weatherInfo.main?.temp)
+//            XCTAssertEqual(sunrise, weatherInfo.sys?.sunrise)
+//            XCTAssertEqual(sunset, weatherInfo.sys?.sunset)
+//            XCTAssertEqual(icon, weatherInfo.weather?.first?.icon)
+//            
+//            
+//            expectation.fulfill()
+//        }
+//        wait(for: [expectation], timeout: 1)
+//    }
+//    
+//    func testGetWeatherShouldPostFailWithLocationIncorrectData() {
+//        
+//        URLTestProtocol.loadingHandler = { request in
+//            let response: HTTPURLResponse = FakeResponseData.responseOK!
+//            let error: Error? = nil
+//            let data = FakeResponseData.weatherIncorrectData
+//            return (response, data, error)
+//        }
+//   
+//        let expectation = XCTestExpectation(description: "wait for change")
+//        
+//        weatherService.getLocationWeather(latitude: 48.8534, longitude: 2.3488) { (result) in
+//            print(result)
+//            guard case .failure(let error) = result else { XCTFail("failure")
+//                return
+//            }
+//            
+//            XCTAssertNotNil(error)
+//            
+//            expectation.fulfill()
+//        }
+//        wait(for: [expectation], timeout: 1)
+//    }
+//    
+//    
+//    func testGetWeatherLocationShouldPostFailWithError() {
+//        
+//        URLTestProtocol.loadingHandler = { request in
+//            let response: HTTPURLResponse = FakeResponseData.responseKO!
+//            let error: Error? = nil
+//            let data = FakeResponseData.weatherIncorrectData
+//            return (response, data, error)
+//        }
+//   
+//        let expectation = XCTestExpectation(description: "wait for change")
+//        
+//        weatherService.getLocationWeather(latitude: 0, longitude: 0) { (result) in
+//            print(result)
+//            guard case .failure(let error) = result else { XCTFail("failure")
+//                return
+//            }
+//            
+//            XCTAssertNotNil(error)
+//            
+//            expectation.fulfill()
+//        }
+//        wait(for: [expectation], timeout: 1)
+//    }
+//    
+//    func testGetWeatherLocationShouldPostSuccessWithNoErrorAndCorrectData() {
+//        
+//        URLTestProtocol.loadingHandler = { request in
+//            let response: HTTPURLResponse = FakeResponseData.responseOK!
+//            let error: Error? = nil
+//            let data = FakeResponseData.weatherCorrectData
+//            return (response, data, error)
+//        }
+//   
+//        let expectation = XCTestExpectation(description: "wait for change")
+//        
+//        weatherService.getLocationWeather(latitude: 48.8534, longitude: 2.3488) { (result) in
+//            print(result)
+//            guard case .success(let weatherInfo) = result else {
+//                return
+//            }
+//            let city = "Paris"
+//            let country = "FR"
+//            let description = "couvert"
+//            let temperature = 10.96
+//            let sunrise = 1637305560
+//            let sunset = 1637337981
+//            let icon = "04d"
+//            
+//            XCTAssertNotNil(weatherInfo)
+//            
+//            XCTAssertEqual(city, weatherInfo.name)
+//            XCTAssertEqual(country, weatherInfo.sys?.country)
+//            XCTAssertEqual(description, weatherInfo.weather?.first?.description)
+//            XCTAssertEqual(temperature, weatherInfo.main?.temp)
+//            XCTAssertEqual(sunrise, weatherInfo.sys?.sunrise)
+//            XCTAssertEqual(sunset, weatherInfo.sys?.sunset)
+//            XCTAssertEqual(icon, weatherInfo.weather?.first?.icon)
+//            
+//            
+//            expectation.fulfill()
+//        }
+//        wait(for: [expectation], timeout: 1)
+//    }
+//    
+//}
 
 }

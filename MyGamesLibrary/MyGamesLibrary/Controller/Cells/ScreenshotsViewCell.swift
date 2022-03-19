@@ -14,6 +14,6 @@ class ScreenshotsViewCell: UICollectionViewCell {
     
     func setup(screenshot: ShortScreenshot) {
         gameImage.downloaded(from: screenshot.image ?? "no image")
-        gameImage.layer.cornerRadius = 20
+        gameImage.layer.cornerRadius = 24
     }
 }

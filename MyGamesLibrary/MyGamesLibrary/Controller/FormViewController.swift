@@ -80,6 +80,9 @@ class FormViewController: UIViewController {
         
         takePicBTN.layer.cornerRadius = 10
         
+        backBTN.layer.cornerRadius = 10
+        Tool.shared.setUpShadow(color: UIColor.black.cgColor, cell: backBTN, width: 3, height: 3)
+        
         titleTextField.changeThePLaceholderFont(text: "Saisissez le titre du jeu.", textField: self.titleTextField)
         releaseDateTextField.changeThePLaceholderFont(text: "JJ/MM/AAAA", textField: self.releaseDateTextField)
         titleTextField.delegate = self
@@ -100,20 +103,20 @@ class FormViewController: UIViewController {
     }
     
     @IBAction func addGamInPS4List(_ sender: Any) {
-        let game = createAGameCard(platform: Platform(slug: "playstation4"))
+        let game = createAGameCard(platform: Platform(slug: "playstation4", name: "Playstation 4"))
         coreDataManager.addGame(game: game)
         self.showAlertMessage(title: "Bravo", message: "Tu as bien rajouté le jeu au catalogue. 🤖")
     }
     
     @IBAction func addGameInXboxList(_ sender: Any) {
-        let game = createAGameCard(platform: Platform(slug: "xbox-one"))
+        let game = createAGameCard(platform: Platform(slug: "xbox-one", name: "Xbox One"))
         coreDataManager.addGame(game: game)
         self.showAlertMessage(title: "Bravo", message: "Tu as bien rajouté le jeu au catalogue. 🤖")
     }
     
     @IBAction func addGameInSwitchList(_ sender: Any) {
         if everyElementAreFilled() {
-            let game = createAGameCard(platform: Platform(slug: "nintendo-switch"))
+            let game = createAGameCard(platform: Platform(slug: "nintendo-switch", name: "Nintendo Switch"))
             coreDataManager.addGame(game: game)
             self.showAlertMessage(title: "Bravo", message: "Tu as bien rajouté le jeu au catalogue. 🤖")
         }

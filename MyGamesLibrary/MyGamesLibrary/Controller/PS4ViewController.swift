@@ -43,6 +43,7 @@ class PS4ViewController: UIViewController {
 
     private func setUpImage() {
         ps4Header.backgroundImage(view: self.view, multiplier: 0.25)
+        
     }
     
     private func setUpTableView() {

@@ -17,7 +17,9 @@ class GameCardViewController: UIViewController {
     @IBOutlet weak var marketBTN: UIButton!
     @IBOutlet weak var youtubeBTN: UIButton!
     @IBOutlet weak var dismissBTN: UIButton!
+    @IBOutlet weak var platformInformationBTN: UIButton!
     //game's informations
+    @IBOutlet weak var infoContainer: UIStackView!
     @IBOutlet weak var gameTitle: UILabel!
     @IBOutlet weak var release_date: UILabel!
     //rating
@@ -30,9 +32,16 @@ class GameCardViewController: UIViewController {
     
     var gamesAdded = [MyGame]()
     var game: Game?
-
+    var gamePlatforms : String = ""
+    
     var screenshots = [String]()
-    var layout = UICollectionViewFlowLayout()
+    var layout : UICollectionViewFlowLayout = {
+        let layout = UICollectionViewFlowLayout()
+        layout.itemSize = .init(width: 270, height: 170)
+        layout.scrollDirection = .horizontal
+        layout.sectionInset = .zero
+        return layout
+    }()
     var ratingViews = [UIImageView]()
     //MARK: CoreDataManager
     let coreDataManager = CoreDataManager(managedObjectContext: CoreDataStack.shared.mainContext)
@@ -60,10 +69,18 @@ class GameCardViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let webPageVC = segue.destination as! WebViewController
-        webPageVC.url = sender as? String
-        
+        if segue.identifier == "WebPage" {
+            let controller = segue.destination as? WebViewController
+            controller?.url = sender as? String
+        } else if segue.identifier == "PopView" {
+            let controller = segue.destination as? PlatformsViewController
+            controller?.modalPresentationStyle = .pageSheet
+            let sheet = controller?.sheetPresentationController
+            sheet?.detents = [.medium()]
+            controller?.game = sender as? Game
+        }
     }
+    
     private func setUp(){
         //        give data value to variables
         guard let finalGame = game else { return }
@@ -81,13 +98,20 @@ class GameCardViewController: UIViewController {
         
         //
         favBTN.layer.cornerRadius = favBTN.frame.height / 2
-      
+        
         youtubeBTN.layer.cornerRadius = youtubeBTN.frame.height / 2
         youtubeBTN.layer.borderColor = UIColor.black.cgColor
         youtubeBTN.layer.borderWidth = 1
         marketBTN.layer.cornerRadius = marketBTN.frame.height / 2
-      
+        dismissBTN.layer.cornerRadius = 10
+        Tool.shared.setUpShadow(color: UIColor.black.cgColor, cell: dismissBTN, width: 3, height: 3)
+        
         screenshotCollectionView.translatesAutoresizingMaskIntoConstraints = false
+        infoContainer.translatesAutoresizingMaskIntoConstraints = false
+        infoContainer.topAnchor.constraint(equalTo: gameImage.bottomAnchor, constant: -20).isActive = true
+        
+        platformInformationBTN.layer.cornerRadius = platformInformationBTN.frame.height / 2
+        Tool.shared.setUpShadow(color: UIColor.black.cgColor, cell: platformInformationBTN, width: 3, height: 3)
     }
     
     private func setUpHeart() {
@@ -135,7 +159,7 @@ class GameCardViewController: UIViewController {
     
     private func setupConstraints() {
         //image constraints
-        gameImage.backgroundImage(view: self.view, multiplier: 0.45)
+        gameImage.backgroundImage(view: self.view, multiplier: 0.40)
         gameImage.contentMode = .scaleAspectFill
     }
     
@@ -156,6 +180,10 @@ class GameCardViewController: UIViewController {
     
     @IBAction func dismissBTN(_ sender: Any) {
         navigationController?.popViewController(animated: true)
+    }
+    
+    @IBAction func popInformationAction(_ sender: Any) {
+        performSegue(withIdentifier: "PopView", sender: game)
     }
     
     private func addGameInLibraryWithPlatform() {
@@ -179,6 +207,11 @@ class GameCardViewController: UIViewController {
 }
 
 extension GameCardViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return screenshots.count
     }
@@ -188,9 +221,5 @@ extension GameCardViewController: UICollectionViewDataSource, UICollectionViewDe
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ScreenshotsViewCell", for: indexPath) as! ScreenshotsViewCell
         cell.setup(screenshot: finalGame.short_screenshots?[indexPath.row] ?? ShortScreenshot(image: "no image"))
         return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 270, height: 170)
     }
 }

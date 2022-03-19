@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import CoreData
 
 class MyGameViewController: UIViewController {
 
@@ -20,6 +19,7 @@ class MyGameViewController: UIViewController {
     @IBOutlet weak var marketBTN: UIButton!
     @IBOutlet weak var videoWebBTN: UIButton!
     @IBOutlet weak var addFavoriteBTN: UIButton!
+    @IBOutlet weak var infoContainer: UIStackView!
     
     @IBOutlet weak var heart1: UIImageView!
     @IBOutlet weak var heart2: UIImageView!
@@ -70,6 +70,8 @@ class MyGameViewController: UIViewController {
        gameImage.layer.borderColor = UIColor.white.cgColor
        gameImage.layer.borderWidth = 3
        gameImage.layer.cornerRadius = 20
+       gameImage.translatesAutoresizingMaskIntoConstraints = false
+       NSLayoutConstraint.activate([gameImage.bottomAnchor.constraint(equalTo: backgroundImage.bottomAnchor, constant: -20)])
        
        videoWebBTN.layer.borderWidth = 3
        videoWebBTN.layer.borderColor = UIColor.black.cgColor
@@ -88,6 +90,12 @@ class MyGameViewController: UIViewController {
        backgroundImage.backgroundImage(view: self.view, multiplier: 0.60)
        
        addFavoriteBTN.layer.cornerRadius = 20
+       
+       infoContainer.translatesAutoresizingMaskIntoConstraints = false
+       infoContainer.topAnchor.constraint(equalTo: backgroundImage.bottomAnchor).isActive = true
+       
+       backBTN.layer.cornerRadius = 10
+       Tool.shared.setUpShadow(color: UIColor.black.cgColor, cell: backBTN, width: 3, height: 3)
     }
     
     
@@ -158,9 +166,6 @@ class MyGameViewController: UIViewController {
     @IBAction func videoWebAction(_ sender: Any) {
         let gameUrl = "https://www.youtube.com/results?search_query=\(myGame?.name?.replacingOccurrences(of: " ", with: "+") ?? "no url")"
         performSegue(withIdentifier: "MyWebPage", sender: gameUrl)
-    }
-    @IBAction func addGame(_ sender: Any) {
-        removeGameInLibraryWithPlatform()
     }
 }
 

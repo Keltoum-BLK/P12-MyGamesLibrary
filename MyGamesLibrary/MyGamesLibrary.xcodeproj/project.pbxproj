@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0B65D9029F4F523B97A919D3 /* Pods_MyGamesLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60DBD57C09A604768ADF13C7 /* Pods_MyGamesLibrary.framework */; };
 		7C9EE44BE7654E72C367FDCC /* Pods_MyGamesLibraryTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6FB3B454485BAB83D7BF11D /* Pods_MyGamesLibraryTests.framework */; };
+		B921F10E27E5D4780039D1BA /* PlatformsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B921F10D27E5D4780039D1BA /* PlatformsViewController.swift */; };
 		B93AF74627BA90F3001D42AD /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93AF74527BA90F3001D42AD /* Game.swift */; };
 		B93AF74827BA9112001D42AD /* GamePlatform.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93AF74727BA9112001D42AD /* GamePlatform.swift */; };
 		B93AF74B27BAA29E001D42AD /* SecretApiKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93AF74A27BAA29E001D42AD /* SecretApiKey.swift */; };
@@ -97,6 +98,7 @@
 		A6CFBF2049517F51B2C87CE2 /* Pods-MyGamesLibrary.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyGamesLibrary.release.xcconfig"; path = "Target Support Files/Pods-MyGamesLibrary/Pods-MyGamesLibrary.release.xcconfig"; sourceTree = "<group>"; };
 		AC550B3501A63704601D1E8B /* Pods-MyGamesLibraryTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyGamesLibraryTests.release.xcconfig"; path = "Target Support Files/Pods-MyGamesLibraryTests/Pods-MyGamesLibraryTests.release.xcconfig"; sourceTree = "<group>"; };
 		B8E621C1C6121DA6EBBE6EFD /* Pods_MyGamesLibrary_MyGamesLibraryUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyGamesLibrary_MyGamesLibraryUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B921F10D27E5D4780039D1BA /* PlatformsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformsViewController.swift; sourceTree = "<group>"; };
 		B93AF74527BA90F3001D42AD /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		B93AF74727BA9112001D42AD /* GamePlatform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamePlatform.swift; sourceTree = "<group>"; };
 		B93AF74A27BAA29E001D42AD /* SecretApiKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecretApiKey.swift; sourceTree = "<group>"; };
@@ -341,6 +343,7 @@
 				B9C5C4FE27B6BCF000A01409 /* NintendoViewController.swift */,
 				B966F5FF27BEDC100022D9CD /* GameCardViewController.swift */,
 				B97A8EC627DA94E3004294AA /* WebViewController.swift */,
+				B921F10D27E5D4780039D1BA /* PlatformsViewController.swift */,
 				B9C5C4EF27B6875500A01409 /* SearchViewController.swift */,
 				B94C115727BFAA54006BCB12 /* MyScanViewController.swift */,
 				B9C5C4F127B6876600A01409 /* MyLibraryViewController.swift */,
@@ -696,6 +699,7 @@
 				B966F60127BEDC100022D9CD /* GameCardViewController.swift in Sources */,
 				B9846C3227CE36BE00AA5057 /* CoreDataManager.swift in Sources */,
 				B970370E27CF677700FB144A /* NSManagedObject+Extension.swift in Sources */,
+				B921F10E27E5D4780039D1BA /* PlatformsViewController.swift in Sources */,
 				B9593AA727B8428E00A9A91F /* Tool.swift in Sources */,
 				B93AF74827BA9112001D42AD /* GamePlatform.swift in Sources */,
 				B967462027B420A60037F729 /* LaunchViewController.swift in Sources */,

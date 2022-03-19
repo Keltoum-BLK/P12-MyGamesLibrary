@@ -9,7 +9,7 @@ import Foundation
 import CoreData
 @testable import MyGamesLibrary
 
-class FavoriteService {
+class MyGamesService {
     
     private let coreDataStack: TestCoreDataStack
     private let managedObjectContext: NSManagedObjectContext

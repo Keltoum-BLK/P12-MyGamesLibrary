@@ -32,7 +32,6 @@ struct Game: Decodable {
         case rating
         case platforms = "platforms"
         case short_screenshots
-        
     }
     
 
@@ -43,6 +42,13 @@ struct Game: Decodable {
             .compactMap { $0.platform.slug }
                 .joined(separator: ", ")
         }
+    
+    func createNameList(for platforms: [PlatformElements]?) -> String {
+        guard let platforms = platforms else { return "" }
+            return  platforms
+            .compactMap { $0.platform.name }
+                .joined(separator: ", ")
+        }
 }
 
 struct PlatformElements: Decodable {
@@ -51,9 +57,11 @@ struct PlatformElements: Decodable {
 
 struct Platform: Decodable {
     let slug: String?
+    let name : String?
     
     enum CodingKeys: String, CodingKey {
         case slug
+        case name
     }
 }
 

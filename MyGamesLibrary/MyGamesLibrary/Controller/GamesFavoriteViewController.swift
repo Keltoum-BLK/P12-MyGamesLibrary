@@ -34,16 +34,6 @@ class GamesFavoriteViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
-        searchBar.delegate = self
-        searchBar.enablesReturnKeyAutomatically = false
-        searchBar.translatesAutoresizingMaskIntoConstraints = false
-        searchBar.bottomAnchor.constraint(equalTo: backgroundImage.bottomAnchor).isActive = true 
-        backgroundImage.image = UIImage(named: platformElements?.image ?? "gamesLibrary")
-        
-        gamesLibrary = platformElements?.myGames
-        
-        backBTN.layer.cornerRadius = 5
-        // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -66,6 +56,15 @@ class GamesFavoriteViewController: UIViewController {
     }
     private func setup() {
         searchBar.delegate = self
+        searchBar.enablesReturnKeyAutomatically = false
+        searchBar.translatesAutoresizingMaskIntoConstraints = false
+        searchBar.bottomAnchor.constraint(equalTo: backgroundImage.bottomAnchor).isActive = true
+        
+        backgroundImage.image = UIImage(named: platformElements?.image ?? "gamesLibrary")
+        
+        gamesLibrary = platformElements?.myGames
+        
+        backBTN.layer.cornerRadius = 5
         searchBar.searchTextField.textColor = .black
         searchBar.searchTextField.font = UIFont(name: "Menlo", size: 15)
         backgroundImage.backgroundImage(view: self.view, multiplier: 0.25)
@@ -73,6 +72,9 @@ class GamesFavoriteViewController: UIViewController {
         gamesFavoriteTableView.register(UINib(nibName: "GameTableViewCell", bundle: nil), forCellReuseIdentifier: "GameTableViewCell")
         gamesFavoriteTableView.dataSource = self
         gamesFavoriteTableView.delegate = self
+        
+        backBTN.layer.cornerRadius = 10
+        Tool.shared.setUpShadow(color: UIColor.black.cgColor, cell: backBTN, width: 3, height: 3)
     }
 }
 
