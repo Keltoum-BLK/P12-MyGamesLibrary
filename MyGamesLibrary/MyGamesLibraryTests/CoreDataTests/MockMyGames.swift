@@ -11,8 +11,6 @@ import CoreData
 
 class MockMyGames: XCTestCase {
     
-    
-    
     var myGamesService : MyGamesService!
     var coreDataStack: CoreDataStack!
     
@@ -79,7 +77,7 @@ class MockMyGames: XCTestCase {
         XCTAssertTrue(listOfFavoriteGames[1].name == game1.name)
     }
     
-    func test_fetch_games_by_platform() {
+    func test_fetch_games_by_platformPlaystation() {
         //Given
         myGamesService.addGame(game: game1)
         myGamesService.addGame(game: game2)
@@ -121,14 +119,26 @@ class MockMyGames: XCTestCase {
     
     
     func test_remove_a_game_in_an_array() {
-     
+        //Given
+        myGamesService.addGame(game: game1)
+        myGamesService.addGame(game: game2)
+        listOfFavoriteGames =  myGamesService.fetchGames(mygames: listOfFavoriteGames)
+        //When
+        myGamesService.removeGameInArray(row: 1, array: listOfFavoriteGames)
+        listOfFavoriteGames =  myGamesService.fetchGames(mygames: listOfFavoriteGames)
+        //Then
+        XCTAssertTrue(listOfFavoriteGames.count == 1)
+        XCTAssertTrue(listOfFavoriteGames[0].name == game2.name)
     }
     
     func test_check_game_already_added() {
-     
-    }
-    
-    func testGivenAlert_WhenYouAlreadyAddGame_ThenResultsAlert() {
-      
+        //Given
+        myGamesService.addGame(game: game1)
+        myGamesService.addGame(game: game2)
+        listOfFavoriteGames =  myGamesService.fetchGames(mygames: listOfFavoriteGames)
+        //When
+        let gameExist = myGamesService.checkGameIsAlreadySaved(with: game1.name)
+        //Then
+        XCTAssertTrue(gameExist == true)
     }
 }
