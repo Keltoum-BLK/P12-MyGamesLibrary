@@ -11,7 +11,7 @@ import Photos
 import CoreData
 
 class FormViewController: UIViewController {
-    
+    //MARK: UI Properties
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var releaseDateTextField: UITextField!
     @IBOutlet weak var gameImage: UIImageView!
@@ -23,6 +23,7 @@ class FormViewController: UIViewController {
     @IBOutlet weak var ratingValue: UILabel!
     @IBOutlet weak var backBTN: UIButton!
     
+    //MARK: Properties
     private let datePicker = UIDatePicker()
     private var coreDataManager = CoreDataManager(managedObjectContext: CoreDataStack.shared.mainContext)
     var games = [MyGame]()
@@ -31,22 +32,24 @@ class FormViewController: UIViewController {
             gameImage.downloaded(from: imageUrl)
         }
     }
+    
+    //MARK: Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
-        createDtePicker()
-        print(imageUrl)
+        createDatePicker()
         gameImage.downloaded(from: imageUrl)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "SuggestedImages", let next = segue.destination as? SuggestedImagesViewController {
-            next.delegate = self 
+            next.delegate = self
             next.gameTitle = sender as? String ?? "no title"
         }
     }
     
-    private func createDtePicker() {
+    //MARK: Methods
+    private func createDatePicker() {
         let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
         toolbar.sizeToFit()
         
@@ -89,19 +92,23 @@ class FormViewController: UIViewController {
         releaseDateTextField.delegate = self
     }
     
-    @IBAction func dismissAction(_ sender: Any) {
-        navigationController?.popViewController(animated: true)
-    }
-    
-    @IBAction func pickAnImage(_ sender: Any) {
-        performSegue(withIdentifier: "SuggestedImages", sender: titleTextField.text)
-    }
-    
     func createAGameCard(platform: Platform) -> Game {
         let game = Game(name: titleTextField.text, released: releaseDateTextField.text, backgroundImage: imageUrl, rating: Double(ratingValue.text ?? "0"),platforms: [PlatformElements(platform: platform)], short_screenshots: [])
         return game
     }
     
+    private func everyElementAreFilled() -> Bool {
+        if titleTextField.text != "", releaseDateTextField.text != "", gameImage.image != nil, ratingValue.text != "" {
+            return true
+        } else if (releaseDateTextField.text?.first?.isNumber ?? true) {
+            return true
+        } else {
+            self.showAlertMessage(title: "Erreur détectée", message: "Tu as oublié un élement 🙀.")
+            return false
+        }
+    }
+    
+    //MARK: UI Actions Methods
     @IBAction func addGamInPS4List(_ sender: Any) {
         let game = createAGameCard(platform: Platform(slug: "playstation4", name: "Playstation 4"))
         coreDataManager.addGame(game: game)
@@ -123,18 +130,15 @@ class FormViewController: UIViewController {
     }
     
     @IBAction func ratingValue(_ sender: UISlider) {
-        ratingValue.text = String(Int(sender.value))
+        ratingValue.text = String(Int(sender.value)) + "/5"
     }
     
-    private func everyElementAreFilled() -> Bool {
-        if titleTextField.text != "", releaseDateTextField.text != "", gameImage.image != nil, ratingValue.text != "" {
-            return true
-        } else if (releaseDateTextField.text?.first?.isNumber ?? true) {
-            return true
-        } else {
-            self.showAlertMessage(title: "Erreur détectée", message: "Tu as oublié un élement 🙀.")
-            return false
-        }
+    @IBAction func dismissAction(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
+    }
+    
+    @IBAction func pickAnImage(_ sender: Any) {
+        performSegue(withIdentifier: "SuggestedImages", sender: titleTextField.text)
     }
 }
 

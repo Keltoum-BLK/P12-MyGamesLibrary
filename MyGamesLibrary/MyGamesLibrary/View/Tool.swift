@@ -9,9 +9,10 @@ import Foundation
 import UIKit
 
 class Tool {
-    
+    //MARK: property
     static let shared = Tool()
     
+    //MARK: Methods
     func setUpShadow(color: CGColor, cell: UIView, width: CGFloat, height: CGFloat) {
         cell.layer.shadowOpacity = 1
         cell.layer.shadowColor = color

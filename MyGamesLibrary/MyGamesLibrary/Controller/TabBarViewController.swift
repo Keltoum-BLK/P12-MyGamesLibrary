@@ -8,20 +8,13 @@
 import UIKit
 
 class TabBarViewController: UITabBarController {
-    //MARK: Orientation property
-    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-        return .portrait
-    }
-    
+    //MARK: Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpTabBar()
-       
-
-        // Do any additional setup after loading the view.
     }
     
-    
+    //MARK: Method
     private func setUpTabBar() {
         if #available(iOS 15.0, *) {
             let appearance = UITabBarAppearance()

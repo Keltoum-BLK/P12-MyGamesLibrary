@@ -6,8 +6,7 @@
 //
 
 import Foundation
-
-
+//MARK: Class to create an object to manage background image and list of games in Library 
 class MyLibraryElements {
     var image: String
     var myGames: [MyGame]

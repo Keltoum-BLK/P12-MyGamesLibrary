@@ -12,6 +12,8 @@ class CoreDataStack {
     
     //MARK: property
     var persistentContainer: NSPersistentContainer
+    
+    //MARK: Singleton property
     static let shared = CoreDataStack(modelName: "MyGamesLibrary")
     
     //MARK: Iniialization 

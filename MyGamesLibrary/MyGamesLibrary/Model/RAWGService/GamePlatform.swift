@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+//MARK: Games Platform
 enum GamePlatform: String {
     case playstation = "18"
     case xbox = "1"

@@ -7,13 +7,14 @@
 
 import AVFoundation
 import UIKit
-
+//MARK: Protocol Delegate to pass data
 protocol ScanControllerDelegate: AnyObject {
     func showGameList(with games: [Game])
 }
 
 class MyScanViewController: UIViewController {
     
+    //MARK: Properties
     weak var delegate: ScanControllerDelegate?
     private var captureSession = AVCaptureSession()
     
@@ -29,7 +30,7 @@ class MyScanViewController: UIViewController {
         captureSession.stopRunning()
     }
     
-    // MARK: Private functions
+    // MARK: Private Methods
     private func setupLiveView() {
         captureSession.sessionPreset = .hd1280x720
         guard let videoDeviceInput = addVideoInput() else { return }
@@ -44,8 +45,8 @@ class MyScanViewController: UIViewController {
         guard let videoCaptureDevice = captureDevice,
               let videoInput = try? AVCaptureDeviceInput(device: videoCaptureDevice),
               captureSession.canAddInput(videoInput) else {
-            return nil
-        }
+                  return nil
+              }
         return videoInput
     }
     
@@ -98,7 +99,7 @@ class MyScanViewController: UIViewController {
             case .success(let result):
                 guard let foundGamesList = result.results else {
                     self?.showAlertMessageBeforeToDismiss(title: "Erreur détectée ⛔️",
-                                                         message: "Impossible de trouver ton jeu 👾. Tu peux soit effectuer une recherche ou bien créer la fiche de ton jeu.")
+                                                          message: "Impossible de trouver ton jeu 👾. Tu peux soit effectuer une recherche ou bien créer la fiche de ton jeu.")
                     return
                 }
                 self?.delegate?.showGameList(with: foundGamesList)
@@ -120,13 +121,13 @@ extension MyScanViewController: AVCaptureMetadataOutputObjectsDelegate {
     func metadataOutput(_ output: AVCaptureMetadataOutput,
                         didOutput metadataObjects: [AVMetadataObject],
                         from connection: AVCaptureConnection) {
-           captureSession.stopRunning()
-
-           if let metadataObject = metadataObjects.first {
-               guard let readableObject = metadataObject as? AVMetadataMachineReadableCodeObject else { return }
-               guard let stringValue = readableObject.stringValue else { return }
-               AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
-               fetchTitle(from: stringValue)
-           }
-       }
+        captureSession.stopRunning()
+        
+        if let metadataObject = metadataObjects.first {
+            guard let readableObject = metadataObject as? AVMetadataMachineReadableCodeObject else { return }
+            guard let stringValue = readableObject.stringValue else { return }
+            AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
+            fetchTitle(from: stringValue)
+        }
+    }
 }

@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 
 extension UILabel {
+    //MARK: Method to get margins in an UILabel
     func setMargins(margin: CGFloat = 20) {
         if let textString = self.text {
             let paragraphStyle = NSMutableParagraphStyle()

@@ -8,7 +8,7 @@
 import UIKit
 
 class MyGameViewController: UIViewController {
-
+    //MARK: UI Properties
     @IBOutlet weak var backBTN: UIButton!
     @IBOutlet weak var backgroundImage: UIImageView!
     @IBOutlet weak var gameTitle: UILabel!
@@ -27,15 +27,16 @@ class MyGameViewController: UIViewController {
     @IBOutlet weak var heart4: UIImageView!
     @IBOutlet weak var heart5: UIImageView!
     
+    //MARK: Properties
     var myGame: MyGame?
     private var ratingViews = [UIImageView]()
     private var images = [String]()
     private let coreDataManager = CoreDataManager(managedObjectContext: CoreDataStack.shared.mainContext)
     
+    //MARK: Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -49,7 +50,7 @@ class MyGameViewController: UIViewController {
         backgroundImage.addGradientLayerInBackground(frame: backgroundImage.bounds, colors: [UIColor(ciColor: .clear), UIColor(ciColor: .white)])
     }
     
-    
+    //MARK: Segue Method
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "MyWebPage", let next = segue.destination as? WebViewController {
             next.modalPresentationStyle = .pageSheet
@@ -57,6 +58,7 @@ class MyGameViewController: UIViewController {
         }
     }
     
+    //MARK: Methods
    private func setupUI() {
        //give value to UI
        guard let myGameCard = myGame else { return }
@@ -98,8 +100,7 @@ class MyGameViewController: UIViewController {
        backBTN.layer.cornerRadius = 10
        Tool.shared.setUpShadow(color: UIColor.black.cgColor, cell: backBTN, width: 3, height: 3)
     }
-    
-    
+
     private func setUpHeart() {
         ratingViews = [heart1, heart2, heart3, heart4, heart5]
         ratingViews.forEach {
@@ -110,7 +111,7 @@ class MyGameViewController: UIViewController {
         }
     }
     
-    //MARK: SetUp and method for update the rating star for each destination.
+    //MARK: Set Up and method for update the rating star for each destination.
     //condition to change the star's shape according to the rating
     func setRating(for star : Double) {
         setUpHeart()
@@ -155,6 +156,7 @@ class MyGameViewController: UIViewController {
         }
     }
     
+    //MARK: UI Action Methods
     @IBAction func dismissBTN(_ sender: Any) {
         navigationController?.popViewController(animated: true)
     }

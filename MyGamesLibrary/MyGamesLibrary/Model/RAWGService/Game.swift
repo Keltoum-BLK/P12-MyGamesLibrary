@@ -50,11 +50,11 @@ struct Game: Decodable {
                 .joined(separator: ", ")
         }
 }
-
+// MARK: - PlatformElements
 struct PlatformElements: Decodable {
     let platform: Platform
 }
-
+// MARK: - Platform
 struct Platform: Decodable {
     let slug: String?
     let name : String?

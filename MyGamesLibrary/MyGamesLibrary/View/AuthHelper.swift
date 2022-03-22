@@ -8,7 +8,7 @@
 
 import UIKit
 import LocalAuthentication
-
+//MARK: Class to manage access to app with touch ID or Face ID or password
 class AuthHelper {
     
    static func startAuth(_ completion: ((_ success: Bool, _ errStr: String?)-> Void)?) {

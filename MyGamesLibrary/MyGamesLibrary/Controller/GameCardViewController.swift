@@ -30,10 +30,10 @@ class GameCardViewController: UIViewController {
     @IBOutlet weak var heart4: UIImageView!
     @IBOutlet weak var heart5: UIImageView!
     
+    //MARK: Properties
     var gamesAdded = [MyGame]()
     var game: Game?
     var gamePlatforms : String = ""
-    
     var screenshots = [String]()
     var layout : UICollectionViewFlowLayout = {
         let layout = UICollectionViewFlowLayout()
@@ -43,9 +43,11 @@ class GameCardViewController: UIViewController {
         return layout
     }()
     var ratingViews = [UIImageView]()
+    
     //MARK: CoreDataManager
     let coreDataManager = CoreDataManager(managedObjectContext: CoreDataStack.shared.mainContext)
     
+    //MARK: Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setUp()
@@ -67,7 +69,7 @@ class GameCardViewController: UIViewController {
         let buttonImageName = gameExist ? "heart.fill" : "heart.slash"
         favBTN.setImage(UIImage(systemName: buttonImageName), for: .normal)
     }
-    
+    //MARK: Segue Method to pass Data
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "WebPage" {
             let controller = segue.destination as? WebViewController
@@ -81,6 +83,7 @@ class GameCardViewController: UIViewController {
         }
     }
     
+    //MARK: Methods
     private func setUp(){
         //        give data value to variables
         guard let finalGame = game else { return }
@@ -163,6 +166,7 @@ class GameCardViewController: UIViewController {
         gameImage.contentMode = .scaleAspectFill
     }
     
+    //MARK: UI Action Methods 
     @IBAction func addGameInLibrary(_ sender: Any) {
         addGameInLibraryWithPlatform()
     }
@@ -193,6 +197,8 @@ class GameCardViewController: UIViewController {
             coreDataManager.addGame(game: game)
             favBTN.setImage(UIImage(systemName: "heart.fill"), for: .normal)
             DispatchQueue.main.async {
+                let nc = NotificationCenter.default
+                nc.post(name: Notification.Name(rawValue: "needReload"), object: nil)
                 self.showAlertMessage(title: "Mission Accomplie 🤓", message: "Ton jeu est bien ajouté à ton catalogue")
             }
         } else {

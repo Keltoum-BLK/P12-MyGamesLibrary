@@ -7,7 +7,7 @@
 
 import UIKit
 import CoreData
-
+//MARK: Class to my entity
 class MyGame: NSManagedObject {
 
 }

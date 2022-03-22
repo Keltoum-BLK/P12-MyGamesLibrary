@@ -9,12 +9,15 @@ import UIKit
 
 class NintendoViewController: UIViewController {
     
+    //MARK: UI Properties
     @IBOutlet weak var nintendoHeader: UIImageView!
     @IBOutlet weak var nintendoTableView: UITableView!
     
+    //MARK: Properties
     private var nintendoGames: [Game]?
     private var nextPage: String = ""
     
+    //MARK: Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         nintendoTableView.delegate = self
@@ -28,12 +31,15 @@ class NintendoViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         nintendoHeader.addGradientLayerInBackground(frame: nintendoHeader.bounds, colors: [UIColor(ciColor: .clear), UIColor(ciColor: .white)])
     }
+    
+    //MARK: Segue method to pass data
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "NintendoCard", let next = segue.destination as? GameCardViewController {
             next.game = sender as? Game
         }
     }
     
+    //MARK: Methods
     private func setUpImage() {
         nintendoHeader.backgroundImage(view: self.view, multiplier: 0.25)
     }
@@ -72,7 +78,7 @@ class NintendoViewController: UIViewController {
 }
 
 extension NintendoViewController: UITableViewDelegate, UITableViewDataSource {
-    
+    //MARK: TableView Methods
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return tableView.sizeWithTheDevice()
     }

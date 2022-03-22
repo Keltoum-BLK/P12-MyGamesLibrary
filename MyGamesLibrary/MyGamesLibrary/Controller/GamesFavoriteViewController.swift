@@ -10,30 +10,30 @@ import CoreData
 
 class GamesFavoriteViewController: UIViewController {
     
-    
+   //MARK: UI Properties
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var backgroundImage: UIImageView!
     @IBOutlet weak var backBTN: UIButton!
     @IBOutlet weak var gamesFavoriteTableView: UITableView!
     
-    var gamesLibrary: [MyGame]? {
+    //MARK: Properties
+    private var gamesLibrary: [MyGame]? {
         didSet {
             DispatchQueue.main.async {
                 self.gamesFavoriteTableView.reloadData()
             }
         }
     }
-    
-    var image: UIImage?
+    private var image: UIImage?
     var platformElements: MyLibraryElements?
-    
     private var filteredGames: [MyGame]?
     private var coreDataManager = CoreDataManager(managedObjectContext: CoreDataStack.shared.mainContext)
     private var isSearching = false
     
+    //MARK: Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        setup()
+        setUp()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -45,17 +45,17 @@ class GamesFavoriteViewController: UIViewController {
         backgroundImage.addGradientLayerInBackground(frame: backgroundImage.bounds, colors: [UIColor(ciColor: .clear), UIColor(ciColor: .white)])
     }
     
+    //MARK: Segue Method
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "MyGameCard", let next = segue.destination as? MyGameViewController {
             next.myGame = sender as? MyGame
         }
     }
     
-    @IBAction func dismissBTN(_ sender: Any) {
-        navigationController?.popViewController(animated: true)
-    }
-    private func setup() {
+    //MARK: Methods
+    private func setUp() {
         searchBar.delegate = self
+        notificationSetUp()
         searchBar.enablesReturnKeyAutomatically = false
         searchBar.translatesAutoresizingMaskIntoConstraints = false
         searchBar.bottomAnchor.constraint(equalTo: backgroundImage.bottomAnchor).isActive = true
@@ -76,9 +76,25 @@ class GamesFavoriteViewController: UIViewController {
         backBTN.layer.cornerRadius = 10
         Tool.shared.setUpShadow(color: UIColor.black.cgColor, cell: backBTN, width: 3, height: 3)
     }
+    
+    @objc func needReloadTableview() {
+        gamesLibrary = coreDataManager.fetchGames(mygames: gamesLibrary!)
+    }
+    
+    private func notificationSetUp() {
+        let nc = NotificationCenter.default
+        nc.addObserver(self, selector: #selector(needReloadTableview), name: Notification.Name(rawValue: "needReload"), object: nil)
+    }
+    
+    //MARK: UI Action Method
+    @IBAction func dismissBTN(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
+    }
 }
 
 extension GamesFavoriteViewController: UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
+    
+    //MARK: TableView Methods
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if isSearching {
             return filteredGames?.count ?? 0
@@ -126,7 +142,7 @@ extension GamesFavoriteViewController: UITableViewDelegate, UITableViewDataSourc
             return cell
         }
     }
-    
+    //MARK: searchBar Methods
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         guard let games = gamesLibrary else { return }
         if searchText == "" {

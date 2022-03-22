@@ -45,17 +45,8 @@ class CoreDataManager {
             return []
         }
     }
-    
-    func fetchGamesByPlateform(platform: String) -> [MyGame] {
-        let request: NSFetchRequest<MyGame> = MyGame.fetchRequest()
-        request.returnsObjectsAsFaults = false
-        request.predicate = NSPredicate(format: "platform == %@", platform)
-        let games = (try? managedObjectContext.fetch(request)) ?? []
-        return games
-    }
-//    
-    
-    //remove
+
+    //remove game in a list of games
     func removeGameInArray(row: Int, array: [MyGame]) {
         managedObjectContext.delete(array[row])
         do {
@@ -64,7 +55,7 @@ class CoreDataManager {
             debugPrint("Couldn't remove \(error.localizedDescription)")
         }
     }
-    
+    //remove a game from Core Data Base 
     func removeGame(name: String) {
         let request: NSFetchRequest<MyGame> = MyGame.fetchRequest()
         request.predicate = NSPredicate(format: "name == %@", name)

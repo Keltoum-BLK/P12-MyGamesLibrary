@@ -9,6 +9,7 @@ import UIKit
 
 class SearchViewController: UIViewController {
     
+    //MARK: UI Properties
     @IBOutlet weak var searchContainer: UIStackView!
     @IBOutlet weak var scanTitle: UILabel!
     @IBOutlet weak var searchTextField: UITextField!
@@ -20,6 +21,7 @@ class SearchViewController: UIViewController {
     @IBOutlet weak var addLogo: UIImageView!
     @IBOutlet weak var hideTabView: UIButton!
     
+    //MARK: Properties
     var searchGames: [Game] = [] {
         didSet {
             DispatchQueue.main.async {
@@ -27,16 +29,18 @@ class SearchViewController: UIViewController {
             }
         }
     }
-    var gameTitle = ""
-    var nextPage: String = ""
+    private var gameTitle = ""
+    private var nextPage: String = ""
     
+    //MARK: Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         searchTextField.delegate = self
         setUpUI()
         setUpTableView()
     }
-
+    
+    //MARK: Methods
     func setUpUI() {
         view.backgroundColor = UIColor.white
         searchBTN.backgroundColor = .white
@@ -70,9 +74,9 @@ class SearchViewController: UIViewController {
     }
     //fetch Data to launch the search
     private func fetchDataGames () {
-        guard let title = searchTextField.text, !title.isEmpty else {
+        guard let title = searchTextField.text, !title.isEmpty, title.count > 3 else {
             self.showAlertMessage(title: "Erreur détectée ⛔️",
-                                  message: "Vous ne pouvez pas faire requête avec un champ vide 👾.")
+                                  message: "Tu ne peux pas faire requête avec un champ vide 👾, il faut saisir le nom entier du jeu.\n exemple: King of fighter")
             return
         }
             GameService.shared.fetchSearchGames(search: title) { [weak self] result in
@@ -91,16 +95,7 @@ class SearchViewController: UIViewController {
                 }
             }
     }
-    
-    //search video games
-    @IBAction func getGames(_ sender: Any) {
-        searchTextField.resignFirstResponder()
-        addGameStack.isHidden = true
-        searchTableView.isHidden = false
-        fetchDataGames()
-    }
-
- 
+   
     //load the next page of games data
     private func loadMoreData() {
         GameService.shared.getDataFromUrl(next: nextPage) { [weak self] result in
@@ -115,6 +110,22 @@ class SearchViewController: UIViewController {
         }
     }
     
+    //send data to the next Controller
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "SearchGameCard", let next = segue.destination as? GameCardViewController {
+            next.game = sender as? Game
+        }
+    }
+    
+    //MARK: UI Action Methods
+    //search video games
+    @IBAction func getGames(_ sender: Any) {
+        searchTextField.resignFirstResponder()
+        addGameStack.isHidden = true
+        searchTableView.isHidden = false
+        fetchDataGames()
+    }
+    
     @IBAction func getGamesbyBarcode(_ sender: Any) {
         addGameStack.isHidden = true
         let myscanVC = MyScanViewController()
@@ -123,13 +134,6 @@ class SearchViewController: UIViewController {
         let sheet = myscanVC.sheetPresentationController
         sheet?.detents = [.medium()]
         present(myscanVC, animated: true)
-    }
-    
-    //send data to the next Controller
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "SearchGameCard", let next = segue.destination as? GameCardViewController {
-            next.game = sender as? Game
-        }
     }
     
     @IBAction func hideTabViewAction(_ sender: Any) {
@@ -170,7 +174,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
             Tool.shared.setUpShadow(color: UIColor.black.cgColor, cell: cell, width: 0, height: 5)
         return cell
     }
-    //back to the tableView's top and load next page
+    //Go to the tableView's end and load next page
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let scrollViewHeight = scrollView.frame.size.height;
                 let scrollContentSizeHeight = scrollView.contentSize.height;

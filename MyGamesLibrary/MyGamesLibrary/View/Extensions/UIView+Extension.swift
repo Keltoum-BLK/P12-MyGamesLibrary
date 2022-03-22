@@ -49,7 +49,6 @@ extension UIView {
     }
     
     //MARK: UIConstraints
-    
     func backgroundImage(view: UIView, multiplier: CGFloat) {
         translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([

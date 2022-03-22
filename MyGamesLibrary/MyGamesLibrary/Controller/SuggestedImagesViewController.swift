@@ -12,15 +12,17 @@ protocol SendImageDelegate: AnyObject {
 
 class SuggestedImagesViewController: UIViewController {
 
-    
+    //MARK: UI Properties
+    @IBOutlet weak var lairView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var suggestedImagesCollectionView: UICollectionView!
     
-    
+    //MARK: Properties
     var gameTitle: String = ""
     var gameImages = [String]()
     weak var delegate: SendImageDelegate?
     
+    //MARK: Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
@@ -33,9 +35,9 @@ class SuggestedImagesViewController: UIViewController {
         }
         suggestedImagesCollectionView.dataSource = self
         suggestedImagesCollectionView.delegate = self
-        // Do any additional setup after loading the view.
     }
     
+    //MARK: Methods
     private func fetchSuggestion(title: String, images : [String], completion: @escaping ([String]) -> Void) {
         var pics = images
         GameService.shared.fetchSearchGames(search: title) { result in
@@ -58,6 +60,8 @@ class SuggestedImagesViewController: UIViewController {
         titleLabel.textAlignment = .center
         titleLabel.layer.cornerRadius = titleLabel.frame.height/2
         Tool.shared.setUpShadow(color: UIColor.black.cgColor, cell: titleLabel, width: 3, height: 3)
+        
+        lairView.layer.cornerRadius = lairView.frame.height / 2
     }
 }
 
@@ -86,6 +90,6 @@ extension SuggestedImagesViewController: UICollectionViewDelegate, UICollectionV
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         delegate?.sendImage(imageStr: gameImages[indexPath.row])
-        navigationController?.popViewController(animated: true)
+        dismiss(animated: true, completion: nil)
     }
 }

@@ -9,11 +9,14 @@ import UIKit
 import WebKit
 
 class WebViewController: UIViewController, WKNavigationDelegate {
-
+    
+    //MARK: UI Property
     @IBOutlet weak var webPage: WKWebView!
     
+    //MARK: Property
     var url: String?
     
+    //MARK: Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         webPage.navigationDelegate = self

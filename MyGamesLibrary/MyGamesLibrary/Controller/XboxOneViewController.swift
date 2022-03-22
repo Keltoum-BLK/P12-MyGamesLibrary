@@ -8,13 +8,15 @@
 import UIKit
 
 class XboxOneViewController: UIViewController {
-    
+    //MARK: UI Properties
     @IBOutlet weak var xboxHeader: UIImageView!
     @IBOutlet weak var xboxTableView: UITableView!
     
+    //MARK: Properties
     private var xboxGames: [Game]?
     private var nextPage: String = ""
     
+    //MARK: Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         xboxTableView.dataSource = self
@@ -31,6 +33,14 @@ class XboxOneViewController: UIViewController {
         xboxHeader.addGradientLayerInBackground(frame: xboxHeader.bounds, colors: [UIColor(ciColor: .clear), UIColor(ciColor: .white)])
     }
     
+    //MARK: Segue Method to pass data
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "XboxCard", let next = segue.destination as? GameCardViewController {
+            next.game = sender as? Game
+        }
+    }
+    
+    //MARK: Methods
     private func setUpImage() {
         xboxHeader.backgroundImage(view: self.view, multiplier: 0.25)
     }
@@ -68,17 +78,11 @@ class XboxOneViewController: UIViewController {
             }
         }
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "XboxCard", let next = segue.destination as? GameCardViewController {
-            next.game = sender as? Game
-        }
-    }
-    
 }
 
 extension XboxOneViewController: UITableViewDelegate, UITableViewDataSource {
     
+    //MARK: TableView Methods 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return tableView.sizeWithTheDevice()
     }

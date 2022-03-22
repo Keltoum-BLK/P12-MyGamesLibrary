@@ -12,7 +12,6 @@ enum APIError: Error {
     case decoding
     case server
     case network
-
     
     var description : String {
         switch self {

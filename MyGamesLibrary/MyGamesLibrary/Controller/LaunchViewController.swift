@@ -10,17 +10,15 @@ import LocalAuthentication
 import SwiftyGif
 
 class LaunchViewController: UIViewController {
-    //MARK: Orientation property
-    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-        return .portrait
-    }
+    //MARK: Property
     let logoAnimationView = LogoAnimationView()
 
- 
+    //MARK: UI Properties
     @IBOutlet weak var startBTN: UIButton!
     @IBOutlet weak var titileStack: UIStackView!
     @IBOutlet weak var logoImage: UIImageView!
     
+    //MARK: Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(logoAnimationView)
@@ -28,12 +26,13 @@ class LaunchViewController: UIViewController {
         logoAnimationView.logoGifImageView.delegate = self
         setUp()
     }
-    
+    //MARK: Method
     func setUp() {
         startBTN.layer.cornerRadius = startBTN.frame.height/2
         startBTN.layer.backgroundColor = UIColor.black.cgColor
         startBTN.tintColor = .white
     }
+    //MARK: UI Action Mehod
     @IBAction func TouchIDAuthentification(_ sender: Any) {
         AuthHelper.startAuth { (success, errString) in
                 if success {
@@ -46,7 +45,6 @@ class LaunchViewController: UIViewController {
         }
     }
 }
-
 extension LaunchViewController: SwiftyGifDelegate {
     func gifDidStop(sender: UIImageView) {
         logoAnimationView.isHidden = true

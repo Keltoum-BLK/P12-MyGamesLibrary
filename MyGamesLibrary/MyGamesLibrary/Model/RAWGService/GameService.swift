@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+//MARK: Protocol Network
 protocol NetworkService {
     func fetchGames(platform: GamePlatform.RawValue, page: Int, completion: @escaping (Result<Games, APIError>) -> Void)
     func fetchSearchGames(search: String, completion: @escaping (Result<Games, APIError>) -> Void)
@@ -27,7 +27,8 @@ class GameService: NetworkService {
     init(session: URLSession) {
         self.session = session
     }
-    
+    //MARK: Methods
+    //fetch games
     func fetchGames(platform: GamePlatform.RawValue, page: Int, completion: @escaping (Result<Games, APIError>) -> Void) {
         var urlComponents = URLComponents()
         urlComponents.scheme = "https"
@@ -62,7 +63,7 @@ class GameService: NetworkService {
         }
         dataTask?.resume()
     }
-    
+    //fetch games with a keyword
     func fetchSearchGames(search: String, completion: @escaping (Result<Games, APIError>) -> Void) {
         var urlComponents = URLComponents()
         urlComponents.scheme = "https"
@@ -94,7 +95,7 @@ class GameService: NetworkService {
         }
         dataTask?.resume()
     }
-    
+    // manage pagination
     func getDataFromUrl(next: String, completion: @escaping (Result<Games, APIError>) -> Void) {
         guard let url = URL(string: next) else { return }
         dataTask = session.dataTask(with: url) { (data, response, error) in
@@ -117,7 +118,7 @@ class GameService: NetworkService {
         }
         dataTask?.resume()
     }
-    
+    //fetch game's title with UPC 
     func getDataWithUPC(barCode: String, completion: @escaping (Result<ItemsList, APIError>) -> Void) {
         var urlComponents = URLComponents()
         urlComponents.scheme = "https"

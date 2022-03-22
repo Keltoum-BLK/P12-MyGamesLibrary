@@ -8,12 +8,10 @@ import UIKit
 let imageCache = NSCache<AnyObject, AnyObject>()
 
 extension UIImageView {
-    
+    //MARK: convert url to imageView and Cache Image
   func cacheImage(urlString: String){
     let url = URL(string: urlString)
-    
     image = nil
-    
     if let imageFromCache = imageCache.object(forKey: urlString as AnyObject) as? UIImage {
         self.image = imageFromCache
         return
@@ -31,7 +29,6 @@ extension UIImageView {
           }
      }.resume()
   }
-    
     
     //MARK: convert url to imageView
     func downloaded(from url: URL, contentMode mode: UIView.ContentMode = .scaleToFill) {

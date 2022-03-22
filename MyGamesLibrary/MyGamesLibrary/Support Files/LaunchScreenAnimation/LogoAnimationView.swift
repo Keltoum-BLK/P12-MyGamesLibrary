@@ -9,14 +9,14 @@ import Foundation
 import SwiftyGif
 
 class LogoAnimationView: UIView {
-
+//MARK: Properties
     let logoGifImageView: UIImageView = {
        guard let gifImage = try? UIImage(gifName: "logoGif.gif") else {
            return UIImageView()
        }
        return UIImageView(gifImage: gifImage, loopCount: 2)
    }()
-    
+    //MARK: Initialization
     override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
@@ -26,7 +26,7 @@ class LogoAnimationView: UIView {
         super.init(coder: aDecoder)
         commonInit()
     }
-
+    //MARK: Method
     private func commonInit() {
         backgroundColor = .white
         addSubview(logoGifImageView)

@@ -856,22 +856,31 @@
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wmh-Nb-gDM">
+                                <rect key="frame" x="100" y="0.0" width="175" height="12"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="CIq-5j-1kd"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="CIq-5j-1kd" firstAttribute="trailing" secondItem="mbL-vj-SOg" secondAttribute="trailing" constant="16" id="0mM-yi-9uR"/>
                             <constraint firstItem="Dxw-Sn-0Vg" firstAttribute="leading" secondItem="CIq-5j-1kd" secondAttribute="leading" id="3eE-x3-roZ"/>
+                            <constraint firstItem="CIq-5j-1kd" firstAttribute="trailing" secondItem="Wmh-Nb-gDM" secondAttribute="trailing" constant="100" id="B2w-ie-avM"/>
+                            <constraint firstItem="mbL-vj-SOg" firstAttribute="top" secondItem="Wmh-Nb-gDM" secondAttribute="bottom" constant="8" symbolic="YES" id="KLL-Jt-Iv6"/>
                             <constraint firstItem="mbL-vj-SOg" firstAttribute="leading" secondItem="CIq-5j-1kd" secondAttribute="leading" constant="16" id="Ta9-Zz-K9G"/>
+                            <constraint firstItem="Wmh-Nb-gDM" firstAttribute="leading" secondItem="CIq-5j-1kd" secondAttribute="leading" constant="100" id="Yic-nh-8sh"/>
                             <constraint firstItem="Dxw-Sn-0Vg" firstAttribute="top" secondItem="mbL-vj-SOg" secondAttribute="bottom" constant="20" id="fOp-LW-IYn"/>
                             <constraint firstItem="CIq-5j-1kd" firstAttribute="trailing" secondItem="Dxw-Sn-0Vg" secondAttribute="trailing" id="frM-L5-bHw"/>
                             <constraint firstItem="Dxw-Sn-0Vg" firstAttribute="top" secondItem="CIq-5j-1kd" secondAttribute="top" constant="100" id="gen-H7-XJq"/>
+                            <constraint firstItem="Wmh-Nb-gDM" firstAttribute="top" secondItem="CIq-5j-1kd" secondAttribute="top" id="jFo-Yo-dz9"/>
                             <constraint firstItem="mbL-vj-SOg" firstAttribute="top" secondItem="CIq-5j-1kd" secondAttribute="top" constant="20" id="kyj-Fs-Yek"/>
                             <constraint firstItem="CIq-5j-1kd" firstAttribute="bottom" secondItem="Dxw-Sn-0Vg" secondAttribute="bottom" constant="10" id="rm9-RQ-alx"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="wkc-a7-QWb"/>
                     <connections>
+                        <outlet property="lairView" destination="Wmh-Nb-gDM" id="T1v-Cb-os4"/>
                         <outlet property="suggestedImagesCollectionView" destination="Dxw-Sn-0Vg" id="Bac-By-RuH"/>
                         <outlet property="titleLabel" destination="mbL-vj-SOg" id="uPf-RL-CmZ"/>
                         <segue destination="D8c-9I-NBV" kind="show" identifier="FormView" id="AJ5-GP-lNK"/>
@@ -879,7 +888,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ik5-FT-RJi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6348" y="1687"/>
+            <point key="canvasLocation" x="6348" y="1686.2068965517242"/>
         </scene>
         <!--Search View Controller-->
         <scene sceneID="fki-uD-C5t">
@@ -1048,7 +1057,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9je-Mt-Kvz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4578" y="1724"/>
+            <point key="canvasLocation" x="4576.8000000000002" y="1723.9880059970017"/>
         </scene>
         <!--Games Favorite View Controller-->
         <scene sceneID="G3q-zB-inH">
@@ -1413,7 +1422,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Cky-PU-i5f"/>
         <segue reference="eEE-LI-7gn"/>
         <segue reference="AJ5-GP-lNK"/>
         <segue reference="2mP-rR-dpN"/>

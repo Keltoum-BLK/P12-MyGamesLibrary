@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+// MARK: - ItemsList
 struct ItemsList: Decodable {
     let items: [Item]
     
@@ -14,6 +14,7 @@ struct ItemsList: Decodable {
         case items = "items"
     }
 }
+// MARK: - Item
 struct Item: Decodable {
     let ean: String?
     let title: String?

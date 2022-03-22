@@ -8,13 +8,15 @@
 import UIKit
 
 class PS4ViewController: UIViewController {
-    
+    //MARK: UI Properties
     @IBOutlet weak var ps4Header: UIImageView!
     @IBOutlet weak var pS4GamesTableView: UITableView!
     
+    //MARK: Properties
     private var ps4Games: [Game]?
     private var nextPage: String = ""
     
+    //MARK: Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         pS4GamesTableView.delegate = self
@@ -34,16 +36,16 @@ class PS4ViewController: UIViewController {
         self.navigationController?.view.backgroundColor = .clear
     }
     
-    //send data to the next Controller
+    //MARK: Segue method to pass data 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "PlaystationCard", let next = segue.destination as? GameCardViewController {
             next.game = sender as? Game
         }
     }
-
+    
+    //MARK: Methods
     private func setUpImage() {
         ps4Header.backgroundImage(view: self.view, multiplier: 0.25)
-        
     }
     
     private func setUpTableView() {
@@ -81,7 +83,7 @@ class PS4ViewController: UIViewController {
 }
 
 extension PS4ViewController: UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate {
-    
+    //MARK: TableView Methods
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return tableView.sizeWithTheDevice()
     }
