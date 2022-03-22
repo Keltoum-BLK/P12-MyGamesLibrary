@@ -112,7 +112,6 @@ extension PS4ViewController: UITableViewDelegate, UITableViewDataSource, UIScrol
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(indexPath.row)
         performSegue(withIdentifier: "PlaystationCard", sender: ps4Games?[indexPath.row])
     }
 }

@@ -77,14 +77,16 @@ class GamesFavoriteViewController: UIViewController {
         Tool.shared.setUpShadow(color: UIColor.black.cgColor, cell: backBTN, width: 3, height: 3)
     }
     
-    @objc func needReloadTableview() {
-        gamesLibrary = coreDataManager.fetchGames(mygames: gamesLibrary!)
-    }
     
     private func notificationSetUp() {
         let nc = NotificationCenter.default
         nc.addObserver(self, selector: #selector(needReloadTableview), name: Notification.Name(rawValue: "needReload"), object: nil)
     }
+    
+    @objc func needReloadTableview() {
+        gamesLibrary = coreDataManager.fetchGames(mygames: gamesLibrary!)
+    }
+    
     
     //MARK: UI Action Method
     @IBAction func dismissBTN(_ sender: Any) {

@@ -9,28 +9,131 @@ import XCTest
 @testable import MyGamesLibrary
 
 class MyGamesLibraryTests: XCTestCase {
-
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    
+    private var tool: Tool!
+    private var game: Game!
+    private var item: Item!
+    private var myLibraryElements : MyLibraryElements!
+    
+    override func setUp() {
+        super.setUp()
+        tool = Tool()
+        game = Game(name: "Dead Cell",
+                    released: "2022",
+                    backgroundImage: "ps4Image",
+                    rating: 4.75,
+                    platforms: [PlatformElements(platform: Platform(slug: "playstation4", name: "Playstation 4"))],
+                    short_screenshots: [ShortScreenshot(image: "https://media.rawg.io/media/games/456/456dea5e1c7e3cd07060c14e96612001.jpg"), ShortScreenshot(image: "https://media.rawg.io/media/games/618/618c2031a07bbff6b4f611f10b6bcdbc.jpg")])
+        item = Item(ean: "23904548", title: "Dragon Dogma", description: "Capcom Game", elid: "lol")
+        myLibraryElements = MyLibraryElements(background: "https://media.rawg.io/media/games/456/456dea5e1c7e3cd07060c14e96612001.jpg", games: [])
     }
-
+    
+    override class func tearDown() {
+        super.tearDown()
+    }
+    
     override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        tool = nil
+        game = nil
+        item = nil
+        myLibraryElements = nil
     }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
+    
+    //MARK: Tests on Constants Class
+    func testGivenAGame_WhenFilterForEachImage_ThenReturnAnArrayOfString() {
+        //Given
+        let listOfImages = [String]()
+        //When
+        let result = tool.listOfScreenshots(game: game, images: listOfImages)
+        //Then
+        XCTAssertTrue(result.count == 2)
     }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    
+    func testGivenDoubleValue_WhenConvert_ThenReturnAString() {
+        //Given
+        let ratingValue = game.rating
+        //When
+        let result = tool.getDoubleToString(number: ratingValue)
+        //Then
+        XCTAssertTrue(result == "4")
     }
-
+    
+    func testGivenAnEmptyObject_WhenCreateTheObject_ThenResultGameObject() {
+        //Given
+        var game: Game!
+        //When
+        game = Game(name: "GTA 5",
+                    released: "2015",
+                    backgroundImage: "ps4Image",
+                    rating: 4.75,
+                    platforms: [PlatformElements(platform: Platform(slug: "playstation4", name: "Playstation 4"))],
+                    short_screenshots: [ShortScreenshot(image: "https://media.rawg.io/media/games/456/456dea5e1c7e3cd07060c14e96612001.jpg"), ShortScreenshot(image: "https://media.rawg.io/media/games/618/618c2031a07bbff6b4f611f10b6bcdbc.jpg")])
+        
+        //Then
+        XCTAssertNotNil(game)
+        XCTAssertTrue(game.name == "GTA 5")
+    }
+    
+    func testGivenAnEmptyObject_WhenCreateTheObject_ThenResultItemObject() {
+        //Given
+        var item: Item!
+        //When
+        item = Item(ean: "0000015468", title: "Assassin's Creed Black Flag", description: "Pirates", elid: "54682")
+        
+        //Then
+        XCTAssertNotNil(item)
+        XCTAssertTrue(item.title == "Assassin's Creed Black Flag")
+    }
+    
+    func testGivenAnEmptyObject_WhenCreateTheObject_ThenResultLibraryElementsObject() {
+        //Given
+        var myElements: MyLibraryElements!
+        //When
+        myElements = MyLibraryElements(background: "XboxImage", games: [])
+        
+        //Then
+        XCTAssertNotNil(myElements)
+        XCTAssertTrue(myElements.image == "XboxImage")
+        XCTAssertTrue(myElements.myGames.isEmpty)
+    }
+    
+    
+    func testGivenAGame_WhenCreateAListOfSlug_ThenResultAString() {
+        //Given
+        let platforms = game.platforms
+        //When
+        let platformSlugList = game.createSlugList(for: platforms)
+        
+        //Then
+        XCTAssertNotNil(platformSlugList)
+        XCTAssertTrue(platformSlugList == "playstation4")
+    }
+    
+    func testGivenAGame_WhenCreateAListOfName_ThenResultAString() {
+        //Given
+        let platforms = game.platforms
+        //When
+        let platformNamesList = game.createNameList(for: platforms)
+        
+        //Then
+        XCTAssertNotNil(platformNamesList)
+        XCTAssertTrue(platformNamesList == "Playstation 4")
+    }
+    
+    func testGivenAPlatform_WhenAskDescription_ThenResultAPlatformDescription() {
+        //Given
+        let platform1 = GamePlatform.playstation
+        let platform2 = GamePlatform.nintendo
+        let platform3 = GamePlatform.xbox
+        //When
+        let platformNamesList = [platform1.description, platform2.description, platform3.description]
+        //Then
+        XCTAssertNotNil(platformNamesList)
+        XCTAssertEqual(platform1.description, "Playstation")
+        XCTAssertEqual(platform2.description, "Nintendo")
+        XCTAssertEqual(platform3.description, "Xbox")
+        XCTAssertEqual(platform1.rawValue, "18")
+        XCTAssertEqual(platform2.rawValue, "7")
+        XCTAssertEqual(platform3.rawValue, "1")
+    }
 }

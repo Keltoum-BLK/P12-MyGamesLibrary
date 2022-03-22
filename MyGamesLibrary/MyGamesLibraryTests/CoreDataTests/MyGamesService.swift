@@ -22,7 +22,7 @@ class MyGamesService {
     //add game to Data Base
     func addGame(game: Game) {
         
-        let platformsList = game.createList(for: game.platforms)
+        let platformsList = game.createSlugList(for: game.platforms)
         
         let entity = MyGame(context: managedObjectContext)
         entity.name = game.name

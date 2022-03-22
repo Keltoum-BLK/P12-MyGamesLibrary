@@ -430,8 +430,8 @@
 		B9D3687927C62B8800D2CC3D /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
-				B93DB8FE27DFE34D0000F651 /* Main.storyboard */,
 				B967462927B420A70037F729 /* LaunchScreen.storyboard */,
+				B93DB8FE27DFE34D0000F651 /* Main.storyboard */,
 				B93AF75027BABD59001D42AD /* Cell */,
 			);
 			path = Storyboard;

@@ -108,29 +108,33 @@ class FormViewController: UIViewController {
         }
     }
     
+    private func needReloadFavoriteGamesTableView() {
+        let nc = NotificationCenter.default
+        nc.post(name: Notification.Name(rawValue: "needReload"), object: nil)
+    }
+    
+    private func addGame(slug: String, name: String) {
+        let game = createAGameCard(platform: Platform(slug: slug, name: name))
+        coreDataManager.addGame(game: game)
+        needReloadFavoriteGamesTableView()
+        self.showAlertMessage(title: "Bravo", message: "Tu as bien rajouté le jeu au catalogue. 🤖")
+    }
+    
     //MARK: UI Actions Methods
     @IBAction func addGamInPS4List(_ sender: Any) {
-        let game = createAGameCard(platform: Platform(slug: "playstation4", name: "Playstation 4"))
-        coreDataManager.addGame(game: game)
-        self.showAlertMessage(title: "Bravo", message: "Tu as bien rajouté le jeu au catalogue. 🤖")
+        addGame(slug: "playstation4", name: "Playstation 4")
     }
     
     @IBAction func addGameInXboxList(_ sender: Any) {
-        let game = createAGameCard(platform: Platform(slug: "xbox-one", name: "Xbox One"))
-        coreDataManager.addGame(game: game)
-        self.showAlertMessage(title: "Bravo", message: "Tu as bien rajouté le jeu au catalogue. 🤖")
+        addGame(slug: "xbox-one", name: "Xbox One")
     }
     
     @IBAction func addGameInSwitchList(_ sender: Any) {
-        if everyElementAreFilled() {
-            let game = createAGameCard(platform: Platform(slug: "nintendo-switch", name: "Nintendo Switch"))
-            coreDataManager.addGame(game: game)
-            self.showAlertMessage(title: "Bravo", message: "Tu as bien rajouté le jeu au catalogue. 🤖")
-        }
+        addGame(slug: "nintendo-switch", name: "Nintendo Switch")
     }
     
     @IBAction func ratingValue(_ sender: UISlider) {
-        ratingValue.text = String(Int(sender.value)) + "/5"
+        ratingValue.text = String(Int(sender.value))
     }
     
     @IBAction func dismissAction(_ sender: Any) {

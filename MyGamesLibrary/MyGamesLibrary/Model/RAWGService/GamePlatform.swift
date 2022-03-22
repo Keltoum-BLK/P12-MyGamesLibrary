@@ -14,7 +14,7 @@ enum GamePlatform: String {
     
     var description: String {
         switch self {
-        case .playstation: return "Playstation "
+        case .playstation: return "Playstation"
         case .xbox: return "Xbox"
         case .nintendo: return "Nintendo"
         }

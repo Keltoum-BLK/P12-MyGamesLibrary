@@ -141,4 +141,23 @@ class MockMyGames: XCTestCase {
         //Then
         XCTAssertTrue(gameExist == true)
     }
+    
+    func test_saveContext_method() {
+        //Given
+        myGamesService.addGame(game: game1)
+        //When
+        coreDataStack.saveContext()
+        let list = myGamesService.fetchGames(mygames: listOfFavoriteGames)
+        //Then
+        XCTAssertNotNil(list)
+    }
+    
+    func test_init_of_coreDataStack() {
+        //Given
+        var coredataTest: TestCoreDataStack?
+        //When
+        coredataTest = TestCoreDataStack(modelName: "MyGameLibrary")
+        //Then 
+        XCTAssertNotNil(coredataTest)
+    }
 }

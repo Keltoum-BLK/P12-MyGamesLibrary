@@ -20,7 +20,7 @@ class PlatformsViewController: UITableViewController {
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         plateformNames = game?.createNameList(for: game?.platforms) ?? "no platform"
         plateformArray = plateformNames.split(separator: ",").map { String($0.capitalized.trimmingCharacters(in: .whitespacesAndNewlines)) }
-
+        tableView.backgroundColor = .white
         tableView.delegate = self
         tableView.dataSource = self
     }
@@ -37,6 +37,8 @@ class PlatformsViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         cell.textLabel?.font = UIFont(name: "Futura", size: 30)
+        cell.textLabel?.textColor = .black
+        cell.backgroundColor = .white
         cell.textLabel?.textAlignment = .center
         cell.textLabel?.text = plateformArray[indexPath.row]
         return cell
