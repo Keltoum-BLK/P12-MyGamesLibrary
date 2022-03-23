@@ -47,6 +47,13 @@ extension UIView {
         }
         return 200
     }
+    //MARK: AddShadow
+    func setUpShadow(color: CGColor, cell: UIView, width: CGFloat, height: CGFloat) {
+        cell.layer.shadowOpacity = 1
+        cell.layer.shadowColor = color
+        cell.layer.shadowOffset = CGSize(width: width, height: height)
+        cell.layer.shadowRadius = 5
+    }
     
     //MARK: UIConstraints
     func backgroundImage(view: UIView, multiplier: CGFloat) {

@@ -84,7 +84,7 @@ class FormViewController: UIViewController {
         takePicBTN.layer.cornerRadius = 10
         
         backBTN.layer.cornerRadius = 10
-        Tool.shared.setUpShadow(color: UIColor.black.cgColor, cell: backBTN, width: 3, height: 3)
+        backBTN.setUpShadow(color: UIColor.black.cgColor, cell: backBTN, width: 3, height: 3)
         
         titleTextField.changeThePLaceholderFont(text: "Saisissez le titre du jeu.", textField: self.titleTextField)
         releaseDateTextField.changeThePLaceholderFont(text: "JJ/MM/AAAA", textField: self.releaseDateTextField)

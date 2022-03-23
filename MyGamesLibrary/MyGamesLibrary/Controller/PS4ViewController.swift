@@ -98,7 +98,7 @@ extension PS4ViewController: UITableViewDelegate, UITableViewDataSource, UIScrol
         cell.gameImage.cacheImage(urlString: ps4Games?[indexPath.row].backgroundImage ?? "no image")
         cell.gameTitle.text = ps4Games?[indexPath.row].name ?? "no name"
         cell.gameTitle.textColor = .blue
-        Tool.shared.setUpShadow(color: UIColor.systemBlue.cgColor, cell: cell, width: 0, height: 5)
+        cell.setUpShadow(color: UIColor.systemBlue.cgColor, cell: cell, width: 0, height: 5)
         return cell
     }
     

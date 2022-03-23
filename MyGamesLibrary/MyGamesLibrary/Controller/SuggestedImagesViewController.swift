@@ -59,7 +59,7 @@ class SuggestedImagesViewController: UIViewController {
         titleLabel.layer.masksToBounds = true
         titleLabel.textAlignment = .center
         titleLabel.layer.cornerRadius = titleLabel.frame.height/2
-        Tool.shared.setUpShadow(color: UIColor.black.cgColor, cell: titleLabel, width: 3, height: 3)
+        titleLabel.setUpShadow(color: UIColor.black.cgColor, cell: titleLabel, width: 3, height: 3)
         
         lairView.layer.cornerRadius = lairView.frame.height / 2
     }

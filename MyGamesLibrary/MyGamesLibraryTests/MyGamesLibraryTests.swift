@@ -12,6 +12,7 @@ class MyGamesLibraryTests: XCTestCase {
     
     private var tool: Tool!
     private var game: Game!
+    private var game2: Game!
     private var item: Item!
     private var myLibraryElements : MyLibraryElements!
     
@@ -135,5 +136,26 @@ class MyGamesLibraryTests: XCTestCase {
         XCTAssertEqual(platform1.rawValue, "18")
         XCTAssertEqual(platform2.rawValue, "7")
         XCTAssertEqual(platform3.rawValue, "1")
+    }
+    
+    func testApiErrorDescription_WhenErrorIsServer() {
+        //When
+        let apiError = APIError.server
+        //Then
+        XCTAssertTrue(apiError.description == "Error server")
+    }
+
+    func testApiErrorDescription_WhenErrorIsNetwork() {
+        //When
+        let apiError = APIError.network
+        //Then
+        XCTAssertTrue(apiError.description == "Error network")
+    }
+
+    func testApiErrorDescription_WhenErrorIsDecoding() {
+        //When
+        let apiError = APIError.decoding
+        //Then
+        XCTAssertTrue(apiError.description == "Error decoding")
     }
 }

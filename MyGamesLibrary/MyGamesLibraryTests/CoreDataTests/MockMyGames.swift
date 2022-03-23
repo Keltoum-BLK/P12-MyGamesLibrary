@@ -14,12 +14,6 @@ class MockMyGames: XCTestCase {
     var myGamesService : MyGamesService!
     var coreDataStack: CoreDataStack!
     
-    override func setUp() {
-        super.setUp()
-        coreDataStack = TestCoreDataStack()
-        myGamesService = MyGamesService(coreDataStack: coreDataStack)
-    }
-   //put games value here
     private var game1 = Game(name: "Dead Cell",
                              released: "2022",
                              backgroundImage: "ps4Image",
@@ -33,12 +27,24 @@ class MockMyGames: XCTestCase {
                              platforms: [PlatformElements(platform: Platform(slug: "xbox-one", name: "Xbox One"))],
                              short_screenshots: [])
     private var listOfFavoriteGames = [MyGame]()
+    private var playstationGames = [MyGame]()
+   
+    override func setUp() {
+        super.setUp()
+        coreDataStack = TestCoreDataStack()
+        myGamesService = MyGamesService(coreDataStack: coreDataStack)
+    }
+   //put games value here
+  
+    
     
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
         coreDataStack = nil
         myGamesService = nil
+        listOfFavoriteGames = []
+        playstationGames = []
     }
     
     func testGivenAlert_WhenYouAddAGame_ThenResultAlert() {
@@ -159,5 +165,16 @@ class MockMyGames: XCTestCase {
         coredataTest = TestCoreDataStack(modelName: "MyGameLibrary")
         //Then 
         XCTAssertNotNil(coredataTest)
+    }
+    
+    func testGivenGamesByPlatform_WhenFilterListBefore_ThenResultListOfGamesByPlatform() {
+        //Then
+        myGamesService.addGame(game: game1)
+        myGamesService.addGame(game: game2)
+        playstationGames = myGamesService.fetchGames(mygames: playstationGames)
+        //When
+        playstationGames = myGamesService.fetchGamesByPlatform(listOfGames: playstationGames, platform: "playstation4")
+        //Then
+        XCTAssertEqual(playstationGames.count, 1)
     }
 }

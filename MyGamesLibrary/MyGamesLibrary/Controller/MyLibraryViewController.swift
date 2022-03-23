@@ -54,28 +54,21 @@ class MyLibraryViewController: UIViewController {
         nintendoBTN.layer.cornerRadius = 20
     }
     
-    func fetchGame(listOfGames: [MyGame], platform: String) -> [MyGame] {
-        var gamesList = listOfGames
-        gamesList = coreDataManager.fetchGames(mygames: gamesList)
-        let platformGames = gamesList.filter { $0.platform?.range(of: platform) != nil}
-        return platformGames
-    }
-    
     //MARK: UI Action Methods
     @IBAction func playstationBtnAction(_ sender: Any) {
-        playstationGames = fetchGame(listOfGames: playstationGames, platform: "playstation4")
+        playstationGames = coreDataManager.fetchGamesByPlatform(listOfGames: playstationGames, platform: "playstation4")
         elements = MyLibraryElements(background: playstationImage, games: playstationGames)
         performSegue(withIdentifier: "GamesLibraries", sender: elements)
     }
     
     @IBAction func xboxBTNAction(_ sender: Any) {
-        xboxGames = fetchGame(listOfGames: xboxGames, platform: "xbox-one")
+        xboxGames = coreDataManager.fetchGamesByPlatform(listOfGames: xboxGames, platform: "xbox-one")
         elements = MyLibraryElements(background: xboxImage, games: xboxGames)
         performSegue(withIdentifier: "GamesLibraries", sender: elements)
     }
     
     @IBAction func nintendoBTNAction(_ sender: Any) {
-        nintendoGames = fetchGame(listOfGames: nintendoGames, platform: "nintendo-switch")
+        nintendoGames = coreDataManager.fetchGamesByPlatform(listOfGames: nintendoGames, platform: "nintendo-switch")
         elements = MyLibraryElements(background: nintendoImage, games: nintendoGames)
         performSegue(withIdentifier: "GamesLibraries", sender: elements)
     }

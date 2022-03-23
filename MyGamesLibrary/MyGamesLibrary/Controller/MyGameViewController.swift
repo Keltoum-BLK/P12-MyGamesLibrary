@@ -98,7 +98,7 @@ class MyGameViewController: UIViewController {
        infoContainer.topAnchor.constraint(equalTo: backgroundImage.bottomAnchor).isActive = true
        
        backBTN.layer.cornerRadius = 10
-       Tool.shared.setUpShadow(color: UIColor.black.cgColor, cell: backBTN, width: 3, height: 3)
+       backBTN.setUpShadow(color: UIColor.black.cgColor, cell: backBTN, width: 3, height: 3)
     }
 
     private func setUpHeart() {

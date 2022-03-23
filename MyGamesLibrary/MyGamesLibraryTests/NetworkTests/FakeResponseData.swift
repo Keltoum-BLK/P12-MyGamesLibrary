@@ -14,13 +14,39 @@ class FakeResponseData {
     static let responseKO = HTTPURLResponse(url: URL(string: "https://google.com")!, statusCode: 500, httpVersion: nil, headerFields: nil)
     
     //MARK: Data
-    static var rawCorrectData: Data {
+    static var rawPlaystationCorrectData: Data {
         let bundle = Bundle(for: FakeResponseData.self)
-        let url = bundle.url(forResource: "RawPlatformGames", withExtension: "json")
+        let url = bundle.url(forResource: "RAWPlaystationGames", withExtension: "json")
         let data = try! Data(contentsOf: url!)
         return data
     }
-    static let rawIncorrectData = "Error" .data(using: .utf8)!
+    static let rawPlaystationIncorrectData = "Error" .data(using: .utf8)!
+    
+    static var rawXboxCorrectData: Data {
+        let bundle = Bundle(for: FakeResponseData.self)
+        let url = bundle.url(forResource: "RAWXboxGames", withExtension: "json")
+        let data = try! Data(contentsOf: url!)
+        return data
+    }
+    static let rawXboxIncorrectData = "Error" .data(using: .utf8)!
+
+    
+    static var rawNintendoCorrectData: Data {
+        let bundle = Bundle(for: FakeResponseData.self)
+        let url = bundle.url(forResource: "RAWNintendoGames", withExtension: "json")
+        let data = try! Data(contentsOf: url!)
+        return data
+    }
+    static let rawNintendoIncorrectData = "Error" .data(using: .utf8)!
+    
+    static var rawPaginationCorrectData: Data {
+        let bundle = Bundle(for: FakeResponseData.self)
+        let url = bundle.url(forResource: "NextPage", withExtension: "json")
+        let data = try! Data(contentsOf: url!)
+        return data
+    }
+    static let rawPaginationIncorrectData = "NextPage" .data(using: .utf8)!
+
 
     //translate correct incorrect
     static var searchCorrectData: Data {

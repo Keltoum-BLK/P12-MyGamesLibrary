@@ -29,7 +29,7 @@
 		B960F48527E3968300D9CD9E /* MyGamesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B960F48427E3968300D9CD9E /* MyGamesService.swift */; };
 		B960F48727E3969D00D9CD9E /* MockMyGames.swift in Sources */ = {isa = PBXBuildFile; fileRef = B960F48627E3969D00D9CD9E /* MockMyGames.swift */; };
 		B960F48927E39F1E00D9CD9E /* SearchJSON.json in Resources */ = {isa = PBXBuildFile; fileRef = B960F48827E39F1E00D9CD9E /* SearchJSON.json */; };
-		B960F48D27E3A3AF00D9CD9E /* RAWPlatformGames.json in Resources */ = {isa = PBXBuildFile; fileRef = B960F48C27E3A3AF00D9CD9E /* RAWPlatformGames.json */; };
+		B960F48D27E3A3AF00D9CD9E /* RAWPlaystationGames.json in Resources */ = {isa = PBXBuildFile; fileRef = B960F48C27E3A3AF00D9CD9E /* RAWPlaystationGames.json */; };
 		B960F48F27E3A3E700D9CD9E /* UPCJSON.json in Resources */ = {isa = PBXBuildFile; fileRef = B960F48E27E3A3E700D9CD9E /* UPCJSON.json */; };
 		B966F60127BEDC100022D9CD /* GameCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B966F5FF27BEDC100022D9CD /* GameCardViewController.swift */; };
 		B967461C27B420A60037F729 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B967461B27B420A60037F729 /* AppDelegate.swift */; };
@@ -46,6 +46,9 @@
 		B970370E27CF677700FB144A /* NSManagedObject+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B970370D27CF677700FB144A /* NSManagedObject+Extension.swift */; };
 		B97A8EC727DA94E3004294AA /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B97A8EC627DA94E3004294AA /* WebViewController.swift */; };
 		B97AFF2927E0EC0B00BE6517 /* MyGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B97AFF2827E0EC0B00BE6517 /* MyGameViewController.swift */; };
+		B97FC6AB27EB28F5004D0E85 /* RAWXboxGames.json in Resources */ = {isa = PBXBuildFile; fileRef = B97FC6AA27EB28F5004D0E85 /* RAWXboxGames.json */; };
+		B97FC6AD27EB2976004D0E85 /* RAWNintendoGames.json in Resources */ = {isa = PBXBuildFile; fileRef = B97FC6AC27EB2976004D0E85 /* RAWNintendoGames.json */; };
+		B97FC6AF27EB4FE7004D0E85 /* NextPage.json in Resources */ = {isa = PBXBuildFile; fileRef = B97FC6AE27EB4FE7004D0E85 /* NextPage.json */; };
 		B9846C3027CE350100AA5057 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9846C2F27CE350100AA5057 /* CoreDataStack.swift */; };
 		B9846C3227CE36BE00AA5057 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9846C3127CE36BE00AA5057 /* CoreDataManager.swift */; };
 		B9846C3427CE574B00AA5057 /* MyGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9846C3327CE574B00AA5057 /* MyGame.swift */; };
@@ -118,7 +121,7 @@
 		B960F48427E3968300D9CD9E /* MyGamesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGamesService.swift; sourceTree = "<group>"; };
 		B960F48627E3969D00D9CD9E /* MockMyGames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockMyGames.swift; sourceTree = "<group>"; };
 		B960F48827E39F1E00D9CD9E /* SearchJSON.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SearchJSON.json; sourceTree = "<group>"; };
-		B960F48C27E3A3AF00D9CD9E /* RAWPlatformGames.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = RAWPlatformGames.json; sourceTree = "<group>"; };
+		B960F48C27E3A3AF00D9CD9E /* RAWPlaystationGames.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = RAWPlaystationGames.json; sourceTree = "<group>"; };
 		B960F48E27E3A3E700D9CD9E /* UPCJSON.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = UPCJSON.json; sourceTree = "<group>"; };
 		B966F5FF27BEDC100022D9CD /* GameCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCardViewController.swift; sourceTree = "<group>"; };
 		B967461827B420A60037F729 /* MyGamesLibrary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyGamesLibrary.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -139,6 +142,9 @@
 		B970370D27CF677700FB144A /* NSManagedObject+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSManagedObject+Extension.swift"; sourceTree = "<group>"; };
 		B97A8EC627DA94E3004294AA /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		B97AFF2827E0EC0B00BE6517 /* MyGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGameViewController.swift; sourceTree = "<group>"; };
+		B97FC6AA27EB28F5004D0E85 /* RAWXboxGames.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = RAWXboxGames.json; sourceTree = "<group>"; };
+		B97FC6AC27EB2976004D0E85 /* RAWNintendoGames.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = RAWNintendoGames.json; sourceTree = "<group>"; };
+		B97FC6AE27EB4FE7004D0E85 /* NextPage.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = NextPage.json; sourceTree = "<group>"; };
 		B9846C2F27CE350100AA5057 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		B9846C3127CE36BE00AA5057 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		B9846C3327CE574B00AA5057 /* MyGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGame.swift; sourceTree = "<group>"; };
@@ -252,8 +258,11 @@
 				B960F47E27E3961600D9CD9E /* FakeResponseData.swift */,
 				B960F47C27E395D400D9CD9E /* MockGameService.swift */,
 				B960F48827E39F1E00D9CD9E /* SearchJSON.json */,
-				B960F48C27E3A3AF00D9CD9E /* RAWPlatformGames.json */,
+				B960F48C27E3A3AF00D9CD9E /* RAWPlaystationGames.json */,
+				B97FC6AC27EB2976004D0E85 /* RAWNintendoGames.json */,
+				B97FC6AA27EB28F5004D0E85 /* RAWXboxGames.json */,
 				B960F48E27E3A3E700D9CD9E /* UPCJSON.json */,
+				B97FC6AE27EB4FE7004D0E85 /* NextPage.json */,
 			);
 			path = NetworkTests;
 			sourceTree = "<group>";
@@ -318,6 +327,7 @@
 				B93AF74927BAA27E001D42AD /* SecretKey */,
 				B9BA031E27B4332A00D32908 /* RAWGService */,
 				B969756527DA586A00801094 /* MyLibraryElements.swift */,
+				B9593AA627B8428E00A9A91F /* Tool.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -326,7 +336,6 @@
 			isa = PBXGroup;
 			children = (
 				B96B34C927B95D6300565053 /* AuthHelper.swift */,
-				B9593AA627B8428E00A9A91F /* Tool.swift */,
 				B9D3687927C62B8800D2CC3D /* Storyboard */,
 				B9BA032827B4369300D32908 /* Extensions */,
 			);
@@ -566,7 +575,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B960F48D27E3A3AF00D9CD9E /* RAWPlatformGames.json in Resources */,
+				B97FC6AB27EB28F5004D0E85 /* RAWXboxGames.json in Resources */,
+				B960F48D27E3A3AF00D9CD9E /* RAWPlaystationGames.json in Resources */,
+				B97FC6AF27EB4FE7004D0E85 /* NextPage.json in Resources */,
+				B97FC6AD27EB2976004D0E85 /* RAWNintendoGames.json in Resources */,
 				B960F48F27E3A3E700D9CD9E /* UPCJSON.json in Resources */,
 				B960F48927E39F1E00D9CD9E /* SearchJSON.json in Resources */,
 			);

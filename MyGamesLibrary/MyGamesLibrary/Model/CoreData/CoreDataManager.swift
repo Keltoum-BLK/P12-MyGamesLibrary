@@ -45,7 +45,6 @@ class CoreDataManager {
             return []
         }
     }
-
     //remove game in a list of games
     func removeGameInArray(row: Int, array: [MyGame]) {
         managedObjectContext.delete(array[row])
@@ -78,4 +77,14 @@ class CoreDataManager {
         guard let gamesList = try? managedObjectContext.fetch(request) else { return false }
         return !gamesList.isEmpty
     }
+    
+    
+    func fetchGamesByPlatform(listOfGames: [MyGame], platform: String) -> [MyGame] {
+        var gamesList = listOfGames
+        let request: NSFetchRequest<MyGame> = MyGame.fetchRequest()
+        gamesList = try! managedObjectContext.fetch(request)
+        let platformGames = gamesList.filter { $0.platform?.range(of: platform) != nil}
+        return platformGames
+    }
+    
 }

@@ -61,7 +61,7 @@ class SearchViewController: UIViewController {
         addLogo.image = UIImage(named: "icons8-game-controller-30")
         addGameBTN.widthAnchor.constraint(equalToConstant: 150).isActive = true
         addGameBTN.layer.cornerRadius = addGameBTN.frame.height / 2
-        Tool.shared.setUpShadow(color: UIColor.black.cgColor, cell: addGameBTN, width: 5, height: 5)
+        addGameBTN.setUpShadow(color: UIColor.black.cgColor, cell: addGameBTN, width: 5, height: 5)
         hideTabView.layer.cornerRadius = 20
     }
     
@@ -79,23 +79,23 @@ class SearchViewController: UIViewController {
                                   message: "Tu ne peux pas faire requête avec un champ vide 👾, il faut saisir le nom entier du jeu.\n exemple: King of fighter")
             return
         }
-            GameService.shared.fetchSearchGames(search: title) { [weak self] result in
-                guard let self = self else { return }
-                switch result {
-                case .success(let games):
-                    guard let results = games.results,
-                          let next = games.next else { return }
-                    self.searchGames = results
-                    self.nextPage = next
-                    self.searchTextField.text = nil
-                case .failure(let error):
-                    print(error.description)
-                    self.showAlertMessage(title: "Erreur détectée ⛔️",
-                                          message: "Nous n'avons pas trouvé le jeu que vous cherchez, essaye un autre nom 👾, \n \(error.description)")
-                }
+        GameService.shared.fetchSearchGames(search: title) { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let games):
+                guard let results = games.results,
+                      let next = games.next else { return }
+                self.searchGames = results
+                self.nextPage = next
+                self.searchTextField.text = nil
+            case .failure(let error):
+                print(error.description)
+                self.showAlertMessage(title: "Erreur détectée ⛔️",
+                                      message: "Nous n'avons pas trouvé le jeu que vous cherchez, essaye un autre nom 👾, \n \(error.description)")
             }
+        }
     }
-   
+    
     //load the next page of games data
     private func loadMoreData() {
         GameService.shared.getDataFromUrl(next: nextPage) { [weak self] result in
@@ -143,7 +143,7 @@ class SearchViewController: UIViewController {
 }
 
 extension SearchViewController: UITextFieldDelegate {
-
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         searchTextField.resignFirstResponder()
         addGameStack.isHidden = true
@@ -167,21 +167,21 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = searchTableView.dequeueReusableCell(withIdentifier: "GameTableViewCell", for: indexPath) as! GameTableViewCell
-            cell.selectionStyle = .none
-            cell.gameImage.cacheImage(urlString: searchGames[indexPath.row].backgroundImage ?? "no image")
-            cell.gameTitle.text = searchGames[indexPath.row].name ?? "no name"
-            cell.gameTitle.textColor = .black
-            Tool.shared.setUpShadow(color: UIColor.black.cgColor, cell: cell, width: 0, height: 5)
+        cell.selectionStyle = .none
+        cell.gameImage.cacheImage(urlString: searchGames[indexPath.row].backgroundImage ?? "no image")
+        cell.gameTitle.text = searchGames[indexPath.row].name ?? "no name"
+        cell.gameTitle.textColor = .black
+        cell.setUpShadow(color: UIColor.black.cgColor, cell: cell, width: 0, height: 5)
         return cell
     }
     //Go to the tableView's end and load next page
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let scrollViewHeight = scrollView.frame.size.height;
-                let scrollContentSizeHeight = scrollView.contentSize.height;
-                let scrollOffset = scrollView.contentOffset.y;
-                if (scrollOffset + scrollViewHeight == scrollContentSizeHeight) {
-                    loadMoreData()
-                }
+        let scrollContentSizeHeight = scrollView.contentSize.height;
+        let scrollOffset = scrollView.contentOffset.y;
+        if (scrollOffset + scrollViewHeight == scrollContentSizeHeight) {
+            loadMoreData()
+        }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

@@ -107,14 +107,14 @@ class GameCardViewController: UIViewController {
         youtubeBTN.layer.borderWidth = 1
         marketBTN.layer.cornerRadius = marketBTN.frame.height / 2
         dismissBTN.layer.cornerRadius = 10
-        Tool.shared.setUpShadow(color: UIColor.black.cgColor, cell: dismissBTN, width: 3, height: 3)
+        dismissBTN.setUpShadow(color: UIColor.black.cgColor, cell: dismissBTN, width: 3, height: 3)
         
         screenshotCollectionView.translatesAutoresizingMaskIntoConstraints = false
         infoContainer.translatesAutoresizingMaskIntoConstraints = false
         infoContainer.topAnchor.constraint(equalTo: gameImage.bottomAnchor, constant: -20).isActive = true
         
         platformInformationBTN.layer.cornerRadius = platformInformationBTN.frame.height / 2
-        Tool.shared.setUpShadow(color: UIColor.black.cgColor, cell: platformInformationBTN, width: 3, height: 3)
+        platformInformationBTN.setUpShadow(color: UIColor.black.cgColor, cell: platformInformationBTN, width: 3, height: 3)
     }
     
     private func setUpHeart() {

@@ -74,7 +74,7 @@ class GamesFavoriteViewController: UIViewController {
         gamesFavoriteTableView.delegate = self
         
         backBTN.layer.cornerRadius = 10
-        Tool.shared.setUpShadow(color: UIColor.black.cgColor, cell: backBTN, width: 3, height: 3)
+        backBTN.setUpShadow(color: UIColor.black.cgColor, cell: backBTN, width: 3, height: 3)
     }
     
     
@@ -133,14 +133,14 @@ extension GamesFavoriteViewController: UITableViewDelegate, UITableViewDataSourc
             cell.gameImage.cacheImage(urlString: String(decoding: dataImage, as: UTF8.self))
             cell.gameTitle.text = filteredGames?[indexPath.row].name ?? "no name"
             cell.gameTitle.textColor = .black
-            Tool.shared.setUpShadow(color: UIColor.black.cgColor, cell: cell, width: 0, height: 5)
+            cell.setUpShadow(color: UIColor.black.cgColor, cell: cell, width: 0, height: 5)
             return cell
         } else {
             guard let dataImage =  gamesLibrary?[indexPath.row].backgroundImage else { return UITableViewCell() }
             cell.gameImage.cacheImage(urlString: String(decoding: dataImage, as: UTF8.self))
             cell.gameTitle.text = gamesLibrary?[indexPath.row].name ?? "no name"
             cell.gameTitle.textColor = .black
-            Tool.shared.setUpShadow(color: UIColor.black.cgColor, cell: cell, width: 0, height: 5)
+            cell.setUpShadow(color: UIColor.black.cgColor, cell: cell, width: 0, height: 5)
             return cell
         }
     }
