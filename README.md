@@ -3,6 +3,8 @@
 NOTE D’INTENTION
 Parcours développeur iOS
 
+![image](https://user-images.githubusercontent.com/70690676/159730997-c5745f71-70df-450f-a217-630b36494b99.png)
+
 Projet 12 
 
 Pourquoi : 
@@ -35,5 +37,5 @@ Dans le cas où le code barre de ne fonctionne pas il est possible de rajouter l
 Dans le catalogue de jeux vidéo les jeux sont séparés par plateforme : Playstation, Xbox et Nintendo.
 
 Dans cette partie l’utilisateur pourra chercher un jeu dans la liste mais aussi supprimer le jeu de la librairie.
-GitHub : https://github.com/Keltoum-BLK
-![image](https://user-images.githubusercontent.com/70690676/159730997-c5745f71-70df-450f-a217-630b36494b99.png)
+
+
