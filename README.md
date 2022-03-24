@@ -3,8 +3,6 @@
 NOTE D’INTENTION
 Parcours développeur iOS
 
-![image](https://user-images.githubusercontent.com/70690676/159730997-c5745f71-70df-450f-a217-630b36494b99.png)
-
 Projet 12 
 
 Pourquoi : 
