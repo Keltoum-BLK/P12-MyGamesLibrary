@@ -35,14 +35,14 @@ struct Game: Decodable {
     }
     
 
-    //MARK: Method to convert array of object values to string array
+    //MARK: Method to convert array of object values to slug's string array
     func createSlugList(for platforms: [PlatformElements]?) -> String {
         guard let platforms = platforms else { return "" }
             return  platforms
             .compactMap { $0.platform.slug }
                 .joined(separator: ", ")
         }
-    
+    //Method to convert array of object values to names string array
     func createNameList(for platforms: [PlatformElements]?) -> String {
         guard let platforms = platforms else { return "" }
             return  platforms

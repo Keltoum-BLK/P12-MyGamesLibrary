@@ -42,14 +42,23 @@ class MyScanViewController: UIViewController {
         let captureDevice = AVCaptureDevice.default(.builtInWideAngleCamera,
                                                     for: .video,
                                                     position: .back)
-        guard let videoCaptureDevice = captureDevice,
-              let videoInput = try? AVCaptureDeviceInput(device: videoCaptureDevice),
-              captureSession.canAddInput(videoInput) else {
-                  return nil
-              }
+        
+        guard let videoCaptureDevice = captureDevice else { return nil }
+        AVCaptureDevice.requestAccess(for: .video) { isAuthorized in
+            if !isAuthorized {
+                DispatchQueue.main.async {
+                    self.presentCameraSettings()
+                }
+            }
+        }
+        guard let videoInput = try? AVCaptureDeviceInput(device: videoCaptureDevice)
+        else {
+            return nil
+        }
+        captureSession.canAddInput(videoInput)
         return videoInput
     }
-    
+    //add capture
     private func addCaptureOutput() {
         let metadataOutput = AVCaptureMetadataOutput()
         guard captureSession.canAddOutput(metadataOutput) else {
@@ -64,7 +73,7 @@ class MyScanViewController: UIViewController {
         configurePreviewLayer()
         captureSession.startRunning()
     }
-    
+    //configure the previewViewLayer
     private func configurePreviewLayer() {
         let previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
         previewLayer.frame = CGRect(x: 20,
@@ -76,7 +85,7 @@ class MyScanViewController: UIViewController {
         view.layer.addSublayer(previewLayer)
     }
     
-    // MARK: Api call
+    // MARK: Api call to fetch game's name
     private func fetchTitle(from code: String) {
         GameService.shared.getDataWithUPC(barCode: code) { [weak self] result in
             switch result {
@@ -92,7 +101,7 @@ class MyScanViewController: UIViewController {
             }
         }
     }
-    
+    // fetch games list
     func fetchGamesList(title: String) {
         GameService.shared.fetchSearchGames(search: title) { [weak self] result in
             switch result {
@@ -113,6 +122,24 @@ class MyScanViewController: UIViewController {
     private func showFailedSessionMessage() {
         self.showAlertMessageBeforeToDismiss(title: "Erreur détectée ⛔️",
                                              message: "Impossible de lire le code barre 👾. Tu peux soit effectuer une recherche ou bien créer la fiche de ton jeu.")
+    }
+    
+    func presentCameraSettings() {
+        let alertController = UIAlertController(title: "Error",
+                                      message: "Camera access is denied",
+                                      preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .default) {_ in
+                self.dismiss(animated: true, completion: nil)
+        })
+        alertController.addAction(UIAlertAction(title: "Settings", style: .cancel) { _ in
+            if let url = URL(string: UIApplication.openSettingsURLString) {
+                UIApplication.shared.open(url, options: [:], completionHandler: { _ in
+                    // Handle
+                })
+            }
+        })
+
+        present(alertController, animated: true)
     }
 }
 

@@ -78,7 +78,7 @@ class CoreDataManager {
         return !gamesList.isEmpty
     }
     
-    
+    //filter games by platform 
     func fetchGamesByPlatform(listOfGames: [MyGame], platform: String) -> [MyGame] {
         var gamesList = listOfGames
         let request: NSFetchRequest<MyGame> = MyGame.fetchRequest()

@@ -25,7 +25,7 @@ class Tool {
         
         return ID
     }
-    
+    //
     func listOfScreenshots(game: Game, images: [String]) -> [String] {
         var list = images
         game.short_screenshots?.forEach({ image in
