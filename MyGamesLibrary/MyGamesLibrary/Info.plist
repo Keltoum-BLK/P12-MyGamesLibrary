@@ -8,14 +8,14 @@
 		<true/>
 		<key>NSAllowsArbitraryLoadsInWebContent</key>
 		<true/>
-		<key>NSExceptionDomains</key>
-		<dict/>
-		<key>example.com</key>
-		<dict/>
 		<key>NSExceptionAllowsInsecureHTTP</key>
 		<true/>
+		<key>NSExceptionDomains</key>
+		<dict/>
 		<key>NSIncludesSubdomains</key>
 		<true/>
+		<key>example.com</key>
+		<dict/>
 	</dict>
 	<key>UIAppFonts</key>
 	<array>
