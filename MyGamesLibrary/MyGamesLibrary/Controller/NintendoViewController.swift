@@ -47,7 +47,7 @@ class NintendoViewController: UIViewController {
         nintendoTableView.register(UINib(nibName: "GameTableViewCell", bundle: nil), forCellReuseIdentifier: "GameTableViewCell")
         nintendoTableView.tableViewConstraints(view: self.view, constant: 120)
     }
-    
+    //get games 
     private func getGames() {
         GameService.shared.fetchGames(platform: GamePlatform.nintendo.rawValue, page: 1) { [weak self] result in
             guard let self = self else { return }
@@ -61,7 +61,7 @@ class NintendoViewController: UIViewController {
             }
         }
     }
-    
+    //load data for the pagination
     private func loadMoreData() {
         GameService.shared.getDataFromUrl(next: nextPage) { [weak self] result in
             guard let self = self else { return }

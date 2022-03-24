@@ -123,13 +123,13 @@ class MyScanViewController: UIViewController {
         self.showAlertMessageBeforeToDismiss(title: "Erreur détectée ⛔️",
                                              message: "Impossible de lire le code barre 👾. Tu peux soit effectuer une recherche ou bien créer la fiche de ton jeu.")
     }
-    
+    //alert Message to add user to make a choice
     func presentCameraSettings() {
         let alertController = UIAlertController(title: "Error",
-                                      message: "Camera access is denied",
-                                      preferredStyle: .alert)
+                                                message: "Camera access is denied",
+                                                preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "Cancel", style: .default) {_ in
-                self.dismiss(animated: true, completion: nil)
+            self.dismiss(animated: true, completion: nil)
         })
         alertController.addAction(UIAlertAction(title: "Settings", style: .cancel) { _ in
             if let url = URL(string: UIApplication.openSettingsURLString) {
@@ -138,7 +138,6 @@ class MyScanViewController: UIViewController {
                 })
             }
         })
-
         present(alertController, animated: true)
     }
 }

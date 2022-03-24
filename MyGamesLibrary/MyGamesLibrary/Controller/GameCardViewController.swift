@@ -69,6 +69,7 @@ class GameCardViewController: UIViewController {
         let buttonImageName = gameExist ? "heart.fill" : "heart.slash"
         favBTN.setImage(UIImage(systemName: buttonImageName), for: .normal)
     }
+    
     //MARK: Segue Method to pass Data
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "WebPage" {
