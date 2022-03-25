@@ -323,11 +323,11 @@
 		B9BA031927B432AC00D32908 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				B9593AA627B8428E00A9A91F /* Tool.swift */,
+				B969756527DA586A00801094 /* MyLibraryElements.swift */,
 				B9BA031F27B4334000D32908 /* CoreData */,
 				B93AF74927BAA27E001D42AD /* SecretKey */,
 				B9BA031E27B4332A00D32908 /* RAWGService */,
-				B969756527DA586A00801094 /* MyLibraryElements.swift */,
-				B9593AA627B8428E00A9A91F /* Tool.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";

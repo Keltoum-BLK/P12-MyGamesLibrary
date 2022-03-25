@@ -125,13 +125,13 @@ class MyScanViewController: UIViewController {
     }
     //alert Message to add user to make a choice
     func presentCameraSettings() {
-        let alertController = UIAlertController(title: "Error",
-                                                message: "Camera access is denied",
+        let alertController = UIAlertController(title: "Erreur",
+                                                message: "Accés à la caméra refusé.",
                                                 preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "Cancel", style: .default) {_ in
+        alertController.addAction(UIAlertAction(title: "Fermer", style: .default) {_ in
             self.dismiss(animated: true, completion: nil)
         })
-        alertController.addAction(UIAlertAction(title: "Settings", style: .cancel) { _ in
+        alertController.addAction(UIAlertAction(title: "Paramètres", style: .cancel) { _ in
             if let url = URL(string: UIApplication.openSettingsURLString) {
                 UIApplication.shared.open(url, options: [:], completionHandler: { _ in
                     // Handle
